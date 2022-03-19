@@ -1,0 +1,41 @@
+{
+  "name": "hyper-search",
+  "version": "0.4.0",
+  "description": "Search text in your Hyper terminal",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "eslint": "node_modules/eslint/bin/eslint.js src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaanauati/hyper-search.git"
+  },
+  "keywords": [
+    "hyper",
+    "hyper.is",
+    "hyper.app",
+    "find",
+    "search",
+    "plugin"
+  ],
+  "author": "Jonatan Alexis Anauati",
+  "contributors": [
+    "Alek Zdziarski",
+    "Emmanuel Salomon",
+    "Timo Sand",
+    "Will Stern"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaanauati/hyper-search/issues"
+  },
+  "homepage": "https://github.com/jaanauati/hyper-search#readme",
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1"
+  }
+}

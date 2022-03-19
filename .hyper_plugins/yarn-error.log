@@ -1,0 +1,49 @@
+Arguments: 
+  /Applications/Hyper.app/Contents/MacOS/Hyper /Applications/Hyper.app/Contents/Resources/bin/yarn-standalone.js install --no-emoji --no-lockfile --cache-folder /Users/souma/.hyper_plugins/cache
+
+PATH: 
+  undefined
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  16.9.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/HyperCwd: Not found
+      at Request.params.callback [as _callback] (/Applications/Hyper.app/Contents/Resources/bin/yarn-standalone.js:78477:18)
+      at Request.self.callback (/Applications/Hyper.app/Contents/Resources/bin/yarn-standalone.js:135083:22)
+      at Request.emit (node:events:394:28)
+      at Request.<anonymous> (/Applications/Hyper.app/Contents/Resources/bin/yarn-standalone.js:136055:10)
+      at Request.emit (node:events:394:28)
+      at IncomingMessage.<anonymous> (/Applications/Hyper.app/Contents/Resources/bin/yarn-standalone.js:135977:12)
+      at Object.onceWrapper (node:events:513:28)
+      at IncomingMessage.emit (node:events:406:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "hyper-plugins",
+    "description": "Auto-generated from `~/.hyper.js`!",
+    "private": true,
+    "version": "0.0.1",
+    "repository": "vercel/hyper",
+    "license": "MIT",
+    "homepage": "https://hyper.is",
+    "dependencies": {
+      "HyperCwd": "latest",
+      "hyper-pane": "latest",
+      "gitrocket": "latest"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
