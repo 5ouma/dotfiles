@@ -6,8 +6,12 @@
 
 -   Using Japanese
 -   Moving directory without "cd" command
--   spell check
--   coloring when "ls" command
+-   Spell check
+-   Search history started with input character
+-   Display kind of files when complemented
+-   Be able to move with cursor when complemented
+-   Press Shift+Tab to go reverse over
+-   Coloring when "ls" command
 
 # Plugins
 
