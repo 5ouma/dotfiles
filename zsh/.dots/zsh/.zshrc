@@ -81,6 +81,7 @@ alias ga="git add"
 alias gc="git commit"
 alias gps="git push"
 alias gpl="git pull"
+alias gs="git status"
 
 alias gr="git reset --hard HEAD^"
 alias gpf="git push -f"
