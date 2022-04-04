@@ -67,3 +67,27 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+
+
+
+#エイリアス
+
+#tree
+alias tree-default="tree"
+alias tree="tree -a -L 2 -h --si -F -A -C"
+
+#git
+alias ga="git add"
+alias gc="git commit"
+alias gps="git push"
+alias gpl="git pull"
+
+alias gr="git reset --hard HEAD^"
+alias gpf="git push -f"
+function grp() {
+  echo -n "Are you sure to run? (y/n): "
+  read -q && echo "" || {echo "" && exec $SHELL}
+
+  git reset --hard HEAD^
+  git push -f $1
+}
