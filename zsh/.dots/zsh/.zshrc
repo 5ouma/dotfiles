@@ -101,6 +101,7 @@ alias gc="git commit"
 alias gps="git push"
 alias gpl="git pull"
 alias gs="git status"
+alias gl="git log --oneline"
 
 alias gr="git reset --hard HEAD^"
 alias gpf="git push -f"
