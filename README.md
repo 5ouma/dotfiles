@@ -2,6 +2,11 @@
 
 [Powerlevel10k](https://github.com/romkatv/powerlevel10k) and edit color.
 
+# Preview
+Preview 1|Preview 2
+|-|-|
+![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png)
+
 # Settings
 
 -   Using Japanese
