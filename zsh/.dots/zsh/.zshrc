@@ -112,3 +112,15 @@ function grp() {
   git reset --hard HEAD^
   git push -f $1
 }
+
+function g-5ouma() {
+  git config user.name "5ouma"
+  git config user.email "101255979+5ouma@users.noreply.github.com"
+  git config user.name
+}
+
+function g-Souma-S() {
+  git config user.name "Souma-S"
+  git config user.email "102800255+Souma-S@users.noreply.github.com"
+  git config user.name
+}
