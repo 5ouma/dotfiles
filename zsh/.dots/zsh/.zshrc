@@ -98,13 +98,13 @@ alias tree="tree -a -L 2 -h --si -F -A -C"
 # git
 alias ga="git add"
 alias gc="git commit"
-alias gps="git push"
+alias gps="git push origin main"
 alias gpl="git pull"
 alias gs="git status"
 alias gl="git log --oneline"
+alias gcg="git config"
+alias gr="git reset HEAD"
 
-alias gr="git reset --hard HEAD^"
-alias gpf="git push -f"
 function grp() {
   echo -n "Are you sure to run? (y/n): "
   read -q && echo "" || {echo "" && exec $SHELL}
