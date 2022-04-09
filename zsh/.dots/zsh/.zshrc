@@ -96,9 +96,11 @@ alias tree-default="tree"
 alias tree="tree -a -L 2 -h --si -F -A -C"
 
 # git
+alias gin="git init"
 alias ga="git add"
 alias gc="git commit"
 alias gps="git push origin main"
+alias gcl="git clone"
 alias gpl="git pull"
 alias gs="git status"
 alias gl="git log --oneline"
