@@ -2,10 +2,16 @@
 
 [Powerlevel10k](https://github.com/romkatv/powerlevel10k) and edit color.
 
+```shell
+brew install romkatv/powerlevel10k/powerlevel10k
+# echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.dots/zsh/.zshrc
+```
+
 # Preview
-Preview 1|Preview 2
-|-|-|
-![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png)
+
+| Preview 1                                    | Preview 2                                    |
+| -------------------------------------------- | -------------------------------------------- |
+| ![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png) |
 
 # Settings
 
@@ -26,11 +32,25 @@ Preview 1|Preview 2
 # Plugins
 
 -   [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+    ```shell
+    brew install zsh-syntax-highlighting
+    ```
+
 -   [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    ```shell
+    brew install zsh-autosuggestions
+    ```
+
 -   [zsh-completions](https://github.com/zsh-users/zsh-completions)
     (To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
+    ```shell
+    brew install zsh-completions
+    ```
+
 -   tree
-    (`brew install tree`)
+    ```shell
+    brew install tree
+    ```
 
 # Git Settings
 
