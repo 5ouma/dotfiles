@@ -1,6 +1,3 @@
-[user]
-	name = Souma
-	email = 101255979+5ouma@users.noreply.github.com
 [core]
 	editor = code --wait
 	excludesfile = /Users/souma/.gitignore_global
@@ -13,10 +10,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-
 [url "github:"]
-    InsteadOf = https://github.com/
-    InsteadOf = git@github.com:
-
+	InsteadOf = https://github.com/
+	InsteadOf = git@github.com:
 [init]
 	defaultBranch = main
