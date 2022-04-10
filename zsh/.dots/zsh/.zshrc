@@ -5,10 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/.dots/zsh/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.dots/zsh/.p10k.zsh.
-[[ ! -f ~/.dots/zsh/.p10k.zsh ]] || source ~/.dots/zsh/.p10k.zsh
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 
 
@@ -71,12 +68,10 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
 # zsh-syntax-highlighting
-if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #zsh-completions
 if type brew &>/dev/null; then
@@ -128,3 +123,6 @@ function g-Souma-S() {
   git config user.name
   git config user.email
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.dots/zsh/.p10k.zsh.
+[[ ! -f ~/.dots/zsh/.p10k.zsh ]] || source ~/.dots/zsh/.p10k.zsh
