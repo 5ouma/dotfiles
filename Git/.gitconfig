@@ -1,6 +1,6 @@
 [core]
 	editor = code --wait
-	excludesfile = /Users/souma/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [merge]
 	tool = code --wait \"$MERGED\"
 [push]
