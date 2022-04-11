@@ -11,6 +11,9 @@ fi
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 
+# Nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 
 # 日本語を使用
 export LANG=ja_JP.UTF-8
@@ -127,5 +130,21 @@ g-Souma-S() {
   git config user.email
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.dots/zsh/.p10k.zsh.
-[[ ! -f ~/.dots/zsh/.p10k.zsh ]] || source ~/.dots/zsh/.p10k.zsh
+# Homebrew
+alias bi="brew install"
+alias bun="brew uninstall"
+alias bup="brew upgrade"
+alias bs="brew search"
+alias bl="brew list"
+alias bv="brew -v"
+alias bd="brew doctor"
+
+
+alias mi="mas install"
+alias mum="mas uninstall"
+alias mup="mas upgrade"
+alias ms="mas search"
+alias ml="mas list"
+
+# System
+alias ka="killall"
