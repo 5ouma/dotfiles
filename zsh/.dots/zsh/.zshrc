@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# To customize prompt, run `p10k configure` or edit ~/.dots/zsh/.p10k.zsh.
+[[ ! -f ~/.dots/zsh/.p10k.zsh ]] || source ~/.dots/zsh/.p10k.zsh
+
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 
@@ -102,7 +105,7 @@ alias gl="git log --oneline"
 alias gcg="git config"
 alias gr="git reset HEAD"
 
-function grp() {
+grp() {
   echo -n "Are you sure to run? (y/n): "
   read -q && echo "" || {echo "" && exec $SHELL}
 
@@ -110,14 +113,14 @@ function grp() {
   git push -f $1
 }
 
-function g-5ouma() {
+g-5ouma() {
   git config user.name "5ouma"
   git config user.email "101255979+5ouma@users.noreply.github.com"
   git config user.name
   git config user.email
 }
 
-function g-Souma-S() {
+g-Souma-S() {
   git config user.name "Souma-S"
   git config user.email "102800255+Souma-S@users.noreply.github.com"
   git config user.name
