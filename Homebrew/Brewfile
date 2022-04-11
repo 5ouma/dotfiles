@@ -1,0 +1,87 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "romkatv/powerlevel10k"
+
+brew "clang-format"
+brew "git"
+brew "mas"
+brew "nodebrew"
+brew "tree"
+brew "yarn"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "romkatv/powerlevel10k/powerlevel10k"
+
+cask "alfred"
+cask "alt-tab"
+cask "apparency"
+cask "appcleaner"
+cask "blackhole-16ch"
+cask "blender"
+cask "box-sync"
+cask "brewlet"
+cask "clipy"
+cask "deepl"
+cask "discord"
+cask "displaperture"
+cask "dozer"
+cask "dropbox"
+cask "geekbench"
+cask "gimp"
+cask "github"
+cask "google-chrome"
+cask "google-drive"
+cask "hiddenbar"
+cask "hyper"
+cask "karabiner-elements"
+cask "keyboard-maestro"
+cask "keyboardcleantool"
+cask "macupdater"
+cask "microsoft-teams"
+cask "notion"
+cask "onyx"
+cask "qlcolorcode"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "rectangle"
+cask "slack"
+cask "spotify"
+cask "usage"
+cask "visual-studio-code-insiders"
+cask "visual-studio-code"
+cask "webcatalog"
+
+mas "Amphetamine", id: 937984704
+mas "Cinebench", id: 1438772273
+mas "Contributions", id: 1153432612
+mas "Disk Speed Test", id: 425264550
+mas "Edison Mail", id: 1489591003
+mas "Fuwari", id: 1187652334
+mas "HandyPalette", id: 1515022667
+mas "iMovie", id: 408981434
+mas "Instapaper", id: 288545208
+mas "LadioCast", id: 411213048
+mas "LINE", id: 539883307
+mas "Mactracker", id: 430255202
+mas "Menubar Countdown", id: 1485343244
+mas "MenubarX", id: 1575588022
+mas "MiniNote", id: 492486856
+mas "Mockview", id: 1592728145
+mas "Perculia", id: 1462633284
+mas "Playgrounds", id: 1496833156
+mas "RunCat", id: 1429033973
+mas "Secrets", id: 973049011
+mas "Snap", id: 418073146
+mas "Spark", id: 1176895641
+mas "Speedtest", id: 1153157709
+mas "Startup Disk Full Fixer", id: 1346655838
+mas "TickTick", id: 966085870
+mas "TypingLand", id: 1568264476
+mas "Vectornator", id: 1219074514
+mas "Widgy", id: 1524540481
+# mas "Xcode", id: 497799835
+mas "Yoink", id: 457622435
+mas "時間割", id: 425121147
