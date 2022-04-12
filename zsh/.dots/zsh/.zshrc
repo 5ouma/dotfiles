@@ -146,5 +146,7 @@ alias mup="mas upgrade"
 alias ms="mas search"
 alias ml="mas list"
 
+alias bbd="brew bundle dump"
+
 # System
 alias ka="killall"
