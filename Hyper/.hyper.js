@@ -11,7 +11,7 @@ module.exports = {
         fontSize: 15,
         // font family with optional fallbacks
         fontFamily:
-            '"MesloLGS NF", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+            '"HackGen35Nerd Console"',
         // default font weight: 'normal' or 'bold'
         fontWeight: "normal",
         // font weight for bold characters: 'normal' or 'bold'
