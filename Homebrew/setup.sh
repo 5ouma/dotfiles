@@ -23,13 +23,20 @@ open https://brew.sh/index_ja
     waitEnter
 brew doctor
 
-echo "Please download MesloLGS NF font"
-    sleep 3
-open https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-open https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-open https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-open https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
     waitEnter
+
+cp ~/.terminal-files/zsh/.zshenv ~
+cp -r ~/.terminal-files/zsh/ ~
+cp ~/.terminal-files/Hyper/.hyper.js ~
+cp ~/.terminal-files/Hyper/.hyper_plugins ~
+touch ~/.hushlogin
+cp ~/.terminal-files/Git/.gitconfig ~/.terminal-files/Git/.gitignore_global ~
+cp -r ~/.terminal-files/Git/.ssh ~
+cp ~/.terminal-files/Homebrew/Fonts/* ~/Library/Fonts
+
+    waitEnter
+
 
 waitInput "If enter \"y\", start installing Homebrew packages and apps."
 echo "Please sigin in to App Store"
@@ -37,19 +44,6 @@ echo "Please sigin in to App Store"
 open -a "App Store"
     waitEnter
 brew bundle
-
-    waitEnter
-
-cp ~/.terminal-files/zsh/.zshenv ~
-cp -r ~/.terminal-files/zsh/ ~
-
-cp ~/.terminal-files/Hyper/.hyper.js ~
-cp ~/.terminal-files/Hyper/.hyper_plugins ~
-
-touch ~/.hushlogin
-
-cp ~/.terminal-files/Git/.gitconfig ~/.terminal-files/Git/.gitignore_global ~
-cp -r ~/.terminal-files/Git/.ssh ~
 
 waitInput "Do you want to install Xcode?"
 mas install 497799835
