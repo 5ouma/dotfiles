@@ -40,6 +40,7 @@ defaults write com.apple.dock springboard-columns -int 9;defaults write com.appl
 for ((i=0; i<6; i++)); do
 defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
 done
+killall Dock
 
 
 waitInput "If enter \"y\", start installing Homebrew packages and apps."
@@ -48,6 +49,11 @@ echo "Please sigin in to App Store"
 open -a "App Store"
     waitEnter
 brew bundle
+
+open https://github.com/mohamed-arradi/AirpodsBattery-Monitor-For-Mac
+open https://github.com/x74353/Amphetamine-Enhancer
+open https://github.com/alexzielenski/Mousecape
+open https://www.corecode.io/trashrecover/
 
 waitInput "Do you want to install Xcode?"
 mas install 497799835
