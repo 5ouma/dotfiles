@@ -13,6 +13,9 @@
 [url "github-school:Souma-S"]
 	InsteadOf = https://github.com/Souma-S
 	InsteadOf = git@github.com:Souma-S
+[url "github-school:Course-Programming-II"]
+	InsteadOf = https://github.com/Course-Programming-II
+	InsteadOf = git@github.com:Course-Programming-II
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
