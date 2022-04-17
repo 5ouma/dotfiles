@@ -1,17 +1,20 @@
 [core]
 	editor = code --wait
 	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = main
 [merge]
 	tool = code --wait \"$MERGED\"
 [push]
 	default = simple
+[url "github:5ouma"]
+	InsteadOf = https://github.com/5ouma
+	InsteadOf = git@github.com:5ouma
+[url "github-school:Souma-S"]
+	InsteadOf = https://github.com/Souma-S
+	InsteadOf = git@github.com:Souma-S
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[url "github:"]
-	InsteadOf = https://github.com/
-	InsteadOf = git@github.com:
-[init]
-	defaultBranch = main
