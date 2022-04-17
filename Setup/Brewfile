@@ -17,6 +17,8 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "romkatv/powerlevel10k/powerlevel10k"
 # Apps
+cask "1password-beta"
+cask "1password-cli"
 cask "alfred"
 cask "alt-tab"
 cask "apparency"
