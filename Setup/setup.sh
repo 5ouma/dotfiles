@@ -32,7 +32,12 @@ cp ~/.terminal-files/Hyper/.hyper.js ~
 cp ~/.terminal-files/Hyper/.hyper_plugins ~
 touch ~/.hushlogin
 cp ~/.terminal-files/Git/.gitconfig ~/.terminal-files/Git/.gitignore_global ~
-cp -r ~/.terminal-files/Git/.ssh ~
+
+mkdir ~/.ssh
+echo "Do you use 1Password?"
+read -q && cp ~/.terminal-files/Git/.ssh/1password/config ~/.ssh || cp ~/.terminal-files/Git/.ssh/original/config ~/.ssh
+
+
 cp ~/.terminal-files/Setup/Fonts/* ~/Library/Fonts
 
     waitInput "Run changing Launchpad size and add space on Dock"
