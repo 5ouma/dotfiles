@@ -34,7 +34,7 @@ touch ~/.hushlogin
 cp ~/.terminal-files/Git/.gitconfig ~/.terminal-files/Git/.gitignore_global ~
 
 mkdir ~/.ssh
-echo "Do you use 1Password?"
+echo "Do you use 1Password? (y/n): "
 read -q && cp ~/.terminal-files/Git/.ssh/1password/config ~/.ssh || cp ~/.terminal-files/Git/.ssh/original/config ~/.ssh
 
 
