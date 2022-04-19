@@ -1,0 +1,76 @@
+{
+  "name": "hyper-tab-icons",
+  "version": "2.1.0",
+  "description": "Icons in the header tabs for the current running process in Hyper.app.",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "rollup -c ./rollup.config.js",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint -c ./package.json ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfrankland/hyper-tab-icons.git"
+  },
+  "keywords": [
+    "hyperterm",
+    "hyper",
+    "tabs",
+    "icons",
+    "cool"
+  ],
+  "author": "Dylan Frankland <dylan@frankland.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfrankland/hyper-tab-icons/issues"
+  },
+  "homepage": "https://github.com/dfrankland/hyper-tab-icons#readme",
+  "dependencies": {
+    "fuzzaldrin": "^2.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "styled-components": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "babel-plugin-styled-components": "^1.2.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "react/jsx-filename-extension": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "rollup.config.js"
+          ]
+        }
+      ]
+    }
+  }
+}

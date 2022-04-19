@@ -7,12 +7,10 @@
   "license": "MIT",
   "homepage": "https://hyper.is",
   "dependencies": {
-    "gitrocket": "latest",
     "hyper-dark-scrollbar": "latest",
     "hyper-pane": "latest",
     "hyper-search": "latest",
     "hyper-tabs-enhanced": "latest",
-    "hypercwd": "latest",
-    "hyper-statusline": "latest"
+    "hypercwd": "latest"
   }
 }

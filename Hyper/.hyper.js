@@ -139,13 +139,12 @@ module.exports = {
     //   `@company/project`
     //   `project#1.0.1`
     plugins: [
-        "gitrocket",
         "hyper-dark-scrollbar",
         "hyper-pane",
         "hyper-search",
         "hyper-tabs-enhanced",
-        "hypercwd",
-        "hyper-statusline",
+        "hypercwd"
+        // "hyper-statusline" // This plugin makes Hyper too slow.
     ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
