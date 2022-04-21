@@ -135,12 +135,12 @@ g-Souma-S() {
 # Homebrew
 alias bi="brew install"
 alias bun="brew uninstall"
-alias bup="brew upgrade"
+alias bup="brew update && brew upgrade"
 alias bs="brew search"
 alias bl="brew list"
 alias bv="brew -v"
 alias bd="brew doctor"
-
+alias bbd="brew bundle dump"
 
 alias mi="mas install"
 alias mum="mas uninstall"
@@ -148,7 +148,20 @@ alias mup="mas upgrade"
 alias ms="mas search"
 alias ml="mas list"
 
-alias bbd="brew bundle dump"
+al() {
+  echo "[cask]:"
+  indent="  "
+  brew list --version |
+    while IFS= read -r line; do
+      echo -e "$indent$line"
+    done
+  echo "---------------------------------------------------------"
+  echo "[mas]:"
+  mas list |
+    while IFS= read -r line; do
+        echo -e "$indent$line"
+    done
+}
 
 # System
 alias ka="killall"
