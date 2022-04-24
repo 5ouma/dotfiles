@@ -132,6 +132,13 @@ g-Souma-S() {
   git config user.email
 }
 
+
+# Notion内のメモ表示
+alias memo-commitChange="open notion://www.notion.so/soumas-note/GitHub-774dca1e18844e31b7aa47deaefa67a7"
+alias memo-gitCommand="open notion://www.notion.so/soumas-note/Git-c190039953a846d08f20554345103a6b"
+alias memo-commitMessage="open notion://www.notion.so/soumas-note/Git-aeb85626154243048e7c3337d42b7989"
+
+
 # Homebrew
 alias bi="brew install"
 alias bun="brew uninstall"
