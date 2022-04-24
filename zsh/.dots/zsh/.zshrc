@@ -175,14 +175,14 @@ alias ms="mas search"
 alias ml="mas list"
 
 al() {
-  echo "[cask]:"
+  echo "\e[1m[cask]:\e[m"
   indent="  "
   brew list --version |
     while IFS= read -r line; do
       echo -e "$indent$line"
     done
-  echo "---------------------------------------------------------"
-  echo "[mas]:"
+  echo "\e[1m---------------------------------------------------------\e[m"
+  echo "\e[1m[mas]:\e[m"
   mas list |
     while IFS= read -r line; do
         echo -e "$indent$line"
