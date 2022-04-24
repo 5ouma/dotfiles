@@ -108,7 +108,7 @@ alias gpl="git pull"
 alias gs="git status"
 alias gl="git log --oneline"
 alias gcg="git config"
-alias grs="git reset HEAD"
+alias grs="git reset"
 
 grp() {
   echo -n "Are you sure to run? (y/n): "
