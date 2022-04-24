@@ -175,7 +175,7 @@ alias ms="mas search"
 alias ml="mas list"
 
 al() {
-  echo "\e[1m[cask]:\e[m"
+  echo "\e[1m[Formulae & Cask]:\e[m"
   indent="  "
   brew list --version |
     while IFS= read -r line; do
