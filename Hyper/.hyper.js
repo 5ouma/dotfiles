@@ -10,8 +10,7 @@ module.exports = {
         // default font size in pixels for all tabs
         fontSize: 15,
         // font family with optional fallbacks
-        fontFamily:
-            '"HackGen35Nerd Console"',
+        fontFamily: '"HackGen35Nerd Console"',
         // default font weight: 'normal' or 'bold'
         fontWeight: "normal",
         // font weight for bold characters: 'normal' or 'bold'
@@ -139,11 +138,13 @@ module.exports = {
     //   `@company/project`
     //   `project#1.0.1`
     plugins: [
+        "hypercwd",
+        "hyperterm-paste",
+        "hyperterm-tabs",
         "hyper-dark-scrollbar",
         "hyper-pane",
         "hyper-search",
         "hyper-tabs-enhanced",
-        "hypercwd"
         // "hyper-statusline" // This plugin makes Hyper too slow.
     ],
     // in development, you can create a directory under
