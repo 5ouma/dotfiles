@@ -3,6 +3,8 @@ rm -r ~/.shell-files/zsh/.*
 cp ~/.zshenv ~/.shell-files/zsh
 cp -r ~/.zsh ~/.shell-files/zsh
 
+#Hyper
+cp -f ~/.hyper.js ~/.shell-files/Hyper
 
 # git
 cp -f ~/.gitconfig ~/.gitignore_global ~/.shell-files/Git
