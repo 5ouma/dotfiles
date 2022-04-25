@@ -8,7 +8,7 @@ waitEnter() {
     read
 }
 
-cd ~/.terminal-files/Setup
+cd ~/.shell-files/Setup
 
 waitInput "Are you sure to start setup?"
 xcode-select --install
@@ -26,19 +26,17 @@ brew doctor
 
     waitInput "Copy terminal files."
 
-cp ~/.terminal-files/zsh/.zshenv ~
-cp -r ~/.terminal-files/zsh/ ~
-cp ~/.terminal-files/Hyper/.hyper.js ~
-cp ~/.terminal-files/Hyper/.hyper_plugins ~
+cp -r ~/.shell-files/zsh/.* ~
+cp -r ~/.shell-files/Hyper/.hyper.js ~
 touch ~/.hushlogin
-cp ~/.terminal-files/Git/.gitconfig ~/.terminal-files/Git/.gitignore_global ~
+cp ~/.shell-files/Git/.gitconfig ~/.shell-files/Git/.gitignore_global ~
 
 mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
-read -q && cp ~/.terminal-files/Git/.ssh/1password/config ~/.ssh || cp ~/.terminal-files/Git/.ssh/original/config ~/.ssh
+read -q && cp ~/.shell-files/Git/.ssh/1password/config ~/.ssh || cp ~/.shell-files/Git/.ssh/original/config ~/.ssh
 
 
-cp ~/.terminal-files/Setup/Fonts/* ~/Library/Fonts
+cp ~/.shell-files/Setup/Fonts/* ~/Library/Fonts
 
     waitInput "Run changing Launchpad size and add space on Dock"
 defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
