@@ -2,6 +2,7 @@
 rm -r ~/.shell-files/zsh/.*
 cp ~/.zshenv ~/.shell-files/zsh
 cp -r ~/.zsh ~/.shell-files/zsh
+rm ~/.shell-files/zsh/.zsh/.zsh_history
 
 #Hyper
 cp -f ~/.hyper.js ~/.shell-files/Hyper
