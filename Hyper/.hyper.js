@@ -55,14 +55,14 @@ module.exports = {
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
         colors: {
-            black: "#242424",
+            black: "#000000",
             red: "#C51E14",
             green: "#1DC121",
             yellow: "#C7C329",
             blue: "#0A2FC4",
             magenta: "#C839C5",
             cyan: "#20C5C6",
-            white: "#f4f4f4",
+            white: "#ffffff",
             lightBlack: "#686868",
             lightRed: "#FD6F6B",
             lightGreen: "#67F86F",
@@ -144,7 +144,7 @@ module.exports = {
         "hyper-dark-scrollbar",
         "hyper-pane",
         "hyper-search",
-        "hyper-tabs-enhanced",
+        "hyper-tabs-enhanced"
         // "hyper-statusline" // This plugin makes Hyper too slow.
     ],
     // in development, you can create a directory under
