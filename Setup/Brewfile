@@ -5,7 +5,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "romkatv/powerlevel10k"
-# Packages
 brew "clang-format"
 brew "git"
 brew "mas"
@@ -16,7 +15,6 @@ brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "romkatv/powerlevel10k/powerlevel10k"
-# Apps
 cask "1password-beta"
 cask "1password-cli"
 cask "alfred"
@@ -42,7 +40,7 @@ cask "github"
 cask "google-chrome"
 cask "google-drive"
 cask "hiddenbar"
-cask "hyper"
+cask "iterm2-beta"
 cask "karabiner-elements"
 cask "keyboard-maestro"
 cask "keyboardcleantool"
@@ -62,7 +60,6 @@ cask "usage"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "webcatalog"
-# App Store apps
 mas "Amphetamine", id: 937984704
 mas "Cinebench", id: 1438772273
 mas "Contributions", id: 1153432612
