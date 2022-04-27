@@ -1490,6 +1490,8 @@
 	<false/>
 	<key>OpenBookmark</key>
 	<false/>
+	<key>OpenFileInNewWindows</key>
+	<true/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
 	<key>PointerActions</key>
