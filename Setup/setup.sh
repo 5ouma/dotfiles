@@ -49,11 +49,15 @@ cp ~/.shell-files/Setup/Fonts/* ~/Library/Fonts
 
 #===================================================================================== System write =====================================================================================
 
-    waitInput "Run changing Launchpad size and add space on Dock"
+    waitInput "Run changing Launchpad size, add space on Dock and chage save screencapture location to new folder."
 defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
 for ((i=0; i<6; i++)); do
 defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
 done
+
+mkdir ~/Pictures/スクリーンショット
+defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
+
 killall Dock
 
 #===================================================================================== Install apps =====================================================================================
