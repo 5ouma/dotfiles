@@ -6,6 +6,8 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AlwaysOpenWindowAtStartup</key>
 	<true/>
 	<key>CheckTestRelease</key>
@@ -1248,7 +1250,7 @@
 								<key>base: priority</key>
 								<real>5</real>
 								<key>format</key>
-								<string>M/dd H:mm</string>
+								<string>M/dd H:mm:ss</string>
 								<key>localize</key>
 								<integer>1</integer>
 								<key>maxwidth</key>

@@ -47,7 +47,7 @@
         "class" : "iTermStatusBarClockComponent",
         "configuration" : {
           "knobs" : {
-            "format" : "M\/dd H:mm",
+            "format" : "M\/dd H:mm:ss",
             "base: priority" : 5,
             "maxwidth" : 1.7976931348623157e+308,
             "minwidth" : "0",
