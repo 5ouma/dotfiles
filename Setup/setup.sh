@@ -1,3 +1,5 @@
+#=====================================================================================[ Functions ]=====================================================================================
+
 waitInput() {
     echo -e -n "$1 (y/n): "
     read -q && echo "" || {echo "" && exec $SHELL}
@@ -7,6 +9,12 @@ waitEnter() {
     echo "Plese press enter."
     read
 }
+
+#========================================================================================================================================================================================
+
+
+
+#=================================================================================== Homebrew install ===================================================================================
 
 cd ~/.shell-files/Setup
 
@@ -23,20 +31,23 @@ open https://brew.sh/index_ja
     waitEnter
 brew doctor
 
+#================================================================================ Files and directories ================================================================================
 
-    waitInput "Copy terminal files."
+    waitInput "Make symbolic links of terminal files."
 
-cp -r ~/.shell-files/zsh/.* ~
-cp -r ~/.shell-files/Hyper/.hyper.js ~
+ln -s ~/.shell-files/zsh/.zshenv ~/.zshenv
+ln -s ~/.shell-files/zsh/.zsh ~/.zsh
 touch ~/.hushlogin
-cp ~/.shell-files/Git/.gitconfig ~/.shell-files/Git/.gitignore_global ~
+ln -s ~/.shell-files/Git/.gitconfig ~/.gitconfig
+ln -s ~/.shell-files/Git/.gitignore_global ~/.gitignore_global
 
 mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
-read -q && cp ~/.shell-files/Git/.ssh/1password/config ~/.ssh || cp ~/.shell-files/Git/.ssh/original/config ~/.ssh
-
+read -q && ln -s ~/.shell-files/Git/.ssh/1password/config ~/.ssh/config || ln -s ~/.shell-files/Git/.ssh/original/config ~/.ssh/config
 
 cp ~/.shell-files/Setup/Fonts/* ~/Library/Fonts
+
+#===================================================================================== System write =====================================================================================
 
     waitInput "Run changing Launchpad size and add space on Dock"
 defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -45,6 +56,7 @@ defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-til
 done
 killall Dock
 
+#===================================================================================== Install apps =====================================================================================
 
 waitInput "If enter \"y\", start installing Homebrew packages and apps."
 echo "Please sigin in to App Store"

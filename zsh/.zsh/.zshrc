@@ -193,8 +193,5 @@ al() {
 alias cz="code .zsh/.zshrc"
 alias ct="code .shell-files"
 
-# Sync
-alias shell-sync="source ~/.shell-files/sync.sh"
-
 # System
 alias ka="killall"
