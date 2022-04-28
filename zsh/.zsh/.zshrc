@@ -89,7 +89,8 @@ fi
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-
+# 新しくインストールされたコマンドをすぐに認識させる
+zstyle ":completion:*:commands" rehash 1
 
 
 ## エイリアス
@@ -163,9 +164,11 @@ alias notion-commitMessage="open notion://www.notion.so/soumas-note/Git-aeb85626
 
 # Homebrew
 alias bi="brew install"
+alias bri="brew reinstall"
 alias bun="brew uninstall"
 alias bup="brew update && brew upgrade"
 alias bs="brew search"
+alias bif="brew info"
 alias bl="brew list"
 alias bv="brew -v"
 alias bd="brew doctor"
