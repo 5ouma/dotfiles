@@ -1250,9 +1250,9 @@
 								<key>base: priority</key>
 								<real>5</real>
 								<key>format</key>
-								<string>M/dd H:mm:ss</string>
+								<string>MMM dd, E | H:mm:ss</string>
 								<key>localize</key>
-								<integer>1</integer>
+								<integer>0</integer>
 								<key>maxwidth</key>
 								<real>+infinity</real>
 								<key>minwidth</key>
