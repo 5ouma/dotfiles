@@ -201,10 +201,6 @@ al() {
 alias fd="fig doctor"
 alias fg="fig source"
 
-# Setting files
-alias cz="code .zsh/.zshrc"
-alias ct="code .dotfiles"
-
 # System
 alias ka="killall"
 
