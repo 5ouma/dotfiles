@@ -16,7 +16,7 @@ waitEnter() {
 
 #=================================================================================== Homebrew install ===================================================================================
 
-cd ~/.shell-files/Setup
+cd ~/.dotfiles/Setup
 
 waitInput "Are you sure to start setup?"
 xcode-select --install
@@ -35,17 +35,17 @@ brew doctor
 
     waitInput "Make symbolic links of terminal files."
 
-ln -s ~/.shell-files/zsh/.zshenv ~/.zshenv
-ln -s ~/.shell-files/zsh/.zsh ~/.zsh
+ln -s ~/.dotfiles/zsh/.zshenv ~/.zshenv
+ln -s ~/.dotfiles/zsh/.zsh ~/.zsh
 touch ~/.hushlogin
-ln -s ~/.shell-files/Git/.gitconfig ~/.gitconfig
-ln -s ~/.shell-files/Git/.gitignore_global ~/.gitignore_global
+ln -s ~/.dotfiles/Git/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/Git/.gitignore_global ~/.gitignore_global
 
 mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
-read -q && ln -s ~/.shell-files/Git/.ssh/1password/config ~/.ssh/config || ln -s ~/.shell-files/Git/.ssh/original/config ~/.ssh/config
+read -q && ln -s ~/.dotfiles/Git/.ssh/1password/config ~/.ssh/config || ln -s ~/.dotfiles/Git/.ssh/original/config ~/.ssh/config
 
-cp ~/.shell-files/Setup/Fonts/* ~/Library/Fonts
+cp ~/.dotfiles/Setup/Fonts/* ~/Library/Fonts
 
 #===================================================================================== System write =====================================================================================
 

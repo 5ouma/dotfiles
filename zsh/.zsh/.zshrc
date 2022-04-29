@@ -197,7 +197,7 @@ al() {
 
 # Setting files
 alias cz="code .zsh/.zshrc"
-alias ct="code .shell-files"
+alias ct="code .dotfiles"
 
 # System
 alias ka="killall"
