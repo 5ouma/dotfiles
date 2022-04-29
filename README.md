@@ -59,6 +59,16 @@ brew install zsh-completions
 
 </details>
 
+<details><summary><a href="https://fig.io">Fig</a>
+
+([Fig on GitHub](https://github.com/withfig))</summary>
+
+```shell
+brew install fig
+```
+
+</details>
+
 <details><summary>tree</summary>
 
 ```shell
