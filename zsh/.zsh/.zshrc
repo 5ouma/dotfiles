@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -195,9 +197,16 @@ al() {
     done
 }
 
+# Fig
+alias fd="fig doctor"
+alias fg="fig source"
+
 # Setting files
 alias cz="code .zsh/.zshrc"
 alias ct="code .dotfiles"
 
 # System
 alias ka="killall"
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
