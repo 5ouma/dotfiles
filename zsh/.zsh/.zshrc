@@ -1,21 +1,23 @@
+#============================================================[ PATH ]============================================================#
+
 # Fig pre block. Keep at the top of this file.
 . "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
-
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
 
 # Nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+
+#===========================================================[ Settings ]===========================================================#
 
 # 日本語を使用
 export LANG=ja_JP.UTF-8
@@ -61,8 +63,7 @@ setopt hist_reduce_blanks
 # 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
 setopt hist_ignore_all_dups
 
-
-##ls実行時ファイル色分け
+## ls実行時ファイル色分け
 # 色の設定
 export LSCOLORS=Exfxcxdxbxegedabagacad
 # 補完時の色の設定
@@ -72,22 +73,6 @@ export ZLS_COLORS=$LS_COLORS
 export CLICOLOR=true
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-
-
-# zsh-syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-##zsh-completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -95,7 +80,24 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ":completion:*:commands" rehash 1
 
 
-## エイリアス
+#===========================================================[ Plugins ]===========================================================#
+
+# zsh-syntax-highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+
+#============================================================[ Aliases ]============================================================#
 
 # tree
 alias tree-default="tree"
@@ -203,6 +205,9 @@ alias fg="fig source"
 
 # System
 alias ka="killall"
+
+
+#============================================================[ PATH ]============================================================#
 
 # Fig post block. Keep at the bottom of this file.
 . "$HOME/.fig/shell/zshrc.post.zsh"
