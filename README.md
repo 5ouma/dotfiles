@@ -31,6 +31,8 @@ brew install romkatv/powerlevel10k/powerlevel10k
 -   If input commands have already saved in history, delete from older one
 -   Coloring when `ls` command
 
+Separate by roll with .zshrc, .zshenv, .zprofile seeing [this site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
+
 # Plugins
 
 <details><summary><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></summary>
