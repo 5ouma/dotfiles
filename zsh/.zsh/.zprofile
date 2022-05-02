@@ -108,6 +108,7 @@ alias bif="brew info"
 alias bl="brew list"
 alias bv="brew -v"
 alias bd="brew doctor"
+alias bcl="brew cleanup"
 alias bbd="brew bundle dump"
 
 alias mi="mas install"
