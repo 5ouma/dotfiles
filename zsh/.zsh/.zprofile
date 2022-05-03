@@ -75,7 +75,7 @@ alias notion-commitMessage="open notion://www.notion.so/soumas-note/Git-aeb85626
 # Homebrew
 bi() {
   brew install $1
-  echo -e "\n\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
+  echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
   brew bundle dump -f
   # Xcodeをインストールしないようにする
   sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
@@ -94,7 +94,7 @@ alias bri="brew reinstall"
 
 bun() {
   brew uninstall $1
-  echo -e "\n\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
+  echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
   brew bundle dump -f
   # Xcodeをインストールしないようにする
   sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
