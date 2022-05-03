@@ -25,6 +25,13 @@ alias gls="git ls-files"
 alias glg="git log —oneline"
 alias gcg="git config"
 
+grp() {
+  echo -n "Are you sure to run? (y/n): "
+  read -q && echo "" || {echo "" && exec $SHELL}
+
+  git reset --hard HEAD^
+  git push -f $1
+}
 
 g-5ouma() {
   git config user.name "5ouma"
@@ -116,6 +123,21 @@ alias mum="mas uninstall"
 alias mup="mas upgrade"
 alias ms="mas search"
 alias ml="mas list"
+
+al() {
+  echo "\e[1m[Formulae & Cask]:\e[m"
+  indent="  "
+  brew list --version |
+    while IFS= read -r line; do
+      echo -e "$indent$line"
+    done
+  echo "\e[1m---------------------------------------------------------\e[m"
+  echo "\e[1m[mas]:\e[m"
+  mas list |
+    while IFS= read -r line; do
+        echo -e "$indent$line"
+    done
+}
 
 # Fig
 alias fd="fig doctor"

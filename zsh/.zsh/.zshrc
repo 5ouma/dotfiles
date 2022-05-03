@@ -75,31 +75,6 @@ if type brew &>/dev/null; then
   compinit -d ~/.zsh/.zcompdump
 fi
 
-#===========================================================[ Functions ]===========================================================#
-
-grp() {
-  echo -n "Are you sure to run? (y/n): "
-  read -q && echo "" || {echo "" && exec $SHELL}
-
-  git reset --hard HEAD^
-  git push -f $1
-}
-
-al() {
-  echo "\e[1m[Formulae & Cask]:\e[m"
-  indent="  "
-  brew list --version |
-    while IFS= read -r line; do
-      echo -e "$indent$line"
-    done
-  echo "\e[1m---------------------------------------------------------\e[m"
-  echo "\e[1m[mas]:\e[m"
-  mas list |
-    while IFS= read -r line; do
-        echo -e "$indent$line"
-    done
-}
-
 #==============================================================[ Paths ]==============================================================#
 
 # Fig post block. Keep at the bottom of this file.
