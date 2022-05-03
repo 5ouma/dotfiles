@@ -49,6 +49,7 @@ cp ~/.dotfiles/Setup/Fonts/* ~/Library/Fonts
 
 #===================================================================================== System write =====================================================================================#
 
+# Make spaces on Dock and resize Launchpad
     waitInput "Run changing Launchpad size, add space on Dock and chage save screencapture location to new folder."
 defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
 for ((i=0; i<6; i++)); do
@@ -59,6 +60,15 @@ mkdir ~/Pictures/スクリーンショット
 defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
 
 killall Dock
+
+# Set computer names
+echo "What's your computer name?"
+read computerName
+echo "What's your computer name? (Excluding symbols or spaces other than hyphens)"
+read localName
+scutil --set ComputerName $computerName
+scutil --set LocalHostName $localName
+scutil --set HostName $computerName
 
 #===================================================================================== Install apps =====================================================================================#
 
