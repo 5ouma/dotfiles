@@ -30,7 +30,7 @@ alias grb="git rebase"
 alias gpl="git pull origin"
 alias gs="git status"
 alias gls="git ls-files"
-alias glg="git log —oneline"
+alias glg="git log --oneline"
 alias gcg="git config"
 
 g-5ouma() {
