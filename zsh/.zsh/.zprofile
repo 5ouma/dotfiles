@@ -50,40 +50,37 @@ g-Souma-S() {
 # Homebrew
 bi() {
   brew install $1
-  echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
-  brew bundle dump -f
-  # Xcodeをインストールしないようにする
-  sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
-
-  # dotfiles/Setupディレクトリ内なら実行しない
-  crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
-  if [[ $crDir != "~/.dotfiles/Setup" ]]; then
-    echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
-    mv -f Brewfile ~/.dotfiles/Setup
+  if [ $? = 0  ]; then
+    echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
+    brew bundle dump -f
+    # Xcodeをインストールしないようにする
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
+    # dotfiles/Setupディレクトリ内なら実行しない
+    crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
+    if [[ $crDir != "~/.dotfiles/Setup" ]]; then
+      echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
+      mv -f Brewfile ~/.dotfiles/Setup
+    fi
+    echo -e "🍺  Brewfile was successfully generated!"
   fi
-
-  echo -e "🍺  Brewfile was successfully generated!"
 }
-
 alias bri="brew reinstall"
-
 bun() {
   brew uninstall $1
-  echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
-  brew bundle dump -f
-  # Xcodeをインストールしないようにする
-  sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
-
-  # dotfiles/Setupディレクトリ内なら実行しない
-  crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
-  if [[ $crDir != "~/.dotfiles/Setup" ]]; then
-    echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
-    mv -f Brewfile ~/.dotfiles/Setup
+  if [ $? = 0  ]; then
+    echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
+    brew bundle dump -f
+    # Xcodeをインストールしないようにする
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
+    # dotfiles/Setupディレクトリ内なら実行しない
+    crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
+    if [[ $crDir != "~/.dotfiles/Setup" ]]; then
+      echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
+      mv -f Brewfile ~/.dotfiles/Setup
+    fi
+    echo -e "🍺  Brewfile was successfully generated!"
   fi
-
-  echo -e "🍺  Brewfile was successfully generated!"
 }
-
 alias bup="brew update && brew upgrade"
 alias bs="brew search"
 alias bif="brew info"
