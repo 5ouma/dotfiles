@@ -64,8 +64,7 @@ killall Dock
 # Set computer names
 echo "What's your computer name?"
 read computerName
-echo "What's your computer name? (Excluding symbols or spaces other than hyphens)"
-read localName
+localName=$(echo $(echo $computerName | sed -e "s/'//g") | sed -e "s/ /-/g")
 scutil --set ComputerName $computerName
 scutil --set LocalHostName $localName
 scutil --set HostName $computerName
