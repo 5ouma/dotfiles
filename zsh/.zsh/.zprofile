@@ -115,6 +115,9 @@ al() {
 alias fd="fig doctor"
 alias fg="fig source"
 
+# Vim
+alias v="vim"
+
 # System
 alias ka="killall"
 
