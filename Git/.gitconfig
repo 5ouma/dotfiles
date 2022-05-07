@@ -16,6 +16,10 @@
 [url "github-school:Course-Programming-II"]
 	InsteadOf = https://github.com/Course-Programming-II
 	InsteadOf = git@github.com:Course-Programming-II
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
