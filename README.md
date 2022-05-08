@@ -35,6 +35,14 @@ Separate by roll with .zshrc, .zshenv, .zprofile seeing [this site](https://kita
 
 # Plugins
 
+<details><summary><a href="https://github.com/beeftornado/homebrew-rmtree">rmtree</a></summary>
+
+```shell
+brew tap beeftornado/rmtree
+```
+
+</details>
+
 <details><summary><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></summary>
 
 ```shell
