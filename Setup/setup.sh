@@ -66,8 +66,11 @@ echo "What's your computer name?"
 read computerName
 localName=$(echo $computerName | sed -e "s/'//g" -e "s/ /-/g")
 scutil --set ComputerName $computerName
+echo "computerName: $(scutil --get ComputerName $computerName)"
 scutil --set LocalHostName $localName
+echo "LocalHostName: $(scutil --get LocalHostName $computerName)"
 scutil --set HostName $computerName
+echo "HostName: $(scutil --get HostName $computerName)"
 
 #===================================================================================== Install apps =====================================================================================#
 
