@@ -57,8 +57,7 @@ bi() {
     # Xcodeをインストールしないようにする
     sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
     # dotfiles/Setupディレクトリ内なら実行しない
-    crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
-    if [[ $crDir != "~/.dotfiles/Setup" ]]; then
+    if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "~/.dotfiles/Setup" ]]; then
       echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
       mv -f Brewfile ~/.dotfiles/Setup
     fi
@@ -74,8 +73,7 @@ bun() {
     # Xcodeをインストールしないようにする
     sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
     # dotfiles/Setupディレクトリ内なら実行しない
-    crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
-    if [[ $crDir != "~/.dotfiles/Setup" ]]; then
+    if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "~/.dotfiles/Setup" ]]; then
       echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
       mv -f Brewfile ~/.dotfiles/Setup
     fi
@@ -90,8 +88,7 @@ br() {
     # Xcodeをインストールしないようにする
     sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
     # dotfiles/Setupディレクトリ内なら実行しない
-    crDir=$(echo `pwd` | sed -e "s/\/Users\/souma/~/g")
-    if [[ $crDir != "~/.dotfiles/Setup" ]]; then
+    if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "~/.dotfiles/Setup" ]]; then
       echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
       mv -f Brewfile ~/.dotfiles/Setup
     fi
