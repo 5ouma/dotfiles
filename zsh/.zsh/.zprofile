@@ -107,14 +107,14 @@ alias ms="mas search"
 alias ml="mas list"
 
 al() {
-  echo "\e[1m[Formulae & Cask]:\e[m"
+  echo "\e[34;1m==>\e[m \e[1mFormulae & Casks\e[m"
   indent="  "
   brew list --version |
     while IFS= read -r line; do
       echo -e "$indent$line"
     done
   echo "\e[1m---------------------------------------------------------\e[m"
-  echo "\e[1m[mas]:\e[m"
+  echo "\e[34;1m==>\e[m \e[1mmas\e[m"
   mas list |
     while IFS= read -r line; do
         echo -e "$indent$line"
