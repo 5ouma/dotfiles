@@ -23,7 +23,7 @@ grp() {
   read -q && echo "" || {echo "" && exec $SHELL}
 
   git reset --hard HEAD^
-  git push -f $1
+  git push -f ${@}
 }
 alias gc="git commit"
 alias gps="git push origin"
@@ -64,20 +64,20 @@ makeBrewfile() {
   fi
 }
 bi() {
-  brew install $1
+  brew install ${@}
   makeBrewfile
 }
 alias bri="brew reinstall"
 bun() {
-  brew uninstall $1
+  brew uninstall ${@}
   makeBrewfile
 }
 br() {
-  brew rmtree $1
+  brew rmtree ${@}
   makeBrewfile
 }
 bt() {
-  brew tap $1
+  brew tap ${@}
   makeBrewfile
 }
 alias bup="brew update && brew upgrade"
