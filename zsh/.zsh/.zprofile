@@ -49,37 +49,30 @@ g-Souma-S() {
 }
 
 # Homebrew
-makeBrewfile() {
-  if [ $? = 0  ]; then
-    echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
-    brew bundle dump -f
-    # Xcodeをインストールしないようにする
-    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
-    # dotfiles/Setupディレクトリ内なら実行しない
-    if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "~/.dotfiles/Setup" ]]; then
-      echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
-      mv -f Brewfile ~/.dotfiles/Setup
-    fi
-    echo -e "🍺  Brewfile was successfully generated!"
+brew(){
+  command brew $@
+  if [ $? = 0 ]; then
+    for arg in "$@"; do
+      if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ]; then
+        echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
+        brew bundle dump -f
+        # Xcodeをインストールしないようにする
+        sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
+        # dotfiles/Setupディレクトリ内なら実行しない
+        if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "~/.dotfiles/Setup" ]]; then
+          echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
+          mv -f Brewfile ~/.dotfiles/Setup
+        fi
+        echo -e "🍺  Brewfile was successfully generated!"
+      fi
+    done
   fi
 }
-bi() {
-  brew install ${@}
-  makeBrewfile
-}
+alias bi="brew install"
 alias bri="brew reinstall"
-bun() {
-  brew uninstall ${@}
-  makeBrewfile
-}
-br() {
-  brew rmtree ${@}
-  makeBrewfile
-}
-bt() {
-  brew tap ${@}
-  makeBrewfile
-}
+alias bun="brew uninstall"
+alias br="brew rmtree"
+alias bt="brew tap"
 alias bup="brew update && brew upgrade"
 alias bs="brew search"
 alias bif="brew info"
