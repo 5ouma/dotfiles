@@ -18,17 +18,17 @@ brew install romkatv/powerlevel10k/powerlevel10k
 # Settings
 
 -   Using Japanese
--   Be able to show files named by japanese
+-   Be able to show files named in Japanese
 -   Moving directory without `cd` command
 -   Spell check
--   Search history started with input character
+-   Search history started with the input character
 -   Display kind of files when complemented
 -   Be able to move with cursor when complemented
 -   Press `Shift+Tab` to go reverse over
 -   Number of cases to save history at memory and history file
 -   Share history data between launched zsh
 -   Delete unnecessary spaces when history is saved
--   If input commands have already saved in history, delete from older one
+-   If input commands have already been saved in history, delete them from the older one
 -   Coloring when `ls` command
 
 Separate by roll with .zshrc, .zshenv, .zprofile seeing [this site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
