@@ -23,7 +23,7 @@ grp() {
   read -q && echo "" || {echo "" && exec $SHELL}
 
   git reset --hard HEAD^
-  git push -f ${@}
+  git push -f $@
 }
 alias gc="git commit"
 alias gps="git push origin"
