@@ -53,6 +53,11 @@ brew(){
   command brew $@
   if [ $? = 0 ]; then
     for arg in "$@"; do
+      if [ -e /Applications/RealTimeSync.app ]; then
+        echo -e "\e[34;1m==>\e[m \e[1mRemoving files:\e[m
+/Applications/RealTimeSync.app"
+        sudo rm -r /Applications/RealTimeSync.app
+      fi
       if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ] || [ $arg = "untap" ]; then
         echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
         brew bundle dump -f
