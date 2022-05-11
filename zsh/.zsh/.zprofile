@@ -53,7 +53,7 @@ brew(){
   command brew $@
   if [ $? = 0 ]; then
     for arg in "$@"; do
-      if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ]; then
+      if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ] || [ $arg = "untap" ]; then
         echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
         brew bundle dump -f
         # Xcodeをインストールしないようにする
@@ -73,6 +73,7 @@ alias bri="brew reinstall"
 alias bun="brew uninstall"
 alias br="brew rmtree"
 alias bt="brew tap"
+alias but="brew untap"
 alias bup="brew update && brew upgrade"
 alias bs="brew search"
 alias bif="brew info"
