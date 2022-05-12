@@ -53,7 +53,7 @@ brew(){
   command brew $@
   if [ $? = 0 ]; then
     for arg in "$@"; do
-      if [ -e /Applications/RealTimeSync.app ]; then
+      if [ -e /Applications/RealTimeSync.app ] && [ $arg = "freefilesync" ]; then
         echo -e "\e[34;1m==>\e[m \e[1mRemoving files:\e[m
 /Applications/RealTimeSync.app"
         sudo rm -r /Applications/RealTimeSync.app
