@@ -1,4 +1,4 @@
-#=====================================================================================[ Functions ]=====================================================================================#
+#=====================================================================================[ Variables & Functions ]=====================================================================================#
 
 waitInput() {
     echo -e -n "$1 (y/n): "
@@ -10,13 +10,15 @@ waitEnter() {
     read
 }
 
+export dotfiles=${HOME}/.dotfiles
+
 #========================================================================================================================================================================================#
 
 
 
 #=================================================================================== Homebrew install ===================================================================================#
 
-cd ~/.dotfiles/Setup
+cd $dotfiles/Setup/
 
 waitInput "Are you sure to start setup?"
 xcode-select --install
@@ -35,18 +37,18 @@ brew doctor
 
     waitInput "Make symbolic links of terminal files."
 
-ln -s ~/.dotfiles/zsh/.zshenv ~/.zshenv
-ln -s ~/.dotfiles/zsh/.zsh ~/.zsh
-ln -s ~/.dotfiles/Vim/.vimrc ~/.vimrc
+ln -s $dotfiles/zsh/.zshenv ~/.zshenv
+ln -s $dotfiles/zsh/.zsh ~/.zsh
+ln -s $dotfiles/Vim/.vimrc ~/.vimrc
 touch ~/.hushlogin
-ln -s ~/.dotfiles/Git/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/Git/.gitignore_global ~/.gitignore_global
+ln -s $dotfiles/Git/.gitconfig ~/.gitconfig
+ln -s $dotfiles/Git/.gitignore_global ~/.gitignore_global
 
 mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
-read -q && ln -s ~/.dotfiles/Git/.ssh/1password/config ~/.ssh/config || ln -s ~/.dotfiles/Git/.ssh/original/config ~/.ssh/config
+read -q && ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config || ln -s $dotfiles/Git/.ssh/original/config ~/.ssh/config
 
-cp ~/.dotfiles/Setup/Fonts/* ~/Library/Fonts
+cp $dotfiles/Setup/Fonts/* ~/Library/Fonts
 
 #===================================================================================== System write =====================================================================================#
 

@@ -1,6 +1,8 @@
 # Fig pre block. Keep at the top of this file.
 . "$HOME/.fig/shell/zprofile.pre.zsh"
 
+export dotfiles=${HOME}/.dotfiles
+
 #============================================================[ Aliases ]============================================================#
 
 # tree
@@ -64,9 +66,9 @@ brew(){
         # Xcodeをインストールしないようにする
         sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
         # dotfiles/Setupディレクトリ内なら実行しない
-        if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "~/.dotfiles/Setup" ]]; then
-          echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '~/.dotfiles/Setup'\e[m"
-          mv -f Brewfile ~/.dotfiles/Setup
+        if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "$dotfiles/Setup" ]]; then
+          echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '$dotfiles/Setup'\e[m"
+          mv -f Brewfile $dotfiles/Setup
         fi
         echo -e "🍺  Brewfile was successfully generated!"
       fi
