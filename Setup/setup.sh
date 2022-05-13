@@ -18,9 +18,9 @@ export dotfiles=${HOME}/.dotfiles
 
 #=================================================================================== Homebrew install ===================================================================================#
 
+waitInput "Are you sure to start setup?"
 cd $dotfiles/Setup/
 
-waitInput "Are you sure to start setup?"
 xcode-select --install
 
     sleep 3
