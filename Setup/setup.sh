@@ -84,10 +84,5 @@ open -a "App Store"
     waitEnter
 brew bundle
 
-open https://github.com/mohamed-arradi/AirpodsBattery-Monitor-For-Mac
-open https://github.com/x74353/Amphetamine-Enhancer
-open https://github.com/alexzielenski/Mousecape
-open https://www.corecode.io/trashrecover/
-
 waitInput "Do you want to install Xcode?"
 mas install 497799835
