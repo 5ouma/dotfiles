@@ -39,7 +39,7 @@ brew doctor
 
 ln -s $dotfiles/zsh/.zshenv ~/.zshenv
 ln -s $dotfiles/zsh/.zsh ~/.zsh
-ln -s $dotfiles/Vim/.vimrc ~/.vimrc
+ln -s $dotfiles/Vim/.vim ~/.vim
 touch ~/.hushlogin
 ln -s $dotfiles/Git/.gitconfig ~/.gitconfig
 ln -s $dotfiles/Git/.gitignore_global ~/.gitignore_global

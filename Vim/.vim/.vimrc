@@ -1,3 +1,7 @@
+@REM viminfoの場所
+set viminfo+=n~/.vim/.viminfo
+
+
 @REM setting
 @REM 文字コードをUFT-8に設定
 set fenc=utf-8

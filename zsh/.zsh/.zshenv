@@ -2,6 +2,10 @@
 
 export PATH="/usr/local/bin:$PATH"
 
+#Vim
+export VIMRC="~/.vim/.vimrc"
+export VIMINIT="source $VIMRC"
+
 # Nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
