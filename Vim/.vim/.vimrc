@@ -4,12 +4,14 @@ set viminfo+=n~/.vim/.viminfo
 @REM カラースキーム
 colorscheme pencil
 @REM Vim再読み込み時に外観モードを反映
-let output =  system("defaults read -g AppleInterfaceStyle")
-if v:shell_error != 0
-    set background=light
-else
-    set background=dark
-endif
+function! CAP()
+    let output =  system("defaults read -g AppleInterfaceStyle")
+    if v:shell_error != 0
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
 
 
 @REM setting
