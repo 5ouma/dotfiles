@@ -15,6 +15,8 @@ set autoread
 set hidden
 @REM 入力中のコマンドをステータスに表示する
 set showcmd
+@REM Beep音オフ
+set belloff=all
 
 
 @REM 見た目系
