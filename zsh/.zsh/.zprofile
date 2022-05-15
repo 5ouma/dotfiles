@@ -120,6 +120,7 @@ alias v="vim"
 
 # System
 alias ka="killall"
+alias ls="ls -a"
 
 # Notion内のメモ表示
 alias memo-commitChange="echo \"1. \e[31;1mgit\e[m rebase -i HEAD~n
