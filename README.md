@@ -52,6 +52,8 @@ brew tap beeftornado/rmtree
 
 </details>
 
+<br>
+
 <details><summary><a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a></summary>
 
 ```shell
@@ -60,6 +62,8 @@ brew install zsh-syntax-highlighting
 
 </details>
 
+<br>
+
 <details><summary><a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a></summary>
 
 ```shell
@@ -67,6 +71,8 @@ brew install zsh-autosuggestions
 ```
 
 </details>
+
+<br>
 
 <details><summary><a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
@@ -78,6 +84,8 @@ brew install zsh-completions
 
 </details>
 
+<br>
+
 <details><summary><a href="https://fig.io"><b>Fig</b></a>
 
 ([Fig on GitHub](https://github.com/withfig))</summary>
@@ -87,6 +95,8 @@ brew install fig
 ```
 
 </details>
+
+<br>
 
 <details><summary>tree</summary>
 
@@ -144,6 +154,48 @@ brew install tree
 -   Go to the beginning word when searching for is end
 -   Highlight searched words
 -   Endhighlight by typing the ESC key several times
+
+## Plugins
+
+<details><summary><a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a></summary>
+
+```shell
+git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gitgutter
+```
+
+</details>
+
+<br>
+
+<details><summary><a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a></summary>
+
+```shell
+git clone git@github.com:tpope/vim-commentary.git ~/.vim/pack/tpope/start/vim-commentary
+```
+
+</details>
+
+<br>
+
+<details><summary><a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a></summary>
+
+```shell
+git clone git@github.com:tpope/vim-fugitive.git ~/.vim/pack/tpope/start/vim-fugitive
+```
+
+</details>
+
+<br>
+
+<details><summary><a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a></summary>
+
+```shell
+git clone git@github.com:preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+```
+
+</details>
+
+<br>
 
 # Git
 

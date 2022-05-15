@@ -77,3 +77,15 @@ set wrapscan
 set hlsearch
 @REM ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+@REM プラグイン
+@REM vim-gitgutter
+@REM 起動時に行ハイライトを有効
+let g:gitgutter_highlight_lines = 1
+@REM タイピング停止時から反映させるまでの時間
+set updatetime=10
+@REM 記号の色を変更
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=blue
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=red
