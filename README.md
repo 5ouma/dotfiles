@@ -160,7 +160,8 @@ brew install tree
 <details><summary><a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a></summary>
 
 ```shell
-git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gitgutter
+git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gitgutter
+vim -u NONE -c "helptags vim-gitgutter/doc" -c q
 ```
 
 </details>
@@ -170,7 +171,8 @@ git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/v
 <details><summary><a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a></summary>
 
 ```shell
-git clone git@github.com:tpope/vim-commentary.git ~/.vim/pack/tpope/start/vim-commentary
+git clone https://github.com/tpope/vim-commentary.git ~/.vim/pack/tpope/start/commentary
+vim -u NONE -c "helptags commentary/doc" -c q
 ```
 
 </details>
@@ -180,7 +182,8 @@ git clone git@github.com:tpope/vim-commentary.git ~/.vim/pack/tpope/start/vim-co
 <details><summary><a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a></summary>
 
 ```shell
-git clone git@github.com:tpope/vim-fugitive.git ~/.vim/pack/tpope/start/vim-fugitive
+git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/tpope/start/fugitive
+vim -u NONE -c "helptags fugitive/doc" -c q
 ```
 
 </details>
@@ -190,7 +193,8 @@ git clone git@github.com:tpope/vim-fugitive.git ~/.vim/pack/tpope/start/vim-fugi
 <details><summary><a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a></summary>
 
 ```shell
-git clone git@github.com:preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 ```
 
 </details>
