@@ -14,7 +14,7 @@ function! CAP()
 endfunction
 
 
-@REM setting
+@REM General
 @REM 文字コードをUFT-8に設定
 set fenc=utf-8
 @REM バックアップファイルを作らない

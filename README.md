@@ -1,6 +1,8 @@
-# Theme
+# zsh
 
-<details><summary><a href="https://github.com/romkatv/powerlevel10k">Powerlevel10k</a> and edit color.</summary>
+## Theme
+
+<details><summary><a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.</summary>
 
 ```shell
 brew install romkatv/powerlevel10k/powerlevel10k
@@ -9,33 +11,40 @@ brew install romkatv/powerlevel10k/powerlevel10k
 
 </details>
 
-# Preview
+<br>
+
+## Preview
 
 | Preview 1                                    | Preview 2                                    |
 | -------------------------------------------- | -------------------------------------------- |
 | ![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png) |
 
-# Settings
+<br>
+
+## Settings
 
 -   Using Japanese
--   Be able to show files named in Japanese
+-   Being able to show files named in Japanese
 -   Moving directory without `cd` command
--   Spell check
+-   Turn on spell check
 -   Search history started with the input character
 -   Display kind of files when complemented
--   Be able to move with cursor when complemented
+-   Being able to move with the cursor when complemented
 -   Press `Shift+Tab` to go reverse over
 -   Number of cases to save history at memory and history file
 -   Share history data between launched zsh
 -   Delete unnecessary spaces when history is saved
 -   If input commands have already been saved in history, delete them from the older one
 -   Coloring when `ls` command
+-   Being able to do command line stacking
 
-Separate by roll with .zshrc, .zshenv, .zprofile seeing [this site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
+Separate by roll with .zshenv, .zprofile and .zshrc seeing [this](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456) site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
 
-# Plugins
+<br>
 
-<details><summary><a href="https://github.com/beeftornado/homebrew-rmtree">rmtree</a></summary>
+## Plugins
+
+<details><summary><a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a></summary>
 
 ```shell
 brew tap beeftornado/rmtree
@@ -43,7 +52,7 @@ brew tap beeftornado/rmtree
 
 </details>
 
-<details><summary><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></summary>
+<details><summary><a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a></summary>
 
 ```shell
 brew install zsh-syntax-highlighting
@@ -51,7 +60,7 @@ brew install zsh-syntax-highlighting
 
 </details>
 
-<details><summary><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></summary>
+<details><summary><a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a></summary>
 
 ```shell
 brew install zsh-autosuggestions
@@ -59,7 +68,7 @@ brew install zsh-autosuggestions
 
 </details>
 
-<details><summary><a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>
+<details><summary><a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
 (To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))</summary>
 
@@ -69,7 +78,7 @@ brew install zsh-completions
 
 </details>
 
-<details><summary><a href="https://fig.io">Fig</a>
+<details><summary><a href="https://fig.io"><b>Fig</b></a>
 
 ([Fig on GitHub](https://github.com/withfig))</summary>
 
@@ -87,9 +96,66 @@ brew install tree
 
 </details>
 
-# Git Settings
+<br>
+
+# Vim
+
+## Color Scheme
+
+<a href="https://github.com/preservim/vim-colors-pencil"><b>vim-colors-pencil</b></a> and edit colors.
+
+<br>
+
+## Settings
+
+### General
+
+-   Set the place of .vimrc and .viminfo
+-   Set the text code to UTF-8
+-   Not to create backup and swap files
+-   Auto reload file editing when it's changed
+-   Being able to open the file even buffer is editing
+-   Show typing command to status
+-   Turn off the beep sound
+
+### Appearance
+
+-   Show line number
+-   Highlight the cursor line
+-   Being able to move one more character after the end of lines
+-   Change indent as smart indent
+-   Highlight corresponding brackets
+-   Always show the status line
+-   Complement on the command line
+-   Being able to move by showed line when the lines are folded
+-   Turn on syntax highlight
+
+### Tabs
+
+-   Visible the invisible words
+-   Change tab to spaces
+-   Set tab to double space
+
+### Search
+
+-   If the searched sentences are lower case, search across all words
+-   If it is contained in upper case, search only that ones
+-   Hit when typing searching sentences
+-   Go to the beginning word when searching for is end
+-   Highlight searched words
+-   Endhighlight by typing the ESC key several times
+
+# Git
 
 -   Ignore `.DS_Store` file to make `.gitignore_global` file and run
     ```shell
     git config --global core.excludesfile ~/.gitignore_global
     ```
+
+<br>
+
+# Homebrew
+
+## Settings
+
+-   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly

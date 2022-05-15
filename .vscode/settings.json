@@ -8,6 +8,9 @@
         "oneline",
         "Powerlevel",
         "rmtree",
-        "romkatv"
+        "romkatv",
+        "untap",
+        "viminfo",
+        "vimrc"
     ]
 }
