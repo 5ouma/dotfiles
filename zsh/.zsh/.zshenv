@@ -1,8 +1,9 @@
 #============================================================[ Paths ]============================================================#
 
+# Homebrew
 export PATH="/usr/local/bin:$PATH"
 
-#Vim
+# Vim
 export VIMRC="~/.vim/.vimrc"
 export VIMINIT="source $VIMRC"
 

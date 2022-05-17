@@ -56,21 +56,21 @@ brew(){
   if [ $? = 0 ]; then
     for arg in "$@"; do
       if [ -e /Applications/RealTimeSync.app ] && [ $arg = "freefilesync" ]; then
-        echo -e "\e[34;1m==>\e[m \e[1mRemoving files:\e[m
+        echo "\033[34;1m==>\033[m \033[1mRemoving files:\033[m
 /Applications/RealTimeSync.app"
         sudo rm -r /Applications/RealTimeSync.app
       fi
       if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ] || [ $arg = "untap" ]; then
-        echo -e "\e[32;1m==>\e[m \e[1mCreating Brewfile\e[m"
+        echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
         brew bundle dump -f
         # Xcodeをインストールしないようにする
         sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
         # dotfiles/Setupディレクトリ内なら実行しない
         if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "$dotfiles/Setup" ]]; then
-          echo -e "\e[34;1m==>\e[m \e[1mMoving Brewfile to '$dotfiles/Setup'\e[m"
+          echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
           mv -f Brewfile $dotfiles/Setup
         fi
-        echo -e "🍺  Brewfile was successfully generated!"
+        echo "🍺  Brewfile was successfully generated!"
       fi
     done
   fi
@@ -97,17 +97,23 @@ alias ms="mas search"
 alias ml="mas list"
 
 al() {
-  echo "\e[34;1m==>\e[m \e[1mFormulae & Casks\e[m"
   indent="  "
-  brew list --version |
+  echo "\033[34;1m==>\033[m \033[1mFormulae\033[m"
+  brew list --formulae --version |
     while IFS= read -r line; do
-      echo -e "$indent$line"
+      echo "$indent$line"
     done
-  echo "\e[1m---------------------------------------------------------\e[m"
-  echo "\e[34;1m==>\e[m \e[1mmas\e[m"
+
+  echo "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
+  brew list --cask --version |
+    while IFS= read -r line; do
+      echo "$indent$line"
+    done
+
+  echo "\n\033[34;1m==>\033[m \033[1mmas\033[m"
   mas list |
     while IFS= read -r line; do
-        echo -e "$indent$line"
+        echo "$indent$line"
     done
 }
 
@@ -123,27 +129,27 @@ alias ka="killall"
 alias ls="ls -a"
 
 # Notion内のメモ表示
-alias memo-commitChange="echo \"1. \e[31;1mgit\e[m rebase -i HEAD~n
-2. \e[31;1mpick\e[m を \e[31;1medit\e[m もしくは \e[31;1mreword\e[m  に書き換える
-3. \e[31;1mgit commit --amend\e[m で変更
-   (\e[31;1mgit\e[m rebase --edit-todo で指定し直し)
-4. \e[31;1mgit\e[m rebase --continue
-5. \e[31;1mgit\e[m push --force origin main
+alias memo-commitChange="echo \"1. \033[31;1mgit\033[m rebase -i HEAD~n
+2. \033[31;1mpick\033[m を \033[31;1medit\033[m もしくは \033[31;1mreword\033[m  に書き換える
+3. \033[31;1mgit commit --amend\033[m で変更
+   (\033[31;1mgit\033[m rebase --edit-todo で指定し直し)
+4. \033[31;1mgit\033[m rebase --continue
+5. \033[31;1mgit\033[m push --force origin main
 \""
 alias notion-commitChange="open notion://www.notion.so/soumas-note/GitHub-774dca1e18844e31b7aa47deaefa67a7"
 
 alias notion-gitCommand="open notion://www.notion.so/soumas-note/Git-c190039953a846d08f20554345103a6b"
 
-alias memo-commitMessage="echo -e \"・\e[34;1mfix\e[m    ：バグ修正
-・\e[34;1mhotfix\e[m ：クリティカルなバグ修正
-・\e[34;1madd\e[m    ：新規(ファイル)機能追加
-・\e[34;1mupdate\e[m ：機能修正(バグではない)
-・\e[34;1mchange\e[m ：仕様変更
-・\e[34;1mclean\e[m  ：整理(リファクタリング等)
-・\e[34;1mdisable\e[m：無効化(コメントアウト等)
-・\e[34;1mremove\e[m ：削除(ファイル)
-・\e[34;1mupgrade\e[m：バージョンアップ
-・\e[34;1mrevert\e[m ：変更取り消し\""
+alias memo-commitMessage="echo \"・\033[34;1mfix\033[m    ：バグ修正
+・\033[34;1mhotfix\033[m ：クリティカルなバグ修正
+・\033[34;1madd\033[m    ：新規(ファイル)機能追加
+・\033[34;1mupdate\033[m ：機能修正(バグではない)
+・\033[34;1mchange\033[m ：仕様変更
+・\033[34;1mclean\033[m  ：整理(リファクタリング等)
+・\033[34;1mdisable\033[m：無効化(コメントアウト等)
+・\033[34;1mremove\033[m ：削除(ファイル)
+・\033[34;1mupgrade\033[m：バージョンアップ
+・\033[34;1mrevert\033[m ：変更取り消し\""
 alias notion-commitMessage="open notion://www.notion.so/soumas-note/Git-aeb85626154243048e7c3337d42b7989"
 
 #============================================================[ Paths ]============================================================#
