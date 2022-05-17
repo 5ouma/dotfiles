@@ -66,7 +66,7 @@ brew(){
         # Xcodeをインストールしないようにする
         sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
         # dotfiles/Setupディレクトリ内なら実行しない
-        if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "$dotfiles/Setup" ]]; then
+        if [[ $(echo `pwd`) != "$dotfiles/Setup" ]]; then
           echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
           mv -f Brewfile $dotfiles/Setup
         fi
@@ -83,7 +83,7 @@ make(){
     # Xcodeをインストールしないようにする
     sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
     # dotfiles/Setupディレクトリ内なら実行しない
-    if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "$dotfiles/Setup" ]]; then
+    if [[ $(echo `pwd`) != "$dotfiles/Setup" ]]; then
       echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
       mv -f Brewfile $dotfiles/Setup
     fi
