@@ -56,8 +56,8 @@ brew(){
   if [ $? = 0 ]; then
     for arg in "$@"; do
       if [ -e /Applications/RealTimeSync.app ] && [ $arg = "freefilesync" ]; then
-        echo "\033[34;1m==>\033[m \033[1mRemoving files:\033[m
-/Applications/RealTimeSync.app"
+        echo "\033[34;1m==>\033[m \033[1mRemoving files:\033[m"
+        echo "/Applications/RealTimeSync.app"
         sudo rm -r /Applications/RealTimeSync.app
       fi
       if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ] || [ $arg = "untap" ]; then
@@ -75,6 +75,22 @@ brew(){
     done
   fi
 }
+
+make(){
+  if [ $1 = "Brewfile" ]; then
+    echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
+    brew bundle dump -f
+    # Xcodeをインストールしないようにする
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
+    # dotfiles/Setupディレクトリ内なら実行しない
+    if [[ $(echo `pwd` | sed -e "s/\/Users\/souma/~/g") != "$dotfiles/Setup" ]]; then
+      echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
+      mv -f Brewfile $dotfiles/Setup
+    fi
+    echo "🍺  Brewfile was successfully generated!"
+  fi
+}
+
 alias bi="brew install"
 alias bri="brew reinstall"
 alias bun="brew uninstall"
@@ -156,8 +172,9 @@ memo() {
         "force" )
           case $3 in
             "pull" )
-              echo "  \033[32mgit\033[m reset --hard origin/master"
-              echo -n "git reset --hard origin/master" | pbcopy
+              echo "  \033[32mgit\033[m fetch origin"
+              echo "  \033[32mgit\033[m reset --hard origin/main"
+              echo -n "git fetch origin && git reset --hard origin/main" | pbcopy
               ;;
             * ) echo "\033[31mError:\033[m Unknown command $3";;
           esac
