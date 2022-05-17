@@ -128,29 +128,73 @@ alias v="vim"
 alias ka="killall"
 alias ls="ls -a"
 
-# Notion内のメモ表示
-alias memo-commitChange="echo \"1. \033[31;1mgit\033[m rebase -i HEAD~n
-2. \033[31;1mpick\033[m を \033[31;1medit\033[m もしくは \033[31;1mreword\033[m  に書き換える
-3. \033[31;1mgit commit --amend\033[m で変更
-   (\033[31;1mgit\033[m rebase --edit-todo で指定し直し)
-4. \033[31;1mgit\033[m rebase --continue
-5. \033[31;1mgit\033[m push --force origin main
-\""
-alias notion-commitChange="open notion://www.notion.so/soumas-note/GitHub-774dca1e18844e31b7aa47deaefa67a7"
+# メモを表示
+memo() {
+  case $1 in
+    "git" )
+      case $2 in
+        "change" )
+          echo "1. \033[31;1mgit\033[m rebase -i HEAD~n"
+          echo "2. \033[31;1mpick\033[m を \033[31;1medit\033[m もしくは \033[31;1mreword\033[m に書き換える"
+          echo "3. \033[31;1mgit commit --amend\033[m で変更"
+          echo "   (\033[31;1mgit\033[m rebase --edit-todo で指定し直し)"
+          echo "4. \033[31;1mgit\033[m rebase --continue"
+          echo "5. \033[31;1mgit\033[m push --force origin main"
+          ;;
+        "message" )
+          echo "・\033[34;1mfix\033[m    ：バグ修正"
+          echo "・\033[34;1mhotfix\033[m ：クリティカルなバグ修正"
+          echo "・\033[34;1madd\033[m    ：新規(ファイル)機能追加"
+          echo "・\033[34;1mupdate\033[m ：機能修正(バグではない)"
+          echo "・\033[34;1mchange\033[m ：仕様変更"
+          echo "・\033[34;1mclean\033[m  ：整理(リファクタリング等)"
+          echo "・\033[34;1mdisable\033[m：無効化(コメントアウト等)"
+          echo "・\033[34;1mremove\033[m ：削除(ファイル)"
+          echo "・\033[34;1mupgrade\033[m：バージョンアップ"
+          echo "・\033[34;1mrevert\033[m ：変更取り消し"
+          ;;
+        "force" )
+          case $3 in
+            "pull" )
+              echo "  \033[32mgit\033[m reset --hard origin/master"
+              echo -n "git reset --hard origin/master" | pbcopy
+              ;;
+            * ) echo "\033[31mError:\033[m Unknown command $3";;
+          esac
+        ;;
+        "cancel" )
+          case $3 in
+            "add" )
+              echo "  \033[32mgit\033[m reset HEAD (ファイル名)"
+              echo -n "git reset HEAD" | pbcopy
+              ;;
+            "commit" )
+              echo "  \033[32mgit\033[m reset --soft HEAD^"
+              echo -n "git reset --soft HEAD^" | pbcopy
+              ;;
+            * ) echo "\033[31mError:\033[m Unknown command $3";;
+          esac
+        ;;
+        * ) echo "\033[31mError:\033[m Unknown command $2";;
+      esac
+    ;;
+    * ) echo "\033[31mError:\033[m Unknown command $1";;
+  esac
+}
 
-alias notion-gitCommand="open notion://www.notion.so/soumas-note/Git-c190039953a846d08f20554345103a6b"
-
-alias memo-commitMessage="echo \"・\033[34;1mfix\033[m    ：バグ修正
-・\033[34;1mhotfix\033[m ：クリティカルなバグ修正
-・\033[34;1madd\033[m    ：新規(ファイル)機能追加
-・\033[34;1mupdate\033[m ：機能修正(バグではない)
-・\033[34;1mchange\033[m ：仕様変更
-・\033[34;1mclean\033[m  ：整理(リファクタリング等)
-・\033[34;1mdisable\033[m：無効化(コメントアウト等)
-・\033[34;1mremove\033[m ：削除(ファイル)
-・\033[34;1mupgrade\033[m：バージョンアップ
-・\033[34;1mrevert\033[m ：変更取り消し\""
-alias notion-commitMessage="open notion://www.notion.so/soumas-note/Git-aeb85626154243048e7c3337d42b7989"
+notion() {
+  case $1 in
+    "git" )
+      case $2 in
+        "list" )
+          open "notion://soumas-note/Git-c190039953a846d08f20554345103a6b"
+          ;;
+        * ) echo "\033[31mError:\033[m Unknown command $2";;
+      esac
+    ;;
+    * ) echo "\033[31mError:\033[m Unknown command $1";;
+  esac
+}
 
 #============================================================[ Paths ]============================================================#
 
