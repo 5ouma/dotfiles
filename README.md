@@ -1,15 +1,22 @@
+# Install
+
+Run git clone and setup.sh, then you will be able to set up by operation.
+
+```shell
+git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
+source ~/.dotfiles/Setup/setup.sh
+```
+
 # zsh
 
 ## Theme
 
-<details><summary><a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.</summary>
+<a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
 ```shell
 brew install romkatv/powerlevel10k/powerlevel10k
 # echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.dots/zsh/.zshrc
 ```
-
-</details>
 
 <br>
 
@@ -44,67 +51,55 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this](https://kitaki
 
 ## Plugins
 
-<details><summary><a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a></summary>
+<a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
 
 ```shell
 brew tap beeftornado/rmtree
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a></summary>
+<a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
 ```shell
 brew install zsh-syntax-highlighting
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a></summary>
+<a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
 ```shell
 brew install zsh-autosuggestions
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
+<a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
-(To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))</summary>
+(To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
 
 ```shell
 brew install zsh-completions
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://fig.io"><b>Fig</b></a>
+<a href="https://fig.io"><b>Fig</b></a>
 
-([Fig on GitHub](https://github.com/withfig))</summary>
+([Fig on GitHub](https://github.com/withfig))
 
 ```shell
 brew install fig
 ```
 
-</details>
-
 <br>
 
-<details><summary>tree</summary>
+tree
 
 ```shell
 brew install tree
 ```
-
-</details>
 
 <br>
 
@@ -157,47 +152,39 @@ brew install tree
 
 ## Plugins
 
-<details><summary><a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a></summary>
+<a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
 ```shell
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gitgutter
 vim -u NONE -c "helptags vim-gitgutter/doc" -c q
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a></summary>
+<a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a>
 
 ```shell
 git clone https://github.com/tpope/vim-commentary.git ~/.vim/pack/tpope/start/commentary
 vim -u NONE -c "helptags commentary/doc" -c q
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a></summary>
+<a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
 
 ```shell
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/tpope/start/fugitive
 vim -u NONE -c "helptags fugitive/doc" -c q
 ```
 
-</details>
-
 <br>
 
-<details><summary><a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a></summary>
+<a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
 ```shell
 git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
 vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 ```
-
-</details>
 
 <br>
 
