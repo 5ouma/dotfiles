@@ -37,12 +37,11 @@ brew doctor
 
     waitInput "Make symbolic links of terminal files."
 
-ln -s $dotfiles/zsh/.zshenv ~/.zshenv
-ln -s $dotfiles/zsh/.zsh ~/.zsh
-ln -s $dotfiles/Vim/.vim ~/.vim
+ln -s $dotfiles/zsh/.* ~
+ln -s $dotfiles/Vim/.* ~
 touch ~/.hushlogin
-ln -s $dotfiles/Git/.gitconfig ~/.gitconfig
-ln -s $dotfiles/Git/.gitignore_global ~/.gitignore_global
+ln -s $dotfiles/Git/.gitconfig ~
+ln -s $dotfiles/Git/.gitignore_global ~
 
 mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
