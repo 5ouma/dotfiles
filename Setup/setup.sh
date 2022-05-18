@@ -61,6 +61,10 @@ done
 mkdir ~/Pictures/スクリーンショット
 defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
 
+# .DS_Store作成を抑制
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
+
 killall Dock
 
 # Set computer names
