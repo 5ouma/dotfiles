@@ -45,7 +45,7 @@ brew install romkatv/powerlevel10k/powerlevel10k
 -   Coloring when `ls` command
 -   Being able to do command line stacking
 
-Separate by roll with .zshenv, .zprofile and .zshrc seeing [this](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456) site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
+Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
 
 <br>
 
