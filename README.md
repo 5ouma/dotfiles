@@ -11,7 +11,7 @@ source ~/.dotfiles/Setup/setup.sh
 
 ## Theme
 
-<a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
+### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
 ```shell
 brew install romkatv/powerlevel10k/powerlevel10k
@@ -51,7 +51,7 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 
 ## Plugins
 
-<a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
+### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
 
 ```shell
 brew tap beeftornado/rmtree
@@ -59,7 +59,7 @@ brew tap beeftornado/rmtree
 
 <br>
 
-<a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
+### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
 ```shell
 brew install zsh-syntax-highlighting
@@ -67,7 +67,7 @@ brew install zsh-syntax-highlighting
 
 <br>
 
-<a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
+### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
 ```shell
 brew install zsh-autosuggestions
@@ -75,7 +75,7 @@ brew install zsh-autosuggestions
 
 <br>
 
-<a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
+### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
 (To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
 
@@ -85,7 +85,7 @@ brew install zsh-completions
 
 <br>
 
-<a href="https://fig.io"><b>Fig</b></a>
+### <a href="https://fig.io"><b>Fig</b></a>
 
 ([Fig on GitHub](https://github.com/withfig))
 
@@ -95,7 +95,7 @@ brew install fig
 
 <br>
 
-tree
+### <b>tree</b>
 
 ```shell
 brew install tree
@@ -107,7 +107,7 @@ brew install tree
 
 ## Color Scheme
 
-<a href="https://github.com/preservim/vim-colors-pencil"><b>vim-colors-pencil</b></a> and edit colors.
+### <a href="https://github.com/preservim/vim-colors-pencil"><b>vim-colors-pencil</b></a> and edit colors.
 
 <br>
 
@@ -152,7 +152,7 @@ brew install tree
 
 ## Plugins
 
-<a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
+### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
 ```shell
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gitgutter
@@ -161,7 +161,7 @@ vim -u NONE -c "helptags vim-gitgutter/doc" -c q
 
 <br>
 
-<a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a>
+### <a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a>
 
 ```shell
 git clone https://github.com/tpope/vim-commentary.git ~/.vim/pack/tpope/start/commentary
@@ -170,7 +170,7 @@ vim -u NONE -c "helptags commentary/doc" -c q
 
 <br>
 
-<a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
+### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
 
 ```shell
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/tpope/start/fugitive
@@ -179,7 +179,7 @@ vim -u NONE -c "helptags fugitive/doc" -c q
 
 <br>
 
-<a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
+### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
 ```shell
 git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
