@@ -49,6 +49,9 @@ read -q && ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config || ln -s $dot
 
 cp $dotfiles/Setup/Fonts/* ~/Library/Fonts
 
+chmod 744 ~/.dotfiles/Commands/memo/memo
+chmod 744 ~/.dotfiles/Commands/notion/notion
+
 #===================================================================================== System write =====================================================================================#
 
 # Make spaces on Dock and resize Launchpad
