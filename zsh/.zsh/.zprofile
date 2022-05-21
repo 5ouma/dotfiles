@@ -5,10 +5,6 @@ export dotfiles=${HOME}/.dotfiles
 
 #============================================================[ Aliases ]============================================================#
 
-# tree
-alias tree-default="tree"
-alias tree="tree -a -L 2 -h --si -F -A -C"
-
 # git
 alias gin="git init"
 alias gck="git checkout"
@@ -140,9 +136,12 @@ alias fg="fig source"
 # Vim
 alias v="vim"
 
+# lsd
+alias ls="lsd -a"
+alias tree="lsd -a --tree --depth 3"
+
 # System
 alias ka="killall"
-alias ls="ls -a"
 
 # メモを表示
 alias mgc="memo git change"

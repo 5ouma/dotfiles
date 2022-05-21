@@ -95,10 +95,10 @@ brew install fig
 
 <br>
 
-### <b>tree</b>
+### <b>lsd</b>
 
 ```shell
-brew install tree
+brew install lsd
 ```
 
 <br>
