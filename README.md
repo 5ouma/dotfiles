@@ -95,7 +95,7 @@ brew install fig
 
 <br>
 
-### <b>ccat</b>
+### <a href="https://github.com/owenthereal/ccat"><b>ccat</b></a>
 
 ```shell
 brew install ccat
@@ -103,7 +103,7 @@ brew install ccat
 
 <br>
 
-### <b>glow</b>
+### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
 
 ```shell
 brew install glow
@@ -111,7 +111,7 @@ brew install glow
 
 <br>
 
-### <b>lsd</b>
+### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
 
 ```shell
 brew install lsd
