@@ -95,6 +95,14 @@ brew install fig
 
 <br>
 
+### <b>glow</b>
+
+```shell
+brew install glow
+```
+
+<br>
+
 ### <b>lsd</b>
 
 ```shell

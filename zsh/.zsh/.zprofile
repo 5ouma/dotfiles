@@ -140,6 +140,9 @@ alias v="vim"
 alias ls="lsd -a"
 alias tree="lsd -a --tree --depth 3"
 
+# Glow
+alias glow="glow -p"
+
 # System
 alias ka="killall"
 
