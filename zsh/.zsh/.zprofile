@@ -140,6 +140,9 @@ alias v="vim"
 alias ls="lsd -a"
 alias tree="lsd -a --tree --depth 3"
 
+# ccat
+alias cat="ccat"
+
 # Glow
 alias glow="glow -p"
 

@@ -95,6 +95,14 @@ brew install fig
 
 <br>
 
+### <b>ccat</b>
+
+```shell
+brew install ccat
+```
+
+<br>
+
 ### <b>glow</b>
 
 ```shell
