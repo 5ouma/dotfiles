@@ -97,26 +97,26 @@ make(){
   fi
 }
 
+alias bbd="brew bundle dump"
+alias bcl="brew cleanup"
+alias bd="brew doctor"
 alias bi="brew install"
-alias bri="brew reinstall"
-alias bun="brew uninstall"
-alias br="brew rmtree"
-alias bt="brew tap"
-alias but="brew untap"
-alias bup="brew update && brew upgrade"
-alias bs="brew search"
 alias bif="brew info"
 alias bl="brew list"
+alias br="brew rmtree"
+alias bri="brew reinstall"
+alias bs="brew search"
+alias bt="brew tap"
+alias bun="brew uninstall"
+alias bup="brew update && brew upgrade"
+alias but="brew untap"
 alias bv="brew -v"
-alias bd="brew doctor"
-alias bcl="brew cleanup"
-alias bbd="brew bundle dump"
 
 alias mi="mas install"
+alias ml="mas list"
+alias ms="mas search"
 alias mum="mas uninstall"
 alias mup="mas upgrade"
-alias ms="mas search"
-alias ml="mas list"
 
 al() {
   indent="  "
@@ -139,22 +139,25 @@ al() {
     done
 }
 
+# ccat
+alias cat="ccat"
+
+# doctors
+alias doctor="brew doctor && fig doctor"
+
 # Fig
 alias fd="fig doctor"
 alias fg="fig source"
 
-# Vim
-alias v="vim"
+# Glow
+alias glow="glow -p"
 
 # lsd
 alias ls="lsd -a"
 alias tree="lsd -a --tree --depth 3"
 
-# ccat
-alias cat="ccat"
-
-# Glow
-alias glow="glow -p"
+# Vim
+alias v="vim"
 
 # System
 alias ka="killall"
