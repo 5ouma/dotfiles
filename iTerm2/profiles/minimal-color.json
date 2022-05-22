@@ -47,7 +47,7 @@
         "class" : "iTermStatusBarClockComponent",
         "configuration" : {
           "knobs" : {
-            "format" : "M\/dd H:mm:ss",
+            "format" : "MMM dd, E | H:mm:ss",
             "base: priority" : 5,
             "maxwidth" : 1.7976931348623157e+308,
             "minwidth" : "0",
@@ -60,11 +60,11 @@
               "Alpha Component" : 1,
               "Green Component" : 0.26310542225837708
             },
-            "localize" : 1
+            "localize" : 0
           },
           "layout advanced configuration dictionary value" : {
             "remove empty components" : false,
-            "auto-rainbow style" : 0,
+            "auto-rainbow style" : 3,
             "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
@@ -76,16 +76,16 @@
           "knobs" : {
             "base: priority" : 5,
             "shared text color" : {
-              "Red Component" : 0.42678910493850708,
+              "Red Component" : 0.34280186891555786,
               "Color Space" : "P3",
-              "Blue Component" : 0.28106111288070679,
+              "Blue Component" : 0.27850350737571716,
               "Alpha Component" : 1,
-              "Green Component" : 0.49727630615234375
+              "Green Component" : 0.49480390548706055
             }
           },
           "layout advanced configuration dictionary value" : {
             "remove empty components" : false,
-            "auto-rainbow style" : 0,
+            "auto-rainbow style" : 3,
             "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
@@ -97,16 +97,16 @@
           "knobs" : {
             "base: priority" : 5,
             "shared text color" : {
-              "Red Component" : 0.31305325031280518,
+              "Red Component" : 0.26862668991088867,
               "Color Space" : "P3",
-              "Blue Component" : 0.43556159734725952,
+              "Blue Component" : 0.487507164478302,
               "Alpha Component" : 1,
-              "Green Component" : 0.49407672882080078
+              "Green Component" : 0.33743405342102051
             }
           },
           "layout advanced configuration dictionary value" : {
             "remove empty components" : false,
-            "auto-rainbow style" : 0,
+            "auto-rainbow style" : 3,
             "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
@@ -118,38 +118,16 @@
           "knobs" : {
             "base: priority" : 5,
             "shared text color" : {
-              "Red Component" : 0.26972335577011108,
-              "Color Space" : "P3",
-              "Blue Component" : 0.48415011167526245,
-              "Alpha Component" : 1,
-              "Green Component" : 0.25079923868179321
-            }
-          },
-          "layout advanced configuration dictionary value" : {
-            "remove empty components" : false,
-            "auto-rainbow style" : 0,
-            "font" : ".AppleSystemUIFont 12",
-            "algorithm" : 0
-          }
-        }
-      },
-      {
-        "class" : "iTermStatusBarSearchFieldComponent",
-        "configuration" : {
-          "knobs" : {
-            "base: priority" : 5,
-            "shared text color" : {
               "Red Component" : 0.46738946437835693,
               "Color Space" : "P3",
               "Blue Component" : 0.37956726551055908,
               "Alpha Component" : 1,
               "Green Component" : 0.26310035586357117
-            },
-            "base: compression resistance" : 1
+            }
           },
           "layout advanced configuration dictionary value" : {
             "remove empty components" : false,
-            "auto-rainbow style" : 0,
+            "auto-rainbow style" : 3,
             "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
@@ -158,7 +136,7 @@
     ],
     "advanced configuration" : {
       "remove empty components" : false,
-      "auto-rainbow style" : 0,
+      "auto-rainbow style" : 3,
       "font" : ".AppleSystemUIFont 12",
       "algorithm" : 0
     }
@@ -259,6 +237,7 @@
     "Red Component" : 0,
     "Blue Component" : 0
   },
+  "Show Mark Indicators" : false,
   "Ansi 10 Color (Dark)" : {
     "Red Component" : 0.40392156862745099,
     "Color Space" : "P3",
@@ -271,7 +250,7 @@
     "Red Component" : 0.3333333432674408,
     "Blue Component" : 0.3333333432674408
   },
-  "Vertical Spacing" : 1,
+  "Vertical Spacing" : 1.2,
   "Use Tab Color (Light)" : false,
   "Cursor Type" : 1,
   "Columns" : 80,
@@ -434,7 +413,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.77254901960784317
   },
-  "Use Bright Bold (Light)" : true,
+  "Use Bright Bold (Light)" : false,
   "Blink Allowed" : false,
   "Cursor Color (Light)" : {
     "Red Component" : 0.14117647058823529,
@@ -472,7 +451,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.97254901960784312
   },
-  "Normal Font" : "FiraCodeRoman-SemiBold 15",
+  "Normal Font" : "FiraCodeRoman-SemiBold 18",
   "Has Hotkey" : true,
   "Foreground Color" : {
     "Green Component" : 0.73333334922790527,
@@ -513,8 +492,8 @@
     "Green Component" : 0.92044311761856079
   },
   "Flashing Bell" : false,
-  "Brighten Bold Text (Light)" : true,
-  "Non Ascii Font" : "HackGen35NerdConsole-Bold 15",
+  "Brighten Bold Text (Light)" : false,
+  "Non Ascii Font" : "HackGen35NerdConsole-Bold 18",
   "Ansi 7 Color (Dark)" : {
     "Red Component" : 0.7803921568627451,
     "Color Space" : "P3",
