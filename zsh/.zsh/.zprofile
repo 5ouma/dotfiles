@@ -34,6 +34,8 @@ alias grs="git restore"
 alias grv="git remote -v"
 alias gs="git status"
 alias gsm="git submodule"
+alias gsw="git switch"
+alias gswb="git switch -b"
 grp() {
   echo -n "Are you sure to run? (y/n): "
   read -q && echo "" || {echo "" && exec $SHELL}
