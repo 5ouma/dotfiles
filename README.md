@@ -119,6 +119,14 @@ brew install lsd
 
 <br>
 
+### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
+
+```shell
+brew install tokei
+```
+
+<br>
+
 # Vim
 
 ## Color Scheme

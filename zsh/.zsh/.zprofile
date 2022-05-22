@@ -159,6 +159,9 @@ alias glow="glow -p"
 alias ls="lsd -a"
 alias tree="lsd -a --tree --depth 3"
 
+# tokei
+alias tokei="tokei -f"
+
 # Vim
 alias v="vim"
 
