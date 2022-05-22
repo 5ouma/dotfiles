@@ -139,6 +139,9 @@ al() {
     done
 }
 
+# VSCode
+alias c.="code ."
+
 # ccat
 alias cat="ccat"
 
