@@ -6,16 +6,34 @@ export dotfiles=${HOME}/.dotfiles
 #============================================================[ Aliases ]============================================================#
 
 # git
-alias gin="git init"
-alias gck="git checkout"
-alias grmt="git remote"
-alias gcl="git clone"
-alias grst="git restore"
-alias gd="git difftool"
 alias ga="git add"
-alias gap="git add -p"
+alias gapa="git add -p"
+alias gb="git branch"
+alias gc!="git commit -v --no-edit --amend"
+alias gc="git commit -v"
+alias gcb="git checkout -b"
+alias gcf="git config"
+alias gcl="git clone --recurse-submodules"
+alias gco="git checkout --rescurse-submodules"
+alias gd="git diff"
+alias gdt="git difftool"
+alias gin="git init"
+alias glg="git log --graph --decorate --all"
+alias gls="git ls-files"
+alias gpl="git pull origin"
+alias gps="git push origin"
+alias gr="git remote"
+alias grb="git rebase"
+alias grba="git rebase --abort"
+alias grbc="git rebase --continue"
+alias grbs="git rebase --skip"
+alias grh="git reset"
 alias grm="git rm"
-alias grs="git reset"
+alias grmc="git rm --cached"
+alias grs="git restore"
+alias grv="git remote -v"
+alias gs="git status"
+alias gsm="git submodule"
 grp() {
   echo -n "Are you sure to run? (y/n): "
   read -q && echo "" || {echo "" && exec $SHELL}
@@ -23,14 +41,6 @@ grp() {
   git reset --hard HEAD^
   git push -f $@
 }
-alias gc="git commit"
-alias gps="git push origin"
-alias grb="git rebase"
-alias gpl="git pull origin"
-alias gs="git status"
-alias gls="git ls-files"
-alias glg="git log --oneline"
-alias gcg="git config"
 
 g-5ouma() {
   git config user.name "5ouma"
