@@ -168,7 +168,7 @@ alias tokei="tokei -f"
 
 # Vim
 alias v="vim"
-alias vup="vim + Jetpack +qall"
+alias vup="vim +Jetpack +qall"
 
 # System
 alias ka="killall"
