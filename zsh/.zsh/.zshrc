@@ -32,19 +32,6 @@ zstyle ':completion:*:default' menu select=1
 # Shift-Tabで補完候補を逆順する
 bindkey "^[[Z" reverse-menu-complete
 
-## ls実行時ファイル色分け
-# 色の設定
-export LSCOLORS=Exfxcxdxbxegedabagacad
-# 補完時の色の設定
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export ZLS_COLORS=$LS_COLORS
-# lsコマンド時、自動で色がつく
-export CLICOLOR=true
-# 補完候補に色を付ける
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 # 新しくインストールされたコマンドをすぐに認識させる
 zstyle ":completion:*:commands" rehash 1
 
