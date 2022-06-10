@@ -59,7 +59,7 @@ g-Souma-S() {
 }
 
 # Homebrew
-brew(){
+brew() {
   command brew $@
   if [ $? = 0 ]; then
     for arg in "$@"; do
@@ -84,7 +84,7 @@ brew(){
   fi
 }
 
-make(){
+make() {
   if [ $1 = "Brewfile" ]; then
     echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
     brew bundle dump -f
