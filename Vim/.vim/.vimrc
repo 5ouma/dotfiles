@@ -1,9 +1,9 @@
-@REM viminfoの場所
+" viminfoの場所
 set viminfo+=n~/.vim/.viminfo
 
-@REM カラースキーム
+" カラースキーム
 colorscheme pencil
-@REM Vim再読み込み時に外観モードを反映
+" Vim再読み込み時に外観モードを反映
 function! CAP()
     let output =  system("defaults read -g AppleInterfaceStyle")
     if v:shell_error != 0
@@ -62,7 +62,7 @@ syntax enable
 set list listchars=tab:\▸\-
 " Tab文字を半角スペースにする
 set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
+" 行頭以外のTab文字の表示幅(スペースいくつ分)
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
