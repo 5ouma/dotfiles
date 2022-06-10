@@ -21,7 +21,7 @@ export LANG=ja_JP.UTF-8
 
 #============================================================[ History ]============================================================#
 
-#履歴ファイルの保存先
+# 履歴ファイルの保存先
 export HISTFILE=~/.zsh/.zsh_history
 
 # メモリに保存される履歴の件数
@@ -38,6 +38,10 @@ setopt hist_reduce_blanks
 
 # 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
 setopt hist_ignore_all_dups
+
+# Tabでの選択時黒枠を追加
+autoload -Uz compinit
+compinit -d ~/.zsh/.zcompdump
 
 # 入力した文字から始まるコマンドを履歴から検索し、上下矢印で補完
 autoload -U up-line-or-beginning-search
