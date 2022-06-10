@@ -96,6 +96,8 @@ make(){
       mv -f Brewfile $dotfiles/Setup
     fi
     echo "🍺  Brewfile was successfully generated!"
+  else
+    command make $@
   fi
 }
 
