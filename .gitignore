@@ -3,3 +3,6 @@ zsh/.zsh/.zsh_sessions/
 zsh/.zsh/.zcompdump
 zsh/.zsh/.zcompcache/
 Vim/.vim/.viminfo
+Vim/.vim/.netrwhist
+Vim/.vim/pack/
+Vim/.vim/undo/

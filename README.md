@@ -176,39 +176,96 @@ brew install tokei
 
 ## Plugins
 
+vim-jetpack, a plugin manager, is already installed in .vim/autoload, so you don't need to install it.
+But you have to run this command on vim screen.
+
+```vim
+Jetpack
+```
+
+### <a href="https://github.com/tani/vim-jetpack"><b>vim-jetpack</b></a>
+
+```shell
+curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
+```
+
+<br>
+
 ### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
-```shell
-git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gitgutter
-vim -u NONE -c "helptags vim-gitgutter/doc" -c q
-```
+Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file.
 
 <br>
 
-### <a href="https://github.com/tpope/vim-commentary"><b>fugitivecommentary.vim</b></a>
+### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
 
-```shell
-git clone https://github.com/tpope/vim-commentary.git ~/.vim/pack/tpope/start/commentary
-vim -u NONE -c "helptags commentary/doc" -c q
-```
+Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file.
 
 <br>
 
-### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
+### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
 
-```shell
-git clone https://github.com/tpope/vim-fugitive.git ~/.vim/pack/tpope/start/fugitive
-vim -u NONE -c "helptags fugitive/doc" -c q
-```
+Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file.
+
+<br>
+
+### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
+
+Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file.
+
+<br>
+
+### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
+
+Add `Jetpack 'mbbill/undotree'` to your .vimrc file.
+
+<br>
+
+### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
+
+Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file
 
 <br>
 
 ### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
-```shell
-git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
-vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
-```
+Add `Jetpack 'preservim/nerdtree'` to your .vimrc file
+
+<br>
+
+### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
+
+Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
+
+<br>
+
+### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
+
+add `jetpack 'thinca/vim-quickerun'` to your .vimrc file
+
+<br>
+
+### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
+
+Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file
+
+<br>
+
+### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
+
+Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file
+
+<br>
+
+### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
+
+Add `Jetpack 'tpope/vim-surround'` to your .vimrc file
+
+<br>
+
+### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
+
+Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 
 <br>
 

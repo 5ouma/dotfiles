@@ -14,78 +14,118 @@ function! CAP()
 endfunction
 
 
-@REM General
-@REM 文字コードをUFT-8に設定
+" setting
+" 文字コードをUFT-8に設定
 set fenc=utf-8
-@REM バックアップファイルを作らない
+" バックアップファイルを作らない
 set nobackup
-@REM スワップファイルを作らない
+" スワップファイルを作らない
 set noswapfile
-@REM 編集中のファイルが変更されたら自動で読み直す
+" 編集中のファイルが変更されたら自動で読み直す
 set autoread
-@REM バッファが編集中でもその他のファイルを開けるように
+" バッファが編集中でもその他のファイルを開けるように
 set hidden
-@REM 入力中のコマンドをステータスに表示する
+" 入力中のコマンドをステータスに表示する
 set showcmd
-@REM Beep音オフ
+" Beep音オフ
 set belloff=all
+" 永続的Undo
+if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
+endif
 
-
-@REM 見た目系
-@REM 行番号を表示
+" 見た目系
+" 行番号を表示
 set number
-@REM 現在の行を強調表示
+" 現在の行を強調表示
 set cursorline
-@REM 行末の1文字先までカーソルを移動できるように
+" 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
-@REM インデントはスマートインデント
+" インデントはスマートインデント
 set smartindent
-@REM 括弧入力時の対応する括弧を表示
+" 括弧入力時の対応する括弧を表示
 set showmatch
-@REM ステータスラインを常に表示
+" ステータスラインを常に表示
 set laststatus=2
-@REM コマンドラインの補完
+" コマンドラインの補完
 set wildmode=list:longest
-@REM 折り返し時に表示行単位での移動できるようにする
+" 折り返し時に表示行単位での移動できるようにする
 nnoremap <Down> gj
 nnoremap <Up> gk
-@REM シンタックスハイライトの有効化
+" シンタックスハイライトの有効化
 syntax enable
 
 
-@REM Tab系
-@REM 不可視文字を可視化(タブが「▸-」と表示される)
+" Tab系
+" 不可視文字を可視化(タブが「▸-」と表示される)
 set list listchars=tab:\▸\-
-@REM Tab文字を半角スペースにする
+" Tab文字を半角スペースにする
 set expandtab
-@REM 行頭以外のTab文字の表示幅（スペースいくつ分）
+" 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=2
-@REM 行頭でのTab文字の表示幅
+" 行頭でのTab文字の表示幅
 set shiftwidth=2
 
 
-@REM 検索系
-@REM 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+" 検索系
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
-@REM 検索文字列に大文字が含まれている場合は区別して検索する
+" 検索文字列に大文字が含まれている場合は区別して検索する
 set smartcase
-@REM 検索文字列入力時に順次対象文字列にヒットさせる
+" 検索文字列入力時に順次対象文字列にヒットさせる
 set incsearch
-@REM 検索時に最後まで行ったら最初に戻る
+" 検索時に最後まで行ったら最初に戻る
 set wrapscan
-@REM 検索語をハイライト表示
+" 検索語をハイライト表示
 set hlsearch
-@REM ESC連打でハイライト解除
+" ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-@REM プラグイン
-@REM vim-gitgutter
-@REM 起動時に行ハイライトを有効
+
+" エイリアス
+command Cl call ChangetoLight()
+command Cd call ChangetoDark()
+command Fw FixWhitespace
+command Nt NERDTreeToggle
+command Ut UndotreeToggle
+
+" プラグイン
+call jetpack#begin()
+Jetpack 'airblade/vim-gitgutter'
+Jetpack 'b4b4r07/vim-shellutils'
+Jetpack 'bronson/vim-trailing-whitespace'
+Jetpack 'cohama/lexima.vim'
+Jetpack 'mbbill/undotree'
+Jetpack 'phodge/vim-shell-command'
+Jetpack 'preservim/nerdtree'
+Jetpack 'reireias/vim-cheatsheet'
+Jetpack 'thinca/vim-quickrun'
+Jetpack 'tpope/vim-commentary'
+Jetpack 'tpope/vim-fugitive'
+Jetpack 'tpope/vim-surround'
+Jetpack 'vim-scripts/vim-auto-save'
+call jetpack#end()
+let g:jetpack#optimization=2
+
+" vim-gitgutter
+" 起動時に行ハイライトを有効
 let g:gitgutter_highlight_lines = 1
-@REM タイピング停止時から反映させるまでの時間
+" タイピング停止時から反映させるまでの時間
 set updatetime=10
-@REM 記号の色を変更
+" 記号の色を変更
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=blue
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=red
+
+" vim-shell-command
+let g:shell_command_use_col = 0
+
+" NERDTree
+" 隠しファイルを表示
+let NERDTreeShowHidden = 1
+
+" AutoSave
+let g:auto_save = 1
+let g:auto_save_silent = 1
