@@ -61,19 +61,8 @@ bindkey '^Q' show_buffer_stack
 
 #===========================================================[ Plugins ]===========================================================#
 
-# zsh-syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# zsh-completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit -d ~/.zsh/.zcompdump
-fi
+# Alias Tips
+ export ZSH_PLUGINS_ALIAS_TIPS_TEXT=" 💡 "
 
 #==============================================================[ Paths ]==============================================================#
 

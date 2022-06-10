@@ -51,40 +51,6 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 
 ## Plugins
 
-### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
-
-```shell
-brew tap beeftornado/rmtree
-```
-
-<br>
-
-### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
-
-```shell
-brew install zsh-syntax-highlighting
-```
-
-<br>
-
-### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
-
-```shell
-brew install zsh-autosuggestions
-```
-
-<br>
-
-### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
-
-(To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
-
-```shell
-brew install zsh-completions
-```
-
-<br>
-
 ### <a href="https://fig.io"><b>Fig</b></a>
 
 ([Fig on GitHub](https://github.com/withfig))
@@ -92,6 +58,32 @@ brew install zsh-completions
 ```shell
 brew install fig
 ```
+
+<br>
+
+### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
+
+Add with with Fig.
+
+<br>
+
+### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
+
+Add this with Fig.
+
+<br>
+
+### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
+
+(To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
+
+Add this with Fig.
+
+<br>
+
+### <a href="https://github.com/djui/alias-tips"><b>alias-tips</b></a>
+
+Add this with Fig.
 
 <br>
 
@@ -283,3 +275,13 @@ Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 ## Settings
 
 -   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly
+
+## Plugins
+
+### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
+
+```shell
+brew tap beeftornado/rmtree
+```
+
+<br>
