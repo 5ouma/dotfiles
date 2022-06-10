@@ -47,6 +47,8 @@ mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
 read -q && ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config || ln -s $dotfiles/Git/.ssh/original/config ~/.ssh/config
 
+mkdir .vim/undo
+
 cp $dotfiles/Setup/Fonts/* ~/Library/Fonts
 
 chmod 744 ~/.dotfiles/Commands/memo/memo
