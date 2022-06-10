@@ -168,9 +168,12 @@ alias tokei="tokei -f"
 
 # Vim
 alias v="vim"
+alias vup="vim + Jetpack +qall"
 
 # System
 alias ka="killall"
+alias rm="rm -v"
+alias mv="mv -i -v"
 
 # メモを表示
 alias mgc="memo git change"
