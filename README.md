@@ -80,7 +80,11 @@ Add this with Fig.
 
 ### <a href="https://github.com/djui/alias-tips"><b>alias-tips</b></a>
 
-Add this with Fig.
+<br>
+
+### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
+
+Add zsh-autopair with Fig.
 
 <br>
 
@@ -108,10 +112,26 @@ brew install lsd
 
 <br>
 
+### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
+
+```shell
+brew install trash
+```
+
+<br>
+
 ### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
 
 ```shell
 brew install tokei
+```
+
+<br>
+
+### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
+
+```shell
+brew install Ryu0118/Kusa/kusa
 ```
 
 <br>
@@ -281,4 +301,9 @@ Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 brew tap beeftornado/rmtree
 ```
 
-<br>
+### <a href="https://github.com/Homebrew/homebrew-autoupdate"><b>Homebrew Autoupdate</b></a>
+
+```shell
+brew tap homebrew/autoupdate
+brew autoupdate start
+```

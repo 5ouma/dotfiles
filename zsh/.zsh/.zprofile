@@ -163,6 +163,11 @@ alias glow="glow -p"
 alias ls="lsd -a"
 alias tree="lsd -a --tree --depth 3"
 
+# trash
+if type trash > /dev/null 2>&1; then
+    alias rm="trash -F"
+fi
+
 # tokei
 alias tokei="tokei -f"
 
@@ -172,7 +177,6 @@ alias vup="vim +Jetpack +qall"
 
 # System
 alias ka="killall"
-alias rm="rm -v"
 alias mv="mv -i -v"
 
 # メモを表示
