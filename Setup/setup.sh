@@ -92,5 +92,9 @@ open -a "App Store"
     waitEnter
 brew bundle
 
+waitInput "Please install DaVinci Resolve."
+    sleep 3
+open https://www.blackmagicdesign.com/jp/products/davinciresolve
+
 waitInput "Do you want to install Xcode?"
 mas install 497799835
