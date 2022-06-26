@@ -13,7 +13,7 @@ source ~/.dotfiles/Setup/setup.sh
 
 ### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
-Add Powerlevel10k with Fig.
+<a href="https://fig.io/plugins/other/powerlevel10k" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
 
@@ -60,13 +60,13 @@ brew install fig
 
 ### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
-Add zsh-syntax-highlighting with Fig.
+<a href="https://fig.io/plugins/color/zsh-syntax-highlighting" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
 
 ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
-Add zsh-autosuggestions with Fig.
+<a href="https://fig.io/plugins/completion/zsh-autosuggestions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
 
@@ -74,19 +74,19 @@ Add zsh-autosuggestions with Fig.
 
 (To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
 
-Add zsh-completions with Fig.
+<a href="https://fig.io/plugins/completion/zsh-completions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
 
 ### <a href="https://github.com/djui/alias-tips"><b>alias-tips</b></a>
 
-Add alias-tips with Fig.
+<a href="https://fig.io/plugins/other/alias-tips_djui" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
 
 ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
 
-Add zsh-autopair with Fig.
+<a href="https://fig.io/plugins/other/zsh-autopair_hlissner" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
 
