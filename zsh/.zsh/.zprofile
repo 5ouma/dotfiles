@@ -36,6 +36,7 @@ alias gs="git status"
 alias gsm="git submodule"
 alias gsw="git switch"
 alias gswb="git switch -b"
+
 grp() {
   echo -n "Are you sure to run? (y/n): "
   read -q && echo "" || {echo "" && exec $SHELL}
@@ -147,7 +148,9 @@ al() {
 alias c.="code ."
 
 # ccat
-alias cat="ccat"
+if type ccat > /dev/null 2>&1; then
+  alias cat="ccat"
+fi
 
 # doctors
 alias doctor="brew doctor && fig doctor"
@@ -160,8 +163,10 @@ alias fg="fig source"
 alias glow="glow -p"
 
 # lsd
-alias ls="lsd -a"
-alias tree="lsd -a --tree --depth 3"
+if type lsd > /dev/null 2>&1; then
+  alias ls="lsd -a"
+  alias tree="lsd -a --tree --depth 3"
+fi
 
 # trash
 if type trash > /dev/null 2>&1; then

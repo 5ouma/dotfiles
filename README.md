@@ -60,13 +60,13 @@ brew install fig
 
 ### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
-Add with with Fig.
+Add zsh-syntax-highlighting with Fig.
 
 <br>
 
 ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
-Add this with Fig.
+Add zsh-autosuggestions with Fig.
 
 <br>
 
@@ -74,11 +74,13 @@ Add this with Fig.
 
 (To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75))
 
-Add this with Fig.
+Add zsh-completions with Fig.
 
 <br>
 
 ### <a href="https://github.com/djui/alias-tips"><b>alias-tips</b></a>
+
+Add alias-tips with Fig.
 
 <br>
 
@@ -250,7 +252,7 @@ Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
 
 ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
-add `jetpack 'thinca/vim-quickerun'` to your .vimrc file
+add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
 
 <br>
 
