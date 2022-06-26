@@ -90,6 +90,9 @@ command Fw FixWhitespace
 command Nt NERDTreeToggle
 command Ut UndotreeToggle
 
+" キーマップ
+nnoremap r <c-r>
+
 " プラグイン
 call jetpack#begin()
 Jetpack 'airblade/vim-gitgutter'
