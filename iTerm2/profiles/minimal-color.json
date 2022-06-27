@@ -318,6 +318,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.76470588235294112
   },
+  "Title Components" : 512,
   "Ansi 9 Color (Dark)" : {
     "Red Component" : 0.99215686274509807,
     "Color Space" : "P3",
@@ -635,6 +636,12 @@
       "Version" : 2,
       "Action" : 0,
       "Text" : "",
+      "Escaping" : 2
+    },
+    "0xf728-0x80000-0x75" : {
+      "Version" : 2,
+      "Action" : 10,
+      "Text" : "d",
       "Escaping" : 2
     }
   },

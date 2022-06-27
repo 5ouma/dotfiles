@@ -38,6 +38,8 @@
 	<false/>
 	<key>FlashTabBarInFullscreen</key>
 	<false/>
+	<key>FocusFollowsMouse</key>
+	<false/>
 	<key>GlobalKeyMap</key>
 	<dict/>
 	<key>HapticFeedbackForEsc</key>
@@ -1088,6 +1090,17 @@
 					<key>Version</key>
 					<integer>2</integer>
 				</dict>
+				<key>0xf728-0x80000-0x75</key>
+				<dict>
+					<key>Action</key>
+					<integer>10</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>d</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
 			</dict>
 			<key>Left Option Key Changeable</key>
 			<false/>
@@ -1410,6 +1423,8 @@
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
 			<integer>4</integer>
+			<key>Title Components</key>
+			<integer>512</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unicode Normalization</key>
