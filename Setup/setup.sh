@@ -38,6 +38,7 @@ echoArrow "Installing Command Line Tools for Xcode."
 
 # Homebrew
 echoArrow "Installing Homebrew."
+echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
     sleep 3
   open https://brew.sh/index_ja
   waitReturn
