@@ -93,6 +93,7 @@ echoArrow "Suppress .DS_Store creation."
   defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
 
 killall Dock
+killall SystemUIServer
 
 # Set computer names
 echoArrow "Setting computer name…"
