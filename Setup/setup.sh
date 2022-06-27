@@ -23,12 +23,14 @@ echoDir() {
   done
 }
 
+export dotfiles=$HOME/.dotfiles
 
-
-#=================================================================================== Homebrew install ===================================================================================#
+#===================================================================================[ Ask and move ]==================================================================================#
 
 waitInput "Are you sure to start setup?"
 cd $dotfiles/Setup/
+
+#===================================================================================[ Homebrew install ]===================================================================================#
 
 # Command Line Tools for Xcode
 echoArrow "Installing Command Line Tools for Xcode."
@@ -46,7 +48,7 @@ echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\0
     waitReturn
   brew doctor
 
-#================================================================================ Files and directories ================================================================================#
+#================================================================================[ Files and directories ]================================================================================#
 
 waitInput "Make symlinks of terminal files."
 echoArrow "The following files and directories will be symlinked or created:"
@@ -72,7 +74,7 @@ echoArrow "Add permission to my commands."
   chmod 744 ~/.dotfiles/Commands/memo/memo
   chmod 744 ~/.dotfiles/Commands/notion/notion
 
-#===================================================================================== System write =====================================================================================#
+#=====================================================================================[ System write ]=====================================================================================#
 
 # Make spaces on Dock and resize Launchpad
 waitInput "Run changing Launchpad size, add space on Dock and change save screencapture location to new folder."
@@ -107,7 +109,7 @@ echoArrow "Setting computer name…"
   scutil --set HostName $computerName
     echo "HostName: $(scutil --get HostName $computerName)"
 
-#===================================================================================== Install apps =====================================================================================#
+#=====================================================================================[ Install apps ]=====================================================================================#
 
 waitInput "If enter \"y\", start installing Homebrew packages and apps."
   echoArrow "Opening App Store…"
