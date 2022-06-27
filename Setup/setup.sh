@@ -1,13 +1,13 @@
 #=====================================================================================[ Variables & Functions ]=====================================================================================#
 
 waitInput() {
-    echo -e -n "$1 (y/n): "
-    read -q && echo "" || {echo "" && exec $SHELL}
+  echo -e -n "$1 (y/n): "
+  read -q && echo "" || {echo "" && exec $SHELL}
 }
 
 waitEnter() {
-    echo "Plese press enter."
-    read
+  echo "Plese press enter."
+  read
 }
 
 export dotfiles=$HOME/.dotfiles
@@ -30,37 +30,37 @@ cd $dotfiles/Setup/
 
 xcode-select --install
 
-    sleep 3
+  sleep 3
 
 echo -e "Is commadnd correct?\n/bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
     sleep 3
-open https://brew.sh/index_ja
+  open https://brew.sh/index_ja
+  waitEnter
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     waitEnter
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    waitEnter
-brew doctor
+  brew doctor
 
 #================================================================================ Files and directories ================================================================================#
 
     waitInput "Make symbolic links of terminal files."
 
   echoDir zsh
-ln -s $dotfiles/zsh/.* ~
+    ln -s $dotfiles/zsh/.* ~
   echoDir Vim
-ln -s $dotfiles/Vim/.* ~
+    ln -s $dotfiles/Vim/.* ~
   echo "$HOME/.hushlogin"
-touch ~/.hushlogin
+    touch ~/.hushlogin
   echoDir Git
-ln -s $dotfiles/Git/.gitconfig ~
-ln -s $dotfiles/Git/.gitignore_global ~
+    ln -s $dotfiles/Git/.gitconfig ~
+    ln -s $dotfiles/Git/.gitignore_global ~
   echo "$HOME/.ssh"
-mkdir ~/.ssh
-echo "Do you use 1Password? (y/n): "
+    mkdir ~/.ssh
+  echo "Do you use 1Password? (y/n): "
     read -q && (ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config; echoDir "Git/.ssh/1password/config") || (ln -s $dotfiles/Git/.ssh/original/config ~/.ssh/config; echoDir "Git/.ssh/original/config")
+  echo "$HOME/.vim/undo"
+    mkdir .vim/undo
 
-mkdir .vim/undo
-
-cp $dotfiles/Setup/Fonts/* ~/Library/Fonts
+  cp $dotfiles/Setup/Fonts/* ~/Library/Fonts
 
 chmod 744 ~/.dotfiles/Commands/memo/memo
 chmod 744 ~/.dotfiles/Commands/notion/notion
@@ -68,11 +68,11 @@ chmod 744 ~/.dotfiles/Commands/notion/notion
 #===================================================================================== System write =====================================================================================#
 
 # Make spaces on Dock and resize Launchpad
-    waitInput "Run changing Launchpad size, add space on Dock and chage save screencapture location to new folder."
-defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
-for ((i=0; i<6; i++)); do
-defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
-done
+waitInput "Run changing Launchpad size, add space on Dock and change save screencapture location to new folder."
+  defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
+  for ((i=0; i<6; i++)); do
+    defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+  done
 
 mkdir ~/Pictures/スクリーンショット
 defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
@@ -97,15 +97,15 @@ echo "HostName: $(scutil --get HostName $computerName)"
 #===================================================================================== Install apps =====================================================================================#
 
 waitInput "If enter \"y\", start installing Homebrew packages and apps."
-echo "Please sigin in to App Store"
-    sleep 3
-open -a "App Store"
+  echo "Please sign in to App Store."
+      sleep 3
+    open -a "App Store"
     waitEnter
-brew bundle
+  brew bundle
 
 waitInput "Please install DaVinci Resolve."
     sleep 3
-open https://www.blackmagicdesign.com/jp/products/davinciresolve
+  open https://www.blackmagicdesign.com/jp/products/davinciresolve
 
 waitInput "Do you want to install Xcode?"
-mas install 497799835
+  mas install 497799835
