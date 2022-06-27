@@ -163,8 +163,8 @@ alias glow="glow -p"
 
 # lsd
 if type lsd > /dev/null 2>&1; then
-  alias ls="lsd -a"
-  alias tree="lsd -a --tree --depth 3"
+  alias ls="lsd -A"
+  alias tree="lsd -A --tree --depth 3"
 fi
 
 # trash
