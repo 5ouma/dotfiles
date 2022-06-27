@@ -12,7 +12,14 @@ waitEnter() {
 
 export dotfiles=$HOME/.dotfiles
 
-#========================================================================================================================================================================================#
+echoDir() {
+  for i in $(ls "$dotfiles/$1" -A); do
+    i=$(echo $i | sed -e "s/\.DS_Store/\!?\!/g")
+    if [[ $i != "\!?\!" ]]; then
+      echo "$dotfiles/$i"
+    fi
+  done
+}
 
 
 
@@ -37,15 +44,19 @@ brew doctor
 
     waitInput "Make symbolic links of terminal files."
 
+  echoDir zsh
 ln -s $dotfiles/zsh/.* ~
+  echoDir Vim
 ln -s $dotfiles/Vim/.* ~
+  echo "$HOME/.hushlogin"
 touch ~/.hushlogin
+  echoDir Git
 ln -s $dotfiles/Git/.gitconfig ~
 ln -s $dotfiles/Git/.gitignore_global ~
-
+  echo "$HOME/.ssh"
 mkdir ~/.ssh
 echo "Do you use 1Password? (y/n): "
-read -q && ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config || ln -s $dotfiles/Git/.ssh/original/config ~/.ssh/config
+    read -q && (ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config; echoDir "Git/.ssh/1password/config") || (ln -s $dotfiles/Git/.ssh/original/config ~/.ssh/config; echoDir "Git/.ssh/original/config")
 
 mkdir .vim/undo
 
