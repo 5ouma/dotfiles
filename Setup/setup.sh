@@ -5,8 +5,8 @@ waitInput() {
   read -q && echo "" || {echo "" && exec $SHELL}
 }
 
-waitEnter() {
-  echo "Plese press enter."
+waitReturn() {
+  echo "Press RETURN to continue"
   read
 }
 
@@ -40,14 +40,14 @@ echoArrow "Installing Command Line Tools for Xcode."
 echoArrow "Installing Homebrew."
     sleep 3
   open https://brew.sh/index_ja
-  waitEnter
+  waitReturn
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    waitEnter
+    waitReturn
   brew doctor
 
 #================================================================================ Files and directories ================================================================================#
 
-    waitInput "Make symbolic links of terminal files."
+waitInput "Make symlinks of terminal files."
 echoArrow "The following files and directories will be symlinked or created:"
   echoDir zsh
     ln -s $dotfiles/zsh/.* ~
@@ -112,6 +112,7 @@ waitInput "If enter \"y\", start installing Homebrew packages and apps."
     echo "Please sign in to App Store."
         sleep 3
       open -a "App Store"
+    waitReturn
   echoArrow "Installing apps with Homebrew…"
     brew bundle
 
