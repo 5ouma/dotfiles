@@ -69,7 +69,9 @@ echoArrow "The following files and directories will be symlinked or created:"
   echo "$HOME/.vim/undo"
     mkdir .vim/undo
 
-  cp $dotfiles/Setup/Fonts/* ~/Library/Fonts
+echoArrow "The following fonts will be copied:"
+  echoDir Setup/Fonts
+    cp "$dotfiles"/Setup/Fonts/* ~/Library/Fonts
 
 echoArrow "Add permission to my commands."
   chmod 744 ~/.dotfiles/Commands/memo/memo
