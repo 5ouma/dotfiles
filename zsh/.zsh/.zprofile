@@ -1,6 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && . "$HOME/.fig/shell/zprofile.pre.zsh"
-export dotfiles=${HOME}/.dotfiles
+export dotfiles="$HOME"/.dotfiles
 
 #============================================================[ Aliases ]============================================================#
 
@@ -38,10 +38,10 @@ alias gswb="git switch -b"
 
 grp() {
   echo -n "Are you sure to run? (y/n): "
-  read -q && echo "" || {echo "" && exec $SHELL}
+  read -rq && echo "" || { echo "" && exec $SHELL;}
 
   git reset --hard HEAD^
-  git push -f $@
+  git push -f "$@"
 }
 
 g-5ouma() {
@@ -60,23 +60,23 @@ g-Souma-S() {
 
 # Homebrew
 brew() {
-  command brew $@
-  if [ $? = 0 ]; then
+  command brew "$@"
+  if [[ $? = 0 ]]; then
     for arg in "$@"; do
-      if [ -e /Applications/RealTimeSync.app ] && [ $arg = "freefilesync" ]; then
+      if [[ -e /Applications/RealTimeSync.app && "$arg" = "freefilesync" ]]; then
         echo "\033[34;1m==>\033[m \033[1mRemoving files:\033[m"
         echo "/Applications/RealTimeSync.app"
-        sudo rm -r /Applications/RealTimeSync.app
+        sudo sh -c "rm -r /Applications/RealTimeSync.app"
       fi
-      if [ $arg = "install" ] || [ $arg = "uninstall" ] || [ $arg = "rmtree" ] || [ $arg = "tap" ] || [ $arg = "untap" ]; then
+      if [[ "$arg" = "install" || "$arg" = "uninstall" || "$arg" = "rmtree" || "$arg" = "tap" || "$arg" = "untap" ]]; then
         echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
         brew bundle dump -f
         # Xcodeをインストールしないようにする
         sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
         # dotfiles/Setupディレクトリ内なら実行しない
-        if [[ $(echo `pwd`) != "$dotfiles/Setup" ]]; then
+        if [[ $(pwd) != "$dotfiles/Setup" ]]; then
           echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
-          mv -f Brewfile $dotfiles/Setup
+          mv -f Brewfile "$dotfiles"/Setup
         fi
         echo "🍺  Brewfile was successfully generated!"
       fi
@@ -85,19 +85,19 @@ brew() {
 }
 
 make() {
-  if [ $1 = "Brewfile" ]; then
+  if [[ $1 = "Brewfile" ]]; then
     echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
     brew bundle dump -f
     # Xcodeをインストールしないようにする
     sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
     # dotfiles/Setupディレクトリ内なら実行しない
-    if [[ $(echo `pwd`) != "$dotfiles/Setup" ]]; then
+    if [[ $(pwd) != "$dotfiles/Setup" ]]; then
       echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
-      mv -f Brewfile $dotfiles/Setup
+      mv -f Brewfile "$dotfiles"/Setup
     fi
     echo "🍺  Brewfile was successfully generated!"
   else
-    command make $@
+    command make "$@"
   fi
 }
 
@@ -130,13 +130,13 @@ al() {
       echo "$indent$line"
     done
 
-  echo "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
+  echo -e "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
   brew list --cask --version |
     while IFS= read -r line; do
       echo "$indent$line"
     done
 
-  echo "\n\033[34;1m==>\033[m \033[1mmas\033[m"
+  echo -e "\n\033[34;1m==>\033[m \033[1mmas\033[m"
   mas list |
     while IFS= read -r line; do
         echo "$indent$line"
