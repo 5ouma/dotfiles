@@ -1,13 +1,14 @@
+#!/bin/zsh
 #=====================================================================================[ Variables & Functions ]=====================================================================================#
 
 waitInput() {
-  echo -e -n "$1 (y/n): "
-  read -q && echo "" || {echo "" && exec $SHELL}
+  echo -en "$1 (y/n): "
+  read -rq && echo "" || { echo "" && exec $SHELL;}
 }
 
 waitReturn() {
   echo "Press RETURN to continue"
-  read
+  read -r
 }
 
 echoArrow() {
@@ -15,9 +16,9 @@ echoArrow() {
 }
 
 echoDir() {
-  for i in $(ls "$dotfiles/$1" -A); do
-    i=$(echo $i | sed -e "s/\.DS_Store/\!?\!/g")
-    if [[ $i != "\!?\!" ]]; then
+  for i in $(ls -A "$dotfiles/$1"); do
+    i=${i//\.DS_Store/??}
+    if [[ $i != "??" ]]; then
       echo "$dotfiles/$i"
     fi
   done
@@ -28,7 +29,7 @@ export dotfiles=$HOME/.dotfiles
 #===================================================================================[ Ask and move ]==================================================================================#
 
 waitInput "Are you sure to start setup?"
-cd $dotfiles/Setup/
+cd "$dotfiles"/Setup/ || exit
 
 #===================================================================================[ Homebrew install ]===================================================================================#
 
@@ -43,7 +44,7 @@ echoArrow "Installing Homebrew."
 echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
     sleep 3
   open https://brew.sh/index_ja
-  waitReturn
+    waitReturn
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     waitReturn
   brew doctor
@@ -53,18 +54,18 @@ echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\0
 waitInput "Make symlinks of terminal files."
 echoArrow "The following files and directories will be symlinked or created:"
   echoDir zsh
-    ln -s $dotfiles/zsh/.* ~
+    ln -s "$dotfiles"/zsh/.* ~
   echoDir Vim
-    ln -s $dotfiles/Vim/.* ~
+    ln -s "$dotfiles"/Vim/.* ~
   echo "$HOME/.hushlogin"
     touch ~/.hushlogin
   echoDir Git
-    ln -s $dotfiles/Git/.gitconfig ~
-    ln -s $dotfiles/Git/.gitignore_global ~
-  echo "$HOME/.ssh"
+    ln -s "$dotfiles"/Git/.gitconfig ~
+    ln -s "$dotfiles"/Git/.gitignore_global ~
     mkdir ~/.ssh
-  echo "Do you use 1Password? (y/n): "
-    read -q && (ln -s $dotfiles/Git/.ssh/1password/config ~/.ssh/config; echoDir "Git/.ssh/1password/config") || (ln -s $dotfiles/Git/.ssh/original/config ~/.ssh/config; echoDir "Git/.ssh/original/config")
+    echo "Do you use 1Password? (y/n): "
+      read -rq && ln -s "$dotfiles"/Git/.ssh/1password/config ~/.ssh/config || ln -s "$dotfiles"/Git/.ssh/original/config ~/.ssh/config
+
   echo "$HOME/.vim/undo"
     mkdir .vim/undo
 
@@ -100,14 +101,14 @@ killall SystemUIServer
 # Set computer names
 echoArrow "Setting computer name…"
   echo "What's your computer name?"
-  read computerName
-  localName=$(echo $computerName | sed -e "s/'//g" -e "s/ /-/g")
-  scutil --set ComputerName $computerName
-    echo "computerName: $(scutil --get ComputerName $computerName)"
-  scutil --set LocalHostName $localName
-    echo "LocalHostName: $(scutil --get LocalHostName $computerName)"
-  scutil --set HostName $computerName
-    echo "HostName: $(scutil --get HostName $computerName)"
+  read -r computerName
+  localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+  scutil --set ComputerName "$computerName"
+    echo "computerName: $(scutil --get ComputerName)"
+  scutil --set LocalHostName "$localName"
+    echo "LocalHostName: $(scutil --get LocalHostName)"
+  scutil --set HostName "$computerName"
+    echo "HostName: $(scutil --get HostName)"
 
 #=====================================================================================[ Install apps ]=====================================================================================#
 
