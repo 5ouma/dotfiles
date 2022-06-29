@@ -37,7 +37,7 @@ zstyle ":completion:*:commands" rehash 1
 # コマンドラインスタック
 show_buffer_stack() {
   POSTDISPLAY="
-stack: $LBUFFER"
+  stack: $LBUFFER"
   zle push-line-or-edit
 }
 zle -N show_buffer_stack
