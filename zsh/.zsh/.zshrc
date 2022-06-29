@@ -44,6 +44,8 @@ zle -N show_buffer_stack
 setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
 
+# asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 #===========================================================[ Plugins ]===========================================================#
 

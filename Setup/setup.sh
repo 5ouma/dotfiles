@@ -153,6 +153,9 @@ waitInput "\nIf enter \"y\", start installing Homebrew packages and apps."
   echoArrow "Installing apps with Homebrew…"
     brew bundle
 
+echoArrow "Installing programming language with asdf"
+asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
+
 waitInput "Please install DaVinci Resolve."
     sleep 3
   open https://www.blackmagicdesign.com/jp/products/davinciresolve

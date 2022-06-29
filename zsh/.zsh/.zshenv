@@ -7,9 +7,6 @@ export PATH="/usr/local/bin:$PATH"
 export VIMRC=$HOME/.vim/.vimrc
 export VIMINIT="source $VIMRC"
 
-# Nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # memo
 export PATH=$HOME/.dotfiles/Commands/memo:$PATH
 
