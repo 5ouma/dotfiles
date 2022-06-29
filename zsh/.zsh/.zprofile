@@ -189,6 +189,9 @@ alias tokei="tokei -f"
 alias v="vim"
 alias vup="vim +Jetpack +qall"
 
+# アップデート
+alias update="brew update && brew upgrade && vim +Jetpack +qall"
+
 # System
 alias ka="killall"
 alias mv="mv -i -v"
