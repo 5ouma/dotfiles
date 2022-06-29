@@ -16,10 +16,41 @@ echoArrow() {
 }
 
 echoDir() {
-  for i in $(ls -A "$dotfiles/$1"); do
+  for i in $(ls -A "$1"); do
     i=${i//\.DS_Store/??}
     if [[ $i != "??" ]]; then
-      echo "$dotfiles/$i"
+      echo "$1/$i"
+    fi
+  done
+}
+
+makeSymlink() {
+  for i in $(ls -A "$1"); do
+    if [[ ! -e "$2/$i" ]]; then
+      ln -s "$1/$i" "$2"
+      echoDir "$1"
+    fi
+  done
+}
+
+makeFile() {
+  if [[ ! -e "$1" ]]; then
+    touch "$1"
+    echo "$1"
+  fi
+}
+
+makeDir() {
+  if [[ ! -e "$1" ]]; then
+    mkdir "$1"
+    echo "$1"
+  fi
+}
+
+copyFile() {
+  for i in $(ls -A "$1"); do
+    if [[ ! -e "$2/$i" ]]; then
+      cp "$1/$i" "$2"
     fi
   done
 }
@@ -40,38 +71,37 @@ echoArrow "Installing Command Line Tools for Xcode."
   sleep 3
 
 # Homebrew
-echoArrow "Installing Homebrew."
-echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
-    sleep 3
-  open https://brew.sh/index_ja
-    waitReturn
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    waitReturn
-  brew doctor
+if ! (type brew > /dev/null 2>&1); then
+  echoArrow "Installing Homebrew."
+  echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
+      sleep 3
+    open https://brew.sh/index_ja
+      waitReturn
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      waitReturn
+    brew doctor
+else
+  echoArrow "Homebrew is already installed."
+fi
 
 #================================================================================[ Files and directories ]================================================================================#
 
-waitInput "Make symlinks of terminal files."
+waitInput "\nMake symlinks of terminal files."
 echoArrow "The following files and directories will be symlinked or created:"
-  echoDir zsh
-    ln -s "$dotfiles"/zsh/.* ~
-  echoDir Vim
-    ln -s "$dotfiles"/Vim/.* ~
-  echo "$HOME/.hushlogin"
-    touch ~/.hushlogin
-  echoDir Git
-    ln -s "$dotfiles"/Git/.gitconfig ~
-    ln -s "$dotfiles"/Git/.gitignore_global ~
-    mkdir ~/.ssh
+  makeSymlink "$dotfiles"/zsh ~
+  makeSymlink "$dotfiles"/Vim ~
+  makeFile ~/.hushlogin
+  makeDir ~/.ssh
+  makeSymlink "$dotfiles"/Git ~
+  if [[ ! -e ~/.ssh/config ]]; then
     echo "Do you use 1Password? (y/n): "
-      read -rq && ln -s "$dotfiles"/Git/.ssh/1password/config ~/.ssh/config || ln -s "$dotfiles"/Git/.ssh/original/config ~/.ssh/config
+      read -rq && makeSymlink "$dotfiles"/Git/.ssh/1password ~/.ssh || makeSymlink "$dotfiles"/Git/.ssh/original ~/.ssh
+  fi
 
-  echo "$HOME/.vim/undo"
-    mkdir .vim/undo
+  makeDir ~/.vim/undo
 
 echoArrow "The following fonts will be copied:"
-  echoDir Setup/Fonts
-    cp "$dotfiles"/Setup/Fonts/* ~/Library/Fonts
+copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
 
 echoArrow "Add permission to my commands."
   chmod 744 ~/.dotfiles/Commands/memo/memo
@@ -80,7 +110,7 @@ echoArrow "Add permission to my commands."
 #=====================================================================================[ System write ]=====================================================================================#
 
 # Make spaces on Dock and resize Launchpad
-waitInput "Run changing Launchpad size, add space on Dock and change save screencapture location to new folder."
+waitInput "\nRun changing Launchpad size, add space on Dock and change save screencapture location to new folder."
   echoArrow "Change Launchpad size."
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
   echoArrow "Add space on Dock."
@@ -89,7 +119,7 @@ waitInput "Run changing Launchpad size, add space on Dock and change save screen
     done
 
 echoArrow "Create screenshot directory and change its directory to it."
-  mkdir ~/Pictures/スクリーンショット
+  makeDir ~/Pictures/スクリーンショット
   defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
 
 # .DS_Store作成を抑制
@@ -114,7 +144,7 @@ echoArrow "Setting computer name…"
 
 #=====================================================================================[ Install apps ]=====================================================================================#
 
-waitInput "If enter \"y\", start installing Homebrew packages and apps."
+waitInput "\nIf enter \"y\", start installing Homebrew packages and apps."
   echoArrow "Opening App Store…"
     echo "Please sign in to App Store."
         sleep 3
