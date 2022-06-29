@@ -122,6 +122,16 @@ alias ms="mas search"
 alias mum="mas uninstall"
 alias mup="mas upgrade"
 
+bur() {
+  for pack in "$@"; do
+    if [[ $(brew info "$pack") =~ "Formula" ]]; then
+      brew rmtree "$pack"
+    elif [[ $(brew info "$pack") =~ "Casks" ]]; then
+      brew uninstall "$pack"
+    fi
+  done
+}
+
 al() {
   indent="  "
   echo "\033[34;1m==>\033[m \033[1mFormulae\033[m"
