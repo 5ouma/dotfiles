@@ -51,6 +51,7 @@ copyFile() {
   for i in $(ls -A "$1"); do
     if [[ ! -e "$2/$i" ]]; then
       cp "$1/$i" "$2"
+      echo "$1/$i"
     fi
   done
 }
