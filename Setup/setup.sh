@@ -112,8 +112,12 @@ echoArrow "Add permission to my commands."
 
 # Make spaces on Dock and resize Launchpad
 waitInput "\nRun changing Launchpad size, add space on Dock and change save screencapture location to new folder."
-  echoArrow "Change Launchpad size."
-    defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 7;defaults write com.apple.dock ResetLaunchPad -bool TRUE
+  if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
+    echoArrow "Change Launchpad size."
+      defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
+  else
+    echoArrow "Launchpad size is already set up"
+  fi
   echoArrow "Add space on Dock."
     for ((i=0; i<6; i++)); do
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
