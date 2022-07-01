@@ -1,8 +1,13 @@
 #!/bin/zsh
 #=====================================================================================[ Variables & Functions ]=====================================================================================#
 
+export dotfiles=$HOME/.dotfiles
+notSetup=true
+nowNum=1
+allNum=12
+
 waitInput() {
-  echo -en "$1 (y/n): "
+  echo -en "\n\033[34;1mask\033[m $1 (y/n): "
   read -rq && echo "" || { echo "" && exec $SHELL;}
 }
 
@@ -11,8 +16,19 @@ waitReturn() {
   read -r
 }
 
-echoArrow() {
-  echo "\033[34;1m==>\033[m \033[1m$1\033[m"
+echoInfo() {
+  echo -e "\033[34minfo\033[m $1"
+}
+
+echoSuccess() {
+  if [[ $? = 0 ]];then
+    echo -e "\033[32msuccess\033[m $1"
+  fi
+}
+
+echowithNumber() {
+  echo -e "\033[90m[$nowNum/$allNum]\033[m $1"
+  (( nowNum++ ))
 }
 
 echoDir() {
@@ -32,6 +48,9 @@ makeSymlink() {
       notSetup=false
     fi
   done
+  if [[ $notSetup = false ]]; then
+    sleep 0.5
+  fi
 }
 
 makeFile() {
@@ -39,6 +58,7 @@ makeFile() {
     touch "$1"
     echo "$1"
     notSetup=false
+    sleep 0.5
   fi
 }
 
@@ -46,6 +66,7 @@ makeDir() {
   if [[ ! -e "$1" ]]; then
     mkdir "$1"
     echo "$1"
+    sleep 0.5
   fi
 }
 
@@ -57,10 +78,10 @@ copyFile() {
       notSetup=false
     fi
   done
+  if [[ $notSetup = false ]]; then
+    sleep 0.5
+  fi
 }
-
-export dotfiles=$HOME/.dotfiles
-notSetup=true
 
 #===================================================================================[ Ask and move ]==================================================================================#
 
@@ -70,28 +91,36 @@ cd "$dotfiles"/Setup/ || exit
 #===================================================================================[ Homebrew install ]===================================================================================#
 
 # Command Line Tools for Xcode
-echoArrow "Installing Command Line Tools for Xcode."
-  xcode-select --install
+if [[ ! $(xcode-select --install 2>&1) =~ "command line tools are already installed" ]]; then
+  echowithNumber " 🔨 Installing Command Line Tools for Xcode..."
+    xcode-select --install
+    echoSuccess "Installed Command Line Tools for Xcode!"
+  sleep 3
+else
+  echowithNumber " 🔨 Command Line Tools for Xcode is already installed."
+  sleep 0.5
+fi
 
 # Homebrew
 if ! (type brew > /dev/null 2>&1); then
-  sleep 3
-  echoArrow "Installing Homebrew."
-  echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
+  echowithNumber " 🍺 Installing Homebrew..."
+  echo -e "Is this command correct?\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
       sleep 3
     open https://brew.sh/index_ja
       waitReturn
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       waitReturn
+    echoSuccess "Installed Homebrew!"
     brew doctor
 else
-  echoArrow "Homebrew is already installed."
+  echowithNumber " 🍺 Homebrew is already installed."
+  sleep 2
 fi
 
 #================================================================================[ Files and directories ]================================================================================#
 
-waitInput "\nMake symlinks of terminal files."
-echoArrow "The following files and directories will be symlinked or created:"
+waitInput "Make symlinks of terminal files."
+echowithNumber " 🔗 The following files and directories will be symlinked or created:"
   makeSymlink "$dotfiles"/zsh ~
   makeSymlink "$dotfiles"/Vim ~
 
@@ -107,59 +136,84 @@ echoArrow "The following files and directories will be symlinked or created:"
   makeDir ~/.vim/undo
 
 if [[ "$notSetup" = true ]]; then
-  echo "All files are already set up."
+  echoInfo "All files are already symlinked."
+  sleep 0.5
+else
+  echoSuccess "Symlinked terminal files!"
+  sleep 1
 fi
 notSetup=true
 
-echoArrow "The following fonts will be copied:"
+echowithNumber " 🚚 The following fonts will be copied:"
 copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
 if [[ "$notSetup" = true ]]; then
-  echo "All fonts are already copied."
+  echoInfo "All fonts are already copied."
+  sleep 0.5
+else
+  echoSuccess "Copied fonts!"
+  sleep 1
 fi
 
-echoArrow "Add permission to my commands."
+echowithNumber " 🚨 Add permission to my commands."
   chmod 744 ~/.dotfiles/Commands/memo/memo
   chmod 744 ~/.dotfiles/Commands/notion/notion
-  echo "Done!"
+  echoSuccess "Added permission!"
+  sleep 2
 
 #=====================================================================================[ System write ]=====================================================================================#
 
 # Make spaces on Dock and resize Launchpad
-waitInput "\nRun changing Launchpad size, add space on Dock and change save screencapture location to new folder."
+waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
-    echoArrow "Change Launchpad size."
+    echowithNumber " 🟩 Change Launchpad size."
       defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
+      echoSuccess "Changed Launchpad size!"
+      sleep 1
   else
-    echoArrow "Launchpad size is already set up."
+    echowithNumber " 🟩 Launchpad size is already set up."
+    sleep 0.5
   fi
-  if [[ "$(defaults read com.apple.dock persistent-apps)" =~ "\"spacer-tile\"" ]]; then
-    echoArrow "Add space on Dock."
+  if [[ ! "$(defaults read com.apple.dock persistent-apps)" =~ "\"spacer-tile\"" ]]; then
+    echowithNumber " 🔲 Add spaces on Dock."
       for ((i=0; i<6; i++)); do
         defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
       done
+      echoSuccess "Added spaces on Dock!"
+      sleep 1
   else
-    echoArrow "Space in Dock is already added."
+    echowithNumber " 🔲 Space in Dock is already added."
+    sleep 0.5
   fi
 
   if [[ ! -e ~/Pictures/スクリーンショット ]]; then
-    echoArrow "Create screenshot directory and change its directory to it."
+    echowithNumber " 📷 Create screen capture directory and change its directory to it."
     makeDir ~/Pictures/スクリーンショット
     defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
+    echoSuccess "Created screen capture directory and changed its directory!"
+    sleep 1
   else
-    echoArrow "Screenshot directory is already set up."
+    echowithNumber " 📷 screen capture directory is already set up."
+    sleep 0.5
   fi
 
 # .DS_Store作成を抑制
-echoArrow "Suppress .DS_Store creation."
-  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
-  defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
+if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) = 0 && $(defaults write com.apple.desktopservices DSDontWriteUSBStores -bool) = 0 ]]; then
+  echowithNumber " ❎ Suppress .DS_Store creation."
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
+    defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
+    echoSuccess "Suppressed .DS_Store creation!"
+    sleep 1
+else
+  echowithNumber " ❎ .DS_Store creation is already suppressed."
+  sleep 0.5
+fi
 
 killall Dock
 killall SystemUIServer
 
 # Set computer names
 if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
-  echoArrow "Setting computer name…"
+  echowithNumber " 💻 Setting computer name…"
     echo "What's your computer name?"
     read -r computerName
     localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
@@ -169,27 +223,35 @@ if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
       echo "LocalHostName: $(scutil --get LocalHostName)"
     scutil --set HostName "$computerName"
       echo "HostName: $(scutil --get HostName)"
+  echoSuccess "Set computer name!"
+  sleep 1
 else
-  echoArrow "Computer name is already set up."
+  echowithNumber " 💻 Computer name is already set up."
+  sleep 0.5
 fi
 
 #=====================================================================================[ Install apps ]=====================================================================================#
 
-waitInput "\nIf enter \"y\", start installing Homebrew packages and apps."
-  echoArrow "Opening App Store…"
-    echo "Please sign in to App Store."
+waitInput "If enter \"y\", start installing Homebrew packages and apps."
+  echoInfo "Opening App Store…"
+    echoInfo "Please sign in to App Store."
         sleep 3
       open -a "App Store"
     waitReturn
-  echoArrow "Installing apps with Homebrew…"
+  echowithNumber " 📲 Installing apps with Homebrew…"
     brew bundle
+  echoSuccess "Installed apps!"
+  sleep 1
 
-echoArrow "Installing programming language with asdf"
+echowithNumber " 💾 Installing programming language with asdf."
 if [[ $(asdf list nodejs) =~ "No such plugin:" ]]; then
-  echo "Installing Node.js."
+  echoInfo "Installing Node.js..."
   asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
+  echoSuccess "Installed Node.js!"
+  sleep 1
 else
-  echo "Node.js is already installed."
+  echoInfo "Node.js is already installed."
+  sleep 0.5
 fi
 
 if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
@@ -203,4 +265,4 @@ if [[ ! -e "/Applications/Xcode.app" ]]; then
     mas install 497799835
 fi
 
-echoArrow "Setting up successful!"
+echo -e " ✨ Setting up successfully!"
