@@ -29,6 +29,7 @@ makeSymlink() {
     if [[ ! -e "$2/$i" ]]; then
       ln -s "$1/$i" "$2"
       echoDir "$1"
+      notSetup=false
     fi
   done
 }
@@ -37,6 +38,7 @@ makeFile() {
   if [[ ! -e "$1" ]]; then
     touch "$1"
     echo "$1"
+    notSetup=false
   fi
 }
 
@@ -52,11 +54,13 @@ copyFile() {
     if [[ ! -e "$2/$i" ]]; then
       cp "$1/$i" "$2"
       echo "$1/$i"
+      notSetup=false
     fi
   done
 }
 
 export dotfiles=$HOME/.dotfiles
+notSetup=true
 
 #===================================================================================[ Ask and move ]==================================================================================#
 
@@ -69,10 +73,9 @@ cd "$dotfiles"/Setup/ || exit
 echoArrow "Installing Command Line Tools for Xcode."
   xcode-select --install
 
-  sleep 3
-
 # Homebrew
 if ! (type brew > /dev/null 2>&1); then
+  sleep 3
   echoArrow "Installing Homebrew."
   echo -e "Is this command correct?\n\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
       sleep 3
@@ -91,7 +94,9 @@ waitInput "\nMake symlinks of terminal files."
 echoArrow "The following files and directories will be symlinked or created:"
   makeSymlink "$dotfiles"/zsh ~
   makeSymlink "$dotfiles"/Vim ~
+
   makeFile ~/.hushlogin
+
   makeDir ~/.ssh
   makeSymlink "$dotfiles"/Git ~
   if [[ ! -e ~/.ssh/config ]]; then
@@ -101,12 +106,21 @@ echoArrow "The following files and directories will be symlinked or created:"
 
   makeDir ~/.vim/undo
 
+if [[ "$notSetup" = true ]]; then
+  echo "All files are already set up."
+fi
+notSetup=true
+
 echoArrow "The following fonts will be copied:"
 copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
+if [[ "$notSetup" = true ]]; then
+  echo "All fonts are already copied."
+fi
 
 echoArrow "Add permission to my commands."
   chmod 744 ~/.dotfiles/Commands/memo/memo
   chmod 744 ~/.dotfiles/Commands/notion/notion
+  echo "Done!"
 
 #=====================================================================================[ System write ]=====================================================================================#
 
@@ -116,16 +130,24 @@ waitInput "\nRun changing Launchpad size, add space on Dock and change save scre
     echoArrow "Change Launchpad size."
       defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
   else
-    echoArrow "Launchpad size is already set up"
+    echoArrow "Launchpad size is already set up."
   fi
-  echoArrow "Add space on Dock."
-    for ((i=0; i<6; i++)); do
-      defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
-    done
+  if [[ "$(defaults read com.apple.dock persistent-apps)" =~ "\"spacer-tile\"" ]]; then
+    echoArrow "Add space on Dock."
+      for ((i=0; i<6; i++)); do
+        defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+      done
+  else
+    echoArrow "Space in Dock is already added."
+  fi
 
-echoArrow "Create screenshot directory and change its directory to it."
-  makeDir ~/Pictures/スクリーンショット
-  defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
+  if [[ ! -e ~/Pictures/スクリーンショット ]]; then
+    echoArrow "Create screenshot directory and change its directory to it."
+    makeDir ~/Pictures/スクリーンショット
+    defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
+  else
+    echoArrow "Screenshot directory is already set up."
+  fi
 
 # .DS_Store作成を抑制
 echoArrow "Suppress .DS_Store creation."
@@ -136,16 +158,20 @@ killall Dock
 killall SystemUIServer
 
 # Set computer names
-echoArrow "Setting computer name…"
-  echo "What's your computer name?"
-  read -r computerName
-  localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
-  scutil --set ComputerName "$computerName"
-    echo "computerName: $(scutil --get ComputerName)"
-  scutil --set LocalHostName "$localName"
-    echo "LocalHostName: $(scutil --get LocalHostName)"
-  scutil --set HostName "$computerName"
-    echo "HostName: $(scutil --get HostName)"
+if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
+  echoArrow "Setting computer name…"
+    echo "What's your computer name?"
+    read -r computerName
+    localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+    scutil --set ComputerName "$computerName"
+      echo "computerName: $(scutil --get ComputerName)"
+    scutil --set LocalHostName "$localName"
+      echo "LocalHostName: $(scutil --get LocalHostName)"
+    scutil --set HostName "$computerName"
+      echo "HostName: $(scutil --get HostName)"
+else
+  echoArrow "Computer name is already set up."
+fi
 
 #=====================================================================================[ Install apps ]=====================================================================================#
 
@@ -159,13 +185,22 @@ waitInput "\nIf enter \"y\", start installing Homebrew packages and apps."
     brew bundle
 
 echoArrow "Installing programming language with asdf"
-asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
+if [[ $(asdf list nodejs) =~ "No such plugin:" ]]; then
+  echo "Installing Node.js."
+  asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
+else
+  echo "Node.js is already installed."
+fi
 
-waitInput "Please install DaVinci Resolve."
-    sleep 3
-  open https://www.blackmagicdesign.com/jp/products/davinciresolve
+if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
+  waitInput "Please install DaVinci Resolve."
+      sleep 3
+    open https://www.blackmagicdesign.com/jp/products/davinciresolve
+fi
 
-waitInput "Do you want to install Xcode?"
-  mas install 497799835
+if [[ ! -e "/Applications/Xcode.app" ]]; then
+  waitInput "Do you want to install Xcode?"
+    mas install 497799835
+fi
 
-echoArrow "Deploying successful!"
+echoArrow "Setting up successful!"
