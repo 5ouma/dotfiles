@@ -36,6 +36,12 @@ alias gsm="git submodule"
 alias gsw="git switch"
 alias gswb="git switch -b"
 
+gcv() {
+  git config core.editor "vim"
+  git commit -v
+  git config core.editor "code --wait"
+}
+
 grp() {
   echo -n "Are you sure to run? (y/n): "
   read -rq && echo "" || { echo "" && exec $SHELL;}
