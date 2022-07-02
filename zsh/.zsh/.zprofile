@@ -196,7 +196,7 @@ alias v="vim"
 alias vup="vim +Jetpack +qall"
 
 # アップデート
-alias update="brew update && brew upgrade && vim +Jetpack +qall"
+alias update="brew update && brew upgrade && vim +Jetpack +qall && asdf plugin-update --all"
 
 # System
 alias ka="killall"
