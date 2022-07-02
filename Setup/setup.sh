@@ -16,7 +16,7 @@ waitInput() {
   elif [[ "$run" =~ "n" ]]; then
     doAction=false && echo ""
   else
-    echo -e "\n" && exec $SHELL
+    echo -e "\n" && exec $SHELL -l
   fi
 }
 
@@ -101,7 +101,7 @@ copyFile() {
 #===================================================================================[ Ask and move ]==================================================================================#
 
 echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
-read -rq && echo -e "" || { echo -e "\n" && exec $SHELL;}
+read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l;}
 cd "$dotfiles"/Setup/ || exit
 
 #===================================================================================[ Homebrew install ]===================================================================================#

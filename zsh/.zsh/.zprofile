@@ -44,7 +44,7 @@ gcv() {
 
 grp() {
   echo -n "Are you sure to run? (y/n): "
-  read -rq && echo "" || { echo "" && exec $SHELL;}
+  read -rq && echo "" || { echo "" && exec $SHELL -l;}
 
   git reset --hard HEAD^
   git push -f "$@"
