@@ -20,9 +20,11 @@ echoInfo() {
   echo -e "\033[34minfo\033[m $1"
 }
 
-echoSuccess() {
+echoResult() {
   if [[ $? = 0 ]];then
     echo -e "\033[32msuccess\033[m $1"
+  else
+    echo -e "\033[31merror\033[m $2"
   fi
 }
 
@@ -94,7 +96,7 @@ cd "$dotfiles"/Setup/ || exit
 if [[ ! $(xcode-select --install 2>&1) =~ "command line tools are already installed" ]]; then
   echowithNumber " 🔨 Installing Command Line Tools for Xcode..."
     xcode-select --install
-    echoSuccess "Installed Command Line Tools for Xcode!"
+    echoResult "Installed Command Line Tools for Xcode!" "Installing Command Line Tools for Xcode is failed."
   sleep 3
 else
   echowithNumber " 🔨 Command Line Tools for Xcode is already installed."
@@ -110,7 +112,7 @@ if ! (type brew > /dev/null 2>&1); then
       waitReturn
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       waitReturn
-    echoSuccess "Installed Homebrew!"
+    echoResult "Installed Homebrew!" "Installing Homebrew is failed."
     brew doctor
 else
   echowithNumber " 🍺 Homebrew is already installed."
@@ -139,7 +141,7 @@ if [[ "$notSetup" = true ]]; then
   echoInfo "All files are already symlinked."
   sleep 0.5
 else
-  echoSuccess "Symlinked terminal files!"
+  echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
   sleep 1
 fi
 notSetup=true
@@ -150,14 +152,14 @@ if [[ "$notSetup" = true ]]; then
   echoInfo "All fonts are already copied."
   sleep 0.5
 else
-  echoSuccess "Copied fonts!"
+  echoResult "Copied fonts!" "Copying fonts is failed."
   sleep 1
 fi
 
 echowithNumber " 🚨 Add permission to my commands."
   chmod 744 ~/.dotfiles/Commands/memo/memo
   chmod 744 ~/.dotfiles/Commands/notion/notion
-  echoSuccess "Added permission!"
+  echoResult "Added permission!" "Adding permission is failed."
   sleep 2
 
 #=====================================================================================[ System write ]=====================================================================================#
@@ -167,7 +169,7 @@ waitInput "Run to change Launchpad size, add space on Dock, and change the savin
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     echowithNumber " 🟩 Change Launchpad size."
       defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
-      echoSuccess "Changed Launchpad size!"
+      echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
       sleep 1
   else
     echowithNumber " 🟩 Launchpad size is already set up."
@@ -178,7 +180,7 @@ waitInput "Run to change Launchpad size, add space on Dock, and change the savin
       for ((i=0; i<6; i++)); do
         defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
       done
-      echoSuccess "Added spaces on Dock!"
+      echoResult "Added spaces on Dock!" "Adding spaces on Dock is failed."
       sleep 1
   else
     echowithNumber " 🔲 Space in Dock is already added."
@@ -189,7 +191,7 @@ waitInput "Run to change Launchpad size, add space on Dock, and change the savin
     echowithNumber " 📷 Create screen capture directory and change its directory to it."
     makeDir ~/Pictures/スクリーンショット
     defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
-    echoSuccess "Created screen capture directory and changed its directory!"
+    echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changed its directory is failed."
     sleep 1
   else
     echowithNumber " 📷 screen capture directory is already set up."
@@ -201,7 +203,7 @@ if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) 
   echowithNumber " ❎ Suppress .DS_Store creation."
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
     defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
-    echoSuccess "Suppressed .DS_Store creation!"
+    echoResult "Suppressed .DS_Store creation!" "Suppressing .DS_Store creation is failed."
     sleep 1
 else
   echowithNumber " ❎ .DS_Store creation is already suppressed."
@@ -223,7 +225,7 @@ if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
       echo "LocalHostName: $(scutil --get LocalHostName)"
     scutil --set HostName "$computerName"
       echo "HostName: $(scutil --get HostName)"
-  echoSuccess "Set computer name!"
+  echoResult "Set computer name!" "Setting computer name is failed."
   sleep 1
 else
   echowithNumber " 💻 Computer name is already set up."
@@ -240,14 +242,14 @@ waitInput "If enter \"y\", start installing Homebrew packages and apps."
     waitReturn
   echowithNumber " 📲 Installing apps with Homebrew…"
     brew bundle
-  echoSuccess "Installed apps!"
+  echoResult "Installed apps!" "Installing apps is failed."
   sleep 1
 
 echowithNumber " 💾 Installing programming language with asdf."
 if [[ $(asdf list nodejs) =~ "No such plugin:" ]]; then
   echoInfo "Installing Node.js..."
   asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
-  echoSuccess "Installed Node.js!"
+  echoResult "Installed Node.js!" "Installing Node.js is failed."
   sleep 1
 else
   echoInfo "Node.js is already installed."
