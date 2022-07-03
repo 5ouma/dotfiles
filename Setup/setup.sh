@@ -142,7 +142,7 @@ fi
 
 #================================================================================[ Files and directories ]================================================================================#
 
-waitInput "Make symlinks of terminal files."
+waitInput "Make symlinks or create terminal files and add permission to commands."
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
