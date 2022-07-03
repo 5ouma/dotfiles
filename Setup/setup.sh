@@ -181,10 +181,21 @@ if [[ "$doAction" = true ]]; then
     sleep 1
   fi
 
+  notSetup=true
   echoNumber " 🚨 Add permission to my commands."
-    chmod 744 ~/.dotfiles/Commands/memo/memo
-    chmod 744 ~/.dotfiles/Commands/notion/notion
-    echoResult "Added permission!" "Adding permission is failed."
+    if [[ $(ls -l "$dotfiles"/Commands/memo/memo) != "-rwxr--r--" ]]; then
+      chmod 744 "$dotfiles"/Commands/memo/memo
+      notSetup=false
+    fi
+    if [[ $(ls -l "$dotfiles"/Commands/notion/notion) != "-rwxr--r--" ]]; then
+      chmod 744 "$dotfiles"/Commands/notion/notion
+      notSetup=false
+    fi
+    if [[ "$notSetup" = false ]]; then
+      echoResult "Added permission!" "Adding permission is failed."
+    else
+      echoWarning "All permission is already added."
+    fi
     sleep 2
 fi
 
