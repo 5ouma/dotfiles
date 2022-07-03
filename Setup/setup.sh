@@ -47,7 +47,7 @@ echoNumber() {
 }
 
 echoDir() {
-  for i in $(ls -A "$1"); do
+  for i in $(command ls -A "$1"); do
     i=${i//\.DS_Store/??}
     if [[ $i != "??" ]]; then
       echo -e "$1/$i"
@@ -56,7 +56,7 @@ echoDir() {
 }
 
 makeSymlink() {
-  for i in $(ls -A "$1"); do
+  for i in $(command ls -A "$1"); do
     if [[ ! -e "$2/$i" ]]; then
       ln -s "$1/$i" "$2"
       echoDir "$1"
@@ -86,7 +86,7 @@ makeDir() {
 }
 
 copyFile() {
-  for i in $(ls -A "$1"); do
+  for i in $(command ls -A "$1"); do
     if [[ ! -e "$2/$i" ]]; then
       cp "$1/$i" "$2"
       echo -e "$1/$i"
