@@ -229,11 +229,11 @@ if [[ "$doAction" = true ]]; then
     sleep 0.5
   fi
 
-  echoNumber " 📷 Create screen capture directory and change its directory to it."
+  echoNumber " 📷 Create a screen capture directory and change its directory to it."
   if [[ ! -e ~/Pictures/スクリーンショット ]]; then
     makeDir ~/Pictures/スクリーンショット
     defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
-    echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changed its directory is failed."
+    echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changing its directory is failed."
     sleep 1
   else
     echoWarning "Screen capture directory is already set up."
