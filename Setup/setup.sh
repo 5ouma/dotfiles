@@ -183,11 +183,11 @@ if [[ "$doAction" = true ]]; then
 
   notSetup=true
   echoNumber " 🚨 Add permission to my commands."
-    if [[ $(ls -l "$dotfiles"/Commands/memo/memo) != "-rwxr--r--" ]]; then
+    if [[ ! $(command ls -l "$dotfiles"/Commands/memo/memo) =~ "-rwxr--r--" ]]; then
       chmod 744 "$dotfiles"/Commands/memo/memo
       notSetup=false
     fi
-    if [[ $(ls -l "$dotfiles"/Commands/notion/notion) != "-rwxr--r--" ]]; then
+    if [[ ! $(command ls -l "$dotfiles"/Commands/notion/notion) =~ "-rwxr--r--" ]]; then
       chmod 744 "$dotfiles"/Commands/notion/notion
       notSetup=false
     fi
