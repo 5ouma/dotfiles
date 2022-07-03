@@ -162,23 +162,23 @@ if [[ "$doAction" = true ]]; then
 
     makeDir ~/.vim/undo
 
-  if [[ "$notSetup" = true ]]; then
-    echoWarning "All files are already symlinked."
-    sleep 0.5
-  else
+  if [[ "$notSetup" = false ]]; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
+  else
+    echoWarning "All files are already symlinked."
+    sleep 0.5
   fi
-  notSetup=true
 
+  notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
   copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
-  if [[ "$notSetup" = true ]]; then
-    echoWarning "All fonts are already copied."
-    sleep 0.5
-  else
+  if [[ "$notSetup" = false ]]; then
     echoResult "Copied fonts!" "Copying fonts is failed."
     sleep 1
+  else
+    echoWarning "All fonts are already copied."
+    sleep 0.5
   fi
 
   notSetup=true
