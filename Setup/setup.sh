@@ -209,9 +209,9 @@ if [[ "$doAction" = true ]]; then
 
   echoNumber " 🟩 Change Launchpad size."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
-      defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
-      echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
-      sleep 1
+    defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
+    echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
+    sleep 1
   else
     echoWarning "Launchpad size is already set up."
     sleep 0.5
@@ -219,11 +219,11 @@ if [[ "$doAction" = true ]]; then
 
   echoNumber " 🔲 Add spaces on Dock."
   if [[ ! "$(defaults read com.apple.dock persistent-apps)" =~ "\"spacer-tile\"" ]]; then
-      for ((i=0; i<6; i++)); do
-        defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
-      done
-      echoResult "Added spaces on Dock!" "Adding spaces on Dock is failed."
-      sleep 1
+    for ((i=0; i<6; i++)); do
+      defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+    done
+    echoResult "Added spaces on Dock!" "Adding spaces on Dock is failed."
+    sleep 1
   else
     echoWarning "Space in Dock is already added."
     sleep 0.5
@@ -243,10 +243,10 @@ if [[ "$doAction" = true ]]; then
   # .DS_Store作成を抑制
   echoNumber " ❎ Suppress .DS_Store creation."
   if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) = 0 && $(defaults write com.apple.desktopservices DSDontWriteUSBStores -bool) = 0 ]]; then
-      defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
-      defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
-      echoResult "Suppressed .DS_Store creation!" "Suppressing .DS_Store creation is failed."
-      sleep 1
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
+    defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
+    echoResult "Suppressed .DS_Store creation!" "Suppressing .DS_Store creation is failed."
+    sleep 1
   else
     echoWarning ".DS_Store creation is already suppressed."
     sleep 0.5
