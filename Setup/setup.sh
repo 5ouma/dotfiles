@@ -182,7 +182,7 @@ if [[ "$doAction" = true ]]; then
   fi
 
   notSetup=true
-  echoNumber " 🚨 Add permission to my commands."
+  echoNumber " 🚨 Adding permission to my commands..."
     if [[ ! $(command ls -l "$dotfiles"/Commands/memo/memo) =~ "-rwxr--r--" ]]; then
       chmod 744 "$dotfiles"/Commands/memo/memo
       notSetup=false
@@ -207,7 +207,7 @@ if [[ "$doAction" = true ]]; then
 
   doneAnything=true
 
-  echoNumber " 🟩 Change Launchpad size."
+  echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
     echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
@@ -217,7 +217,7 @@ if [[ "$doAction" = true ]]; then
     sleep 0.5
   fi
 
-  echoNumber " 🔲 Add spaces on Dock."
+  echoNumber " 🔲 Adding spaces on Dock..."
   if [[ ! "$(defaults read com.apple.dock persistent-apps)" =~ "\"spacer-tile\"" ]]; then
     for ((i=0; i<6; i++)); do
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
@@ -229,7 +229,7 @@ if [[ "$doAction" = true ]]; then
     sleep 0.5
   fi
 
-  echoNumber " 📷 Create a screen capture directory and change its directory to it."
+  echoNumber " 📷 Creating a screen capture directory and changing its directory to it..."
   if [[ ! -e ~/Pictures/スクリーンショット ]]; then
     makeDir ~/Pictures/スクリーンショット
     defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
@@ -241,7 +241,7 @@ if [[ "$doAction" = true ]]; then
   fi
 
   # .DS_Store作成を抑制
-  echoNumber " ❎ Suppress .DS_Store creation."
+  echoNumber " ❎ Suppressing .DS_Store creation..."
   if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) = 0 && $(defaults write com.apple.desktopservices DSDontWriteUSBStores -bool) = 0 ]]; then
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
     defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
@@ -262,7 +262,7 @@ if [[ "$doAction" = true ]]; then
 
   doneAnything=true
 
-  echoNumber " 💻 Setting computer name…"
+  echoNumber " 💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
       echo -e "What's your computer name?"
       read -r computerName
@@ -283,22 +283,22 @@ fi
 
 #=====================================================================================[ Install apps ]=====================================================================================#
 
-waitInput "Installing Homebrew packages and apps."
+waitInput "Install Homebrew packages and apps."
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
 
-  echoInfo "Opening App Store…"
+  echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
         sleep 3
       open -a "App Store"
     waitReturn
-  echoNumber " 📲 Installing apps with Homebrew…"
+  echoNumber " 📲 Installing apps with Homebrew..."
     brew bundle
   echoResult "Installed apps!" "Installing apps is failed."
   sleep 1
 
-  echoNumber " 💾 Installing programming language with asdf."
+  echoNumber " 💾 Installing programming language with asdf..."
   if [[ $(asdf list nodejs) =~ "No such plugin:" ]]; then
     echoInfo "Installing Node.js..."
     asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
