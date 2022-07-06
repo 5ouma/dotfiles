@@ -9,6 +9,14 @@ source ~/.dotfiles/Setup/setup.sh
 
 <br><br>
 
+# 🌄 Preview
+
+| Preview 1                                    | Preview 2                                    |
+| -------------------------------------------- | -------------------------------------------- |
+| ![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png) |
+
+<br><br>
+
 # 💾 zsh
 
 ## 🪄 Theme
@@ -18,12 +26,6 @@ source ~/.dotfiles/Setup/setup.sh
 <a href="https://fig.io/plugins/other/powerlevel10k" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 <br>
-
-## 🌄 Preview
-
-| Preview 1                                    | Preview 2                                    |
-| -------------------------------------------- | -------------------------------------------- |
-| ![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png) |
 
 <br>
 
