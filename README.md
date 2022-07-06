@@ -1,4 +1,4 @@
-# Install
+# 📲 Install
 
 Run git clone and setup.sh, then you will be able to set up by operation.
 
@@ -7,9 +7,9 @@ git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
 source ~/.dotfiles/Setup/setup.sh
 ```
 
-# zsh
+# 💾 zsh
 
-## Theme
+## 🪄 Theme
 
 ### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
@@ -17,7 +17,7 @@ source ~/.dotfiles/Setup/setup.sh
 
 <br>
 
-## Preview
+## 🌄 Preview
 
 | Preview 1                                    | Preview 2                                    |
 | -------------------------------------------- | -------------------------------------------- |
@@ -25,7 +25,7 @@ source ~/.dotfiles/Setup/setup.sh
 
 <br>
 
-## Settings
+## 🍽 Settings
 
 -   Using Japanese
 -   Being able to show files named in Japanese
@@ -46,7 +46,7 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 
 <br>
 
-## Plugins
+## 📥 Plugins
 
 ### <a href="https://fig.io"><b>Fig</b></a>
 
@@ -138,7 +138,7 @@ brew install Ryu0118/Kusa/kusa
 
 <br>
 
-# Vim
+# 📧 Vim
 
 ## Color Scheme
 
@@ -146,7 +146,7 @@ brew install Ryu0118/Kusa/kusa
 
 <br>
 
-## Settings
+## 🍽 Settings
 
 ### General
 
@@ -185,7 +185,7 @@ brew install Ryu0118/Kusa/kusa
 -   Highlight searched words
 -   Endhighlight by typing the ESC key several times
 
-## Plugins
+## 📥 Plugins
 
 vim-jetpack, a plugin manager, is already installed in .vim/autoload, so you don't need to install it.
 But you have to run this command on vim screen.
@@ -280,7 +280,7 @@ Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 
 <br>
 
-# Git
+# 🐙 Git
 
 -   Ignore `.DS_Store` file to make `.gitignore_global` file and run
     ```shell
@@ -289,13 +289,13 @@ Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 
 <br>
 
-# Homebrew
+# 🍺 Homebrew
 
-## Settings
+## 🍽 Settings
 
 -   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly
 
-## Plugins
+## 📥 Plugins
 
 ### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
 
