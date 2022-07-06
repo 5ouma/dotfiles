@@ -42,14 +42,6 @@ gcv() {
   git config core.editor "code --wait"
 }
 
-grp() {
-  echo -n "Are you sure to run? (y/n): "
-  read -rq && echo "" || { echo "" && exec $SHELL -l;}
-
-  git reset --hard HEAD^
-  git push -f "$@"
-}
-
 g-5ouma() {
   git config user.name "5ouma"
   git config user.email "101255979+5ouma@users.noreply.github.com"
@@ -206,6 +198,7 @@ alias mv="mv -i -v"
 alias mgc="memo git change"
 alias mgm="memo git message"
 alias mgfp="memo git force pull"
+alias mgfr="memo git force reset"
 alias mgca="memo git cancel add"
 alias mgcc="memo git cancel commit"
 
