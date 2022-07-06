@@ -215,6 +215,10 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
     Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
 
+- ### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
+
+    Add `Jetpack 'ryanoasis/vim-devicons'` to your .vimrc file
+
 - ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
     Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file

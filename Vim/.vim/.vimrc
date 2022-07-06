@@ -16,7 +16,7 @@ endfunction
 
 " setting
 " 文字コードをUFT-8に設定
-set fenc=utf-8
+set encoding=UTF-8
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない
@@ -103,6 +103,7 @@ Jetpack 'mbbill/undotree'
 Jetpack 'phodge/vim-shell-command'
 Jetpack 'preservim/nerdtree'
 Jetpack 'reireias/vim-cheatsheet'
+Jetpack 'ryanoasis/vim-devicons'
 Jetpack 'thinca/vim-quickrun'
 Jetpack 'tpope/vim-commentary'
 Jetpack 'tpope/vim-fugitive'
