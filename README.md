@@ -120,7 +120,7 @@ brew install Ryu0118/Kusa/kusa
 
 # 📝 Vim
 
-## Color Scheme
+## 🪄 Color Scheme
 
 ### <a href="https://github.com/preservim/vim-colors-pencil"><b>vim-colors-pencil</b></a> and edit colors.
 
