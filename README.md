@@ -215,7 +215,7 @@ Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
 
 ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
-add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
+Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
 
 ### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
 
