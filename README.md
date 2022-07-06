@@ -1,6 +1,6 @@
 # 📲 Install
 
-Run git clone and setup.sh, then you will be able to set up by operation.
+Run git clone and [setup.sh](https://github.com/5ouma/dotfiles/blob/HEAD/Setup/setup.sh), then you will be able to set up by operation.
 
 ```shell
 git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
