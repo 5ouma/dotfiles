@@ -7,6 +7,8 @@ git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
 source ~/.dotfiles/Setup/setup.sh
 ```
 
+<br><br>
+
 # 💾 zsh
 
 ## 🪄 Theme
@@ -56,19 +58,13 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 brew install fig
 ```
 
-<br>
-
 ### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
 <a href="https://fig.io/plugins/color/zsh-syntax-highlighting" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-<br>
-
 ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
 <a href="https://fig.io/plugins/completion/zsh-autosuggestions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
-
-<br>
 
 ### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
@@ -76,19 +72,13 @@ brew install fig
 
 <a href="https://fig.io/plugins/completion/zsh-completions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-<br>
-
 ### <a href="https://github.com/djui/alias-tips"><b>alias-tips</b></a>
 
 <a href="https://fig.io/plugins/other/alias-tips_djui" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-<br>
-
 ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
 
 <a href="https://fig.io/plugins/other/zsh-autopair_hlissner" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
-
-<br>
 
 ### <a href="https://github.com/owenthereal/ccat"><b>ccat</b></a>
 
@@ -96,15 +86,11 @@ brew install fig
 brew install ccat
 ```
 
-<br>
-
 ### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
 
 ```shell
 brew install glow
 ```
-
-<br>
 
 ### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
 
@@ -112,15 +98,11 @@ brew install glow
 brew install lsd
 ```
 
-<br>
-
 ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
 
 ```shell
 brew install trash
 ```
-
-<br>
 
 ### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
 
@@ -128,15 +110,13 @@ brew install trash
 brew install tokei
 ```
 
-<br>
-
 ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
 
 ```shell
 brew install Ryu0118/Kusa/kusa
 ```
 
-<br>
+<br><br>
 
 # 📧 Vim
 
@@ -185,6 +165,8 @@ brew install Ryu0118/Kusa/kusa
 -   Highlight searched words
 -   Endhighlight by typing the ESC key several times
 
+<br>
+
 ## 📥 Plugins
 
 vim-jetpack, a plugin manager, is already installed in .vim/autoload, so you don't need to install it.
@@ -200,85 +182,58 @@ Jetpack
 curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
 ```
 
-<br>
-
 ### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
 Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file.
-
-<br>
 
 ### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
 
 Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file.
 
-<br>
-
 ### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
 
 Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file.
-
-<br>
 
 ### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
 
 Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file.
 
-<br>
-
 ### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
 
 Add `Jetpack 'mbbill/undotree'` to your .vimrc file.
 
-<br>
-
 ### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
 
 Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file
-
-<br>
-
 ### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
 Add `Jetpack 'preservim/nerdtree'` to your .vimrc file
-
-<br>
 
 ### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
 
 Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
 
-<br>
-
 ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
 add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
-
-<br>
 
 ### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
 
 Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file
 
-<br>
-
 ### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
 
 Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file
-
-<br>
 
 ### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
 
 Add `Jetpack 'tpope/vim-surround'` to your .vimrc file
 
-<br>
-
 ### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
 
 Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 
-<br>
+<br><br>
 
 # 🐙 Git
 
@@ -287,13 +242,15 @@ Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
     git config --global core.excludesfile ~/.gitignore_global
     ```
 
-<br>
+<br><br>
 
 # 🍺 Homebrew
 
 ## 🍽 Settings
 
 -   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly
+
+<br>
 
 ## 📥 Plugins
 
