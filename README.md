@@ -118,7 +118,7 @@ brew install Ryu0118/Kusa/kusa
 
 <br><br>
 
-# 📧 Vim
+# 📝 Vim
 
 ## Color Scheme
 
