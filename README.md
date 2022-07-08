@@ -139,6 +139,9 @@ brew install fig
 -   Being able to open the file even buffer is editing
 -   Show typing command to status
 -   Turn off the beep sound
+-   Unlimited undo
+-   Share clipboard with OS
+-   Click to move the cursor
 
 ### Appearance
 
