@@ -36,6 +36,9 @@ if has('persistent_undo')
 endif
 " OSとクリップボードを共用する
 set clipboard+=unnamed
+" マウスを使う
+set mouse=a
+
 
 " 見た目系
 " 行番号を表示
