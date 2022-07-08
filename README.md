@@ -60,59 +60,59 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 brew install fig
 ```
 
--  ### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
+-   ### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
     <a href="https://fig.io/plugins/color/zsh-syntax-highlighting" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-- ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
+-   ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
     <a href="https://fig.io/plugins/completion/zsh-autosuggestions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-- ### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
+-   ### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
     ( To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75) )
 
     <a href="https://fig.io/plugins/completion/zsh-completions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-- ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
+-   ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
 
     <a href="https://fig.io/plugins/other/zsh-autopair_hlissner" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-- ### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
+-   ### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
 
     <a href="https://app.fig.io/plugins/zsh-you-should-use_MichaelAquilina" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-- ### <a href="https://github.com/owenthereal/ccat"><b>ccat</b></a>
+-   ### <a href="https://github.com/owenthereal/ccat"><b>ccat</b></a>
 
     ```shell
     brew install ccat
     ```
 
-- ### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
+-   ### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
 
     ```shell
     brew install glow
     ```
 
-- ### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
+-   ### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
 
     ```shell
     brew install lsd
     ```
 
-- ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
+-   ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
 
     ```shell
     brew install trash
     ```
 
-- ### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
+-   ### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
 
     ```shell
     brew install tokei
     ```
 
-- ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
+-   ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
 
     ```shell
     brew install Ryu0118/Kusa/kusa
@@ -184,58 +184,59 @@ Jetpack
 curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
 ```
 
-- ### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
+-   ### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
     Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file.
 
-- ### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
+-   ### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
 
     Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file.
 
-- ### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
+-   ### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
 
     Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file.
 
-- ### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
+-   ### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
 
     Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file.
 
-- ### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
+-   ### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
 
     Add `Jetpack 'mbbill/undotree'` to your .vimrc file.
 
-- ### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
+-   ### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
 
     Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file
-- ### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
+
+-   ### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
     Add `Jetpack 'preservim/nerdtree'` to your .vimrc file
 
-- ### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
+-   ### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
 
     Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
 
-- ### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
+-   ### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
 
     Add `Jetpack 'ryanoasis/vim-devicons'` to your .vimrc file
 
-- ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
+-   ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
     Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
 
-- ### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
+-   ### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
 
     Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file
 
-- ### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
+-   ### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
 
     Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file
 
-- ### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
+-   ### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
 
     Add `Jetpack 'tpope/vim-surround'` to your .vimrc file
 
-- ### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
+-   ### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
 
     Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 
