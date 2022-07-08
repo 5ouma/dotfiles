@@ -97,20 +97,20 @@ nnoremap r <c-r>
 
 " プラグイン
 call jetpack#begin()
-Jetpack 'airblade/vim-gitgutter'
-Jetpack 'b4b4r07/vim-shellutils'
-Jetpack 'bronson/vim-trailing-whitespace'
-Jetpack 'cohama/lexima.vim'
-Jetpack 'mbbill/undotree'
-Jetpack 'phodge/vim-shell-command'
-Jetpack 'preservim/nerdtree'
-Jetpack 'reireias/vim-cheatsheet'
-Jetpack 'ryanoasis/vim-devicons'
-Jetpack 'thinca/vim-quickrun'
-Jetpack 'tpope/vim-commentary'
-Jetpack 'tpope/vim-fugitive'
-Jetpack 'tpope/vim-surround'
-Jetpack 'vim-scripts/vim-auto-save'
+  Jetpack 'airblade/vim-gitgutter'
+  Jetpack 'b4b4r07/vim-shellutils'
+  Jetpack 'bronson/vim-trailing-whitespace'
+  Jetpack 'cohama/lexima.vim'
+  Jetpack 'mbbill/undotree'
+  Jetpack 'phodge/vim-shell-command'
+  Jetpack 'preservim/nerdtree'
+  Jetpack 'reireias/vim-cheatsheet'
+  Jetpack 'ryanoasis/vim-devicons'
+  Jetpack 'thinca/vim-quickrun'
+  Jetpack 'tpope/vim-commentary'
+  Jetpack 'tpope/vim-fugitive'
+  Jetpack 'tpope/vim-surround'
+  Jetpack 'vim-scripts/vim-auto-save'
 call jetpack#end()
 let g:jetpack#optimization=2
 
