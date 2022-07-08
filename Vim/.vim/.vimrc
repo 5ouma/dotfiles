@@ -34,6 +34,8 @@ if has('persistent_undo')
     set undodir=~/.vim/undo
     set undofile
 endif
+" OSとクリップボードを共用する
+set clipboard+=unnamed
 
 " 見た目系
 " 行番号を表示
