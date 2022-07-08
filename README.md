@@ -74,13 +74,13 @@ brew install fig
 
     <a href="https://fig.io/plugins/completion/zsh-completions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
-- ### <a href="https://github.com/djui/alias-tips"><b>alias-tips</b></a>
-
-    <a href="https://fig.io/plugins/other/alias-tips_djui" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
-
 - ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
 
     <a href="https://fig.io/plugins/other/zsh-autopair_hlissner" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
+
+- ### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
+
+    <a href="https://app.fig.io/plugins/zsh-you-should-use_MichaelAquilina" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
 - ### <a href="https://github.com/owenthereal/ccat"><b>ccat</b></a>
 

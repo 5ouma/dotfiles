@@ -47,11 +47,6 @@ bindkey '^Q' show_buffer_stack
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-#===========================================================[ Plugins ]===========================================================#
-
-# Alias Tips
- export ZSH_PLUGINS_ALIAS_TIPS_TEXT=" 💡 "
-
 #==============================================================[ Paths ]==============================================================#
 
 # Fig post block. Keep at the bottom of this file.
