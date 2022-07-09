@@ -102,7 +102,6 @@ copyFile() {
 
 echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
 read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l;}
-cd "$dotfiles"/Setup/ || exit
 
 #===================================================================================[ Homebrew install ]===================================================================================#
 
@@ -294,7 +293,7 @@ if [[ "$doAction" = true ]]; then
       open -a "App Store"
     waitReturn
   echoNumber " 📲 Installing apps with Homebrew..."
-    brew bundle
+    brew bundle --file "$dotfiles"/Setup/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
   sleep 1
 

@@ -68,14 +68,9 @@ brew() {
       fi
       if [[ "$arg" = "install" || "$arg" = "uninstall" || "$arg" = "rmtree" || "$arg" = "tap" || "$arg" = "untap" ]]; then
         echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
-        brew bundle dump -f
+        brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
         # Xcodeをインストールしないようにする
-        sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
-        # dotfiles/Setupディレクトリ内なら実行しない
-        if [[ $(pwd) != "$dotfiles/Setup" ]]; then
-          echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
-          mv -f Brewfile "$dotfiles"/Setup
-        fi
+        sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
         echo "🍺  Brewfile was successfully generated!"
       fi
     done
@@ -85,14 +80,9 @@ brew() {
 make() {
   if [[ $1 = "Brewfile" ]]; then
     echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
-    brew bundle dump -f
+    brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
     # Xcodeをインストールしないようにする
-    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" Brewfile
-    # dotfiles/Setupディレクトリ内なら実行しない
-    if [[ $(pwd) != "$dotfiles/Setup" ]]; then
-      echo "\033[34;1m==>\033[m \033[1mMoving Brewfile to '$dotfiles/Setup'\033[m"
-      mv -f Brewfile "$dotfiles"/Setup
-    fi
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
     echo "🍺  Brewfile was successfully generated!"
   else
     command make "$@"
