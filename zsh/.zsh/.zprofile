@@ -95,11 +95,18 @@ alias bd="brew doctor"
 alias bi="brew install"
 alias bif="brew info"
 alias bl="brew list"
-alias brm="brew rmtree"
 alias bri="brew reinstall"
 alias bs="brew search"
 alias bt="brew tap"
-alias bun="brew uninstall"
+bun() {
+  for pack in "$@"; do
+    if [[ $(brew info "$pack") =~ "Formula" ]]; then
+      brew rmtree "$pack"
+    elif [[ $(brew info "$pack") =~ "Casks" ]]; then
+      brew uninstall "$pack"
+    fi
+  done
+}
 alias bup="brew update && brew upgrade"
 alias but="brew untap"
 alias bv="brew -v"
@@ -109,16 +116,6 @@ alias ml="mas list"
 alias ms="mas search"
 alias mum="mas uninstall"
 alias mup="mas upgrade"
-
-bur() {
-  for pack in "$@"; do
-    if [[ $(brew info "$pack") =~ "Formula" ]]; then
-      brew rmtree "$pack"
-    elif [[ $(brew info "$pack") =~ "Casks" ]]; then
-      brew uninstall "$pack"
-    fi
-  done
-}
 
 al() {
   indent="  "
