@@ -61,11 +61,6 @@ brew() {
   command brew "$@"
   if [[ $? = 0 ]]; then
     for arg in "$@"; do
-      if [[ -e /Applications/RealTimeSync.app && "$arg" = "freefilesync" ]]; then
-        echo "\033[34;1m==>\033[m \033[1mRemoving files:\033[m"
-        echo "/Applications/RealTimeSync.app"
-        sudo sh -c "rm -r /Applications/RealTimeSync.app"
-      fi
       if [[ "$arg" = "install" || "$arg" = "uninstall" || "$arg" = "rmtree" || "$arg" = "tap" || "$arg" = "untap" ]]; then
         echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
         brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
