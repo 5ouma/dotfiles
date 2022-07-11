@@ -251,6 +251,7 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
     ```shell
     git config --global core.excludesfile ~/.gitignore_global
     ```
+-   The alias to commit temporary with Vim.
 
 <br><br>
 
@@ -264,15 +265,15 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 ## 📥 Plugins
 
-### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
+-   ### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
 
-```shell
-brew tap beeftornado/rmtree
-```
+    ```shell
+    brew tap beeftornado/rmtree
+    ```
 
-### <a href="https://github.com/Homebrew/homebrew-autoupdate"><b>Homebrew Autoupdate</b></a>
+-   ### <a href="https://github.com/Homebrew/homebrew-autoupdate"><b>Homebrew Autoupdate</b></a>
 
-```shell
-brew tap homebrew/autoupdate
-brew autoupdate start
-```
+    ```shell
+    brew tap homebrew/autoupdate
+    brew autoupdate start
+    ```
