@@ -72,19 +72,11 @@ brew() {
   fi
 }
 
-make() {
-  if [[ $1 = "Brewfile" ]]; then
-    echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
-    brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
-    # Xcodeをインストールしないようにする
-    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
-    echo "🍺  Brewfile was successfully generated!"
-  else
-    command make "$@"
-  fi
+bbd() {
+  brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
+  # Xcodeをインストールしないようにする
+  sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
 }
-
-alias bbd="brew bundle dump"
 alias bcl="brew cleanup"
 alias bd="brew doctor"
 alias bi="brew install"
