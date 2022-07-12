@@ -13,6 +13,8 @@ export PATH=$HOME/.dotfiles/Commands/memo:$PATH
 # notion
 export PATH=$HOME/.dotfiles/Commands/notion:$PATH
 
+#============================================================[ Settings ]============================================================#
+
 # 日本語を使用
 export LANG=ja_JP.UTF-8
 
