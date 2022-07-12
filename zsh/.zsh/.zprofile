@@ -87,9 +87,10 @@ alias bs="brew search"
 alias bt="brew tap"
 bun() {
   for pack in "$@"; do
-    if [[ $(brew info "$pack") =~ "Formula" ]]; then
+    packType=$(brew info "$pack")
+    if [[ "$packType" =~ "Formula" ]]; then
       brew rmtree "$pack"
-    elif [[ $(brew info "$pack") =~ "Casks" ]]; then
+    elif [[ "$packType" =~ "Casks" ]]; then
       brew uninstall "$pack"
     fi
   done
