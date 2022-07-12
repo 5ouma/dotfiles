@@ -5,17 +5,17 @@ set viminfo+=n~/.vim/.viminfo
 colorscheme pencil
 " Vim再読み込み時に外観モードを反映
 function! CAP()
-    let output =  system("defaults read -g AppleInterfaceStyle")
-    if v:shell_error != 0
-        set background=light
-    else
-        set background=dark
-    endif
+  let output =  system("defaults read -g AppleInterfaceStyle")
+  if v:shell_error != 0
+    set background=light
+  else
+    set background=dark
+  endif
 endfunction
 
 
 " setting
-" 文字コードをUFT-8に設定
+" 文字コードをUTF-8に設定
 set encoding=UTF-8
 " バックアップファイルを作らない
 set nobackup
@@ -31,8 +31,8 @@ set showcmd
 set belloff=all
 " 永続的Undo
 if has('persistent_undo')
-    set undodir=~/.vim/undo
-    set undofile
+  set undodir=~/.vim/undo
+  set undofile
 endif
 " OSとクリップボードを共用する
 set clipboard+=unnamed
