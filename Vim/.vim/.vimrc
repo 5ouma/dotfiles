@@ -89,8 +89,8 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 " エイリアス
-command Cl call ChangetoLight()
-command Cd call ChangetoDark()
+command Cl set background=light
+command Cd set background=dark
 command Fw FixWhitespace
 command Nt NERDTreeToggle
 command Ut UndotreeToggle
