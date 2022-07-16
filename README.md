@@ -113,10 +113,22 @@ brew install fig
     brew install tokei
     ```
 
+-   ### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
+
+    ```shell
+    brew install pastel
+    ```
+
 -   ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
 
     ```shell
     brew install Ryu0118/Kusa/kusa
+    ```
+
+-   ### <a href="https://github.com/sindresorhus/dark-mode"><b>dark-mode</b></a>
+
+    ```shell
+    brew install dark-mode
     ```
 
 <br><br>
