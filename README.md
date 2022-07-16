@@ -11,9 +11,10 @@ source ~/.dotfiles/Setup/setup.sh
 
 # 🌄 Preview
 
-| Preview 1                                    | Preview 2                                    |
-| -------------------------------------------- | -------------------------------------------- |
-| ![Preview 1](Images/Preview/Preview%201.png) | ![Preview 2](Images/Preview/Preview%202.png) |
+|   | Overview | Interacting with zsh | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
+| - | -------- |--------------------- | ---------------------------------------------------------- |
+| Light Mode | ![Preview 1 - Light](Images/Preview/Light/Preview%201.png) | ![Preview 2 - Light](Images/Preview/Light/Preview%202.png) | ![Preview 3 - Light](Images/Preview/Light/Preview%203.png) |
+| Dark Mode | ![Preview 1 - Dark](Images/Preview/Dark/Preview%201.png) | ![Preview 2 - Dark](Images/Preview/Dark/Preview%202.png) | ![Preview 3 - Dark](Images/Preview/Dark/Preview%203.png) |
 
 <br><br>
 
