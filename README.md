@@ -260,11 +260,29 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 # 🐙 Git
 
+## 🍽 Settings
+
 -   Ignore `.DS_Store` file to make `.gitignore_global` file and run
     ```shell
     git config --global core.excludesfile ~/.gitignore_global
     ```
 -   The alias to commit temporary with Vim.
+
+<br>
+
+## 📥 Plugins
+
+-   ### <a href="https://github.com/Bhupesh-V/ugit"><b>ugit</b></a>
+
+    ```shell
+    brew install ugit
+    ```
+
+-   ### <a href="https://github.com/paulirish/git-open"><b>git-open</b></a>
+
+    ```shell
+    brew install git-open
+    ```
 
 <br><br>
 
