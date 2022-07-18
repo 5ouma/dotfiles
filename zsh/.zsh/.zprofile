@@ -165,7 +165,7 @@ vim() {
   if [[ $1 = "-f" ]]; then
     command vim $(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
   else
-    command vim
+    command vim $@
   fi
 }
 
