@@ -129,9 +129,9 @@ al() {
 # VSCode
 alias c.="code ."
 
-# ccat
-if type ccat > /dev/null 2>&1; then
-  alias cat="ccat"
+# bat
+if type bat > /dev/null 2>&1; then
+  alias cat="bat --theme=ansi"
 fi
 
 # doctors
@@ -161,6 +161,13 @@ alias tokei="tokei -f"
 # Vim
 alias v="vim"
 alias vup="vim +Jetpack +qall"
+vim() {
+  if [[ $1 = "-f" ]]; then
+    command vim $(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
+  else
+    command vim
+  fi
+}
 
 # アップデート
 alias update="brew update && brew upgrade && vim +Jetpack +qall && asdf plugin-update --all"

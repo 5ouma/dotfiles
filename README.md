@@ -83,10 +83,16 @@ brew install fig
 
     <a href="https://app.fig.io/plugins/zsh-you-should-use_MichaelAquilina" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
--   ### <a href="https://github.com/owenthereal/ccat"><b>ccat</b></a>
+-   ### <a href="https://github.com/sharkdp/bat"><b>bat</b></a>
 
     ```shell
-    brew install ccat
+    brew install bat
+    ```
+
+-   ### <a href="https://github.com/junegunn/fzf"><b>fzf</b></a>
+
+    ```shell
+    brew install fzf
     ```
 
 -   ### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
