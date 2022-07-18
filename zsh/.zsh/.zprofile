@@ -58,12 +58,12 @@ g-Souma-S() {
 
 # Homebrew
 brew() {
-  command brew "$@"
+  command brew $@
   if [[ $? = 0 ]]; then
-    for arg in "$@"; do
+    for arg in $@; do
       if [[ "$arg" = "install" || "$arg" = "uninstall" || "$arg" = "rmtree" || "$arg" = "tap" || "$arg" = "untap" ]]; then
         echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
-        brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
+        brew bundle dump -f --file="$dotfiles"/Setup/Brewfile
         # Xcodeをインストールしないようにする
         sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
         echo "🍺  Brewfile was successfully generated!"
@@ -73,7 +73,7 @@ brew() {
 }
 
 bbd() {
-  brew bundle dump -f --file "$dotfiles"/Setup/Brewfile
+  brew bundle dump -f --file="$dotfiles"/Setup/Brewfile
   # Xcodeをインストールしないようにする
   sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
 }
@@ -86,7 +86,7 @@ alias bri="brew reinstall"
 alias bs="brew search"
 alias bt="brew tap"
 bun() {
-  for pack in "$@"; do
+  for pack in $@; do
     packType=$(brew info "$pack")
     if [[ "$packType" =~ "Formula" ]]; then
       brew rmtree "$pack"
@@ -147,7 +147,7 @@ alias glow="glow -p"
 # lsd
 if type lsd > /dev/null 2>&1; then
   alias ls="lsd -A"
-  alias tree="lsd -A --tree --depth 3"
+  alias tree="lsd -A --tree --depth=3"
 fi
 
 # trash
