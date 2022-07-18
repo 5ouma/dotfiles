@@ -107,6 +107,12 @@ brew install fig
     brew install lsd
     ```
 
+-   ### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
+
+    ```shell
+    brew install pastel
+    ```
+
 -   ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
 
     ```shell
@@ -117,12 +123,6 @@ brew install fig
 
     ```shell
     brew install tokei
-    ```
-
--   ### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
-
-    ```shell
-    brew install pastel
     ```
 
 -   ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
