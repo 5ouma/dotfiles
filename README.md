@@ -267,6 +267,10 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
     Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file.
 
+-   ### <a href="https://github.com/itchyny/lightline.vim"><b>lightline.vim</b></a>
+
+    Add `Jetpack 'itchyny/lightline.vim'` to your .vimrc file.
+
 -   ### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
 
     Add `Jetpack 'mbbill/undotree'` to your .vimrc file.
@@ -274,6 +278,10 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 -   ### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
 
     Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file
+
+-   ### <a href="https://github.com/matze/vim-move"><b>move</b></a>
+
+    Add `Jetpack 'matze/vim-move'` to your .vimrc file
 
 -   ### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
@@ -306,6 +314,10 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 -   ### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
 
     Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
+
+-   ### <a href="https://github.com/Xuyuanp/nerdtree-git-plugin"><b>NERDTree-git-plugin</b></a>
+
+    Add `Jetpack 'Xuyuanp/nerdtree-git-plugin'` to your .vimrc file
 
 <br><br>
 
