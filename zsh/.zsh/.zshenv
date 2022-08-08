@@ -18,6 +18,9 @@ export PATH=$HOME/.dotfiles/Commands/notion:$PATH
 # Use Japanese
 export LANG=ja_JP.UTF-8
 
+# Load plugin's settings
+source "$ZDOTDIR"/.plugins.zsh
+
 #============================================================[ History ]============================================================#
 
 # Where to save history file
