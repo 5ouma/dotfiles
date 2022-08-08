@@ -7,7 +7,7 @@ notSetup=true
 doneAnything=false
 doAction=
 nowNum=1
-allNum=12
+allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
 
 waitInput() {
   echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
@@ -16,6 +16,9 @@ waitInput() {
     doAction=true && echo ""
   elif [[ "$run" =~ "n" ]]; then
     doAction=false && echo ""
+    for i in {1..$2}; do
+      (( nowNum++ ))
+    done
   else
     echo -e "\n" && exec $SHELL -l
   fi
@@ -118,7 +121,7 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l;}
 
 #==================================================[ Homebrew install ]==================================================#
 
-waitInput "Installing Homebrew."
+waitInput "Installing Homebrew." 2
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
@@ -154,7 +157,7 @@ fi
 
 #==================================================[ Files, directories and commands ]==================================================#
 
-waitInput "Make symlinks or create terminal files and add permission to commands."
+waitInput "Make symlinks or create terminal files and add permission to commands." 3
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
@@ -214,7 +217,7 @@ fi
 #==================================================[ System write ]==================================================#
 
 # Make spaces on Dock and resize Launchpad
-waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder."
+waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder." 4
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
@@ -269,7 +272,7 @@ if [[ "$doAction" = true ]]; then
 fi
 
 # Set computer names
-waitInput "Set computer name."
+waitInput "Set computer name." 1
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
@@ -295,7 +298,7 @@ fi
 
 #==================================================[ Install apps and more ]==================================================#
 
-waitInput "Install Homebrew packages and apps."
+waitInput "Install Homebrew packages and apps." 3
 if [[ "$doAction" = true ]]; then
 
   doneAnything=true
