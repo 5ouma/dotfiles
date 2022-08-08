@@ -110,10 +110,28 @@ brew install fig
     brew install bat
     ```
 
+-   ### <a href="https://github.com/Canop/broot"><b>Broot</b></a>
+
+    ```shell
+    brew install broot
+    ```
+
+-   ### <a href="https://github.com/sindresorhus/dark-mode"><b>dark-mode</b></a>
+
+    ```shell
+    brew install dark-mode
+    ```
+
 -   ### <a href="https://github.com/junegunn/fzf"><b>fzf</b></a>
 
     ```shell
     brew install fzf
+    ```
+
+-   ### <a href="https://github.com/svenstaro/genact"><b>genact</b></a>
+
+    ```shell
+    brew install genact
     ```
 
 -   ### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
@@ -122,10 +140,22 @@ brew install fig
     brew install glow
     ```
 
+-   ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
+
+    ```shell
+    brew install Ryu0118/Kusa/kusa
+    ```
+
 -   ### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
 
     ```shell
     brew install lsd
+    ```
+
+-   ### <a href="https://github.com/rgcr/m-cli"><b>m-cli</b></a>
+
+    ```shell
+    brew install m-cli
     ```
 
 -   ### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
@@ -134,10 +164,10 @@ brew install fig
     brew install pastel
     ```
 
--   ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
+-   ### <a href="https://github.com/Aloxaf/silicon"><b>Silicon</b></a>
 
     ```shell
-    brew install trash
+    brew install silicon
     ```
 
 -   ### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
@@ -146,16 +176,10 @@ brew install fig
     brew install tokei
     ```
 
--   ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
+-   ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
 
     ```shell
-    brew install Ryu0118/Kusa/kusa
-    ```
-
--   ### <a href="https://github.com/sindresorhus/dark-mode"><b>dark-mode</b></a>
-
-    ```shell
-    brew install dark-mode
+    brew install trash
     ```
 
 <br><br>
@@ -299,16 +323,36 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 ## 📥 Plugins
 
--   ### <a href="https://github.com/Bhupesh-V/ugit"><b>ugit</b></a>
+-   ### <a href="https://github.com/wfxr/forgit"><b>forgit</b></a>
+
+    <a href="https://fig.io/plugins/other/forgit" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
     ```shell
-    brew install ugit
+    fig plugins add forgit
     ```
 
 -   ### <a href="https://github.com/paulirish/git-open"><b>git-open</b></a>
 
     ```shell
     brew install git-open
+    ```
+
+-   ### <a href="https://github.com/extrawurst/gitui"><b>GitUI</b></a>
+
+    ```shell
+    brew install gitui
+    ```
+
+-   ### <a href="https://github.com/o2sh/onefetch"><b>onefetch</b></a>
+
+    ```shell
+    brew install onefetch
+    ```
+
+-   ### <a href="https://github.com/Bhupesh-V/ugit"><b>ugit</b></a>
+
+    ```shell
+    brew install ugit
     ```
 
 <br><br>

@@ -56,6 +56,12 @@ g-Souma-S() {
   echo "email: $(git config user.email)"
 }
 
+# forgit
+alias gfa="git forgit add"
+alias gflg="git forgit log"
+alias gfd="git forgit diff"
+alias gfrh="git forgit reset HEAD"
+
 # Homebrew
 brew() {
   command brew $@
