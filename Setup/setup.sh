@@ -316,6 +316,11 @@ if [[ "$doAction" = true ]]; then
   echoNumber " 💾 Installing programming language with asdf..."
   installLang "Node.js" "nodejs"
 
+  echoNumber " 📝 Installing Vim plugins with Jetpack..."
+    export VIMRC="$HOME/.vim/.vimrc"
+    export VIMINIT="source $VIMRC"
+    vim +Jetpack +qall
+
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
     waitInput "Please install DaVinci Resolve."
         sleep 3
