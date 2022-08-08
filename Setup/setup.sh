@@ -99,6 +99,18 @@ copyFile() {
   fi
 }
 
+installLang() {
+  if [[ $(asdf list "$2") =~ "No such plugin:" ]]; then
+    echoInfo "Installing $1..."
+    asdf plugin-add "$2" && asdf install "$2" latest && asdf global "$2" latest
+    echoResult "Installed $1!" "Installing $1 is failed."
+    sleep 1
+  else
+    echoWarning "$1 is already installed."
+    sleep 0.5
+  fi
+}
+
 #==================================================[ Ask to confirm ]==================================================#
 
 echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
@@ -299,15 +311,7 @@ if [[ "$doAction" = true ]]; then
   sleep 1
 
   echoNumber " 💾 Installing programming language with asdf..."
-  if [[ $(asdf list nodejs) =~ "No such plugin:" ]]; then
-    echoInfo "Installing Node.js..."
-    asdf plugin-add nodejs && asdf install nodejs latest && asdf global nodejs latest
-    echoResult "Installed Node.js!" "Installing Node.js is failed."
-    sleep 1
-  else
-    echoWarning "Node.js is already installed."
-    sleep 0.5
-  fi
+  installLang "Node.js" "nodejs"
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
     waitInput "Please install DaVinci Resolve."
