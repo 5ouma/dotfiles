@@ -124,15 +124,18 @@ let g:auto_save_silent = 1
 
 " lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left':  [ [ 'mode', 'paste' ],
+  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'filetype' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead'
+  \ },
+\ }
 
 " move
 nmap <C-j> <Plug>MoveLineDown
