@@ -13,28 +13,28 @@ fi
 
 #===========================================================[ Settings ]===========================================================#
 
-# 日本語ファイル名を表示可能にする
+# Being enabled to show Japanese file names
 setopt print_eight_bit
 
-# cdを省略してディレクトリ移動
+# Moving directories without `cd`
 setopt auto_cd
 
-# コマンドのスペルをミスして実行した場合に候補を表示
+# Show completions when input commands are typo
 setopt correct
 
-# 補完候補にファイルの種類も表示する
+# Show type of the files on completions
 setopt list_types
 
-# 補完候補をカーソルで選択
+# Select with the cursor on completions
 zstyle ':completion:*:default' menu select=1
 
-# Shift-Tabで補完候補を逆順する
+# Reverse with `Shift + Tab` on completions
 bindkey "^[[Z" reverse-menu-complete
 
-# 新しくインストールされたコマンドをすぐに認識させる
+# Recognize the commands as soon as installed
 zstyle ":completion:*:commands" rehash 1
 
-# コマンドラインスタック
+# Command line stack
 show_buffer_stack() {
   POSTDISPLAY="
   stack: $LBUFFER"

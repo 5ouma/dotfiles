@@ -15,34 +15,34 @@ export PATH=$HOME/.dotfiles/Commands/notion:$PATH
 
 #============================================================[ Settings ]============================================================#
 
-# 日本語を使用
+# Use Japanese
 export LANG=ja_JP.UTF-8
 
 #============================================================[ History ]============================================================#
 
-# 履歴ファイルの保存先
+# Where to save history file
 export HISTFILE=$HOME/.zsh/.zsh_history
 
-# メモリに保存される履歴の件数
+# Number of histories stored in memory
 export HISTSIZE=1000
 
-# 履歴ファイルに保存される履歴の件数
+# Number of histories saved in the history file
 export SAVEHIST=10000
 
-# 同時に起動しているzshの間でhistoryを共有する
+# Share histories between concurrently running zsh
 setopt share_history
 
-# historyに保存するときに余分なスペースを削除する
+# Remove extra space when saving to histories
 setopt hist_reduce_blanks
 
-# 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
+# If the command entered is already in the command history, delete the older command
 setopt hist_ignore_all_dups
 
-# Tabでの選択時黒枠を追加
+# Add black frame when selecting with Tab
 autoload -Uz compinit
 compinit -d $HOME/.zsh/.zcompdump
 
-# 入力した文字から始まるコマンドを履歴から検索し、上下矢印で補完
+# Search the history for commands that begin with the characters entered and completes them with the up and down arrows
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search

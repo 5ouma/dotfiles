@@ -64,7 +64,7 @@ brew() {
       if [[ "$arg" = "install" || "$arg" = "uninstall" || "$arg" = "rmtree" || "$arg" = "tap" || "$arg" = "untap" ]]; then
         echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
         brew bundle dump -f --file="$dotfiles"/Setup/Brewfile
-        # Xcodeをインストールしないようにする
+        # Not to install Xcode
         sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
         echo "🍺  Brewfile was successfully generated!"
       fi
@@ -74,7 +74,7 @@ brew() {
 
 bbd() {
   brew bundle dump -f --file="$dotfiles"/Setup/Brewfile
-  # Xcodeをインストールしないようにする
+  # Not to install Xcode
   sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
 }
 alias bcl="brew cleanup"
@@ -169,14 +169,14 @@ vim() {
   fi
 }
 
-# アップデート
+# update
 alias update="brew update && brew upgrade && vim +Jetpack +qall && asdf plugin-update --all"
 
 # System
 alias ka="killall"
 alias mv="mv -i -v"
 
-# メモを表示
+# memo
 alias mgc="memo git change"
 alias mgm="memo git message"
 alias mgfp="memo git force pull"

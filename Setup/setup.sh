@@ -255,7 +255,7 @@ if [[ "$doAction" = true ]]; then
     sleep 0.5
   fi
 
-  # .DS_Store作成を抑制
+  # Suppress to make .DS_Store files
   echoNumber " ❎ Suppressing .DS_Store creation..."
   if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) = 0 && $(defaults write com.apple.desktopservices DSDontWriteUSBStores -bool) = 0 ]]; then
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"

@@ -1,9 +1,9 @@
-" viminfoの場所
+" Where to save history file
 set viminfo+=n~/.vim/.viminfo
 
-" カラースキーム
+" Color scheme
 colorscheme pencil
-" Vim再読み込み時に外観モードを反映
+" Reflect appearance mode when vim is loaded
 function! CAP()
   let output =  system("defaults read -g AppleInterfaceStyle")
   if v:shell_error != 0
@@ -14,91 +14,90 @@ function! CAP()
 endfunction
 
 
-" setting
-" 文字コードをUTF-8に設定
+" Settings
+" Set character code as UTF-8
 set encoding=UTF-8
-" バックアップファイルを作らない
+" Not to make a backup file
 set nobackup
-" スワップファイルを作らない
+" Not to make a swap file
 set noswapfile
-" 編集中のファイルが変更されたら自動で読み直す
+" Auto reload when the editing file is changed
 set autoread
-" バッファが編集中でもその他のファイルを開けるように
+" Being enabled to open even if the buffer is editing
 set hidden
-" 入力中のコマンドをステータスに表示する
+" Display inputting commands to the status bar
 set showcmd
-" Beep音オフ
+" Turn off the beep sound
 set belloff=all
-" 永続的Undo
+" Being enabled `forever undo`
 if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
-" OSとクリップボードを共用する
+" Share clipboard with OS
 set clipboard+=unnamed
-" マウスを使う
+" Use a mouse
 set mouse=a
 
 
-" 見た目系
-" 行番号を表示
+" Appearance
+" Display the line numbers
 set number
-" 現在の行を強調表示
+" Highlight current line
 set cursorline
-" 行末の1文字先までカーソルを移動できるように
+" Being enabled to move the cursor after the end of the lines
 set virtualedit=onemore
-" インデントはスマートインデント
+" Set indents as smart indent
 set smartindent
-" 括弧入力時の対応する括弧を表示
+" Highlight the corresponding brackets
 set showmatch
-" ステータスラインを常に表示
+" Always display status line
 set laststatus=2
-" コマンドラインの補完
+" Completion on the command line
 set wildmode=list:longest
-" 折り返し時に表示行単位での移動できるようにする
+" Being enabled to move as units of seen lines
 nnoremap <Down> gj
 nnoremap <Up> gk
-" シンタックスハイライトの有効化
+" Being enabled the syntax highlight
 syntax enable
 
 
-" Tab系
-" 不可視文字を可視化(タブが「▸-」と表示される)
+" Tab
+" Make the invisible text visible(Tab is shown as `▸-`)
 set list listchars=tab:\▸\-
-" Tab文字を半角スペースにする
+" Change tab as spaces
 set expandtab
-" 行頭以外のTab文字の表示幅(スペースいくつ分)
-set tabstop=2
-" 行頭でのTab文字の表示幅
+" The number of spaces instead of tab
 set shiftwidth=2
+set tabstop=2
 
 
-" 検索系
-" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+" Search
+" Search if the texs are lower case, even if it's upper or lower case
 set ignorecase
-" 検索文字列に大文字が含まれている場合は区別して検索する
+" Not to search if the texts are upper case
 set smartcase
-" 検索文字列入力時に順次対象文字列にヒットさせる
+" Sequentially highlight the target string when entering search strings
 set incsearch
-" 検索時に最後まで行ったら最初に戻る
+" Back to the beginning when searching goes to the end
 set wrapscan
-" 検索語をハイライト表示
+" Highlight the searching texts
 set hlsearch
-" ESC連打でハイライト解除
+" Cancel highlighting by typing `esc`
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
-" エイリアス
+" Aliases
 command Cl set background=light
 command Cd set background=dark
 command Fw FixWhitespace
 command Nt NERDTreeToggle
 command Ut UndotreeToggle
 
-" キーマップ
+" Keymaps
 nnoremap r <c-r>
 
-" プラグイン
+" Plugins
 call jetpack#begin()
   Jetpack 'airblade/vim-gitgutter'
   Jetpack 'b4b4r07/vim-shellutils'
@@ -108,7 +107,6 @@ call jetpack#begin()
   Jetpack 'phodge/vim-shell-command'
   Jetpack 'preservim/nerdtree'
   Jetpack 'reireias/vim-cheatsheet'
-  Jetpack 'ryanoasis/vim-devicons'
   Jetpack 'thinca/vim-quickrun'
   Jetpack 'tpope/vim-commentary'
   Jetpack 'tpope/vim-fugitive'
@@ -118,11 +116,11 @@ call jetpack#end()
 let g:jetpack#optimization=2
 
 " vim-gitgutter
-" 起動時に行ハイライトを有効
+" Being enabled highlighting when it's launched
 let g:gitgutter_highlight_lines = 1
-" タイピング停止時から反映させるまでの時間
+" The time to reflect when it stops typing
 set updatetime=10
-" 記号の色を変更
+" The color of symbols
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=blue
 highlight GitGutterDelete ctermfg=red
@@ -132,7 +130,7 @@ highlight GitGutterChangeDelete ctermfg=red
 let g:shell_command_use_col = 0
 
 " NERDTree
-" 隠しファイルを表示
+" Show hidden files
 let NERDTreeShowHidden = 1
 
 " AutoSave
