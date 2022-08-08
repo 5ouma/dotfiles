@@ -25,7 +25,9 @@ source ~/.dotfiles/Setup/setup.sh
 ### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
 <a href="https://fig.io/plugins/other/powerlevel10k" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
-`shell fig plugins add powerlevel10k `
+```shell
+fig plugins add powerlevel10k
+```
 
 <br>
 
