@@ -25,6 +25,7 @@ source ~/.dotfiles/Setup/setup.sh
 ### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
 <a href="https://fig.io/plugins/other/powerlevel10k" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
+`shell fig plugins add powerlevel10k `
 
 <br>
 
@@ -65,9 +66,17 @@ brew install fig
 
     <a href="https://fig.io/plugins/color/zsh-syntax-highlighting" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
+    ```shell
+    fig plugins add zsh-syntax-highlighting
+    ```
+
 -   ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
     <a href="https://fig.io/plugins/completion/zsh-autosuggestions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
+
+    ```shell
+    fig plugins add zsh-autosuggestions
+    ```
 
 -   ### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
@@ -75,13 +84,25 @@ brew install fig
 
     <a href="https://fig.io/plugins/completion/zsh-completions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
+    ```shell
+    fig plugins add zsh-completions
+    ```
+
 -   ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
 
     <a href="https://fig.io/plugins/other/zsh-autopair_hlissner" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
+    ```shell
+    fig plugins add zsh-autopair_hlissner
+    ```
+
 -   ### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
 
     <a href="https://app.fig.io/plugins/zsh-you-should-use_MichaelAquilina" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
+
+    ```shell
+    fig plugins add zsh-you-should-use_MichaelAquilina
+    ```
 
 -   ### <a href="https://github.com/sharkdp/bat"><b>bat</b></a>
 
