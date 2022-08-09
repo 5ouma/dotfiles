@@ -35,6 +35,7 @@ alias gs="git status"
 alias gsm="git submodule"
 alias gsw="git switch"
 alias gswb="git switch -b"
+alias gtg="git tag"
 
 gcv() {
   git config core.editor "vim"
