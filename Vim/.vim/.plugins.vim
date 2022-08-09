@@ -1,3 +1,5 @@
+"============================================================[ Install ]============================================================"
+
 call jetpack#begin()
   Jetpack 'airblade/vim-gitgutter'
   Jetpack 'b4b4r07/vim-shellutils'
@@ -18,6 +20,8 @@ call jetpack#begin()
   Jetpack 'Xuyuanp/nerdtree-git-plugin'
 call jetpack#end()
 let g:jetpack#optimization=2
+
+"============================================================[ Settings ]============================================================"
 
 " AutoSave
 let g:auto_save = 1

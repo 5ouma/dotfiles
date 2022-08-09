@@ -1,8 +1,13 @@
+"============================================================[ Paths ]============================================================"
+
 " Where to save history file
 set viminfo+=n~/.vim/.viminfo
 
 " Load plugin's settings
 source ~/.vim/.plugins.vim
+
+"============================================================[ Theme ]============================================================"
+
 " Color scheme
 colorscheme pencil
 " Reflect appearance mode when vim is loaded
@@ -15,8 +20,8 @@ function! CAP()
   endif
 endfunction
 
+"============================================================[ Settings ]============================================================"
 
-" Settings
 " Set character code as UTF-8
 set encoding=UTF-8
 " Not to make a backup file
@@ -41,7 +46,6 @@ set clipboard+=unnamed
 " Use a mouse
 set mouse=a
 
-
 " Appearance
 " Display the line numbers
 set number
@@ -63,7 +67,6 @@ nnoremap <Up> gk
 " Being enabled the syntax highlight
 syntax enable
 
-
 " Tab
 " Make the invisible text visible(Tab is shown as `▸-`)
 set list listchars=tab:\▸\-
@@ -72,7 +75,6 @@ set expandtab
 " The number of spaces instead of tab
 set shiftwidth=2
 set tabstop=2
-
 
 " Search
 " Search if the texs are lower case, even if it's upper or lower case
@@ -88,13 +90,12 @@ set hlsearch
 " Cancel highlighting by typing `esc`
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+"============================================================[ Aliases & Keymaps ]============================================================"
 
-" Aliases
 command Cl set background=light
 command Cd set background=dark
 command Fw FixWhitespace
 command Nt NERDTreeToggle
 command Ut UndotreeToggle
 
-" Keymaps
 nmap r <c-r>
