@@ -309,7 +309,7 @@ if [[ "$doAction" = true ]]; then
       open -a "App Store"
     waitReturn
   echoNumber " 📲 Installing apps with Homebrew..."
-    brew bundle --file "$dotfiles"/Setup/Brewfile
+    brew bundle --file="$dotfiles"/Setup/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
   sleep 1
 
