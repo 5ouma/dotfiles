@@ -38,7 +38,7 @@ alias gswb="git switch -b"
 
 gcv() {
   git config core.editor "vim"
-  git commit -v
+  git commit -v "$@"
   git config core.editor "code --wait"
 }
 
