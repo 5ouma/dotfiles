@@ -109,6 +109,7 @@ call jetpack#begin()
   Jetpack 'phodge/vim-shell-command'
   Jetpack 'preservim/nerdtree'
   Jetpack 'reireias/vim-cheatsheet'
+  Jetpack 'ryanoasis/vim-devicons'
   Jetpack 'thinca/vim-quickrun'
   Jetpack 'tpope/vim-commentary'
   Jetpack 'tpope/vim-fugitive'
