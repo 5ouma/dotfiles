@@ -126,7 +126,7 @@ al() {
   echo -e "\n\033[34;1m==>\033[m \033[1mmas\033[m"
   mas list |
     while IFS= read -r line; do
-        echo "$indent$line"
+      echo "$indent$line"
     done
 }
 
@@ -156,7 +156,7 @@ fi
 
 # trash
 if type trash > /dev/null 2>&1; then
-    alias rm="trash -F"
+  alias rm="trash -F"
 fi
 
 # tokei
