@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 case "$1" in
 "git" )
     case "$2" in
@@ -26,31 +28,31 @@ case "$1" in
         "pull" )
             echo "  \033[32mgit\033[m fetch origin"
             echo "  \033[32mgit\033[m reset --hard origin/main"
-            printf "git fetch origin && git reset --hard origin/main" | pbcopy
+            echo "git fetch origin && git reset --hard origin/main" | pbcopy
             ;;
         "reset" )
             echo "  \033[32mgit\033[m reset --hard HEAD^"
-            echo "  \033[32mgit\033[m push -f "$4""
-            printf "git reset --hard HEAD^ && git push -f "$4"" | pbcopy
+            echo "  \033[32mgit\033[m push -f $4"
+            echo "git reset --hard HEAD^ && git push -f $4" | pbcopy
             ;;
-        * ) echo "\033[31mError:\033[m Unknown command "$3"";;
+        * ) echo "\033[31mError:\033[m Unknown command $3" ;;
         esac
-    ;;
+        ;;
     "cancel" )
         case "$3" in
         "add" )
             echo "  \033[32mgit\033[m reset HEAD (ファイル名)"
-            printf "git reset HEAD" | pbcopy
+            echo "git reset HEAD" | pbcopy
             ;;
         "commit" )
             echo "  \033[32mgit\033[m reset --soft HEAD^"
-            printf "git reset --soft HEAD^" | pbcopy
+            echo "git reset --soft HEAD^" | pbcopy
             ;;
-        * ) echo "\033[31mError:\033[m Unknown command "$3"";;
+        * ) echo "\033[31mError:\033[m Unknown command $3" ;;
         esac
-    ;;
-    * ) echo "\033[31mError:\033[m Unknown command "$2"";;
+        ;;
+    * ) echo "\033[31mError:\033[m Unknown command $2" ;;
     esac
-;;
-* ) echo "\033[31mError:\033[m Unknown command "$1"";;
+    ;;
+* ) echo "\033[31mError:\033[m Unknown command $1" ;;
 esac

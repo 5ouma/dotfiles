@@ -38,7 +38,7 @@ echoWarning() {
 }
 
 echoResult() {
-  if [[ $? = 0 ]];then
+  if [[ $? = 0 ]]; then
     echo -e "\033[32msuccess\033[m $1"
   else
     echo -e "\033[31merror\033[m $2"
@@ -117,7 +117,7 @@ installLang() {
 #==================================================[ Ask to confirm ]==================================================#
 
 echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
-read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l;}
+read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 
 #==================================================[ Homebrew install ]==================================================#
 
