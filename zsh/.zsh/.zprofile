@@ -93,7 +93,7 @@ alias bri="brew reinstall"
 alias bs="brew search"
 alias bt="brew tap"
 bun() {
-  for pack in $@; do
+  for pack in "$@"; do
     packType=$(brew info "$pack")
     if [[ "$packType" =~ "Formula" ]]; then
       brew rmtree "$pack"
@@ -170,9 +170,9 @@ alias v="vim"
 alias vup="vim +Jetpack +qall"
 vim() {
   if [[ $1 = "-f" ]]; then
-    command vim $(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
+    command vim "$(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")"
   else
-    command vim $@
+    command vim "$@"
   fi
 }
 
