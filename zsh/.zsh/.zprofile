@@ -65,17 +65,14 @@ alias gfrh="git forgit reset HEAD"
 
 # Homebrew
 brew() {
-  command brew $@
-  if [[ $? = 0 ]]; then
-    for arg in $@; do
-      if [[ "$arg" = "install" || "$arg" = "uninstall" || "$arg" = "rmtree" || "$arg" = "tap" || "$arg" = "untap" ]]; then
-        echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
-        brew bundle dump -f --file="$dotfiles"/Setup/Brewfile
-        # Not to install Xcode
-        sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
-        echo "🍺  Brewfile was successfully generated!"
-      fi
-    done
+  if command brew "$@"; then
+    if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "rmtree" || "$1" = "tap" || "$1" = "untap" ]]; then
+      echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
+      brew bundle dump -f --file="$dotfiles"/Setup/Brewfile
+      # Not to install Xcode
+      sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/Setup/Brewfile
+      echo "🍺  Brewfile was successfully generated!"
+    fi
   fi
 }
 
