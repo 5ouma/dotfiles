@@ -9,6 +9,7 @@ doAction=
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
 
+
 waitInput() {
   echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
   read -r -k 1 run
@@ -113,11 +114,7 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 #==================================================[ Homebrew install ]==================================================#
 
 waitInput "Installing Homebrew." 2
-if [[ "$doAction" = true ]]; then
-
-  doneAnything=true
-
-  # Command Line Tools for Xcode
+if [[ "$doAction" = true ]]; then ;doneAnything=true
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
   if [[ ! $(xcode-select --install 2>&1) =~ "command line tools are already installed" ]]; then
       xcode-select --install
@@ -128,7 +125,6 @@ if [[ "$doAction" = true ]]; then
     sleep 0.5
   fi
 
-  # Homebrew
   echoNumber " 🍺 Installing Homebrew..."
   if ! (type brew > /dev/null 2>&1); then
     echo -e "Is this command correct?\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
@@ -149,10 +145,7 @@ fi
 #==================================================[ Files, directories and commands ]==================================================#
 
 waitInput "Make symlinks or create terminal files and add permission to commands." 3
-if [[ "$doAction" = true ]]; then
-
-  doneAnything=true
-
+if [[ "$doAction" = true ]]; then ;doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeSymlink "$dotfiles"/zsh ~
     makeSymlink "$dotfiles"/Vim ~
@@ -163,9 +156,7 @@ if [[ "$doAction" = true ]]; then
       echo -en "Do you use 1Password? (y/n): "
         read -rq && (echo "" && makeSymlink "$dotfiles"/Git/.ssh/1password ~/.ssh) || (echo "" && makeSymlink "$dotfiles"/Git/.ssh/original ~/.ssh)
     fi
-
     makeDir ~/.vim/undo
-
   if [[ "$notSetup" = false ]]; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
@@ -207,10 +198,7 @@ fi
 
 # Make spaces on Dock and resize Launchpad
 waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder." 4
-if [[ "$doAction" = true ]]; then
-
-  doneAnything=true
-
+if [[ "$doAction" = true ]]; then ;doneAnything=true
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -244,7 +232,6 @@ if [[ "$doAction" = true ]]; then
     sleep 0.5
   fi
 
-  # Suppress to make .DS_Store files
   echoNumber " ❎ Suppressing .DS_Store creation..."
   if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) = 0 && $(defaults write com.apple.desktopservices DSDontWriteUSBStores -bool) = 0 ]]; then
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
@@ -260,12 +247,9 @@ if [[ "$doAction" = true ]]; then
   killall SystemUIServer
 fi
 
-# Set computer names
+
 waitInput "Set computer name." 1
-if [[ "$doAction" = true ]]; then
-
-  doneAnything=true
-
+if [[ "$doAction" = true ]]; then ;doneAnything=true
   echoNumber " 💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
       echo -e "What's your computer name?"
@@ -288,10 +272,7 @@ fi
 #==================================================[ Install apps and more ]==================================================#
 
 waitInput "Install Homebrew packages and apps." 3
-if [[ "$doAction" = true ]]; then
-
-  doneAnything=true
-
+if [[ "$doAction" = true ]]; then ;doneAnything=true
   echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
         sleep 3
@@ -309,6 +290,7 @@ if [[ "$doAction" = true ]]; then
     export VIMRC="$HOME/.vim/.vimrc"
     export VIMINIT="source $VIMRC"
     vim +Jetpack +qall
+
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
     waitInput "Please install DaVinci Resolve."
