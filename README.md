@@ -1,4 +1,12 @@
-# 📲 Install
+<br>
+
+<h1 align="center">dotfiles</h1>
+<p align="center">This is a repository that includes my zsh and vim and other settings, plugins, etc and setup.</p>
+
+
+<br><br>
+
+## 📲 Install
 
 Run git clone and [setup.sh](https://github.com/5ouma/dotfiles/blob/HEAD/Setup/setup.sh), then you will be able to set up by operation.
 
@@ -9,7 +17,7 @@ source ~/.dotfiles/Setup/setup.sh
 
 <br><br>
 
-# 🌄 Preview
+## 🌄 Preview
 
 |            | Overview                                                   | Interacting with zsh                                       | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
 | ---------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
@@ -18,13 +26,14 @@ source ~/.dotfiles/Setup/setup.sh
 
 <br><br>
 
-# 💾 zsh
+## 💾 zsh
 
-## 🪄 Theme
+### 🪄 Theme
 
-### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
+#### <a href="https://github.com/romkatv/powerlevel10k"><b><b>Powerlevel10k</b></b></a> and edit colors.
 
 <a href="https://fig.io/plugins/other/powerlevel10k" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
+
 ```shell
 fig plugins add powerlevel10k
 ```
@@ -33,7 +42,7 @@ fig plugins add powerlevel10k
 
 <br>
 
-## 🍽 Settings
+### 🍽 Settings
 
 -   Using Japanese
 -   Being able to show files named in Japanese
@@ -54,9 +63,9 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 
 <br>
 
-## 📥 Plugins
+### 📥 Plugins
 
-### <a href="https://fig.io"><b>Fig</b></a>
+#### <a href="https://fig.io"><b>Fig</b></a>
 
 ([Fig on GitHub](https://github.com/withfig))
 
@@ -64,7 +73,7 @@ Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://k
 brew install fig
 ```
 
--   ### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
+-   #### <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><b>zsh-syntax-highlighting</b></b></a>
 
     <a href="https://fig.io/plugins/color/zsh-syntax-highlighting" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
@@ -72,7 +81,7 @@ brew install fig
     fig plugins add zsh-syntax-highlighting
     ```
 
--   ### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
+-   #### <a href="https://github.com/zsh-users/zsh-autosuggestions"><b>zsh-autosuggestions</b></a>
 
     <a href="https://fig.io/plugins/completion/zsh-autosuggestions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
@@ -80,7 +89,7 @@ brew install fig
     fig plugins add zsh-autosuggestions
     ```
 
--   ### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
+-   #### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
     ( To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75) )
 
@@ -90,7 +99,7 @@ brew install fig
     fig plugins add zsh-completions
     ```
 
--   ### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
+-   #### <a href="https://github.com/hlissner/zsh-autopair"><b>zsh-autopair</b></a>
 
     <a href="https://fig.io/plugins/other/zsh-autopair_hlissner" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
@@ -98,7 +107,7 @@ brew install fig
     fig plugins add zsh-autopair_hlissner
     ```
 
--   ### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
+-   #### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
 
     <a href="https://app.fig.io/plugins/zsh-you-should-use_MichaelAquilina" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
@@ -106,85 +115,85 @@ brew install fig
     fig plugins add zsh-you-should-use_MichaelAquilina
     ```
 
--   ### <a href="https://github.com/sharkdp/bat"><b>bat</b></a>
+-   #### <a href="https://github.com/sharkdp/bat"><b>bat</b></a>
 
     ```shell
     brew install bat
     ```
 
--   ### <a href="https://github.com/Canop/broot"><b>Broot</b></a>
+-   #### <a href="https://github.com/Canop/broot"><b>Broot</b></a>
 
     ```shell
     brew install broot
     ```
 
--   ### <a href="https://github.com/dominikwilkowski/cfonts"><b>CFONTS</b></a>
+-   #### <a href="https://github.com/dominikwilkowski/cfonts"><b>CFONTS</b></a>
 
     ```shell
     brew install cfonts
     ```
 
--   ### <a href="https://github.com/sindresorhus/dark-mode"><b>dark-mode</b></a>
+-   #### <a href="https://github.com/sindresorhus/dark-mode"><b>dark-mode</b></a>
 
     ```shell
     brew install dark-mode
     ```
 
--   ### <a href="https://github.com/junegunn/fzf"><b>fzf</b></a>
+-   #### <a href="https://github.com/junegunn/fzf"><b>fzf</b></a>
 
     ```shell
     brew install fzf
     ```
 
--   ### <a href="https://github.com/svenstaro/genact"><b>genact</b></a>
+-   #### <a href="https://github.com/svenstaro/genact"><b>genact</b></a>
 
     ```shell
     brew install genact
     ```
 
--   ### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
+-   #### <a href="https://github.com/charmbracelet/glow"><b>glow</b></a>
 
     ```shell
     brew install glow
     ```
 
--   ### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
+-   #### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
 
     ```shell
     brew install Ryu0118/Kusa/kusa
     ```
 
--   ### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
+-   #### <a href="https://github.com/Peltoche/lsd"><b>lsd</b></a>
 
     ```shell
     brew install lsd
     ```
 
--   ### <a href="https://github.com/rgcr/m-cli"><b>m-cli</b></a>
+-   #### <a href="https://github.com/rgcr/m-cli"><b>m-cli</b></a>
 
     ```shell
     brew install m-cli
     ```
 
--   ### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
+-   #### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
 
     ```shell
     brew install pastel
     ```
 
--   ### <a href="https://github.com/Aloxaf/silicon"><b>Silicon</b></a>
+-   #### <a href="https://github.com/Aloxaf/silicon"><b>Silicon</b></a>
 
     ```shell
     brew install silicon
     ```
 
--   ### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
+-   #### <a href="https://github.com/XAMPPRocky/tokei"><b>tokei</b></a>
 
     ```shell
     brew install tokei
     ```
 
--   ### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
+-   #### <a href="https://github.com/ali-rantakari/trash"><b>trash</b></a>
 
     ```shell
     brew install trash
@@ -192,17 +201,17 @@ brew install fig
 
 <br><br>
 
-# 📝 Vim
+## 📝 Vim
 
-## 🪄 Color Scheme
+### 🪄 Color Scheme
 
-### <a href="https://github.com/preservim/vim-colors-pencil"><b>vim-colors-pencil</b></a> and edit colors.
+#### <a href="https://github.com/preservim/vim-colors-pencil"><b>vim-colors-pencil</b></a> and edit colors.
 
 <br>
 
-## 🍽 Settings
+### 🍽 Settings
 
-### General
+#### General
 
 -   Set the place of .vimrc and .viminfo
 -   Set the text code to UTF-8
@@ -215,7 +224,7 @@ brew install fig
 -   Share clipboard with OS
 -   Click to move the cursor
 
-### Appearance
+#### Appearance
 
 -   Show line number
 -   Highlight the cursor line
@@ -227,13 +236,13 @@ brew install fig
 -   Being able to move by showed line when the lines are folded
 -   Turn on syntax highlight
 
-### Tabs
+#### Tabs
 
 -   Visible the invisible words
 -   Change tab to spaces
 -   Set tab to double space
 
-### Search
+#### Search
 
 -   If the searched sentences are lower case, search across all words
 -   If it is contained in upper case, search only that ones
@@ -244,7 +253,7 @@ brew install fig
 
 <br>
 
-## 📥 Plugins
+### 📥 Plugins
 
 vim-jetpack, a plugin manager, is already installed in .vim/autoload, so you don't need to install it.
 But you have to run this command on vim screen.
@@ -253,85 +262,85 @@ But you have to run this command on vim screen.
 Jetpack
 ```
 
-### <a href="https://github.com/tani/vim-jetpack"><b>vim-jetpack</b></a>
+#### <a href="https://github.com/tani/vim-jetpack"><b>vim-jetpack</b></a>
 
 ```shell
 curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
 ```
 
--   ### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
+-   #### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
     Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file.
 
--   ### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
+-   #### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
 
     Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file.
 
--   ### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
+-   #### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
 
     Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file.
 
--   ### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
+-   #### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
 
     Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file.
 
--   ### <a href="https://github.com/itchyny/lightline.vim"><b>lightline.vim</b></a>
+-   #### <a href="https://github.com/itchyny/lightline.vim"><b>lightline.vim</b></a>
 
     Add `Jetpack 'itchyny/lightline.vim'` to your .vimrc file.
 
--   ### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
+-   #### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
 
     Add `Jetpack 'mbbill/undotree'` to your .vimrc file.
 
--   ### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
+-   #### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
 
     Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file
 
--   ### <a href="https://github.com/matze/vim-move"><b>move</b></a>
+-   #### <a href="https://github.com/matze/vim-move"><b>move</b></a>
 
     Add `Jetpack 'matze/vim-move'` to your .vimrc file
 
--   ### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
+-   #### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
     Add `Jetpack 'preservim/nerdtree'` to your .vimrc file
 
--   ### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
+-   #### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
 
     Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
 
--   ### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
+-   #### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
 
     Add `Jetpack 'ryanoasis/vim-devicons'` to your .vimrc file
 
--   ### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
+-   #### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
     Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
 
--   ### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
+-   #### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
 
     Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file
 
--   ### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
+-   #### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
 
     Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file
 
--   ### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
+-   #### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
 
     Add `Jetpack 'tpope/vim-surround'` to your .vimrc file
 
--   ### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
+-   #### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
 
     Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
 
--   ### <a href="https://github.com/Xuyuanp/nerdtree-git-plugin"><b>NERDTree-git-plugin</b></a>
+-   #### <a href="https://github.com/Xuyuanp/nerdtree-git-plugin"><b>NERDTree-git-plugin</b></a>
 
     Add `Jetpack 'Xuyuanp/nerdtree-git-plugin'` to your .vimrc file
 
 <br><br>
 
-# 🐙 Git
+## 🐙 Git
 
-## 🍽 Settings
+### 🍽 Settings
 
 -   Ignore `.DS_Store` file to make `.gitignore_global` file and run
     ```shell
@@ -341,9 +350,9 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 <br>
 
-## 📥 Plugins
+### 📥 Plugins
 
--   ### <a href="https://github.com/wfxr/forgit"><b>forgit</b></a>
+-   #### <a href="https://github.com/wfxr/forgit"><b>forgit</b></a>
 
     <a href="https://fig.io/plugins/other/forgit" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
@@ -351,25 +360,25 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
     fig plugins add forgit
     ```
 
--   ### <a href="https://github.com/paulirish/git-open"><b>git-open</b></a>
+-   #### <a href="https://github.com/paulirish/git-open"><b>git-open</b></a>
 
     ```shell
     brew install git-open
     ```
 
--   ### <a href="https://github.com/extrawurst/gitui"><b>GitUI</b></a>
+-   #### <a href="https://github.com/extrawurst/gitui"><b>GitUI</b></a>
 
     ```shell
     brew install gitui
     ```
 
--   ### <a href="https://github.com/o2sh/onefetch"><b>onefetch</b></a>
+-   #### <a href="https://github.com/o2sh/onefetch"><b>onefetch</b></a>
 
     ```shell
     brew install onefetch
     ```
 
--   ### <a href="https://github.com/Bhupesh-V/ugit"><b>ugit</b></a>
+-   #### <a href="https://github.com/Bhupesh-V/ugit"><b>ugit</b></a>
 
     ```shell
     brew install ugit
@@ -377,23 +386,23 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 <br><br>
 
-# 🍺 Homebrew
+## 🍺 Homebrew
 
-## 🍽 Settings
+### 🍽 Settings
 
 -   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly
 
 <br>
 
-## 📥 Plugins
+### 📥 Plugins
 
--   ### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
+-   #### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
 
     ```shell
     brew tap beeftornado/rmtree
     ```
 
--   ### <a href="https://github.com/Homebrew/homebrew-autoupdate"><b>Homebrew Autoupdate</b></a>
+-   #### <a href="https://github.com/Homebrew/homebrew-autoupdate"><b>Homebrew Autoupdate</b></a>
 
     ```shell
     brew tap homebrew/autoupdate
