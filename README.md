@@ -3,7 +3,6 @@
 <h1 align="center">dotfiles</h1>
 <p align="center">This is a repository that includes my zsh and vim and other settings, plugins, etc and setup.</p>
 
-
 <br><br>
 
 ## 📲 Install
@@ -37,8 +36,6 @@ source ~/.dotfiles/Setup/setup.sh
 ```shell
 fig plugins add powerlevel10k
 ```
-
-<br>
 
 <br>
 
