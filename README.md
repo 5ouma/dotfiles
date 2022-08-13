@@ -118,6 +118,12 @@ brew install fig
     brew install broot
     ```
 
+-   ### <a href="https://github.com/dominikwilkowski/cfonts"><b>CFONTS</b></a>
+
+    ```shell
+    brew install cfonts
+    ```
+
 -   ### <a href="https://github.com/sindresorhus/dark-mode"><b>dark-mode</b></a>
 
     ```shell
