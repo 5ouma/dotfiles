@@ -50,20 +50,11 @@ echoNumber() {
   (( nowNum++ ))
 }
 
-echoDir() {
-  for i in $(command ls -A "$1"); do
-    i=${i//\.DS_Store/??}
-    if [[ $i != "??" ]]; then
-      echo -e "$1/$i"
-    fi
-  done
-}
-
 makeSymlink() {
   for i in $(command ls -A "$1"); do
-    if [[ ! -e "$2/$i" ]]; then
+    if [[ (! -e "$2/$i" || $(diff "$1/$i" "$2/$i") != "") && ("$i" != ".DS_Store" && "$i" != ".ssh" ) ]]; then
       ln -s "$1/$i" "$2"
-      echoDir "$1"
+      echo -e "$1/$i"
       notSetup=false
     fi
   done
