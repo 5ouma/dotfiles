@@ -12,9 +12,9 @@ allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
 waitInput() {
   echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
   read -r -k 1 run
-  if [[ "$run" =~ "y" ]]; then
+  if [[ "$run" =~ "y|Y" ]]; then
     doAction=true && echo ""
-  elif [[ "$run" =~ "n" ]]; then
+  elif [[ "$run" =~ "n|N" ]]; then
     doAction=false && echo ""
     for i in {1..$2}; do
       (( nowNum++ ))
