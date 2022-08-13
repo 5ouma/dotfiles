@@ -156,14 +156,12 @@ if [[ "$doAction" = true ]]; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeSymlink "$dotfiles"/zsh ~
     makeSymlink "$dotfiles"/Vim ~
-
     makeFile ~/.hushlogin
-
     makeDir ~/.ssh
     makeSymlink "$dotfiles"/Git ~
     if [[ ! -e ~/.ssh/config ]]; then
-      echo -e "Do you use 1Password? (y/n): "
-        read -rq && makeSymlink "$dotfiles"/Git/.ssh/1password ~/.ssh || makeSymlink "$dotfiles"/Git/.ssh/original ~/.ssh
+      echo -en "Do you use 1Password? (y/n): "
+        read -rq && (echo "" && makeSymlink "$dotfiles"/Git/.ssh/1password ~/.ssh) || (echo "" && makeSymlink "$dotfiles"/Git/.ssh/original ~/.ssh)
     fi
 
     makeDir ~/.vim/undo
