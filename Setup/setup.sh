@@ -9,6 +9,7 @@ doneAnything=false
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
 excludeFiles=(.DS_Store .ssh)
+typeset -A langs=("nodejs" "Node.js")
 
 
 waitInput() {
@@ -301,7 +302,9 @@ if [[ "$doAction" = true ]]; then ;doneAnything=true
   sleep 1
 
   echoNumber " 💾 Installing programming language with asdf..."
-  installLang "Node.js" "nodejs"
+  for lang in ${(k)langs}; do
+    installLang "${langs[$lang]}" "$lang"
+  done
 
   echoNumber " 📝 Installing Vim plugins with Jetpack..."
     export VIMRC="$HOME/.vim/.vimrc"
