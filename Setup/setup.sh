@@ -114,7 +114,7 @@ copyFile() {
 }
 
 installLang() {
-  if [[ $(asdf list "$2") =~ "No such plugin:" ]]; then
+  if ! (asdf list "$2" > /dev/null 2>&1); then
     echoInfo "Installing $1..."
     asdf plugin-add "$2" && asdf install "$2" latest && asdf global "$2" latest
     echoResult "Installed $1!" "Installing $1 is failed."
@@ -135,7 +135,7 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 if waitInput "Installing Homebrew." 2; then
   doneAnything=true
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
-  if [[ ! $(xcode-select --install 2>&1) =~ "command line tools are already installed" ]]; then
+  if ! (xcode-select -v > /dev/null 2>&1); then
       xcode-select --install
       echoResult "Installed Command Line Tools for Xcode!" "Installing Command Line Tools for Xcode is failed."
     sleep 2
@@ -291,10 +291,13 @@ fi
 
 if waitInput "Install Homebrew packages and apps." 3; then
   doneAnything=true
+  if ! (mas account > /dev/null 2>&1); then
+    echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
-        sleep 3
-      open -a "App Store"
+      sleep 3
+    open -a "App Store"
     waitReturn
+  fi
   echoNumber " 📲 Installing apps with Homebrew..."
     brew bundle --file="$dotfiles"/Setup/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
