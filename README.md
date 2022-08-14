@@ -1,7 +1,7 @@
 <br>
 
 <h1 align="center">dotfiles</h1>
-<p align="center">This is a repository that includes my zsh and vim and other settings, plugins, etc and setup.</p>
+<p align="center">This is a repository that includes my zsh, vim and other settings, plugins, etc and setup.</p>
 
 <br><br>
 
