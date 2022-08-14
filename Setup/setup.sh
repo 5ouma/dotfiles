@@ -3,11 +3,12 @@
 #==================================================[ Variables & Functions ]==================================================#
 
 export dotfiles=$HOME/.dotfiles
+
 notSetup=true
 doneAnything=false
-doAction=
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
+excludeFiles=(.DS_Store .ssh)
 
 
 waitInput() {
@@ -51,17 +52,33 @@ echoNumber() {
   (( nowNum++ ))
 }
 
+isNotMatched() {
+  matched=1
+  for file in "${excludeFiles[@]}"; do
+    if [[ $1 != "$file" ]]; then
+      matched=0
+    fi
+  done
+  return "$matched"
+}
+
 makeSymlink() {
   for i in $(command ls -A "$1"); do
-    if [[ (! -e "$2/$i" || $(diff "$1/$i" "$2/$i") != "") && ("$i" != ".DS_Store" && "$i" != ".ssh" ) ]]; then
+    local enableMaking=false
+    if [[ ! -e "$2/$i" ]] && isNotMatched "$i"; then
+      local enableMaking=true
+    elif [[ -f "$1/$i" && -n $(diff "$1/$i" "$2/$i") ]] && isNotMatched "$i"; then
+      [[ ! -e "$dotfiles"/backup ]] && mkdir "$dotfiles"/backup
+      mv "$2/$i" "$dotfiles"/backup
+      local enableMaking=true
+    fi
+    if "$enableMaking"; then
       ln -s "$1/$i" "$2"
       echo -e "$1/$i"
       notSetup=false
     fi
   done
-  if [[ $notSetup = false ]]; then
-    sleep 0.5
-  fi
+  ! "$notSetup" && sleep 0.5
 }
 
 makeFile() {
