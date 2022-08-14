@@ -16,15 +16,16 @@ waitInput() {
   echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
   read -r -k 1 run
   if [[ "$run" =~ "y|Y" ]]; then
-    doAction=true && echo ""
+    local doAction=0 && echo ""
   elif [[ "$run" =~ "n|N" ]]; then
-    doAction=false && echo ""
+    local doAction=1 && echo ""
     for i in {1..$2}; do
       (( nowNum++ ))
     done
   else
     echo -e "\n" && exec $SHELL -l
   fi
+  return "$doAction"
 }
 
 waitReturn() {
@@ -131,8 +132,8 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 
 #==================================================[ Homebrew install ]==================================================#
 
-waitInput "Installing Homebrew." 2
-if [[ "$doAction" = true ]]; then ;doneAnything=true
+if waitInput "Installing Homebrew." 2; then
+  doneAnything=true
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
   if [[ ! $(xcode-select --install 2>&1) =~ "command line tools are already installed" ]]; then
       xcode-select --install
@@ -162,8 +163,8 @@ fi
 
 #==================================================[ Files, directories and commands ]==================================================#
 
-waitInput "Make symlinks or create terminal files and add permission to commands." 3
-if [[ "$doAction" = true ]]; then ;doneAnything=true
+if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
+  doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeSymlink "$dotfiles"/zsh ~
     makeSymlink "$dotfiles"/Vim ~
@@ -175,7 +176,7 @@ if [[ "$doAction" = true ]]; then ;doneAnything=true
         read -rq && (echo "" && makeSymlink "$dotfiles"/Git/.ssh/1password ~/.ssh) || (echo "" && makeSymlink "$dotfiles"/Git/.ssh/original ~/.ssh)
     fi
     makeDir ~/.vim/undo
-  if [[ "$notSetup" = false ]]; then
+  if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
   else
@@ -186,7 +187,7 @@ if [[ "$doAction" = true ]]; then ;doneAnything=true
   notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
   copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
-  if [[ "$notSetup" = false ]]; then
+  if ! "$notSetup"; then
     echoResult "Copied fonts!" "Copying fonts is failed."
     sleep 1
   else
@@ -204,7 +205,7 @@ if [[ "$doAction" = true ]]; then ;doneAnything=true
       chmod 744 "$dotfiles"/Commands/notion/notion
       notSetup=false
     fi
-    if [[ "$notSetup" = false ]]; then
+    if ! "$notSetup"; then
       echoResult "Added permission!" "Adding permission is failed."
     else
       echoWarning "All permission is already added."
@@ -215,8 +216,8 @@ fi
 #==================================================[ System write ]==================================================#
 
 # Make spaces on Dock and resize Launchpad
-waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder." 4
-if [[ "$doAction" = true ]]; then ;doneAnything=true
+if waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder." 4; then
+  doneAnything=true
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -265,9 +266,8 @@ if [[ "$doAction" = true ]]; then ;doneAnything=true
   killall SystemUIServer
 fi
 
-
-waitInput "Set computer name." 1
-if [[ "$doAction" = true ]]; then ;doneAnything=true
+if waitInput "Set computer name." 1; then
+  doneAnything=true
   echoNumber " 💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
       echo -e "What's your computer name?"
@@ -289,9 +289,8 @@ fi
 
 #==================================================[ Install apps and more ]==================================================#
 
-waitInput "Install Homebrew packages and apps." 3
-if [[ "$doAction" = true ]]; then ;doneAnything=true
-  echoInfo "Opening App Store..."
+if waitInput "Install Homebrew packages and apps." 3; then
+  doneAnything=true
     echoInfo "Please sign in to App Store."
         sleep 3
       open -a "App Store"
@@ -326,7 +325,7 @@ fi
 
 #==================================================[ Done! ]==================================================#
 
-if [[ "$doneAnything" = true ]]; then
+if "$doneAnything"; then
   echo -e "\n✨ Setting up successfully!"
 else
   echo ""
