@@ -1,7 +1,10 @@
 <br>
 
-<h1 align="center">dotfiles</h1>
-<p align="center">This is a repository that includes my zsh, vim and other settings, plugins, etc and setup.</p>
+<div align="center">
+    <img width=500 src="Images/Header/DOTFILES%20-%20light.png#gh-light-mode-only" alt="DOTFILES - light">
+    <img width=500 src="Images/Header/DOTFILES%20-%20dark.png#gh-dark-mode-only" alt="DOTFILES - dark">
+    <b><p>This is a repository that includes my zsh, vim and other settings, plugins, etc and setup.</p></b>
+</div>
 
 <br><br>
 
