@@ -108,9 +108,7 @@ copyFile() {
       notSetup=false
     fi
   done
-  if [[ "$notSetup" = false ]]; then
-    sleep 0.5
-  fi
+  ! "$notSetup" && sleep 0.5
 }
 
 installLang() {
