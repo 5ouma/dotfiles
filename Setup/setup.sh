@@ -188,14 +188,14 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
 
   notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
-  copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
-  if ! "$notSetup"; then
-    echoResult "Copied fonts!" "Copying fonts is failed."
-    sleep 1
-  else
-    echoWarning "All fonts are already copied."
-    sleep 0.5
-  fi
+    copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
+    if ! "$notSetup"; then
+      echoResult "Copied fonts!" "Copying fonts is failed."
+      sleep 1
+    else
+      echoWarning "All fonts are already copied."
+      sleep 0.5
+    fi
 
   notSetup=true
   echoNumber " 🚨 Adding permission to my commands..."
@@ -301,7 +301,7 @@ if waitInput "Install Homebrew packages and apps." 3; then
     waitReturn
   fi
   echoNumber " 📲 Installing apps with Homebrew..."
-    brew bundle --file="$dotfiles"/Setup/Brewfile
+  brew bundle --file="$dotfiles"/Setup/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
   sleep 1
 
@@ -318,13 +318,13 @@ if waitInput "Install Homebrew packages and apps." 3; then
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
     waitInput "Please install DaVinci Resolve."
-        sleep 3
-      open https://www.blackmagicdesign.com/jp/products/davinciresolve
+      sleep 3
+    open https://www.blackmagicdesign.com/jp/products/davinciresolve
   fi
 
   if [[ ! -e "/Applications/Xcode.app" ]]; then
     waitInput "Do you want to install Xcode?"
-      mas install 497799835
+    mas install 497799835
   fi
 fi
 
