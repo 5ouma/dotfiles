@@ -98,7 +98,7 @@ makeFile() {
 
 makeDir() {
   if [[ ! -e $1 ]]; then
-    mkdir "$1"
+    mkdir -p "$1"
     echo -e "$1"
     sleep 0.5
   fi
@@ -171,7 +171,7 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
     makeSymlink "$dotfiles"/zsh ~
     makeSymlink "$dotfiles"/Vim ~
     makeFile ~/.hushlogin
-    makeDir ~/.ssh
+    makeDir ~/.ssh/git
     makeSymlink "$dotfiles"/Git ~
     if [[ ! -e ~/.ssh/config ]]; then
       echo -en "Do you use 1Password? (y/n): "
