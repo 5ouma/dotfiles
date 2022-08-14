@@ -267,7 +267,7 @@ fi
 if waitInput "Set computer name." 1; then
   doneAnything=true
   echoNumber " 💻 Setting computer name..."
-  if [[ ! $(scutil --get ComputerName) =~ "Souma\'s" ]]; then
+  if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
       echo -e "What's your computer name?"
       read -r computerName
       localName=$(echo -e "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
