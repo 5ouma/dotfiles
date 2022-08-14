@@ -272,11 +272,11 @@ if waitInput "Set computer name." 1; then
       read -r computerName
       localName=$(echo -e "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
       scutil --set ComputerName "$computerName"
-        echo -e "computerName: $(scutil --get ComputerName)"
+        echo -e "computerName: $(sudo scutil --get ComputerName)"
       scutil --set LocalHostName "$localName"
-        echo -e "LocalHostName: $(scutil --get LocalHostName)"
+        echo -e "LocalHostName: $(sudo scutil --get LocalHostName)"
       scutil --set HostName "$computerName"
-        echo -e "HostName: $(scutil --get HostName)"
+        echo -e "HostName: $(sudo scutil --get HostName)"
     echoResult "Set computer name!" "Setting computer name is failed."
     sleep 1
   else
