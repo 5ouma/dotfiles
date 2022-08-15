@@ -6,3 +6,4 @@ packages/vim/.vim/.viminfo
 packages/vim/.vim/.netrwhist
 packages/vim/.vim/pack/
 packages/vim/.vim/undo/
+backup/
