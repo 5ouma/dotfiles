@@ -7,11 +7,14 @@ export PATH="/usr/local/bin:$PATH"
 export VIMRC=$HOME/.vim/.vimrc
 export VIMINIT="source $VIMRC"
 
+# dotfiles
+export dotfiles="$HOME"/.dotfiles
+
 # memo
-export PATH=$HOME/.dotfiles/Commands/memo:$PATH
+export PATH="$dotfiles"/packages/commands/memo:$PATH
 
 # notion
-export PATH=$HOME/.dotfiles/Commands/notion:$PATH
+export PATH="$dotfiles"/packages/commands/notion:$PATH
 
 #============================================================[ Settings ]============================================================#
 

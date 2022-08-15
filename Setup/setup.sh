@@ -3,11 +3,13 @@
 #==================================================[ Variables & Functions ]==================================================#
 
 export dotfiles=$HOME/.dotfiles
+export packages="$dotfiles"/packages
 
 notSetup=true
 doneAnything=false
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
+packageFiles=("zsh" "vim" "git")
 excludeFiles=(".DS_Store" ".ssh")
 typeset -A langs=("nodejs" "Node.js")
 
@@ -70,18 +72,19 @@ isNotMatched() {
 }
 
 makeSymlink() {
-  for i in $(command ls -A "$1"); do
+  for i in $(command ls -A "$packages/$1"); do
     local enableMaking=false
-    if [[ ! -e "$2/$i" ]] && isNotMatched "$i"; then
+    local specifiedPackage="$packages"/$1/$i
+    if isNotMatched "$i" && [[ ! -e "$2/$i" ]]; then
       local enableMaking=true
-    elif [[ -f "$1/$i" && -n $(diff "$1/$i" "$2/$i") ]] && isNotMatched "$i"; then
+    elif isNotMatched "$i" && [[ -f "$specifiedPackage" && -n $(diff "$specifiedPackage" "$2/$i") ]]; then
       [[ ! -e "$dotfiles"/backup ]] && mkdir "$dotfiles"/backup
       mv "$2/$i" "$dotfiles"/backup/
       local enableMaking=true
     fi
     if "$enableMaking"; then
-      ln -s "$1/$i" "$2"
-      echo -e "$1/$i"
+      ln -s "$specifiedPackage" "$2"
+      echo -e "$specifiedPackage"
       notSetup=false
     fi
   done
@@ -169,16 +172,16 @@ fi
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
   doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
-    makeSymlink "$dotfiles"/zsh ~
-    makeSymlink "$dotfiles"/Vim ~
-    makeFile ~/.hushlogin
+    for file in "${packageFiles[@]}"; do
+      makeSymlink "$file" ~
+    done
+    makeDir ~/.vim/undo
     makeDir ~/.ssh/git
-    makeSymlink "$dotfiles"/Git ~
     if [[ ! -e ~/.ssh/config ]]; then
       echo -en "Do you use 1Password? (y/n): "
-        read -rq && (echo "" && makeSymlink "$dotfiles"/Git/.ssh/1password ~/.ssh) || (echo "" && makeSymlink "$dotfiles"/Git/.ssh/original ~/.ssh)
+        read -rq && (echo "" && makeSymlink ssh/1password ~/.ssh) || (echo "" && makeSymlink ssh/original ~/.ssh)
     fi
-    makeDir ~/.vim/undo
+    makeFile ~/.hushlogin
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
@@ -200,12 +203,12 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
 
   notSetup=true
   echoNumber " 🚨 Adding permission to my commands..."
-    if [[ ! $(command ls -l "$dotfiles"/Commands/memo/memo) =~ "-rwxr--r--" ]]; then
-      chmod 744 "$dotfiles"/Commands/memo/memo
+    if [[ ! $(command ls -l "$packages"/commands/memo/memo) =~ "-rwxr--r--" ]]; then
+      chmod 744 "$packages"/commands/memo/memo
       notSetup=false
     fi
-    if [[ ! $(command ls -l "$dotfiles"/Commands/notion/notion) =~ "-rwxr--r--" ]]; then
-      chmod 744 "$dotfiles"/Commands/notion/notion
+    if [[ ! $(command ls -l "$packages"/commands/notion/notion) =~ "-rwxr--r--" ]]; then
+      chmod 744 "$packages"/commands/notion/notion
       notSetup=false
     fi
     if ! "$notSetup"; then

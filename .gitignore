@@ -1,8 +1,8 @@
-zsh/.zsh/.zsh_history
-zsh/.zsh/.zsh_sessions/
-zsh/.zsh/.zcompdump
-zsh/.zsh/.zcompcache/
-Vim/.vim/.viminfo
-Vim/.vim/.netrwhist
-Vim/.vim/pack/
-Vim/.vim/undo/
+packages/zsh/.zsh/.zsh_history
+packages/zsh/.zsh/.zsh_sessions/
+packages/zsh/.zsh/.zcompdump
+packages/zsh/.zsh/.zcompcache/
+packages/vim/.vim/.viminfo
+packages/vim/.vim/.netrwhist
+packages/vim/.vim/pack/
+packages/vim/.vim/undo/
