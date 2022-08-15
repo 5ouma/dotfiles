@@ -60,10 +60,10 @@ echoNumber() {
 }
 
 isNotMatched() {
-  matched=1
+  local matched=0
   for file in "${excludeFiles[@]}"; do
-    if [[ $1 != "$file" ]]; then
-      matched=0
+    if [[ $1 = "$file" ]]; then
+      local matched=1
     fi
   done
   return "$matched"
