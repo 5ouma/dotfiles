@@ -9,7 +9,9 @@ notSetup=true
 doneAnything=false
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
-packageFiles=("zsh" "vim" "git")
+
+packageFiles=("zsh" "vim" "git" "asdf")
+configFiles=("gh" "karabiner" "neofetch" "yarn/global")
 excludeFiles=(".DS_Store" ".ssh")
 typeset -A langs=("nodejs" "Node.js")
 
@@ -72,15 +74,17 @@ isNotMatched() {
 }
 
 makeSymlink() {
-  for i in $(command ls -A "$packages/$1"); do
+  for target in $(command ls -A "$packages/$1"); do
     local enableMaking=false
-    local specifiedPackage="$packages"/$1/$i
-    if isNotMatched "$i" && [[ ! -e "$2/$i" ]]; then
-      local enableMaking=true
-    elif isNotMatched "$i" && [[ -f "$specifiedPackage" && -n $(diff "$specifiedPackage" "$2/$i") ]]; then
-      [[ ! -e "$dotfiles"/backup ]] && mkdir "$dotfiles"/backup
-      mv "$2/$i" "$dotfiles"/backup/
-      local enableMaking=true
+    local specifiedPackage="$packages"/$1/"$target"
+    if isNotMatched "$target"; then
+      if [[ ! -e "$2/$target" ]]; then
+        local enableMaking=true
+      elif [[ -f "$specifiedPackage" && -n $(diff "$specifiedPackage" "$2/$target") ]]; then
+        [[ ! -e "$dotfiles"/backup ]] && mkdir "$dotfiles"/backup
+        mv "$2/$target" "$dotfiles"/backup/
+        local enableMaking=true
+      fi
     fi
     if "$enableMaking"; then
       ln -s "$specifiedPackage" "$2"
@@ -88,35 +92,36 @@ makeSymlink() {
       notSetup=false
     fi
   done
-  ! "$notSetup" && sleep 0.5
 }
 
 makeFile() {
-  if [[ ! -e $1 ]]; then
-    touch "$1"
-    echo -e "$1"
-    notSetup=false
-    sleep 0.5
-  fi
-}
-
-makeDir() {
-  if [[ ! -e $1 ]]; then
-    mkdir -p "$1"
-    echo -e "$1"
-    sleep 0.5
-  fi
-}
-
-copyFile() {
-  for i in $(command ls -A "$1"); do
-    if [[ ! -e "$2/$i" ]]; then
-      cp "$1/$i" "$2"
-      echo -e "$1/$i"
+  for target in "$@"; do
+    if [[ ! -e "$target" ]]; then
+      touch "$target"
+      echo -e "$target"
       notSetup=false
     fi
   done
-  ! "$notSetup" && sleep 0.5
+}
+
+makeDir() {
+  for target in "$@"; do
+    if [[ ! -e "$target" ]]; then
+      mkdir -p "$target"
+      echo -e "$target"
+      notSetup=false
+    fi
+  done
+}
+
+copyFile() {
+  for target in $(command ls -A "$1"); do
+    if [[ ! -e "$2/$target" ]]; then
+      cp "$1/$target" "$2"
+      echo -e "$1/$target"
+      notSetup=false
+    fi
+  done
 }
 
 installLang() {
@@ -175,13 +180,17 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
     for file in "${packageFiles[@]}"; do
       makeSymlink "$file" ~
     done
-    makeDir ~/.vim/undo
-    makeDir ~/.ssh/git
+    makeDir ~/.vim/undo ~/.ssh/git
     if [[ ! -e ~/.ssh/config ]]; then
       echo -en "Do you use 1Password? (y/n): "
         read -rq && (echo "" && makeSymlink ssh/1password ~/.ssh) || (echo "" && makeSymlink ssh/original ~/.ssh)
     fi
     makeFile ~/.hushlogin
+    makeDir ~/.config
+    for dir in "${configFiles[@]}"; do
+      makeDir ~/.config/"$dir"
+      makeSymlink "$dir" ~/.config/"$dir"
+    done
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
