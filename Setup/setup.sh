@@ -8,7 +8,7 @@ notSetup=true
 doneAnything=false
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
-excludeFiles=(.DS_Store .ssh)
+excludeFiles=(".DS_Store" ".ssh")
 typeset -A langs=("nodejs" "Node.js")
 
 
@@ -16,16 +16,17 @@ waitInput() {
   echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
   read -r -k 1 run
   if [[ "$run" =~ "y|Y" ]]; then
-    local doAction=0 && echo ""
+    echo ""
+    return 0
   elif [[ "$run" =~ "n|N" ]]; then
-    local doAction=1 && echo ""
+    echo ""
     for i in {1..$2}; do
       (( nowNum++ ))
     done
+    return 1
   else
     echo -e "\n" && exec $SHELL -l
   fi
-  return "$doAction"
 }
 
 waitReturn() {
@@ -75,7 +76,7 @@ makeSymlink() {
       local enableMaking=true
     elif [[ -f "$1/$i" && -n $(diff "$1/$i" "$2/$i") ]] && isNotMatched "$i"; then
       [[ ! -e "$dotfiles"/backup ]] && mkdir "$dotfiles"/backup
-      mv "$2/$i" "$dotfiles"/backup
+      mv "$2/$i" "$dotfiles"/backup/
       local enableMaking=true
     fi
     if "$enableMaking"; then
