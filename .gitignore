@@ -1,9 +1,1 @@
-packages/zsh/.zsh/.zsh_history
-packages/zsh/.zsh/.zsh_sessions/
-packages/zsh/.zsh/.zcompdump
-packages/zsh/.zsh/.zcompcache/
-packages/vim/.vim/.viminfo
-packages/vim/.vim/.netrwhist
-packages/vim/.vim/pack/
-packages/vim/.vim/undo/
 backup/

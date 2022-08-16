@@ -3,16 +3,13 @@
 #==================================================[ Variables & Functions ]==================================================#
 
 export dotfiles=$HOME/.dotfiles
-export packages="$dotfiles"/packages
+packages="$dotfiles"/packages
 
 notSetup=true
 doneAnything=false
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
 
-packageFiles=("zsh" "vim" "git" "asdf")
-configFiles=("gh" "karabiner" "neofetch" "yarn/global")
-excludeFiles=(".DS_Store" ".ssh")
 typeset -A langs=("nodejs" "Node.js")
 
 
@@ -61,37 +58,6 @@ echoResult() {
 echoNumber() {
   echo -e "\033[90m[$nowNum/$allNum]\033[m $1"
   (( nowNum++ ))
-}
-
-isNotMatched() {
-  local matched=0
-  for file in "${excludeFiles[@]}"; do
-    if [[ $1 = "$file" ]]; then
-      local matched=1
-    fi
-  done
-  return "$matched"
-}
-
-makeSymlink() {
-  for target in $(command ls -A "$packages/$1"); do
-    local enableMaking=false
-    local specifiedPackage="$packages"/$1/"$target"
-    if isNotMatched "$target"; then
-      if [[ ! -e "$2/$target" ]]; then
-        local enableMaking=true
-      elif [[ -f "$specifiedPackage" && -n $(diff "$specifiedPackage" "$2/$target") ]]; then
-        [[ ! -e "$dotfiles"/backup ]] && mkdir "$dotfiles"/backup
-        mv "$2/$target" "$dotfiles"/backup/
-        local enableMaking=true
-      fi
-    fi
-    if "$enableMaking"; then
-      ln -s "$specifiedPackage" "$2"
-      echo -e "$specifiedPackage"
-      notSetup=false
-    fi
-  done
 }
 
 makeFile() {
@@ -177,20 +143,10 @@ fi
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
   doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
-    for file in "${packageFiles[@]}"; do
-      makeSymlink "$file" ~
-    done
-    makeDir ~/.vim/undo ~/.ssh/git
-    if [[ ! -e ~/.ssh/config ]]; then
-      echo -en "Do you use 1Password? (y/n): "
-        read -rq && (echo "" && makeSymlink ssh/1password ~/.ssh) || (echo "" && makeSymlink ssh/original ~/.ssh)
-    fi
+    makeDir ~/.vim/undo ~/.ssh/git ~/.config
     makeFile ~/.hushlogin
-    makeDir ~/.config
-    for dir in "${configFiles[@]}"; do
-      makeDir ~/.config/"$dir"
-      makeSymlink "$dir" ~/.config/"$dir"
-    done
+    source "$dotfiles"/Setup/symlink/home.sh
+    source "$dotfiles"/Setup/symlink/config.sh
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
