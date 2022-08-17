@@ -65,7 +65,7 @@ makeFile() {
     if [[ ! -e "$target" ]]; then
       touch "$target"
       echo -e "$target"
-      notSetup=false
+        notSetup=false
     fi
   done
 }
@@ -75,7 +75,7 @@ makeDir() {
     if [[ ! -e "$target" ]]; then
       mkdir -p "$target"
       echo -e "$target"
-      notSetup=false
+        notSetup=false
     fi
   done
 }
@@ -85,7 +85,7 @@ copyFile() {
     if [[ ! -e "$2/$target" ]]; then
       cp "$1/$target" "$2"
       echo -e "$1/$target"
-      notSetup=false
+        notSetup=false
     fi
   done
 }
@@ -154,7 +154,7 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
         makeDir "$homeDir"
         ln -s "$pack" "$homeDir"
         echo -e "$pack"
-        notSetup=false
+          notSetup=false
       fi
     done < <(find "$packages" -type f ! -name ".DS_Store")
     makeDir ~/.vim/undo ~/.ssh/git
@@ -224,9 +224,9 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
   fi
 
   echoNumber " 📷 Creating a screen capture directory and changing its directory to it..."
-  if [[ ! -e ~/Pictures/スクリーンショット ]]; then
-    makeDir ~/Pictures/スクリーンショット
-    defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
+  if [[ "$(defaults read com.apple.screencapture location)" != "~/Pictures/Screen Capture" ]]; then
+    mkdir -p "~/Pictures/Screen Capture"
+    defaults write com.apple.screencapture location "~/Pictures/Screen Capture"
     echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changing its directory is failed."
       sleep 1
   else
