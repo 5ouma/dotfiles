@@ -165,12 +165,12 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
       if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
         mv "$homeFile" "$dotfiles"/backup/
       fi
+      if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
+        notSetup=false
+      fi
     done < <(find "$packages" -type f ! -name ".DS_Store")
     while read -r pack; do
       stow -v --ignore=".DS_Store" --no-folding -d "$packages" -t ~ "$pack"
-      if [[ $? = 0 ]]; then
-        notSetup
-      fi
     done < <(command ls "$packages")
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
