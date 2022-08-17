@@ -140,37 +140,25 @@ fi
 
 #==================================================[ Files, directories and commands ]==================================================#
 
-if waitInput "Install Stow." 1; then
-    doneAnything=true
-  echoNumber " 📦 Installing Stow..."
-  if ! (type stow > /dev/null 2>&1); then
-    brew install stow
-    echoResult "Installed Stow!" "Installing Stow is failed."
-      sleep 1
-  else
-    echoWarning "Stow is already installed."
-      sleep 0.5
-  fi
-fi
-
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
     doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
-    makeDir ~/.vim/undo ~/.ssh/git
-    makeFile ~/.hushlogin
     while read -r pack; do
       homeFile="$HOME/$(echo "$pack" | sed -e "s/.*packages\///" | cut -d "/" -f 2-)"
+      homeDir="$(dirname "$homeFile")"
       if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
         makeDir "$dotfiles"/backup
         mv "$homeFile" "$dotfiles"/backup/
       fi
       if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
+        makeDir "$homeDir"
+        ln -s "$pack" "$homeDir"
+        echo -e "$pack"
         notSetup=false
       fi
     done < <(find "$packages" -type f ! -name ".DS_Store")
-    while read -r pack; do
-      stow -v --ignore=".DS_Store" --no-folding -d "$packages" -t ~ "$pack"
-    done < <(command ls "$packages")
+    makeDir ~/.vim/undo ~/.ssh/git
+    makeFile ~/.hushlogin
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
       sleep 1
