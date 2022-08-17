@@ -224,9 +224,9 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
   fi
 
   echoNumber " 📷 Creating a screen capture directory and changing its directory to it..."
-  if [[ "$(defaults read com.apple.screencapture location)" != "~/Pictures/Screen Capture" ]]; then
-    mkdir -p "~/Pictures/Screen Capture"
-    defaults write com.apple.screencapture location "~/Pictures/Screen Capture"
+  if [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
+    mkdir -p "$HOME/Pictures/Screen Capture"
+    defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
     echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changing its directory is failed."
       sleep 1
   else
