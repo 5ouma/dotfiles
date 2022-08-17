@@ -158,12 +158,10 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeDir ~/.vim/undo ~/.ssh/git
     makeFile ~/.hushlogin
-    if [[ ! -e "$dotfiles"/backup ]]; then
-      mkdir "$dotfiles"/backup
-    fi
     while read -r pack; do
       homeFile="$HOME/$(echo "$pack" | sed -e "s/.*packages\///" | cut -d "/" -f 2-)"
       if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
+        makeDir "$dotfiles"/backup
         mv "$homeFile" "$dotfiles"/backup/
       fi
       if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
