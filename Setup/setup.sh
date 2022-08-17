@@ -110,50 +110,51 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 #==================================================[ Homebrew install ]==================================================#
 
 if waitInput "Install Homebrew." 2; then
-  doneAnything=true
+    doneAnything=true
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
   if ! (xcode-select -v > /dev/null 2>&1); then
-      xcode-select --install
-      echoResult "Installed Command Line Tools for Xcode!" "Installing Command Line Tools for Xcode is failed."
-    sleep 2
+    xcode-select --install
+    echoResult "Installed Command Line Tools for Xcode!" "Installing Command Line Tools for Xcode is failed."
+      sleep 2
   else
     echoWarning "Command Line Tools for Xcode is already installed."
-    sleep 0.5
+      sleep 0.5
   fi
 
   echoNumber " 🍺 Installing Homebrew..."
   if ! (type brew > /dev/null 2>&1); then
     echo -e "Is this command correct?\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
-        sleep 3
-      open https://brew.sh/index_ja
-        waitReturn
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        waitReturn
-      echoResult "Installed Homebrew!" "Installing Homebrew is failed."
-      brew doctor
+      sleep 3
+    open https://brew.sh/index_ja
+      waitReturn
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      waitReturn
+    echoResult "Installed Homebrew!" "Installing Homebrew is failed."
+    brew doctor
       sleep 2
   else
     echoWarning "Homebrew is already installed."
-    sleep 1
+      sleep 1
   fi
 fi
 
 #==================================================[ Files, directories and commands ]==================================================#
 
 if waitInput "Install Stow." 1; then
-  doneAnything=true
+    doneAnything=true
   echoNumber " 📦 Installing Stow..."
   if ! (type stow > /dev/null 2>&1); then
     brew install stow
     echoResult "Installed Stow!" "Installing Stow is failed."
+      sleep 1
   else
     echoWarning "Stow is already installed."
-    sleep 1
+      sleep 0.5
   fi
 fi
 
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
-  doneAnything=true
+    doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeDir ~/.vim/undo ~/.ssh/git
     makeFile ~/.hushlogin
@@ -174,32 +175,32 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
     done < <(command ls "$packages")
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning "All files are already symlinked."
-    sleep 0.5
+      sleep 0.5
   fi
 
-  notSetup=true
+    notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
     copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
   if ! "$notSetup"; then
     echoResult "Copied fonts!" "Copying fonts is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning "All fonts are already copied."
-    sleep 0.5
+      sleep 0.5
   fi
 
-  notSetup=true
+    notSetup=true
   echoNumber " 🚨 Adding permission to my commands..."
     if [[ ! $(command ls -l "$dotfiles"/commands/memo/memo) =~ "-rwxr--r--" ]]; then
       chmod 744 "$dotfiles"/commands/memo/memo
-      notSetup=false
+        notSetup=false
     fi
     if [[ ! $(command ls -l "$dotfiles"/commands/notion/notion) =~ "-rwxr--r--" ]]; then
       chmod 744 "$dotfiles"/commands/notion/notion
-      notSetup=false
+        notSetup=false
     fi
   if ! "$notSetup"; then
     echoResult "Added permission!" "Adding permission is failed."
@@ -213,15 +214,15 @@ fi
 
 # Make spaces on Dock and resize Launchpad
 if waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder." 4; then
-  doneAnything=true
+    doneAnything=true
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
     echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning "Launchpad size is already set up."
-    sleep 0.5
+      sleep 0.5
   fi
 
   echoNumber " 🔲 Adding spaces on Dock..."
@@ -230,10 +231,10 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
     done
     echoResult "Added spaces on Dock!" "Adding spaces on Dock is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning "Space in Dock is already added."
-    sleep 0.5
+      sleep 0.5
   fi
 
   echoNumber " 📷 Creating a screen capture directory and changing its directory to it..."
@@ -241,10 +242,10 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
     makeDir ~/Pictures/スクリーンショット
     defaults write com.apple.screencapture location ~/Pictures/スクリーンショット
     echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changing its directory is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning "Screen capture directory is already set up."
-    sleep 0.5
+      sleep 0.5
   fi
 
   echoNumber " ❎ Suppressing .DS_Store creation..."
@@ -252,10 +253,10 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
     defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
     echoResult "Suppressed .DS_Store creation!" "Suppressing .DS_Store creation is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning ".DS_Store creation is already suppressed."
-    sleep 0.5
+      sleep 0.5
   fi
 
   killall Dock
@@ -263,30 +264,30 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
 fi
 
 if waitInput "Set computer name." 1; then
-  doneAnything=true
+    doneAnything=true
   echoNumber " 💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
-      echoAsk "What's your computer name?"
-      read -r computerName
-      localName=$(echo -e "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
-      scutil --set ComputerName "$computerName"
-        echo -e "computerName: $(sudo scutil --get ComputerName)"
-      scutil --set LocalHostName "$localName"
-        echo -e "LocalHostName: $(sudo scutil --get LocalHostName)"
-      scutil --set HostName "$computerName"
-        echo -e "HostName: $(sudo scutil --get HostName)"
+    echoAsk "What's your computer name?"
+    read -r computerName
+    localName=$(echo -e "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+    scutil --set ComputerName "$computerName"
+      echo -e "computerName: $(sudo scutil --get ComputerName)"
+    scutil --set LocalHostName "$localName"
+      echo -e "LocalHostName: $(sudo scutil --get LocalHostName)"
+    scutil --set HostName "$computerName"
+      echo -e "HostName: $(sudo scutil --get HostName)"
     echoResult "Set computer name!" "Setting computer name is failed."
-    sleep 1
+      sleep 1
   else
     echoWarning "Computer name is already set up."
-    sleep 0.5
+      sleep 0.5
   fi
 fi
 
 #==================================================[ Install apps and more ]==================================================#
 
 if waitInput "Install Homebrew packages and apps." 3; then
-  doneAnything=true
+    doneAnything=true
   if ! (mas account > /dev/null 2>&1); then
     echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
@@ -297,7 +298,7 @@ if waitInput "Install Homebrew packages and apps." 3; then
   echoNumber " 📲 Installing apps with Homebrew..."
   brew bundle --file="$dotfiles"/Setup/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
-  sleep 1
+    sleep 1
 
   echoNumber " 💾 Installing programming language with asdf..."
   for lang in ${(k)langs}; do
