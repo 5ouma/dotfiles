@@ -11,10 +11,10 @@ export VIMINIT="source $VIMRC"
 export dotfiles="$HOME"/.dotfiles
 
 # memo
-export PATH="$dotfiles"/packages/commands/memo:$PATH
+export PATH="$dotfiles"/commands/memo:$PATH
 
 # notion
-export PATH="$dotfiles"/packages/commands/notion:$PATH
+export PATH="$dotfiles"/commands/notion:$PATH
 
 #============================================================[ Settings ]============================================================#
 

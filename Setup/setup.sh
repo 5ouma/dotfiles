@@ -109,7 +109,7 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 
 #==================================================[ Homebrew install ]==================================================#
 
-if waitInput "Installing Homebrew." 2; then
+if waitInput "Install Homebrew." 2; then
   doneAnything=true
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
   if ! (xcode-select -v > /dev/null 2>&1); then
@@ -140,13 +140,38 @@ fi
 
 #==================================================[ Files, directories and commands ]==================================================#
 
+if waitInput "Install Stow." 1; then
+  doneAnything=true
+  echoNumber " 📦 Installing Stow..."
+  if ! (type stow > /dev/null 2>&1); then
+    brew install stow
+    echoResult "Installed Stow!" "Installing Stow is failed."
+  else
+    echoWarning "Stow is already installed."
+    sleep 1
+  fi
+fi
+
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
   doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
-    makeDir ~/.vim/undo ~/.ssh/git ~/.config
+    makeDir ~/.vim/undo ~/.ssh/git
     makeFile ~/.hushlogin
-    source "$dotfiles"/Setup/symlink/home.sh
-    source "$dotfiles"/Setup/symlink/config.sh
+    if [[ ! -e "$dotfiles"/backup ]]; then
+      mkdir "$dotfiles"/backup
+    fi
+    while read -r pack; do
+      homeFile="$HOME/$(echo "$pack" | sed -e "s/.*packages\///" | cut -d "/" -f 2-)"
+      if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
+        mv "$homeFile" "$dotfiles"/backup/
+      fi
+    done < <(find "$packages" -type f ! -name ".DS_Store")
+    while read -r pack; do
+      stow -v --ignore=".DS_Store" --no-folding -d "$packages" -t ~ "$pack"
+      if [[ $? = 0 ]]; then
+        notSetup
+      fi
+    done < <(command ls "$packages")
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
     sleep 1
@@ -158,30 +183,30 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
   notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
     copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
-    if ! "$notSetup"; then
-      echoResult "Copied fonts!" "Copying fonts is failed."
-      sleep 1
-    else
-      echoWarning "All fonts are already copied."
-      sleep 0.5
-    fi
+  if ! "$notSetup"; then
+    echoResult "Copied fonts!" "Copying fonts is failed."
+    sleep 1
+  else
+    echoWarning "All fonts are already copied."
+    sleep 0.5
+  fi
 
   notSetup=true
   echoNumber " 🚨 Adding permission to my commands..."
-    if [[ ! $(command ls -l "$packages"/commands/memo/memo) =~ "-rwxr--r--" ]]; then
-      chmod 744 "$packages"/commands/memo/memo
+    if [[ ! $(command ls -l "$dotfiles"/commands/memo/memo) =~ "-rwxr--r--" ]]; then
+      chmod 744 "$dotfiles"/commands/memo/memo
       notSetup=false
     fi
-    if [[ ! $(command ls -l "$packages"/commands/notion/notion) =~ "-rwxr--r--" ]]; then
-      chmod 744 "$packages"/commands/notion/notion
+    if [[ ! $(command ls -l "$dotfiles"/commands/notion/notion) =~ "-rwxr--r--" ]]; then
+      chmod 744 "$dotfiles"/commands/notion/notion
       notSetup=false
     fi
-    if ! "$notSetup"; then
-      echoResult "Added permission!" "Adding permission is failed."
-    else
-      echoWarning "All permission is already added."
-    fi
-    sleep 2
+  if ! "$notSetup"; then
+    echoResult "Added permission!" "Adding permission is failed."
+  else
+    echoWarning "All permission is already added."
+  fi
+  sleep 2
 fi
 
 #==================================================[ System write ]==================================================#
