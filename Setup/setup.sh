@@ -65,6 +65,23 @@ echoNumber() {
   (( nowNum++ ))
 }
 
+makeSymlink() {
+  while read -r pack; do
+    homeFile="$2/$(echo "$pack" | sed -e "s/.*$(basename "$1")\///" | cut -d "/" -f 2-)"
+    homeDir="$(dirname "$homeFile")"
+    if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
+      mkdir -p "$(dirname "$1")"/backup
+      mv "$homeFile" "$(dirname "$1")"/backup/
+    fi
+    if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
+      mkdir -p "$homeDir"
+      ln -s "$pack" "$homeDir"
+      echo -e "$pack"
+        notSetup=false
+    fi
+  done < <(find "$1" -type f ! -name ".DS_Store")
+}
+
 makeFile() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
@@ -148,20 +165,7 @@ fi
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
     doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
-    while read -r pack; do
-      homeFile="$HOME/$(echo "$pack" | sed -e "s/.*packages\///" | cut -d "/" -f 2-)"
-      homeDir="$(dirname "$homeFile")"
-      if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
-        makeDir "$dotfiles"/backup
-        mv "$homeFile" "$dotfiles"/backup/
-      fi
-      if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
-        makeDir "$homeDir"
-        ln -s "$pack" "$homeDir"
-        echo -e "$pack"
-          notSetup=false
-      fi
-    done < <(find "$packages" -type f ! -name ".DS_Store")
+    makeSymlink "$packages" "$HOME"
     makeDir ~/.vim/undo ~/.ssh/git
     makeFile ~/.hushlogin
   if ! "$notSetup"; then
