@@ -1536,6 +1536,14 @@
 	<integer>40</integer>
 	<key>TerminalVMargin</key>
 	<integer>40</integer>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Jobs</string>
+		<string>Command History</string>
+		<string>Notes</string>
+		<string>Paste History</string>
+		<string>Recent Directories</string>
+	</array>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
