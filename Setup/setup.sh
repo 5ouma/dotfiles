@@ -202,7 +202,6 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
   else
     echoWarning "All permission is already added."
   fi
-  sleep 2
 fi
 
 #==================================================[ System write ]==================================================#
