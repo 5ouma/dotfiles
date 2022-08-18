@@ -16,17 +16,22 @@ typeset -A langs=("nodejs" "Node.js")
 waitInput() {
   echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
   read -r -k 1 run
+  echo ""
   if [[ "$run" =~ "y|Y" ]]; then
-    echo ""
     return 0
   elif [[ "$run" =~ "n|N" ]]; then
-    echo ""
     for i in {1..$2}; do
       (( nowNum++ ))
     done
     return 1
   else
-    echo -e "\n" && exec $SHELL -l
+    if "$doneAnything"; then
+      echo -e "\n✨ Setting up successfully!\n"
+    else
+      echo ""
+      echoWarning "Nothing is changed.\n"
+    fi
+    exec $SHELL -l
   fi
 }
 
