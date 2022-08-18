@@ -280,7 +280,7 @@ fi
 
 #==================================================[ Install apps and more ]==================================================#
 
-if waitInput "Install Homebrew packages and apps." 4; then
+if waitInput "Install packages and apps with Homebrew and more." 5; then
     doneAnything=true
   if ! (mas account > /dev/null 2>&1); then
     echoInfo "Opening App Store..."
@@ -298,6 +298,14 @@ if waitInput "Install Homebrew packages and apps." 4; then
   for lang in ${(k)langs}; do
     installLang "${langs[$lang]}" "$lang"
   done
+
+  echoNumber " 🧶 installing packages with yarn..."
+    if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
+      yarn global add
+      echoResult "Installed packages!" "Installing yarn is failed."
+    else
+      echoWarning "Packages are already installed."
+    fi
 
   echoNumber " 📝 Installing Vim plugins with Jetpack..."
     export VIMRC="$HOME/.vim/.vimrc"
