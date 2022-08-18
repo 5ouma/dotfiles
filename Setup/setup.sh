@@ -311,6 +311,7 @@ if waitInput "Install packages and apps with Homebrew and more." 5; then
     export VIMRC="$HOME/.vim/.vimrc"
     export VIMINIT="source $VIMRC"
     vim +Jetpack +qall
+    echoResult "Installed plugins!" "Installing plugins is failed."
 
   echoNumber " 🖥 Installing Shell Integration for iTerm2..."
   if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
