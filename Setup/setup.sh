@@ -305,7 +305,12 @@ if waitInput "Install Homebrew packages and apps." 4; then
     vim +Jetpack +qall
 
   echoNumber " 🖥 Installing Shell Integration for iTerm2..."
+  if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
     curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+    echoResult "Installed Shell Integration!" "Installing Shell Integration is failed."
+  else
+    echoWarning "Shell Integration is already installed."
+  fi
 
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
