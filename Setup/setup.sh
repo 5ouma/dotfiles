@@ -294,6 +294,14 @@ if waitInput "Install packages and apps with Homebrew and more." 5; then
   echoResult "Installed apps!" "Installing apps is failed."
     sleep 1
 
+  echoNumber " 🖥 Installing Shell Integration for iTerm2..."
+    if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
+      curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+      echoResult "Installed Shell Integration!" "Installing Shell Integration is failed."
+    else
+      echoWarning "Shell Integration is already installed."
+    fi
+
   echoNumber " 💾 Installing programming language with asdf..."
   for lang in ${(k)langs}; do
     installLang "${langs[$lang]}" "$lang"
@@ -312,14 +320,6 @@ if waitInput "Install packages and apps with Homebrew and more." 5; then
     export VIMINIT="source $VIMRC"
     vim +Jetpack +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
-
-  echoNumber " 🖥 Installing Shell Integration for iTerm2..."
-  if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
-    curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
-    echoResult "Installed Shell Integration!" "Installing Shell Integration is failed."
-  else
-    echoWarning "Shell Integration is already installed."
-  fi
 
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
