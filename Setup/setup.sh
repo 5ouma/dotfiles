@@ -280,7 +280,7 @@ fi
 
 #==================================================[ Install apps and more ]==================================================#
 
-if waitInput "Install Homebrew packages and apps." 3; then
+if waitInput "Install Homebrew packages and apps." 4; then
     doneAnything=true
   if ! (mas account > /dev/null 2>&1); then
     echoInfo "Opening App Store..."
@@ -303,6 +303,9 @@ if waitInput "Install Homebrew packages and apps." 3; then
     export VIMRC="$HOME/.vim/.vimrc"
     export VIMINIT="source $VIMRC"
     vim +Jetpack +qall
+
+  echoNumber " 🖥 Installing Shell Integration for iTerm2..."
+    curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
