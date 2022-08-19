@@ -8,7 +8,7 @@ packages="$dotfiles"/packages
 notSetup=true
 doneAnything=false
 nowNum=1
-allNum=$(($(grep -o "echoNumber" "$dotfiles"/Setup/setup.sh | wc -l) - 2))
+allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup.sh | wc -l) - 2))
 
 typeset -A langs=("nodejs" "Node.js")
 
@@ -178,7 +178,7 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
 
     notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
-    copyFile "$dotfiles"/Setup/Fonts ~/Library/Fonts
+    copyFile "$dotfiles"/data/fonts ~/Library/Fonts
   if ! "$notSetup"; then
     echoResult "Copied fonts!" "Copying fonts is failed."
       sleep 1
@@ -290,7 +290,7 @@ if waitInput "Install packages and apps with Homebrew and more." 5; then
     waitReturn
   fi
   echoNumber " 📲 Installing apps with Homebrew..."
-  brew bundle --file="$dotfiles"/Setup/Brewfile
+  brew bundle --file="$dotfiles"/data/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
     sleep 1
 
