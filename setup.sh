@@ -44,6 +44,10 @@ echoAsk() {
   echo -en "\033[34;1mask\033[m $1: "
 }
 
+echoQue() {
+  echo -en "\033[90;1mquestion\033[m $1: "
+}
+
 echoInfo() {
   echo -e "\033[36minfo\033[m $1"
 }
@@ -261,7 +265,7 @@ if waitInput "Set computer name." 1; then
     doneAnything=true
   echoNumber " 💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
-    echoAsk "What's your computer name?"
+    echoQue "What's your computer name?"
     read -r computerName
     localName=$(echo -e "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
     scutil --set ComputerName "$computerName"
