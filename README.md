@@ -157,6 +157,12 @@ brew install fig
     brew install glow
     ```
 
+-   #### <a href="https://github.com/sharkdp/hyperfine"><b>hyperfine</b></a>
+
+    ```shell
+    brew install hyperfine
+    ```
+
 -   #### <a href="https://github.com/Ryu0118/Kusa"><b>Kusa</b></a>
 
     ```shell
