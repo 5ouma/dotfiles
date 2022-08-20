@@ -107,7 +107,7 @@ brew install fig
     fig plugins add zsh-autopair_hlissner
     ```
 
--   #### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>zsh-you-should-use</b></a>
+-   #### <a href="https://github.com/MichaelAquilina/zsh-you-should-use"><b>You Should Use</b></a>
 
     <a href="https://app.fig.io/plugins/zsh-you-should-use_MichaelAquilina" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
