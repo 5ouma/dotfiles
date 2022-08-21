@@ -36,10 +36,10 @@ OPTIONS:
 
 ## 🌄 Preview
 
-|            | Overview                                                   | Interacting with zsh                                       | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
-| ---------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| Light Mode | ![Preview 1 - Light](Images/Preview/Light/Preview1.png) | ![Preview 2 - Light](Images/Preview/Light/Preview2.png) | ![Preview 3 - Light](Images/Preview/Light/Preview3.png) |
-| Dark Mode  | ![Preview 1 - Dark](Images/Preview/Dark/Preview1.png)   | ![Preview 2 - Dark](Images/Preview/Dark/Preview2.png)   | ![Preview 3 - Dark](Images/Preview/Dark/Preview3.png)   |
+|            |                        Overview                         |                  Interacting with zsh                   | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
+| :--------: | :-----------------------------------------------------: | :-----------------------------------------------------: | ---------------------------------------------------------- |
+| Light Mode | ![Preview 1 - Light](Images/Preview/Light/Preview1.png) | ![Preview 2 - Light](Images/Preview/Light/Preview2.png) | ![Preview 3 - Light](Images/Preview/Light/Preview3.png)    |
+| Dark Mode  |  ![Preview 1 - Dark](Images/Preview/Dark/Preview1.png)  |  ![Preview 2 - Dark](Images/Preview/Dark/Preview2.png)  | ![Preview 3 - Dark](Images/Preview/Dark/Preview3.png)      |
 
 <br><br>
 
