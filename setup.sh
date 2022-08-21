@@ -5,6 +5,7 @@
 export dotfiles=$HOME/.dotfiles
 packages="$dotfiles"/packages
 
+doAll=false
 notSetup=true
 doneAnything=false
 nowNum=1
@@ -12,11 +13,16 @@ allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup.sh | wc -l) - 2))
 
 typeset -A langs=("nodejs" "Node.js")
 
+case "$1" in
+"-y" )
+  doAll=true
+  ;;
+esac
 
 waitInput() {
-  echo -en "\n\033[34;1mask\033[m $1 (y/n/other to abort): "
+  echo -en "\033[34;1mask\033[m $1 (y/n/other to abort): "
   read -r -k 1 run
-  echo ""
+  echo
   if [[ "$run" =~ "y|Y" ]]; then
     return 0
   elif [[ "$run" =~ "n|N" ]]; then
@@ -28,7 +34,7 @@ waitInput() {
     if "$doneAnything"; then
       echo -e "\n✨ Setting up successfully!\n"
     else
-      echo ""
+      echo
       echoWarning "Nothing is changed.\n"
     fi
     exec $SHELL -l
@@ -132,11 +138,11 @@ installLang() {
 #==================================================[ Ask to confirm ]==================================================#
 
 echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
-read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
+read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
 
 #==================================================[ Homebrew install ]==================================================#
 
-if waitInput "Install Homebrew." 2; then
+if "$doAll" || waitInput "Install Homebrew." 2; then
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
   if ! (xcode-select -v > /dev/null 2>&1); then
     xcode-select --install
@@ -164,9 +170,11 @@ if waitInput "Install Homebrew." 2; then
   fi
 fi
 
+echo
+
 #==================================================[ Files, directories and commands ]==================================================#
 
-if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
+if "$doAll" || waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeSymlink "$packages" "$HOME"
     makeDir ~/.vim/undo ~/.ssh/git
@@ -207,9 +215,11 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
   fi
 fi
 
+echo
+
 #==================================================[ System write ]==================================================#
 
-if waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 5; then
+if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 5; then
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -276,9 +286,11 @@ if waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the 
   fi
 fi
 
+echo
+
 #==================================================[ Install apps and more ]==================================================#
 
-if waitInput "Install packages and apps with Homebrew and more." 5; then
+if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; then
   if ! (mas account > /dev/null 2>&1); then
     echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
@@ -331,11 +343,12 @@ if waitInput "Install packages and apps with Homebrew and more." 5; then
   fi
 fi
 
+echo
+
 #==================================================[ Done! ]==================================================#
 
 if "$doneAnything"; then
-  echo -e "\n✨ Setting up successfully!"
+  echo -e "✨ Setting up successfully!"
 else
-  echo ""
   echoWarning "Nothing is changed."
 fi
