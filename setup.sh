@@ -193,11 +193,11 @@ if waitInput "Make symlinks or create terminal files and add permission to comma
 
     notSetup=true
   echoNumber " 🚨 Adding permission to my commands..."
-    if [[ ! $(command ls -l "$dotfiles"/commands/memo/memo) =~ "-rwxr--r--" ]]; then
+  if ! (type memo > /dev/null 2>&1); then
       chmod 744 "$dotfiles"/commands/memo/memo
         notSetup=false
     fi
-    if [[ ! $(command ls -l "$dotfiles"/commands/notion/notion) =~ "-rwxr--r--" ]]; then
+    if ! (type notion > /dev/null 2>&1); then
       chmod 744 "$dotfiles"/commands/notion/notion
         notSetup=false
     fi
