@@ -28,9 +28,9 @@ USAGE:
     source ~/.dotfiles/setup.sh
 
 OPTIONS:
-    -h, --help  Print help information
-    -y, --yes   Run all configuration
-    -s, --set   Set files to home directory
+    -h, --help    Print help information
+    -y, --yes     Run all configuration
+    -s, --set     Set files to home directory
 ```
 
 <br><br>
