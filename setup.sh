@@ -124,10 +124,10 @@ setFiles() {
   makeDir ~/.vim/undo ~/.ssh/git
   makeFile ~/.hushlogin
   if ! "$notSetup"; then
-    echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
+    echoResult "Set these files!" "Setting files is failed."
       sleep 1
   else
-    echoWarning "All files are already symlinked."
+    echoWarning "All files are already set."
       sleep 0.5
   fi
 }
