@@ -21,7 +21,7 @@ source ~/.dotfiles/setup.sh
 
 ## 📊 Usage
 
-#### `source ~/.dotfiles/setup.sh --help`
+### `source ~/.dotfiles/setup.sh --help`
 
 ```
 USAGE:
