@@ -1,6 +1,5 @@
 [core]
 	editor = code --wait
-	excludesfile = ~/.gitignore_global
 [init]
 	defaultBranch = main
 [merge]
