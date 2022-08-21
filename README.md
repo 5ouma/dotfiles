@@ -1,8 +1,8 @@
 <br>
 
 <div align="center">
-    <img width=500 src="Images/Header/DOTFILES%20-%20light.png#gh-light-mode-only" alt="DOTFILES - light">
-    <img width=500 src="Images/Header/DOTFILES%20-%20dark.png#gh-dark-mode-only" alt="DOTFILES - dark">
+    <img width=500 src="Images/Header/DOTFILES-light.png#gh-light-mode-only" alt="DOTFILES - light">
+    <img width=500 src="Images/Header/DOTFILES-dark.png#gh-dark-mode-only" alt="DOTFILES - dark">
     <b><p>This is a repository that includes my zsh, vim and other settings, plugins, etc and setup.</p></b>
 </div>
 
@@ -23,8 +23,8 @@ source ~/.dotfiles/setup.sh
 
 |            | Overview                                                   | Interacting with zsh                                       | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
 | ---------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| Light Mode | ![Preview 1 - Light](Images/Preview/Light/Preview%201.png) | ![Preview 2 - Light](Images/Preview/Light/Preview%202.png) | ![Preview 3 - Light](Images/Preview/Light/Preview%203.png) |
-| Dark Mode  | ![Preview 1 - Dark](Images/Preview/Dark/Preview%201.png)   | ![Preview 2 - Dark](Images/Preview/Dark/Preview%202.png)   | ![Preview 3 - Dark](Images/Preview/Dark/Preview%203.png)   |
+| Light Mode | ![Preview 1 - Light](Images/Preview/Light/Preview1.png) | ![Preview 2 - Light](Images/Preview/Light/Preview2.png) | ![Preview 3 - Light](Images/Preview/Light/Preview3.png) |
+| Dark Mode  | ![Preview 1 - Dark](Images/Preview/Dark/Preview1.png)   | ![Preview 2 - Dark](Images/Preview/Dark/Preview2.png)   | ![Preview 3 - Dark](Images/Preview/Dark/Preview3.png)   |
 
 <br><br>
 
