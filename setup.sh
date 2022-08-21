@@ -13,26 +13,6 @@ allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup.sh | wc -l) - 2))
 
 typeset -A langs=("nodejs" "Node.js")
 
-#==================================================[ Options ]==================================================#
-
-case "$1" in
-"-h" | "--help" )
-  echo -e "\033[32mdotfiles\033[m"
-  echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
-
-  echo -e "\033[33mUSAGE:\033[m"
-    echo -e "    source ~/.dotfiles/setup.sh\n"
-  echo -e "\033[33mOPTIONS:\033[m"
-    echo -e "    \033[32m-h\033[m, \033[32m--help\033[m    Print help information"
-    echo -e "    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration"
-  echo
-  exec $SHELL -l
-  ;;
-"-y" | "--yes" )
-  doAll=true
-  ;;
-esac
-
 #==================================================[ Functions ]==================================================#
 
 waitInput() {
@@ -150,6 +130,26 @@ installLang() {
     sleep 0.5
   fi
 }
+
+#==================================================[ Options ]==================================================#
+
+case "$1" in
+"-h" | "--help" )
+  echo -e "\033[32mdotfiles\033[m"
+  echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
+
+  echo -e "\033[33mUSAGE:\033[m"
+    echo -e "    source ~/.dotfiles/setup.sh\n"
+  echo -e "\033[33mOPTIONS:\033[m"
+    echo -e "    \033[32m-h\033[m, \033[32m--help\033[m    Print help information"
+    echo -e "    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration"
+  echo
+  exec $SHELL -l
+  ;;
+"-y" | "--yes" )
+  doAll=true
+  ;;
+esac
 
 #==================================================[ Ask to confirm ]==================================================#
 
