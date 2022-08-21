@@ -210,8 +210,7 @@ fi
 
 #==================================================[ System write ]==================================================#
 
-# Make spaces on Dock and resize Launchpad
-if waitInput "Run to change Launchpad size, add space on Dock, and change the saving screen capture location to the new folder." 4; then
+if waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 5; then
     doneAnything=true
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
@@ -259,10 +258,7 @@ if waitInput "Run to change Launchpad size, add space on Dock, and change the sa
 
   killall Dock
   killall SystemUIServer
-fi
 
-if waitInput "Set computer name." 1; then
-    doneAnything=true
   echoNumber " 💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
     echoQue "What's your computer name?"
