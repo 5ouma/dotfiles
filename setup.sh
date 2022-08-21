@@ -123,6 +123,13 @@ setFiles() {
   makeSymlink "$packages" "$HOME"
   makeDir ~/.vim/undo ~/.ssh/git
   makeFile ~/.hushlogin
+  if ! "$notSetup"; then
+    echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
+      sleep 1
+  else
+    echoWarning "All files are already symlinked."
+      sleep 0.5
+  fi
 }
 
 installLang() {
@@ -205,13 +212,6 @@ echo
 if "$doAll" || waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     setFiles
-  if ! "$notSetup"; then
-    echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
-      sleep 1
-  else
-    echoWarning "All files are already symlinked."
-      sleep 0.5
-  fi
 
     notSetup=true
   echoNumber " 🚚 The following fonts will be copied:"
