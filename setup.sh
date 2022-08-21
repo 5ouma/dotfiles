@@ -31,7 +31,7 @@ waitInput() {
       echo -e "\n✨ Setting up successfully!\n"
     else
       echo
-      echoWarning "Nothing is changed.\n"
+      echoWarning "Nothing has changed.\n"
     fi
     exec $SHELL -l
   fi
@@ -376,5 +376,5 @@ echo
 if "$doneAnything"; then
   echo -e "✨ Setting up successfully!"
 else
-  echoWarning "Nothing is changed."
+  echoWarning "Nothing has changed."
 fi
