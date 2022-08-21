@@ -93,7 +93,7 @@ bun() {
     packType=$(brew info "$pack")
     if [[ "$packType" =~ "Formula" ]]; then
       brew rmtree "$pack"
-    elif [[ "$packType" =~ "Casks" ]]; then
+    else
       brew uninstall "$pack"
     fi
   done
