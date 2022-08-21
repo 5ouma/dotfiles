@@ -4,7 +4,7 @@
 #============================================================[ Aliases ]============================================================#
 
 # git
-alias ga="git add"
+alias ga="git forgit add"
 alias gapa="git add -p"
 alias gb="git branch"
 alias gc!="git commit -v --no-edit --amend"
@@ -58,7 +58,6 @@ g-Souma-S() {
 }
 
 # forgit
-alias gfa="git forgit add"
 alias gflg="git forgit log"
 alias gfd="git forgit diff"
 alias gfrh="git forgit reset HEAD"
