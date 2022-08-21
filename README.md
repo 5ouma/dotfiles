@@ -17,6 +17,21 @@ git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
 source ~/.dotfiles/setup.sh
 ```
 
+<br>
+
+## 📊 Usage
+
+#### `source ~/.dotfiles/setup.sh --help`
+
+```
+USAGE:
+    source ~/.dotfiles/setup.sh
+
+OPTIONS:
+    -h, --help  Print help information
+    -y, --yes   Run all configuration
+```
+
 <br><br>
 
 ## 🌄 Preview
