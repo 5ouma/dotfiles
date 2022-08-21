@@ -59,6 +59,7 @@ echoWarning() {
 echoResult() {
   if [[ $? = 0 ]]; then
     echo -e "\033[32msuccess\033[m $1"
+    doneAnything=true
   else
     echo -e "\033[31merror\033[m $2"
   fi
@@ -136,7 +137,6 @@ read -rq && echo -e "" || { echo -e "\n" && exec $SHELL -l; }
 #==================================================[ Homebrew install ]==================================================#
 
 if waitInput "Install Homebrew." 2; then
-    doneAnything=true
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
   if ! (xcode-select -v > /dev/null 2>&1); then
     xcode-select --install
@@ -167,7 +167,6 @@ fi
 #==================================================[ Files, directories and commands ]==================================================#
 
 if waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
-    doneAnything=true
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     makeSymlink "$packages" "$HOME"
     makeDir ~/.vim/undo ~/.ssh/git
@@ -211,7 +210,6 @@ fi
 #==================================================[ System write ]==================================================#
 
 if waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 5; then
-    doneAnything=true
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -281,7 +279,6 @@ fi
 #==================================================[ Install apps and more ]==================================================#
 
 if waitInput "Install packages and apps with Homebrew and more." 5; then
-    doneAnything=true
   if ! (mas account > /dev/null 2>&1); then
     echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
