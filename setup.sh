@@ -119,6 +119,12 @@ copyFile() {
   done
 }
 
+setFiles() {
+  makeSymlink "$packages" "$HOME"
+  makeDir ~/.vim/undo ~/.ssh/git
+  makeFile ~/.hushlogin
+}
+
 installLang() {
   if ! (asdf list "$2" > /dev/null 2>&1); then
     echoInfo "Installing $1..."
@@ -143,11 +149,17 @@ case "$1" in
   echo -e "\033[33mOPTIONS:\033[m"
     echo -e "    \033[32m-h\033[m, \033[32m--help\033[m    Print help information"
     echo -e "    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration"
+    echo -e "    \033[32m-s\033[m, \033[32m--set\033[m     Set files to home directory"
   echo
   exec $SHELL -l
   ;;
 "-y" | "--yes" )
   doAll=true
+  ;;
+"-s" | "--set" )
+  setFiles
+  echo
+  exec $SHELL -l
   ;;
 esac
 
@@ -192,9 +204,7 @@ echo
 
 if "$doAll" || waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
-    makeSymlink "$packages" "$HOME"
-    makeDir ~/.vim/undo ~/.ssh/git
-    makeFile ~/.hushlogin
+    setFiles
   if ! "$notSetup"; then
     echoResult "Symlinked terminal files!" "Making symlinks terminal files is failed."
       sleep 1
