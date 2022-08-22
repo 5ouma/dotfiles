@@ -1265,7 +1265,7 @@
 								<key>base: priority</key>
 								<real>5</real>
 								<key>format</key>
-								<string>MMM dd, E | H:mm:ss</string>
+								<string>E, MMM dd | H:mm:ss</string>
 								<key>localize</key>
 								<integer>0</integer>
 								<key>maxwidth</key>
