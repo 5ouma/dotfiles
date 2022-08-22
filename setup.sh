@@ -151,12 +151,12 @@ case "$1" in
   echo -e "\033[32mdotfiles\033[m"
   echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
 
-  echo -e "\033[33mUSAGE:\033[m"
-    echo -e "    source ~/.dotfiles/setup.sh\n"
-  echo -e "\033[33mOPTIONS:\033[m"
-    echo -e "    \033[32m-h\033[m, \033[32m--help\033[m    Print help information"
-    echo -e "    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration"
-    echo -e "    \033[32m-s\033[m, \033[32m--set\033[m     Set files to home directory"
+  echo -e "\033[33mUSAGE:\033[m
+    source ~/.dotfiles/setup.sh\n"
+  echo -e "\033[33mOPTIONS:\033[m
+    \033[32m-h\033[m, \033[32m--help\033[m    Print help information
+    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration
+    \033[32m-s\033[m, \033[32m--set\033[m     Set files to home directory"
   echo
   exec $SHELL -l
   ;;
