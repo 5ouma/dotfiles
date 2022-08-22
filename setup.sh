@@ -38,7 +38,7 @@ waitInput() {
 }
 
 waitReturn() {
-  echo -e "Press RETURN to continue"
+  echo "Press RETURN to continue"
   read -rs
 }
 
@@ -83,7 +83,7 @@ makeSymlink() {
     if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
       mkdir -p "$homeDir"
       ln -s "$pack" "$homeDir"
-      echo -e "$pack"
+      echo "$pack"
         notSetup=false
     fi
   done < <(find "$1" -type f ! -name ".DS_Store")
@@ -93,7 +93,7 @@ makeFile() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
       touch "$target"
-      echo -e "$target"
+      echo "$target"
         notSetup=false
     fi
   done
@@ -103,7 +103,7 @@ makeDir() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
       mkdir -p "$target"
-      echo -e "$target"
+      echo "$target"
         notSetup=false
     fi
   done
@@ -113,7 +113,7 @@ copyFile() {
   for target in $(command ls -A "$1"); do
     if [[ ! -e "$2/$target" ]]; then
       cp "$1/$target" "$2"
-      echo -e "$1/$target"
+      echo "$1/$target"
         notSetup=false
     fi
   done
@@ -297,13 +297,13 @@ if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n   
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
     echoQue "What's your computer name?"
     read -r computerName
-    localName=$(echo -e "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+    localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
     scutil --set ComputerName "$computerName"
-      echo -e "computerName: $(sudo scutil --get ComputerName)"
+      echo "computerName: $(sudo scutil --get ComputerName)"
     scutil --set LocalHostName "$localName"
-      echo -e "LocalHostName: $(sudo scutil --get LocalHostName)"
+      echo "LocalHostName: $(sudo scutil --get LocalHostName)"
     scutil --set HostName "$computerName"
-      echo -e "HostName: $(sudo scutil --get HostName)"
+      echo "HostName: $(sudo scutil --get HostName)"
     echoResult "Set computer name!" "Setting computer name is failed."
       sleep 1
   else
@@ -374,7 +374,7 @@ echo
 #==================================================[ Done! ]==================================================#
 
 if "$doneAnything"; then
-  echo -e "✨ Setting up successfully!"
+  echo "✨ Setting up successfully!"
 else
   echoWarning "Nothing has changed."
 fi
