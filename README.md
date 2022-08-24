@@ -31,6 +31,10 @@ OPTIONS:
     -h, --help    Print help information
     -y, --yes     Run all configuration
     -s, --set     Set files to home directory
+
+COMMANDS:
+    install <languages>      Install programming languages with asdf
+    uninstall <languages>    Uninstall programming languages from asdf\n"
 ```
 
 <br><br>
