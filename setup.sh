@@ -133,8 +133,14 @@ setFiles() {
 installLang() {
   if ! (asdf list "$1" > /dev/null 2>&1); then
     echoInfo "Installing $1..."
-    asdf plugin-add "$1" && asdf install "$1" latest && asdf global "$1" latest
-    echoResult "Installed $1!\n" "Installing $1 is failed.\n"
+    asdf plugin-add "$1"
+    if "$2"; then
+      asdf install "$1" latest
+    else
+      asdf install "$1"
+    fi
+    asdf global "$1" latest
+    echoResult "Installed $1!" "Installing $1 is failed."
     sleep 1
   else
     echoWarning "$1 is already installed."
@@ -185,7 +191,7 @@ case "$1" in
 
   "install" )
     for i in "${@:2}"; do
-      installLang "$i"
+      installLang "$i" true
     done
     exec $SHELL -l
     ;;
@@ -367,7 +373,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
 
   echoNumber " 💾 Installing programming language with asdf..."
   while read -r lang; do
-    installLang "$lang"
+    installLang "$lang" false
   done < <(command cat "$packages"/asdf/.tool-versions | cut -d " " -f -1)
 
   echoNumber " 🧶 installing packages with yarn..."
