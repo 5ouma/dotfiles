@@ -34,7 +34,7 @@ OPTIONS:
 
 COMMANDS:
     install <languages>      Install programming languages with asdf
-    uninstall <languages>    Uninstall programming languages from asdf\n"
+    uninstall <languages>    Uninstall programming languages from asdf"
 ```
 
 <br><br>
