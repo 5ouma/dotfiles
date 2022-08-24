@@ -255,11 +255,11 @@ if "$doAll" || waitInput "Make symlinks or create terminal files and add permiss
     notSetup=true
   echoNumber " 🚨 Adding permission to my commands..."
   if ! (type memo > /dev/null 2>&1); then
-      chmod 744 "$dotfiles"/commands/memo/memo
+      chmod +x "$dotfiles"/commands/memo/memo
         notSetup=false
     fi
     if ! (type notion > /dev/null 2>&1); then
-      chmod 744 "$dotfiles"/commands/notion/notion
+      chmod +x "$dotfiles"/commands/notion/notion
         notSetup=false
     fi
   if ! "$notSetup"; then
