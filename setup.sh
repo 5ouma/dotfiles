@@ -11,8 +11,6 @@ doneAnything=false
 nowNum=1
 allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup.sh | wc -l) - 2))
 
-typeset -A langs=("nodejs" "Node.js")
-
 #==================================================[ Functions ]==================================================#
 
 waitInput() {
@@ -133,10 +131,10 @@ setFiles() {
 }
 
 installLang() {
-  if ! (asdf list "$2" > /dev/null 2>&1); then
+  if ! (asdf list "$1" > /dev/null 2>&1); then
     echoInfo "Installing $1..."
-    asdf plugin-add "$2" && asdf install "$2" latest && asdf global "$2" latest
-    echoResult "Installed $1!" "Installing $1 is failed."
+    asdf plugin-add "$1" && asdf install "$1" latest && asdf global "$1" latest
+    echoResult "Installed $1!\n" "Installing $1 is failed.\n"
     sleep 1
   else
     echoWarning "$1 is already installed."
@@ -338,9 +336,9 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     fi
 
   echoNumber " 💾 Installing programming language with asdf..."
-  for lang in ${(k)langs}; do
-    installLang "${langs[$lang]}" "$lang"
-  done
+  while read -r lang; do
+    installLang "$lang"
+  done < <(command cat "$packages"/asdf/.tool-versions | cut -d " " -f -1)
 
   echoNumber " 🧶 installing packages with yarn..."
     if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
