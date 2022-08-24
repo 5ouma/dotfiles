@@ -144,7 +144,7 @@ installLang() {
 
 uninstallLang() {
   if (asdf list "$1" > /dev/null 2>&1); then
-    currentVer="$(asdf list "$1")"
+    currentVer="$(asdf list "$1" | sed -e "s/ //g")"
     asdf uninstall "$1" "$currentVer"
     asdf plugin remove "$1"
     sed -i "" "/$1/d" "$packages"/asdf/.tool-versions
