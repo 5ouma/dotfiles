@@ -150,10 +150,11 @@ installLang() {
 
 uninstallLang() {
   if (asdf list "$1" > /dev/null 2>&1); then
-    currentVer="$(asdf list "$1" | sed -e "s/ //g")"
-    asdf uninstall "$1" "$currentVer"
-    asdf plugin remove "$1"
-    sed -i "" "/$1/d" "$packages"/asdf/.tool-versions
+    while read -r ver; do
+      asdf uninstall "$1" "$ver"
+      asdf plugin remove "$1"
+      sed -i "" "/$1/d" "$packages"/asdf/.tool-versions
+    done < <(asdf list "$1" | awk '{print $1}')
     echoResult "Uninstalled $1!\n" "Uninstalling $1 is failed.\n"
   else
     echoWarning "$1 doesn't exist."
