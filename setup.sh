@@ -72,7 +72,7 @@ echoNumber() {
 
 makeSymlink() {
   while read -r pack; do
-    homeFile="$2/$(echo "$pack" | sed -e "s/.*$(basename "$1")\///" | cut -d "/" -f 2-)"
+    homeFile="$2/$(echo "$pack" | perl -pe "s/.*packages\/.*?\///")"
     homeDir="$(dirname "$homeFile")"
     if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
       mkdir -p "$(dirname "$1")"/backup
