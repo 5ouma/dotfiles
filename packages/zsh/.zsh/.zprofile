@@ -62,6 +62,11 @@ alias gflg="git forgit log"
 alias gfd="git forgit diff"
 alias gfrh="git forgit reset HEAD"
 
+# ghq
+gcd() {
+  cd $(ghq root)/$(ghq list | fzf)
+}
+
 # Homebrew
 brew() {
   if command brew "$@"; then

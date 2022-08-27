@@ -398,6 +398,12 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
     brew install gitui
     ```
 
+-   #### <a href="https://github.com/x-motemen/ghq"><b>ghq</b></a>
+
+    ```shell
+    brew install ghq
+    ```
+
 -   #### <a href="https://github.com/o2sh/onefetch"><b>onefetch</b></a>
 
     ```shell

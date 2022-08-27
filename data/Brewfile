@@ -17,6 +17,7 @@ brew "dark-mode"
 brew "fzf"
 brew "genact"
 brew "gh"
+brew "ghq"
 brew "git"
 brew "git-open"
 brew "gitui"
@@ -93,3 +94,36 @@ cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "webcatalog"
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
+mas "Cinebench", id: 1438772273
+mas "Contributions", id: 1153432612
+mas "Disk Speed Test", id: 425264550
+mas "Edison Mail", id: 1489591003
+mas "Fuwari", id: 1187652334
+mas "HandyPalette", id: 1515022667
+mas "iMovie", id: 408981434
+mas "Instapaper", id: 288545208
+mas "LadioCast", id: 411213048
+mas "LINE", id: 539883307
+mas "Mactracker", id: 430255202
+mas "Menubar Countdown", id: 1485343244
+mas "MenubarX", id: 1575588022
+mas "MiniNote", id: 492486856
+mas "Mockview", id: 1592728145
+mas "Perculia", id: 1462633284
+mas "PixelScheduler", id: 976996075
+mas "Playgrounds", id: 1496833156
+mas "RunCat", id: 1429033973
+mas "Secrets", id: 973049011
+mas "Snap", id: 418073146
+mas "Spark", id: 1176895641
+mas "Speedtest", id: 1153157709
+mas "Startup Disk Full Fixer", id: 1346655838
+mas "TickTick", id: 966085870
+mas "Timetable", id: 425121147
+mas "TypingLand", id: 1568264476
+mas "Vectornator", id: 1219074514
+mas "Widgy", id: 1524540481
+# mas "Xcode", id: 497799835
+mas "Yoink", id: 457622435
