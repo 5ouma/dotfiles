@@ -73,12 +73,12 @@ echoNumber() {
 makeSymlink() {
   while read -r pack; do
     homeFile="$2/$(echo "$pack" | perl -pe "s/.*packages\/.*?\///")"
-    homeDir="$(dirname "$homeFile")"
-    if [[ -e "$homeFile" && -n "$(diff "$pack" "$homeFile")" ]]; then
+    homeDir=$(dirname "$homeFile")
+    if [[ -e "$homeFile" && -n $(diff "$pack" "$homeFile") ]]; then
       mkdir -p "$(dirname "$1")"/backup
       mv "$homeFile" "$(dirname "$1")"/backup/
     fi
-    if [[ ! -e "$homeFile" || -n "$(diff "$pack" "$homeFile")" ]]; then
+    if [[ ! -e "$homeFile" || -n $(diff "$pack" "$homeFile") ]]; then
       mkdir -p "$homeDir"
       ln -s "$pack" "$homeDir"
       echo "$pack"
@@ -292,7 +292,7 @@ if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n   
   fi
 
   echoNumber " 🔲 Adding spaces on Dock..."
-  if [[ ! "$(defaults read com.apple.dock persistent-apps)" =~ "\"spacer-tile\"" ]]; then
+  if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
     for ((i=0; i<6; i++)); do
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
     done
@@ -304,7 +304,7 @@ if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n   
   fi
 
   echoNumber " 📷 Creating a screen capture directory and changing its directory to it..."
-  if [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
+  if [[ $(defaults read com.apple.screencapture location) != "$HOME/Pictures/Screen Capture" ]]; then
     mkdir -p "$HOME/Pictures/Screen Capture"
     defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
     echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changing its directory is failed."
