@@ -67,6 +67,7 @@ gcd() {
   cd $(ghq root)/$(ghq list | fzf)
 }
 
+
 # Homebrew
 brew() {
   if command brew "$@"; then
@@ -78,13 +79,6 @@ brew() {
   fi
 }
 
-bbd() {
-  while true; do
-    brew bundle dump -f --file="$dotfiles"/data/Brewfile
-    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
-    grep -q "mas " "$dotfiles"/data/Brewfile && break
-  done
-}
 alias bcl="brew cleanup"
 alias bd="brew doctor"
 alias bi="brew install"
@@ -93,6 +87,18 @@ alias bl="brew list"
 alias bri="brew reinstall"
 alias bs="brew search"
 alias bt="brew tap"
+alias bup="brew update && brew upgrade"
+alias but="brew untap"
+alias bv="brew -v"
+
+bbd() {
+  while true; do
+    brew bundle dump -f --file="$dotfiles"/data/Brewfile
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
+    grep -q "mas " "$dotfiles"/data/Brewfile && break
+  done
+}
+
 bun() {
   for pack in "$@"; do
     packType=$(brew info "$pack")
@@ -103,10 +109,8 @@ bun() {
     fi
   done
 }
-alias bup="brew update && brew upgrade"
-alias but="brew untap"
-alias bv="brew -v"
 
+# mas
 alias mi="mas install"
 alias ml="mas list"
 alias ms="mas search"
@@ -120,19 +124,18 @@ al() {
     while IFS= read -r line; do
       echo "$indent$line"
     done
-
   echo -e "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
   brew list --cask --version |
     while IFS= read -r line; do
       echo "$indent$line"
     done
-
   echo -e "\n\033[34;1m==>\033[m \033[1mmas\033[m"
   mas list |
     while IFS= read -r line; do
       echo "$indent$line"
     done
 }
+
 
 # VSCode
 alias c.="code ."
@@ -169,6 +172,7 @@ alias tokei="tokei -f"
 # Vim
 alias v="vim"
 alias vup="vim +Jetpack +qall"
+
 vim() {
   if [[ $1 = "-f" ]]; then
     command vim "$(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")"
