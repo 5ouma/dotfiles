@@ -72,18 +72,18 @@ brew() {
   if command brew "$@"; then
     if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "rmtree" || "$1" = "tap" || "$1" = "untap" ]]; then
       echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
-      brew bundle dump -f --file="$dotfiles"/data/Brewfile
-      # Not to install Xcode
-      sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
+      bbd
       echo "🍺  Brewfile was successfully generated!"
     fi
   fi
 }
 
 bbd() {
-  brew bundle dump -f --file="$dotfiles"/data/Brewfile
-  # Not to install Xcode
-  sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
+  while true; do
+    brew bundle dump -f --file="$dotfiles"/data/Brewfile
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
+    grep -q "mas " "$dotfiles"/data/Brewfile && break
+  done
 }
 alias bcl="brew cleanup"
 alias bd="brew doctor"
