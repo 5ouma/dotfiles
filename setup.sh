@@ -2,7 +2,7 @@
 
 #==================================================[ Variables ]==================================================#
 
-export dotfiles=$HOME/.dotfiles
+dotfiles=$(dirname "$0")
 packages="$dotfiles"/packages
 
 doAll=false
