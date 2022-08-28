@@ -1269,7 +1269,7 @@
 								<key>localize</key>
 								<integer>0</integer>
 								<key>maxwidth</key>
-								<real>+infinity</real>
+								<real>150</real>
 								<key>minwidth</key>
 								<string>0</string>
 								<key>shared font</key>
