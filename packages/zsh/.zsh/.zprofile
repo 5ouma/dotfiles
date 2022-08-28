@@ -118,22 +118,18 @@ alias mum="mas uninstall"
 alias mup="mas upgrade"
 
 al() {
-  indent="  "
   echo "\033[34;1m==>\033[m \033[1mFormulae\033[m"
-  brew list --formulae --version |
-    while IFS= read -r line; do
-      echo "$indent$line"
-    done
+    while read -r line; do
+      echo "  $line"
+    done < <(brew list --formulae --version)
   echo -e "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
-  brew list --cask --version |
-    while IFS= read -r line; do
-      echo "$indent$line"
-    done
+    while read -r line; do
+      echo "  $line"
+    done < <(brew list --cask --version)
   echo -e "\n\033[34;1m==>\033[m \033[1mmas\033[m"
-  mas list |
-    while IFS= read -r line; do
-      echo "$indent$line"
-    done
+    while read -r line; do
+      echo "  $line"
+    done < <(mas list)
 }
 
 
