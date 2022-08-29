@@ -393,13 +393,13 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
 
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
-    waitInput "Please install DaVinci Resolve."
+    echo "Please install DaVinci Resolve."
       sleep 3
     open https://www.blackmagicdesign.com/jp/products/davinciresolve
   fi
 
   if [[ ! -e "/Applications/Xcode.app" ]]; then
-    waitInput "Do you want to install Xcode?"
+    echo "Install Xcode."
     mas install 497799835
   fi
 fi
