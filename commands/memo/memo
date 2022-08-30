@@ -35,7 +35,9 @@ case "$1" in
             echo "  \033[32mgit\033[m push -f $4"
             echo "git reset --hard HEAD^ && git push -f $4" | pbcopy
             ;;
-        * ) echo "\033[31mError:\033[m Unknown command $3" ;;
+        * ) echo "\033[31mError:\033[m command not found: $3"
+            return 1
+            ;;
         esac
         ;;
     "cancel" )
@@ -48,17 +50,17 @@ case "$1" in
             echo "  \033[32mgit\033[m reset --soft HEAD^"
             echo "git reset --soft HEAD^" | pbcopy
             ;;
-        * ) echo "\033[31mError:\033[m Unknown command $3"
+        * ) echo "\033[31mError:\033[m command not found: $3"
             return 1
             ;;
         esac
         ;;
-    * ) echo "\033[31mError:\033[m Unknown command $2"
+    * ) echo "\033[31mError:\033[m command not found: $2"
         return 1
         ;;
     esac
     ;;
-* ) echo "\033[31mError:\033[m Unknown command $1"
+* ) echo "\033[31mError:\033[m command not found: $1"
     return 1
     ;;
 esac
