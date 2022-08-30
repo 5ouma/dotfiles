@@ -114,7 +114,7 @@ bun() {
 alias mi="mas install"
 alias ml="mas list"
 alias ms="mas search"
-alias mum="mas uninstall"
+alias mun="mas uninstall"
 alias mup="mas upgrade"
 
 al() {
