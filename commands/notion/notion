@@ -6,8 +6,12 @@ case $1 in
     "list" )
         open "notion://soumas-note/Git-c190039953a846d08f20554345103a6b"
         ;;
-    * ) echo "\033[31mError:\033[m Unknown command $2" ;;
+    * ) echo "\033[31mError:\033[m Unknown command $2"
+        return 1
+        ;;
     esac
     ;;
-* ) echo "\033[31mError:\033[m Unknown command $1" ;;
+* ) echo "\033[31mError:\033[m Unknown command $1"
+    return 1
+    ;;
 esac
