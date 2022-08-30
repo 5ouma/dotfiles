@@ -20,7 +20,7 @@ waitInput() {
   if [[ "$run" =~ "y|Y" ]]; then
     return 0
   elif [[ "$run" =~ "n|N" ]]; then
-    for i in {1..$2}; do
+    for ((i=0; i<$2; i++)); do
       (( nowNum++ ))
     done
     return 1
