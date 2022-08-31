@@ -1,8 +1,8 @@
 <br>
 
 <div align="center">
-    <img width=500 src="Images/Header/DOTFILES-light.png#gh-light-mode-only" alt="DOTFILES - light">
-    <img width=500 src="Images/Header/DOTFILES-dark.png#gh-dark-mode-only" alt="DOTFILES - dark">
+    <img width=500 src="https://user-images.githubusercontent.com/101255979/187659228-d6105c84-d0e0-431c-8034-c132db2ca3c5.png#gh-light-mode-only" alt="DOTFILES - light">
+    <img width=500 src="https://user-images.githubusercontent.com/101255979/187659366-ccd98f00-6ab3-4aa3-813b-46fdbbc3252a.png#gh-dark-mode-only" alt="DOTFILES - dark">
     <b><p>This is a repository that includes my zsh, vim and other settings, plugins, etc and setup.</p></b>
 </div>
 
