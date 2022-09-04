@@ -623,13 +623,13 @@
 		<key>Alpha Component</key>
 		<real>1</real>
 		<key>Blue Component</key>
-		<real>0.95686274766921997</real>
+		<real>0.0</real>
 		<key>Color Space</key>
 		<string>P3</string>
 		<key>Green Component</key>
-		<real>0.95686274766921997</real>
+		<real>0.0</real>
 		<key>Red Component</key>
-		<real>0.95686274766921997</real>
+		<real>0.0</real>
 	</dict>
 	<key>Background Color (Dark)</key>
 	<dict>
