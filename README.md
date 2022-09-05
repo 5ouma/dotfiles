@@ -48,6 +48,21 @@ COMMANDS:
 
 <br><br>
 
+## 🎨 ANSI Colors
+
+|   \     |                                 Normal                                 |                                 Bright                                 |
+| :-----: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
+|  Black  | ![#000000](https://via.placeholder.com/15/000000/000000.png) `#000000` | ![#686868](https://via.placeholder.com/15/686868/686868.png) `#686868` |
+|   Red   | ![#C51E14](https://via.placeholder.com/15/C51E14/C51E14.png) `#C51E14` | ![#FD6F6B](https://via.placeholder.com/15/FD6F6B/FD6F6B.png) `#FD6F6B` |
+|  Green  | ![#1DC121](https://via.placeholder.com/15/1DC121/1DC121.png) `#1DC121` | ![#67F86F](https://via.placeholder.com/15/67F86F/67F86F.png) `#67F86F` |
+| Yellow  | ![#C7C329](https://via.placeholder.com/15/C7C329/C7C329.png) `#C7C329` | ![#FFFA72](https://via.placeholder.com/15/FFFA72/FFFA72.png) `#FFFA72` |
+|  Blue   | ![#0A2FC4](https://via.placeholder.com/15/0A2FC4/0A2FC4.png) `#0A2FC4` | ![#6A76FB](https://via.placeholder.com/15/6A76FB/6A76FB.png) `#6A76FB` |
+| Magenta | ![#C839C5](https://via.placeholder.com/15/C839C5/C839C5.png) `#C839C5` | ![#FD7CFC](https://via.placeholder.com/15/FD7CFC/FD7CFC.png) `#FD7CFC` |
+|  Cyan   | ![#20C5C6](https://via.placeholder.com/15/20C5C6/20C5C6.png) `#20C5C6` | ![#68FDFE](https://via.placeholder.com/15/68FDFE/68FDFE.png) `#68FDFE` |
+|  White  | ![#C7C7C7](https://via.placeholder.com/15/C7C7C7/C7C7C7.png) `#C7C7C7` | ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/FFFFFF.png) `#FFFFFF` |
+
+<br><br>
+
 ## 💾 zsh
 
 ### 🪄 Theme
