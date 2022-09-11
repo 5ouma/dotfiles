@@ -64,9 +64,8 @@ alias gfrh="git forgit reset HEAD"
 
 # ghq
 gcd() {
-  cd $(ghq root)/$(ghq list | fzf)
+  `ghq list --full-path | fzf`
 }
-
 
 # Homebrew
 brew() {
