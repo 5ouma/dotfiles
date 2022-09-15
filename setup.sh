@@ -354,12 +354,14 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     else
       echoWarning "Shell Integration is already installed."
     fi
+    sleep 1
 
   echoNumber " 💾 Installing programming language with asdf..."
-  while read -r lang; do
-    installLang "$lang" false
-  done < <(awk '{print $1}' "$packages"/asdf/.tool-versions)
+    while read -r lang; do
+      installLang "$lang" false
+    done < <(awk '{print $1}' "$packages"/asdf/.tool-versions)
     . /usr/local/opt/asdf/libexec/asdf.sh
+      sleep 1
 
   echoNumber " 🧶 installing packages with yarn..."
     if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
@@ -368,12 +370,14 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     else
       echoWarning "Packages are already installed."
     fi
+      sleep 1
 
   echoNumber " 📝 Installing Vim plugins with Jetpack..."
     export VIMRC="$HOME/.vim/.vimrc"
     export VIMINIT="source $VIMRC"
     vim +Jetpack +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
+      sleep 1
 
 
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
