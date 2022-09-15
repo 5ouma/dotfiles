@@ -21,11 +21,11 @@ zsh ~/.dotfiles/setup.sh
 
 ## 📊 Usage
 
-### `source ~/.dotfiles/setup.sh --help`
+### `zsh ~/.dotfiles/setup.sh --help`
 
 ```
 USAGE:
-    source ~/.dotfiles/setup.sh
+    zsh ~/.dotfiles/setup.sh
 
 OPTIONS:
     -h, --help    Print help information

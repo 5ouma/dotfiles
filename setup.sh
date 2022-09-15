@@ -169,7 +169,7 @@ case "$1" in
     echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
 
     echo -e "\033[33mUSAGE:\033[m
-      source ~/.dotfiles/setup.sh\n"
+      zsh ~/.dotfiles/setup.sh\n"
     echo -e "\033[33mOPTIONS:\033[m
       \033[32m-h\033[m, \033[32m--help\033[m    Print help information
       \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration
