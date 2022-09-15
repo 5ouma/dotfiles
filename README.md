@@ -14,7 +14,7 @@ Run git clone and [setup.sh](https://github.com/5ouma/dotfiles/blob/HEAD/setup.s
 
 ```shell
 git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
-source ~/.dotfiles/setup.sh
+zsh ~/.dotfiles/setup.sh
 ```
 
 <br>
