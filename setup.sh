@@ -109,8 +109,7 @@ makeDir() {
 copyFile() {
   for target in $(command ls -A "$1"); do
     if [[ ! -e "$2/$target" ]]; then
-      cp "$1/$target" "$2"
-      echo "$1/$target"
+      cp -v "$1/$target" "$2"
         notSetup=false
     fi
   done
