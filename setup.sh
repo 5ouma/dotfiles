@@ -81,7 +81,7 @@ makeSymlink() {
     if [[ ! -e "$homeFile" || -n $(diff "$pack" "$homeFile") ]]; then
       mkdir -p "$homeDir"
       ln -s "$pack" "$homeDir"
-      echo "$pack"
+      echo "$pack -> $homeFile"
         notSetup=false
     fi
   done < <(find "$1" -type f ! -name ".DS_Store")
