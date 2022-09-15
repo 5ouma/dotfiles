@@ -4,6 +4,7 @@
 
 dotfiles=$(dirname "$0")
 packages="$dotfiles"/packages
+export ZDOTDIR=$HOME/.zsh
 
 doAll=false
 notSetup=true
