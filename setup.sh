@@ -244,7 +244,7 @@ echo
 
 #==================================================[ Files, directories and commands ]==================================================#
 
-if "$doAll" || waitInput "Make symlinks or create terminal files and add permission to commands." 3; then
+if "$doAll" || waitInput "Make symlinks or create terminal files and add permission to commands." 2; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     setFiles
 
@@ -257,22 +257,6 @@ if "$doAll" || waitInput "Make symlinks or create terminal files and add permiss
   else
     echoWarning "All fonts are already copied."
       sleep 0.5
-  fi
-
-    notSetup=true
-  echoNumber " 🚨 Adding permission to my commands..."
-  if ! (type memo > /dev/null 2>&1); then
-      chmod +x "$dotfiles"/commands/memo/memo
-        notSetup=false
-    fi
-    if ! (type notion > /dev/null 2>&1); then
-      chmod +x "$dotfiles"/commands/notion/notion
-        notSetup=false
-    fi
-  if ! "$notSetup"; then
-    echoResult "Added permission!" "Adding permission is failed."
-  else
-    echoWarning "All permission is already added."
   fi
 fi
 
