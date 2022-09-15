@@ -242,7 +242,7 @@ echo
 
 #==================================================[ Files, directories and commands ]==================================================#
 
-if "$doAll" || waitInput "Make symlinks or create terminal files and add permission to commands." 2; then
+if "$doAll" || waitInput "Make symlinks or create terminal files." 2; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     setFiles
 
