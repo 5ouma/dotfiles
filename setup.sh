@@ -359,6 +359,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
   while read -r lang; do
     installLang "$lang" false
   done < <(awk '{print $1}' "$packages"/asdf/.tool-versions)
+    . /usr/local/opt/asdf/libexec/asdf.sh
 
   echoNumber " 🧶 installing packages with yarn..."
     if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
