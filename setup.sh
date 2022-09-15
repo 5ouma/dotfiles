@@ -134,10 +134,10 @@ installLang() {
     asdf plugin-add "$1"
     if "$2"; then
       asdf install "$1" latest
+      asdf global "$1" latest
     else
       asdf install "$1"
     fi
-    asdf global "$1" latest
     echoResult "Installed $1!" "Installing $1 is failed."
     sleep 1
   else
