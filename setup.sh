@@ -363,7 +363,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
   echoNumber " 🧶 installing packages with yarn..."
     if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
       yarn global add
-      echoResult "Installed packages!" "Installing yarn is failed."
+      echoResult "Installed packages!" "Installing packages is failed."
     else
       echoWarning "Packages are already installed."
     fi
