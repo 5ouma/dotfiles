@@ -10,6 +10,9 @@ export VIMINIT="source $VIMRC"
 # dotfiles
 export dotfiles="$HOME"/.dotfiles
 
+# setup
+export PATH="$dotfiles":$PATH
+
 # memo
 export PATH="$dotfiles"/commands/memo:$PATH
 

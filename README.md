@@ -10,22 +10,22 @@
 
 ## 📲 Install
 
-Run git clone and [setup.sh](https://github.com/5ouma/dotfiles/blob/HEAD/setup.sh), then you will be able to set up by operation.
+Run git clone and [setup](https://github.com/5ouma/dotfiles/blob/HEAD/setup), then you will be able to set up by operation.
 
 ```shell
 git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
-zsh ~/.dotfiles/setup.sh
+~/.dotfiles/setup
 ```
 
 <br>
 
 ## 📊 Usage
 
-### `zsh ~/.dotfiles/setup.sh --help`
+### `setup --help`
 
 ```
 USAGE:
-    zsh ~/.dotfiles/setup.sh
+    setup
 
 OPTIONS:
     -h, --help    Print help information
@@ -34,7 +34,7 @@ OPTIONS:
 
 COMMANDS:
     install <languages>      Install programming languages with asdf
-    uninstall <languages>    Uninstall programming languages from asdf"
+    uninstall <languages>    Uninstall programming languages from asdf
 ```
 
 <br><br>

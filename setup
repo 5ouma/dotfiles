@@ -10,7 +10,7 @@ doAll=false
 notSetup=true
 doneAnything=false
 nowNum=1
-allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup.sh | wc -l) - 2))
+allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup | wc -l) - 2))
 
 #==================================================[ Functions ]==================================================#
 
@@ -168,14 +168,14 @@ case "$1" in
     echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
 
     echo -e "\033[33mUSAGE:\033[m
-      zsh ~/.dotfiles/setup.sh\n"
+    setup\n"
     echo -e "\033[33mOPTIONS:\033[m
-      \033[32m-h\033[m, \033[32m--help\033[m    Print help information
-      \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration
-      \033[32m-s\033[m, \033[32m--set\033[m     Set files to home directory\n"
+    \033[32m-h\033[m, \033[32m--help\033[m    Print help information
+    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration
+    \033[32m-s\033[m, \033[32m--set\033[m     Set files to home directory\n"
     echo -e "\033[33mCOMMANDS:\033[m
-      \033[32minstall\033[m <languages>      Install programming languages with asdf
-      \033[32muninstall\033[m <languages>    Uninstall programming languages from asdf\n"
+    \033[32minstall\033[m <languages>      Install programming languages with asdf
+    \033[32muninstall\033[m <languages>    Uninstall programming languages from asdf\n"
     exec $SHELL -l
     ;;
 
