@@ -1,14 +1,14 @@
 #============================================================[ Paths ]============================================================#
 
 # Homebrew
-export PATH="/usr/local/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
 
 # Vim
 export VIMRC=$HOME/.vim/.vimrc
 export VIMINIT="source $VIMRC"
 
 # dotfiles
-export dotfiles="$HOME"/.dotfiles
+export dotfiles=$HOME/.dotfiles
 
 # setup
 export PATH="$dotfiles":$PATH

@@ -117,7 +117,7 @@ copyFile() {
 }
 
 setFiles() {
-  makeSymlink "$packages" "$HOME"
+  makeSymlink "$packages" $HOME
   makeDir ~/.vim/undo ~/.ssh/git
   makeFile ~/.hushlogin
   if ! "$notSetup"; then
