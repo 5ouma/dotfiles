@@ -265,7 +265,7 @@ echo
 
 if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 5; then
   echoNumber " 🟩 Changing Launchpad size..."
-  if [[ ! ($(defaults read com.apple.dock springboard-columns) = 9 && $(defaults read com.apple.dock springboard-rows) = 8) ]]; then
+  if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
     echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
       sleep 1
