@@ -17,7 +17,7 @@
 
 ## 📲 Installation
 
-Run git clone and [setup](https://github.com/5ouma/dotfiles/blob/HEAD/setup), then you will be able to set up by operation.
+Run `git clone` and [setup script](https://github.com/5ouma/dotfiles/blob/HEAD/setup), then you will be able to set up by operation.
 
 ```shell
 git clone git@github.com:5ouma/dotfiles.git ~/.dotfiles
