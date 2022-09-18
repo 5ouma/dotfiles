@@ -8,7 +8,7 @@
 
 <br><br>
 
-## 📲 Install
+## 📲 Installation
 
 Run git clone and [setup](https://github.com/5ouma/dotfiles/blob/HEAD/setup), then you will be able to set up by operation.
 
@@ -39,12 +39,12 @@ COMMANDS:
 
 <br><br>
 
-## 🌄 Preview
+## 🌄 Overview
 
-|            |                        Overview                         |                  Interacting with zsh                   | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
-| :--------: | :-----------------------------------------------------: | :-----------------------------------------------------: | ---------------------------------------------------------- |
-| Light Mode | ![Preview 1 - Light](Images/Preview/Light/Preview1.png) | ![Preview 2 - Light](Images/Preview/Light/Preview2.png) | ![Preview 3 - Light](Images/Preview/Light/Preview3.png)    |
-| Dark Mode  |  ![Preview 1 - Dark](Images/Preview/Dark/Preview1.png)  |  ![Preview 2 - Dark](Images/Preview/Dark/Preview2.png)  | ![Preview 3 - Dark](Images/Preview/Dark/Preview3.png)      |
+|            |                          Overview                          |                    Interacting with zsh                    | Vim with [NERDTree](https://github.com/preservim/nerdtree) |
+| :--------: | :--------------------------------------------------------: | :--------------------------------------------------------: | ---------------------------------------------------------- |
+| Light Mode | ![Overview 1 - Light](Images/Overview/Light/Overview1.png) | ![Overview 2 - Light](Images/Overview/Light/Overview2.png) | ![Overview 3 - Light](Images/Overview/Light/Overview3.png) |
+| Dark Mode  |  ![Overview 1 - Dark](Images/Overview/Dark/Overview1.png)  |  ![Overview 2 - Dark](Images/Overview/Dark/Overview2.png)  | ![Overview 3 - Dark](Images/Overview/Dark/Overview3.png)   |
 
 <br><br>
 
