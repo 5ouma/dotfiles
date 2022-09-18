@@ -8,6 +8,13 @@
 
 <br><br>
 
+## 🔐 Requirements
+
+-   **macOS** Big Sur `Version 11` or later
+-   Not be confirmed for Apple Silicon
+
+<br><br>
+
 ## 📲 Installation
 
 Run git clone and [setup](https://github.com/5ouma/dotfiles/blob/HEAD/setup), then you will be able to set up by operation.
