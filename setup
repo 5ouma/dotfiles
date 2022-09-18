@@ -263,7 +263,7 @@ echo
 
 #==================================================[ System write ]==================================================#
 
-if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 5; then
+if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 4; then
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
     defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -294,17 +294,6 @@ if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n   
       sleep 1
   else
     echoWarning "Screen capture directory is already set up."
-      sleep 0.5
-  fi
-
-  echoNumber " ❎ Suppressing .DS_Store creation..."
-  if [[ $(defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool) = 0 && $(defaults write com.apple.desktopservices DSDontWriteUSBStores -bool) = 0 ]]; then
-    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
-    defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
-    echoResult "Suppressed .DS_Store creation!" "Suppressing .DS_Store creation is failed."
-      sleep 1
-  else
-    echoWarning ".DS_Store creation is already suppressed."
       sleep 0.5
   fi
 
