@@ -12,7 +12,6 @@ brew "bat"
 brew "broot"
 brew "ccat"
 brew "cfonts"
-brew "clang-format"
 brew "dark-mode"
 brew "fzf"
 brew "genact"
@@ -106,7 +105,6 @@ mas "HandyPalette", id: 1515022667
 mas "iMovie", id: 408981434
 mas "Instapaper", id: 288545208
 mas "LadioCast", id: 411213048
-mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
 mas "Menubar Countdown", id: 1485343244
 mas "MenubarX", id: 1575588022
