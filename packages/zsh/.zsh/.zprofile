@@ -190,6 +190,8 @@ update() {
   vim +Jetpack +qall
   echo "\033[34;1m==>\033[m \033[1masdf\033[m"
     asdf plugin-update --all
+  echo "\033[34;1m==>\033[m \033[1mghq\033[m"
+    ghq list | ghq get --update --parallel
 }
 
 # System
