@@ -64,7 +64,11 @@ alias gfrh="git forgit reset HEAD"
 
 # ghq
 gcd() {
-  `ghq list --full-path | fzf`
+  local repo
+  repo=$(ghq list | fzf)
+  if [[ -n "$repo" ]]; then
+    cd "$(ghq list --full-path --exact "$repo")" || return
+  fi
 }
 
 # Homebrew
