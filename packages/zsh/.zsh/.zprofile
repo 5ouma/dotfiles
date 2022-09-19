@@ -71,6 +71,9 @@ gcd() {
   fi
 }
 
+alias gup="ghq list | ghq get --update --parallel"
+
+
 # Homebrew
 brew() {
   if command brew "$@"; then
