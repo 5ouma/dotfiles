@@ -184,7 +184,13 @@ vim() {
 }
 
 # update
-alias update="brew update && brew upgrade && vim +Jetpack +qall && asdf plugin-update --all"
+update() {
+  echo "\033[34;1m==>\033[m \033[1mHomebrew\033[m"
+    brew update && brew upgrade
+  vim +Jetpack +qall
+  echo "\033[34;1m==>\033[m \033[1masdf\033[m"
+    asdf plugin-update --all
+}
 
 # System
 alias ka="killall"
