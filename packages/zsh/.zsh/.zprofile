@@ -177,7 +177,11 @@ alias vup="vim +Jetpack +qall"
 
 vim() {
   if [[ $1 = "-f" ]]; then
-    command vim "$(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")"
+    local file
+    file=$(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
+    if [[ -n "$file" ]]; then
+      command vim "$file"
+    fi
   else
     command vim "$@"
   fi
