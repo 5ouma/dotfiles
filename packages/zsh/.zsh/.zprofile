@@ -65,7 +65,7 @@ alias gfrh="git forgit reset HEAD"
 # ghq
 gcd() {
   local repo
-  repo=$(ghq list | fzf)
+  repo=$(ghq list | fzf --preview "glow $(ghq root)/{}/README.md")
   if [[ -n "$repo" ]]; then
     cd "$(ghq list --full-path --exact "$repo")" || return
   fi
