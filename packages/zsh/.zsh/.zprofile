@@ -178,7 +178,7 @@ alias vup="vim +Jetpack +qall"
 vim() {
   if [[ $1 = "-f" ]]; then
     local file
-    file=$(find ~ | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
+    file=$(find ~ -type f ! -name ".DS_Store" | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
     if [[ -n "$file" ]]; then
       command vim "$file"
     fi
