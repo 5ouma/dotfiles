@@ -63,6 +63,9 @@ alias gfd="git forgit diff"
 alias gfrh="git forgit reset HEAD"
 
 # ghq
+alias gg="ghq get"
+alias gup="ghq list | ghq get --update --parallel"
+
 gcd() {
   local repo
   repo=$(ghq list | fzf --preview "glow $(ghq root)/{}/README.md")
@@ -70,8 +73,6 @@ gcd() {
     cd "$(ghq list --full-path --exact "$repo")" || return
   fi
 }
-
-alias gup="ghq list | ghq get --update --parallel"
 
 
 # Homebrew
