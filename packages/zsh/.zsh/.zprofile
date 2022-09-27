@@ -142,6 +142,7 @@ al() {
 
 # VSCode
 alias c.="code ."
+alias ci.="code-insiders ."
 
 # bat
 if type bat > /dev/null 2>&1; then
