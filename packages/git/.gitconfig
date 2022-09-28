@@ -9,15 +9,15 @@
 [url "github:5ouma"]
   InsteadOf = https://github.com/5ouma
   InsteadOf = git@github.com:5ouma
-	InsteadOf = ssh://git@github.com/5ouma
+  InsteadOf = ssh://git@github.com/5ouma
 [url "github-school:Souma-S"]
   InsteadOf = https://github.com/Souma-S
   InsteadOf = git@github.com:Souma-S
-	InsteadOf = ssh://git@github.com/Souma-S
+  InsteadOf = ssh://git@github.com/Souma-S
 [url "github-school:Course-Programming-II"]
   InsteadOf = https://github.com/Course-Programming-II
   InsteadOf = git@github.com:Course-Programming-II
-	InsteadOf = ssh://git@github.com/Course-Programming-II
+  InsteadOf = ssh://git@github.com/Course-Programming-II
 [diff]
   tool = vimdiff
 [difftool]
