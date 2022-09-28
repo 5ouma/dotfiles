@@ -223,6 +223,12 @@ brew install fig
     brew install m-cli
     ```
 
+-   #### <a href="https://github.com/dylanaraps/neofetch"><b>neofetch</b></a>
+
+    ```shell
+    brew install neofetch
+    ```
+
 -   #### <a href="https://github.com/sharkdp/pastel"><b>pastel</b></a>
 
     ```shell
