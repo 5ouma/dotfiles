@@ -6,6 +6,10 @@
   tool = code --wait \"$MERGED\"
 [push]
   default = simple
+[url "github:"]
+  InsteadOf = https://gist.github.com/
+  InsteadOf = git@gist.github.com/
+  InsteadOf = ssh://git@gist.github.com/
 [url "github:5ouma"]
   InsteadOf = https://github.com/5ouma
   InsteadOf = git@github.com:5ouma
