@@ -96,7 +96,6 @@ cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Cinebench", id: 1438772273
-mas "Contributions", id: 1153432612
 mas "Disk Speed Test", id: 425264550
 mas "Edison Mail", id: 1489591003
 mas "Fuwari", id: 1187652334
@@ -123,6 +122,5 @@ mas "TickTick", id: 966085870
 mas "Timetable", id: 425121147
 mas "TypingLand", id: 1568264476
 mas "Vectornator", id: 1219074514
-mas "Widgy", id: 1524540481
 # mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435
