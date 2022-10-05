@@ -161,7 +161,7 @@ alias glow="glow -p"
 # lsd
 if type lsd > /dev/null 2>&1; then
   alias ls="lsd -A --ignore-glob=\".DS_Store\""
-  alias tree="lsd -A --tree --depth=3 --ignore-glob=\".DS_Store\""
+  alias tree="lsd -A --tree --ignore-glob=\".DS_Store\" --ignore-glob=\".git\""
 fi
 
 # trash
