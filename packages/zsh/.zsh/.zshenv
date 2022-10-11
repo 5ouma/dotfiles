@@ -13,12 +13,6 @@ export dotfiles=$HOME/.dotfiles
 # setup
 export PATH="$dotfiles":$PATH
 
-# memo
-export PATH="$dotfiles"/commands/memo:$PATH
-
-# notion
-export PATH="$dotfiles"/commands/notion:$PATH
-
 #============================================================[ Settings ]============================================================#
 
 # Use Japanese
