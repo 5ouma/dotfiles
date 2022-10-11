@@ -243,20 +243,9 @@ echo
 
 #==================================================[ Files, directories and commands ]==================================================#
 
-if "$doAll" || waitInput "Make symlinks or create terminal files." 2; then
+if "$doAll" || waitInput "Make symlinks or create terminal files." 1; then
   echoNumber " 🔗 The following files and directories will be symlinked or created:"
     setFiles
-
-    notSetup=true
-  echoNumber " 🚚 The following fonts will be copied:"
-    copyFile "$dotfiles"/data/fonts ~/Library/Fonts
-  if ! "$notSetup"; then
-    echoResult "Copied fonts!" "Copying fonts is failed."
-      sleep 1
-  else
-    echoWarning "All fonts are already copied."
-      sleep 0.5
-  fi
 fi
 
 echo
