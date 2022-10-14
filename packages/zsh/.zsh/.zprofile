@@ -67,7 +67,7 @@ alias gup="ghq list | ghq get --update --parallel"
 
 gcd() {
   local repo
-  repo=$(ghq list | fzf --preview "glow $(ghq root)/{}/README.md")
+  repo=$(ghq list | fzf --preview="if [[ -e $(ghq root)/{}/README.md ]]; then glow $(ghq root)/{}/README.md; else bat --theme=ansi --color=always --style=header,grid --line-range :300 $(ghq root)/{}/*; fi")
   if [[ -n "$repo" ]]; then
     cd "$(ghq list --full-path --exact "$repo")" || return
   fi
