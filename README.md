@@ -86,22 +86,21 @@ fig plugins add powerlevel10k
 
 ### 🍽 Settings
 
--   Using Japanese
--   Being able to show files named in Japanese
--   Moving directory without `cd` command
--   Turn on spell check
--   Search history started with the input character
--   Display kind of files when complemented
--   Being able to move with the cursor when complemented
--   Press `Shift+Tab` to go reverse over
--   Number of cases to save history at memory and history file
--   Share history data between launched zsh
--   Delete unnecessary spaces when history is saved
--   If input commands have already been saved in history, delete them from the older one
--   Coloring when `ls` command
--   Being able to do command line stacking
+-   Using Japanese.
+-   Being able to show files named in Japanese.
+-   Moving directory without `cd` command.
+-   Turn on spell check.
+-   Search history started with the input character.
+-   Display the type of files when completed.
+-   Being able to move with the cursor when completed.
+-   Press `Shift+Tab` to go reverse over.
+-   The number of cases to save history at memory and history file.
+-   Share history data between launched zsh.
+-   Delete unnecessary spaces when history is saved.
+-   If input commands have already been saved in history, delete them from the older ones.
+-   Being able to do command line stacking.
 
-Separate by roll with .zshenv, .zprofile and .zshrc seeing [this site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
+To separate by rolls with .zshenv, .zprofile and .zshrc, seeing [this site](https://kitakitabauer.hatenablog.com/entry/2016/09/13/173456).
 
 <br>
 
@@ -133,7 +132,7 @@ brew install fig
 
 -   #### <a href="https://github.com/zsh-users/zsh-completions"><b>zsh-completions</b></a>
 
-    ( To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75) )
+    ( To erase "insecure directories" error, see [this](https://qiita.com/riku929hr/items/d2a15276e94bd2b11e75). )
 
     <a href="https://fig.io/plugins/completion/zsh-completions" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg"/></a>
 
@@ -267,43 +266,43 @@ brew install fig
 
 #### General
 
--   Set the place of .vimrc and .viminfo
--   Set the text code to UTF-8
--   Not to create backup and swap files
--   Auto reload file editing when it's changed
--   Being able to open the file even buffer is editing
--   Show typing command to status
--   Turn off the beep sound
--   Unlimited undo
--   Share clipboard with OS
--   Click to move the cursor
+-   Set the place of .vimrc and .viminfo.
+-   Set the text code to UTF-8.
+-   Not to create backup and swap files.
+-   Auto reloads file editing when it's changed.
+-   Being able to open the file even buffer is editing.
+-   Show typing command to status.
+-   Turn off the beep sound.
+-   Unlimited undo.
+-   Share clipboard with OS.
+-   Click to move the cursor.
 
 #### Appearance
 
--   Show line number
--   Highlight the cursor line
--   Being able to move one more character after the end of lines
--   Change indent as smart indent
--   Highlight corresponding brackets
--   Always show the status line
--   Complement on the command line
--   Being able to move by showed line when the lines are folded
--   Turn on syntax highlight
+-   Show line number.
+-   Highlight the cursor line.
+-   Being able to move one more character after the end of lines.
+-   Change indent as smart indent.
+-   Highlight corresponding brackets.
+-   Always show the status line.
+-   Complement on the command line.
+-   Being able to move by showed line when the lines are folded.
+-   Turn on syntax highlight.
 
 #### Tabs
 
--   Visible the invisible words
--   Change tab to spaces
--   Set tab to double space
+-   Visible the invisible words.
+-   Change the tab to spaces.
+-   Set the tab to double-space.
 
 #### Search
 
--   If the searched sentences are lower case, search across all words
--   If it is contained in upper case, search only that ones
--   Hit when typing searching sentences
--   Go to the beginning word when searching for is end
--   Highlight searched words
--   Endhighlight by typing the ESC key several times
+-   If the searched sentences are lower case, search across all words.
+-   If it is contained in upper case, search only that ones.
+-   Hit when typing searching sentences.
+-   Go to the beginning word when searching for its end.
+-   Highlight searched words.
+-   Endhighlight by typing the ESC key several times.
 
 <br>
 
@@ -324,71 +323,71 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 -   #### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
-    Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file.
+    Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file..
 
 -   #### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
 
-    Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file.
+    Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file..
 
 -   #### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
 
-    Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file.
+    Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file..
 
 -   #### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
 
-    Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file.
+    Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file..
 
 -   #### <a href="https://github.com/itchyny/lightline.vim"><b>lightline.vim</b></a>
 
-    Add `Jetpack 'itchyny/lightline.vim'` to your .vimrc file.
+    Add `Jetpack 'itchyny/lightline.vim'` to your .vimrc file..
 
 -   #### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
 
-    Add `Jetpack 'mbbill/undotree'` to your .vimrc file.
+    Add `Jetpack 'mbbill/undotree'` to your .vimrc file..
 
 -   #### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
 
-    Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file
+    Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file.
 
 -   #### <a href="https://github.com/matze/vim-move"><b>move</b></a>
 
-    Add `Jetpack 'matze/vim-move'` to your .vimrc file
+    Add `Jetpack 'matze/vim-move'` to your .vimrc file.
 
 -   #### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
-    Add `Jetpack 'preservim/nerdtree'` to your .vimrc file
+    Add `Jetpack 'preservim/nerdtree'` to your .vimrc file.
 
 -   #### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
 
-    Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file
+    Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file.
 
 -   #### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
 
-    Add `Jetpack 'ryanoasis/vim-devicons'` to your .vimrc file
+    Add `Jetpack 'ryanoasis/vim-devicons'` to your .vimrc file.
 
 -   #### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
 
-    Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file
+    Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file.
 
 -   #### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
 
-    Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file
+    Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file.
 
 -   #### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
 
-    Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file
+    Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file.
 
 -   #### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
 
-    Add `Jetpack 'tpope/vim-surround'` to your .vimrc file
+    Add `Jetpack 'tpope/vim-surround'` to your .vimrc file.
 
 -   #### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
 
-    Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file
+    Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file.
 
 -   #### <a href="https://github.com/Xuyuanp/nerdtree-git-plugin"><b>NERDTree-git-plugin</b></a>
 
-    Add `Jetpack 'Xuyuanp/nerdtree-git-plugin'` to your .vimrc file
+    Add `Jetpack 'Xuyuanp/nerdtree-git-plugin'` to your .vimrc file.
 
 <br><br>
 
@@ -396,10 +395,7 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 ### 🍽 Settings
 
--   Ignore `.DS_Store` file to make `.gitignore_global` file and run
-    ```shell
-    git config --global core.excludesfile ~/.gitignore_global
-    ```
+-   Ignore `.DS_Store` files by adding to `~/.config/git/ignore`.
 -   The alias to commit temporary with Vim.
 
 <br>
@@ -450,8 +446,8 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 
 ### 🍽 Settings
 
--   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly
--   Automatically uninstall unused dependency formulae
+-   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly.
+-   Automatically uninstall unused dependency formulae.
 
 <br>
 
