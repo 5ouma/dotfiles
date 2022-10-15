@@ -211,8 +211,6 @@ alias mgfr="memo git force reset"
 alias mgca="memo git cancel add"
 alias mgcc="memo git cancel commit"
 
-alias ngl="notion git list"
-
 #============================================================[ Paths ]============================================================#
 
 # Fig post block. Keep at the bottom of this file.
