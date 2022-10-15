@@ -451,16 +451,11 @@ curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubuserconten
 ### 🍽 Settings
 
 -   Make Brewfile and move to dotfiles directory when running install, uninstall, rmtree, tap and untap correctly
+-   Automatically uninstall unused dependency formulae
 
 <br>
 
 ### 📥 Plugins
-
--   #### <a href="https://github.com/beeftornado/homebrew-rmtree"><b>rmtree</b></a>
-
-    ```shell
-    brew tap beeftornado/rmtree
-    ```
 
 -   #### <a href="https://github.com/Homebrew/homebrew-autoupdate"><b>Homebrew Autoupdate</b></a>
 

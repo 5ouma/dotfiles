@@ -95,6 +95,7 @@ alias bs="brew search"
 alias bt="brew tap"
 alias bup="brew update && brew upgrade"
 alias but="brew untap"
+alias bun="brew uninstall"
 alias bv="brew -v"
 
 bbd() {
@@ -102,17 +103,6 @@ bbd() {
     brew bundle dump -f --file="$dotfiles"/data/Brewfile
     sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
     grep -q "mas " "$dotfiles"/data/Brewfile && break
-  done
-}
-
-bun() {
-  for pack in "$@"; do
-    packType=$(brew info "$pack")
-    if [[ "$packType" =~ "Formula" ]]; then
-      brew rmtree "$pack"
-    else
-      brew uninstall "$pack"
-    fi
   done
 }
 

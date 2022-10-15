@@ -1,5 +1,4 @@
 tap "5ouma/tap"
-tap "beeftornado/rmtree"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask"
