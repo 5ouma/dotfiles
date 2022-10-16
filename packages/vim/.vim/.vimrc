@@ -4,7 +4,7 @@
 set viminfo+=n~/.vim/.viminfo
 
 " Load plugin's settings
-source ~/.vim/.plugins.vim
+source ~/.vim/plugins.vim
 
 "============================================================[ Theme ]============================================================"
 

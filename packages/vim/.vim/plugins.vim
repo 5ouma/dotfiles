@@ -31,7 +31,7 @@ let g:auto_save_silent = 1
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ 'active': {
-  \   'left':  [ [ 'mode', 'paste' ],
+    \   'left':  [ [ 'mode', 'paste' ],
   \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
@@ -75,3 +75,9 @@ highlight GitGutterChangeDelete ctermfg=red
 
 " vim-shell-command
 let g:shell_command_use_col = 0
+
+"============================================================[ Aliases ]============================================================"
+
+command Fw FixWhitespace
+command Nt NERDTreeToggle
+command Ut UndotreeToggle

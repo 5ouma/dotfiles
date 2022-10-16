@@ -16,7 +16,7 @@ export PATH="$dotfiles":$PATH
 export LANG=ja_JP.UTF-8
 
 # Load plugin's settings
-source "$ZDOTDIR"/.plugins.zsh
+source "$ZDOTDIR"/plugins.zsh
 
 #============================================================[ History ]============================================================#
 
