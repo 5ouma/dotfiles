@@ -11,7 +11,7 @@
 ## 🔐 Requirements
 
 -   **macOS** Big Sur `Version 11` or later
--   Not be confirmed for Apple Silicon
+-   Intel or Apple Silicon Mac
 
 <br><br>
 

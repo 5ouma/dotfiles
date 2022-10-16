@@ -14,6 +14,11 @@ fi
 # iTerm2
 test -e "$ZDOTDIR"/.iterm2_shell_integration.zsh && source "$ZDOTDIR"/.iterm2_shell_integration.zsh
 
+# Homebrew
+if [[ $(uname -m) = "arm64" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 #===========================================================[ Settings ]===========================================================#
 
 # Being enabled to show Japanese file names
