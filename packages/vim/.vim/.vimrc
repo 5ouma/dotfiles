@@ -6,6 +6,9 @@ set viminfo+=n~/.vim/.viminfo
 " Load plugin's settings
 source ~/.vim/plugins.vim
 
+" Load Keymap's settings
+source ~/.vim/keymap.vim
+
 "============================================================[ Theme ]============================================================"
 
 " Color scheme
@@ -19,6 +22,10 @@ function! CAP()
     set background=dark
   endif
 endfunction
+
+" Alias
+command Cl set background=light
+command Cd set background=dark
 
 "============================================================[ Settings ]============================================================"
 
@@ -90,12 +97,3 @@ set hlsearch
 " Cancel highlighting by typing `esc`
 nmap <Esc><Esc> :nohlsearch<Return><Esc>
 
-"============================================================[ Aliases & Keymaps ]============================================================"
-
-command Cl set background=light
-command Cd set background=dark
-command Fw FixWhitespace
-command Nt NERDTreeToggle
-command Ut UndotreeToggle
-
-nmap r <c-r>
