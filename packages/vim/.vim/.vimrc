@@ -88,7 +88,7 @@ set wrapscan
 " Highlight the searching texts
 set hlsearch
 " Cancel highlighting by typing `esc`
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nmap <Esc><Esc> :nohlsearch<Return><Esc>
 
 "============================================================[ Aliases & Keymaps ]============================================================"
 
