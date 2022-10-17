@@ -324,7 +324,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     waitReturn
   fi
   echoNumber " 📲 Installing apps with Homebrew..."
-  brew bundle --file="$dotfiles"/data/Brewfile
+  brew bundle --no-lock --file="$dotfiles"/data/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
     sleep 1
 
