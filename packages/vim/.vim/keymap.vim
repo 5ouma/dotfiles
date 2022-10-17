@@ -17,6 +17,7 @@ nmap sq <C-w>q
 
 " Move window
 nmap <Space> <C-w>w
+nmap <S-Space> <C-w><S-w>
 nmap s<left> <C-w>h
 nmap s<right> <C-w>l
 nmap s<up> <C-w>k
