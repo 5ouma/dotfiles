@@ -3,12 +3,17 @@ nmap r <C-r>
 
 " New tab
 nmap <silent> te :tabedit<Return>
+nmap <silent> tq :tabclose<Return>
+
 " Move tab
 nmap <silent> t<left> :tabprevious<Return>
 nmap <silent> t<right> :tabnext<Return>
+
+
 " Split window
 nmap <silent> ss :split<Return>
 nmap <silent> sv :vsplit<Return>
+nmap sq <C-w>q
 
 " Move window
 nmap <Space> <C-w>w
@@ -22,3 +27,4 @@ nmap <C-w><left> <C-w><
 nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><left> <C-w>-
+
