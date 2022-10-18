@@ -1,5 +1,8 @@
 #============================================================[ Paths ]============================================================#
 
+# Homebrew
+export HOMEBREW_AUTOREMOVE=1
+
 # Vim
 export VIMRC=$HOME/.vim/.vimrc
 export VIMINIT="source $VIMRC"
@@ -14,9 +17,6 @@ export PATH="$dotfiles":$PATH
 
 # Use Japanese
 export LANG=ja_JP.UTF-8
-
-# Load plugin's settings
-source "$ZDOTDIR"/plugins.zsh
 
 #============================================================[ History ]============================================================#
 
