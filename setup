@@ -6,7 +6,7 @@ zstyle ":completion:*:commands" rehash 1
 
 #==================================================[ Variables ]==================================================#
 
-dotfiles=$(dirname "$0")
+dotfiles="$HOME/.dotfiles"
 packages="$dotfiles"/packages
 export ZDOTDIR=$HOME/.zsh
 
@@ -212,6 +212,13 @@ esac
 
 echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
 read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
+
+#==================================================[ Clone repository ]==================================================#
+
+if [[ ! -e "$HOME/.dotfiles" ]]; then
+  git clone https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
+  git -C ~/.dotfiles set-url origin git@github.com:5ouma/dotfiles.git
+fi
 
 #==================================================[ Homebrew install ]==================================================#
 
