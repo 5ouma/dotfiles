@@ -1511,7 +1511,7 @@
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<false/>
 	<key>PromptOnQuit</key>
-	<false/>
+	<true/>
 	<key>SeparateStatusBarsPerPane</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
