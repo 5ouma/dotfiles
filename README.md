@@ -20,7 +20,7 @@
 Run [setup script](https://github.com/5ouma/dotfiles/blob/HEAD/setup) by `curl`, then you will be able to set up by operation.
 
 ```shell
-/bin/zsh -c "$(curl -fsSL https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles/raw/setup)"
+/bin/zsh -c "$(curl -fsSL https://souma.vercel.app/dotfiles)"
 ```
 
 <br>
