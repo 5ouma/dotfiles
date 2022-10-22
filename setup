@@ -3,6 +3,7 @@
 #==================================================[ Clone repository ]==================================================#
 
 if [[ ! -e "$HOME/.dotfiles" ]]; then
+  echo -e "\033[36minfo\033[m Cloning repository into \`~/.dotfiles\`..."
   git clone https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
   git -C ~/.dotfiles remote set-url origin git@github.com:5ouma/dotfiles.git
 fi
