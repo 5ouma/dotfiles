@@ -328,13 +328,11 @@ echo
 #==================================================[ Install apps and more ]==================================================#
 
 if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; then
-  if ! (mas account > /dev/null 2>&1); then
-    echoInfo "Opening App Store..."
-    echoInfo "Please sign in to App Store."
+  echoInfo "Opening App Store..."
+  echoInfo "Please sign in to App Store."
       sleep 3
     open -a "App Store"
     waitReturn
-  fi
   echoNumber " 📲 Installing apps with Homebrew..."
   brew bundle --no-lock --file="$dotfiles"/data/Brewfile
   echoResult "Installed apps!" "Installing apps is failed."
