@@ -225,8 +225,8 @@ read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
 
 if "$doAll" || waitInput "Install Homebrew." 2; then
   echoNumber " 🔨 Installing Command Line Tools for Xcode..."
-  if ! (xcode-select -v > /dev/null 2>&1); then
-    xcode-select --install
+  if (xcode-select --install > /dev/null 2>&1); then
+    waitReturn
     echoResult "Installed Command Line Tools for Xcode!" "Installing Command Line Tools for Xcode is failed."
       sleep 2
   else
