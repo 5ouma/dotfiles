@@ -72,7 +72,7 @@
 	"notificationRespectDnd": true,
 	"notificationFloatingActions": "show at the bottom",
 	"customNotificationSound": "https://ton.twimg.com/tweetdeck-web/web/assets/sounds/tweet.a0da953980.mp3",
-	"notificationVolume": "100",
+	"notificationVolume": "80",
 	"enableDevTools": true,
 	"enableSpellcheck": true,
 	"spellcheckLanguage": "os_locale",
@@ -80,5 +80,5 @@
 	"analyticsWarningShown": true,
 	"donationTipShownOn550": true,
 	"notificationsInit": true,
-	"customCSS": ".js-column-message.scroll-none {\n  display: none;\n}"
+	"customCSS": ".js-column-header.js-action-header.flex-shrink--0.column-header {\n  display: none;\n}\n.js-column-message.scroll-none {\n  display: none;\n}"
 }
