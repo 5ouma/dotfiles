@@ -320,71 +320,51 @@ Jetpack
 curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
 ```
 
--   #### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
+- #### <a href="https://github.com/airblade/vim-gitgutter"><b>vim-gitgutter</b></a>
 
     Add `Jetpack 'airblade/vim-gitgutter'` to your .vimrc file..
 
--   #### <a href="https://github.com/b4b4r07/vim-shellutils"><b>vim-shellutils</b></a>
-
-    Add `Jetpack 'b4b4r07/vim-shellutils'` to your .vimrc file..
-
--   #### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
+- #### <a href="https://github.com/bronson/vim-trailing-whitespace"><b>vim-trailing-whitespace</b></a>
 
     Add `Jetpack 'bronson/vim-trailing-whitespace'` to your .vimrc file..
 
--   #### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
+- #### <a href="https://github.com/cohama/lexima.vim"><b>lexima.vim</b></a>
 
     Add `Jetpack 'cohama/lexima.vim'` to your .vimrc file..
 
--   #### <a href="https://github.com/itchyny/lightline.vim"><b>lightline.vim</b></a>
+- #### <a href="https://github.com/itchyny/lightline.vim"><b>lightline.vim</b></a>
 
     Add `Jetpack 'itchyny/lightline.vim'` to your .vimrc file..
 
--   #### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
+- #### <a href="https://github.com/mbbill/undotree"><b>Undotree</b></a>
 
     Add `Jetpack 'mbbill/undotree'` to your .vimrc file..
 
--   #### <a href="https://github.com/phodge/vim-shell-command"><b>vim-shell-command</b></a>
-
-    Add `Jetpack 'phodge/vim-shell-command'` to your .vimrc file.
-
--   #### <a href="https://github.com/matze/vim-move"><b>move</b></a>
+- #### <a href="https://github.com/matze/vim-move"><b>move</b></a>
 
     Add `Jetpack 'matze/vim-move'` to your .vimrc file.
 
--   #### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
+- #### <a href="https://github.com/preservim/nerdtree"><b>The NERDTree</b></a>
 
     Add `Jetpack 'preservim/nerdtree'` to your .vimrc file.
 
--   #### <a href="https://github.com/reireias/vim-cheatsheet"><b>vim-cheatsheet</b></a>
-
-    Add `Jetpack 'reireias/vim-cheatsheet'` to your .vimrc file.
-
--   #### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
+- #### <a href="https://github.com/ryanoasis/vim-devicons"><b>vim-devicons</b></a>
 
     Add `Jetpack 'ryanoasis/vim-devicons'` to your .vimrc file.
 
--   #### <a href="https://github.com/thinca/vim-quickrun"><b>quickrun.vim</b></a>
-
-    Add `jetpack 'thinca/vim-quickrun'` to your .vimrc file.
-
--   #### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
+- #### <a href="https://github.com/tpope/vim-commentary"><b>vim-commentary.vim</b></a>
 
     Add `Jetpack 'tpope/vim-commentary'` to your .vimrc file.
 
--   #### <a href="https://github.com/tpope/vim-fugitive"><b>fugitive.vim</b></a>
-
-    Add `Jetpack 'tpope/vim-fugitive'` to your .vimrc file.
-
--   #### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
+- #### <a href="https://github.com/tpope/vim-surround"><b>vim-surround</b></a>
 
     Add `Jetpack 'tpope/vim-surround'` to your .vimrc file.
 
--   #### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
+- #### <a href="https://github.com/vim-scripts/vim-auto-save"><b>AutoSave</b></a>
 
     Add `Jetpack 'vim-scripts/vim-auto-save'` to your .vimrc file.
 
--   #### <a href="https://github.com/Xuyuanp/nerdtree-git-plugin"><b>NERDTree-git-plugin</b></a>
+- #### <a href="https://github.com/Xuyuanp/nerdtree-git-plugin"><b>NERDTree-git-plugin</b></a>
 
     Add `Jetpack 'Xuyuanp/nerdtree-git-plugin'` to your .vimrc file.
 
