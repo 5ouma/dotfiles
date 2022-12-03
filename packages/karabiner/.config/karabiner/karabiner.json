@@ -17,6 +17,28 @@
         },
         "rules": [
           {
+            "description": "command + q (hold)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "q",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "fn + colon → right",
             "manipulators": [
               {
@@ -193,28 +215,6 @@
                 "to": [
                   {
                     "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "command q (hold)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": ["command"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to_if_held_down": [
-                  {
-                    "key_code": "q",
-                    "modifiers": ["left_command"],
-                    "repeat": false
                   }
                 ],
                 "type": "basic"
@@ -437,6 +437,28 @@
         },
         "rules": [
           {
+            "description": "command + q (hold)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "q",
+                    "modifiers": ["left_command"],
+                    "repeat": false
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "left_command → eisu (alone), right_command → kana (alone)",
             "manipulators": [
               {
@@ -571,50 +593,6 @@
                 "to": [
                   {
                     "key_code": "up_arrow"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "command q (hold)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": ["command"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to_if_held_down": [
-                  {
-                    "key_code": "q",
-                    "modifiers": ["left_command"],
-                    "repeat": false
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "command q (hold)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": ["command"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to_if_held_down": [
-                  {
-                    "key_code": "q",
-                    "modifiers": ["left_command"],
-                    "repeat": false
                   }
                 ],
                 "type": "basic"
