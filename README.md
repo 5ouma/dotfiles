@@ -50,8 +50,8 @@ COMMANDS:
 
 |            |                             Overview                              |                       Interacting with zsh                        | Vim with [NERDTree](https://github.com/preservim/nerdtree)        |
 | :--------: | :---------------------------------------------------------------: | :---------------------------------------------------------------: | ----------------------------------------------------------------- |
-| Light Mode | ![Screenshot 1 - Light](Images/Screenshots/Light/Screenshot1.png) | ![Screenshot 2 - Light](Images/Screenshots/Light/Screenshot2.png) | ![Screenshot 3 - Light](Images/Screenshots/Light/Screenshot3.png) |
-| Dark Mode  |  ![Screenshot 1 - Dark](Images/Screenshots/Dark/Screenshot1.png)  |  ![Screenshot 2 - Dark](Images/Screenshots/Dark/Screenshot2.png)  | ![Screenshot 3 - Dark](Images/Screenshots/Dark/Screenshot3.png)   |
+| Light Mode | ![Screenshot 1 - Light](images/screenshots/light/Screenshot1.png) | ![Screenshot 2 - Light](images/screenshots/light/Screenshot2.png) | ![Screenshot 3 - Light](images/screenshots/light/Screenshot3.png) |
+| Dark Mode  |  ![Screenshot 1 - Dark](images/screenshots/dark/Screenshot1.png)  |  ![Screenshot 2 - Dark](images/screenshots/dark/Screenshot2.png)  | ![Screenshot 3 - Dark](images/screenshots/dark/Screenshot3.png)   |
 
 <br><br>
 
