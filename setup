@@ -15,14 +15,14 @@ zstyle ":completion:*:commands" rehash 1
 #==================================================[ Variables ]==================================================#
 
 dotfiles="$HOME/.dotfiles"
-packages="$dotfiles"/packages
-export ZDOTDIR=$HOME/.zsh
+packages="$dotfiles/packages"
+export ZDOTDIR="$HOME/.zsh"
 
 doAll=false
 notSetup=true
 doneAnything=false
 nowNum=1
-allNum=$(($(grep -o "echoNumber" "$dotfiles"/setup | wc -l) - 2))
+allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
 
 #==================================================[ Functions ]==================================================#
 
@@ -88,8 +88,8 @@ makeSymlink() {
     homeFile="$2/$(echo "$pack" | perl -pe "s/.*packages\/.*?\///")"
     homeDir=$(dirname "$homeFile")
     if [[ -e "$homeFile" && -n $(diff "$pack" "$homeFile") ]]; then
-      mkdir -p "$(dirname "$1")"/backup
-      mv "$homeFile" "$(dirname "$1")"/backup/
+      mkdir -p "$(dirname "$1")/backup"
+      mv "$homeFile" "$(dirname "$1")/backup/"
     fi
     if [[ ! -e "$homeFile" || -n $(diff "$pack" "$homeFile") ]]; then
       mkdir -p "$homeDir"
@@ -129,9 +129,9 @@ copyFile() {
 }
 
 setFiles() {
-  makeSymlink "$packages" $HOME
-  makeDir ~/.vim/undo ~/.ssh/git
-  makeFile ~/.hushlogin
+  makeSymlink "$packages" "$HOME"
+  makeDir "$HOME/.vim/undo" "$HOME/.ssh/git"
+  makeFile "$HOME/.hushlogin"
   if ! "$notSetup"; then
     echoResult "Set these files!" "Setting files is failed."
       sleep 1
@@ -164,7 +164,7 @@ uninstallLang() {
     while read -r ver; do
       asdf uninstall "$1" "$ver"
       asdf plugin remove "$1"
-      sed -i "" "/$1/d" "$packages"/asdf/.tool-versions
+      sed -i "" "/$1/d" "$packages/asdf/.tool-versions"
     done < <(asdf list "$1" | awk '{print $1}')
     echoResult "Uninstalled $1!\n" "Uninstalling $1 is failed.\n"
   else
@@ -334,7 +334,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     open -a "App Store"
     waitReturn
   echoNumber " 📲 Installing apps with Homebrew..."
-  brew bundle --no-lock --file="$dotfiles"/data/Brewfile
+  brew bundle --no-lock --file="$dotfiles/data/Brewfile"
   echoResult "Installed apps!" "Installing apps is failed."
     sleep 1
 
@@ -350,7 +350,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
   echoNumber " 💾 Installing programming language with asdf..."
     while read -r lang; do
       installLang "$lang" false
-    done < <(awk '{print $1}' "$packages"/asdf/.tool-versions)
+    done < <(awk '{print $1}' "$packages/asdf/.tool-versions")
     . /usr/local/opt/asdf/libexec/asdf.sh
       sleep 1
 

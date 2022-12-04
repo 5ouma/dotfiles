@@ -100,9 +100,9 @@ alias bv="brew -v"
 
 bbd() {
   while true; do
-    brew bundle dump -f --file="$dotfiles"/data/Brewfile
-    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles"/data/Brewfile
-    grep -q "mas " "$dotfiles"/data/Brewfile && break
+    brew bundle dump -f --file="$dotfiles/data/Brewfile"
+    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles/data/Brewfile"
+    grep -q "mas " "$dotfiles/data/Brewfile" && break
   done
 }
 
@@ -165,18 +165,6 @@ alias tokei="tokei -f"
 # Vim
 alias v="vim"
 alias vup="vim +Jetpack +qall"
-
-vim() {
-  if [[ $1 = "-f" ]]; then
-    local file
-    file=$(find ~ -type f ! -name ".DS_Store" | fzf --preview "bat --theme=ansi --color=always --style=header,grid --line-range :300 {}")
-    if [[ -n "$file" ]]; then
-      command vim "$file"
-    fi
-  else
-    command vim "$@"
-  fi
-}
 
 # update
 update() {

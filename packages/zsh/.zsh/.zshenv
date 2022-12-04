@@ -4,11 +4,11 @@
 export HOMEBREW_AUTOREMOVE=1
 
 # Vim
-export VIMRC=$HOME/.vim/.vimrc
+export VIMRC="$HOME/.vim/.vimrc"
 export VIMINIT="source $VIMRC"
 
 # dotfiles
-export dotfiles=$HOME/.dotfiles
+export dotfiles="$HOME/.dotfiles"
 
 # setup
 export PATH="$dotfiles":$PATH
@@ -21,7 +21,7 @@ export LANG=ja_JP.UTF-8
 #============================================================[ History ]============================================================#
 
 # Where to save history file
-export HISTFILE=$HOME/.zsh/.zsh_history
+export HISTFILE="$HOME/.zsh/.zsh_history"
 
 # Number of histories stored in memory
 export HISTSIZE=1000
