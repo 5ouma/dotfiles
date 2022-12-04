@@ -10,8 +10,8 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
-# zsh-you-should-use
-export YSU_MESSAGE_FORMAT="💡 $(tput setaf 6)%alias$(tput sgr0)"
-
 # forgit
 export FORGIT_NO_ALIASES=1
+
+# zsh-you-should-use
+export YSU_MESSAGE_FORMAT="💡 $(tput setaf 6)%alias$(tput sgr0)"
