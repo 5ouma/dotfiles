@@ -224,22 +224,8 @@ read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
 #==================================================[ Homebrew install ]==================================================#
 
 if "$doAll" || waitInput "Install Homebrew." 2; then
-  echoNumber " 🔨 Installing Command Line Tools for Xcode..."
-  if (xcode-select --install > /dev/null 2>&1); then
-    waitReturn
-    echoResult "Installed Command Line Tools for Xcode!" "Installing Command Line Tools for Xcode is failed."
-      sleep 2
-  else
-    echoWarning "Command Line Tools for Xcode is already installed."
-      sleep 0.5
-  fi
-
   echoNumber " 🍺 Installing Homebrew..."
   if ! (type brew > /dev/null 2>&1); then
-    echo -e "Is this command correct?\033[32m/bin/bash\033[m -c \033[33m\"\033[m\033[35m\$(\033[m\033[32mcurl\033[m -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh\033[35m)\033[m\033[33m\"\033[m"
-      sleep 3
-    open https://brew.sh/index_ja
-      waitReturn
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       waitReturn
     echoResult "Installed Homebrew!" "Installing Homebrew is failed."
