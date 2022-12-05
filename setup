@@ -223,7 +223,7 @@ read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
 
 #==================================================[ Homebrew install ]==================================================#
 
-if "$doAll" || waitInput "Install Homebrew." 2; then
+if "$doAll" || waitInput "Install Homebrew." 1; then
   echoNumber " 🍺 Installing Homebrew..."
   if ! (type brew > /dev/null 2>&1); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
