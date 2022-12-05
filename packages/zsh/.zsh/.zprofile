@@ -77,7 +77,7 @@ gcd() {
 # Homebrew
 brew() {
   if command brew "$@"; then
-    if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "rmtree" || "$1" = "tap" || "$1" = "untap" ]]; then
+    if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
       echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
       bbd
       echo "🍺  Brewfile was successfully generated!"
