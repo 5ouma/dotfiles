@@ -18,7 +18,7 @@
 	"accountHandler": {
 		"accountStatus": "activated"
 	},
-	"theme": "black",
+	"theme": "light",
 	"systemThemeSync": true,
 	"columnWidth": "265",
 	"fontSize": "smallest",
