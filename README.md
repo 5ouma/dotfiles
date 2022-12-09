@@ -48,10 +48,10 @@ COMMANDS:
 
 ## 🌄 Screenshots
 
-|            |                             Overview                              |                       Interacting with zsh                        | Vim with [NERDTree](https://github.com/preservim/nerdtree)        |
-| :--------: | :---------------------------------------------------------------: | :---------------------------------------------------------------: | ----------------------------------------------------------------- |
-| Light Mode | ![Screenshot 1 - Light](images/screenshots/light/Screenshot1.png) | ![Screenshot 2 - Light](images/screenshots/light/Screenshot2.png) | ![Screenshot 3 - Light](images/screenshots/light/Screenshot3.png) |
-| Dark Mode  |  ![Screenshot 1 - Dark](images/screenshots/dark/Screenshot1.png)  |  ![Screenshot 2 - Dark](images/screenshots/dark/Screenshot2.png)  | ![Screenshot 3 - Dark](images/screenshots/dark/Screenshot3.png)   |
+|            |                              Overview                              |                        Interacting with zsh                        | Vim with [NERDTree](https://github.com/preservim/nerdtree)         |
+| :--------: | :----------------------------------------------------------------: | :----------------------------------------------------------------: | ------------------------------------------------------------------ |
+| Light Mode | ![Screenshot 1 - Light](images/screenshots/light/screenshot-1.png) | ![Screenshot 2 - Light](images/screenshots/light/screenshot-2.png) | ![Screenshot 3 - Light](images/screenshots/light/screenshot-3.png) |
+| Dark Mode  |  ![Screenshot 1 - Dark](images/screenshots/dark/screenshot-1.png)  |  ![Screenshot 2 - Dark](images/screenshots/dark/screenshot-2.png)  | ![Screenshot 3 - Dark](images/screenshots/dark/screenshot-3.png)   |
 
 <br><br>
 
