@@ -1,6 +1,7 @@
 #============================================================[ Paths ]============================================================#
 
 # Homebrew
+export PATH="/usr/local/bin":$PATH
 export HOMEBREW_AUTOREMOVE=1
 
 # Vim
