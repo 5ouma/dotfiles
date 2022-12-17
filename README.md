@@ -78,13 +78,13 @@ COMMANDS:
   brew install iterm2-beta
   ```
 
-  - #### Fonts 1 : [🖌 `Fira Code`](https://github.com/tonsky/FiraCode)
+  - #### Font 1 : [🖌 `Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```shell
     brew install font-firacode
     ```
 
-  - #### Fonts 2 : [🖍 `HackGen35`](https://github.com/yuru7/hackgen)
+  - #### Font 2 : [🖍 `HackGen35`](https://github.com/yuru7/hackgen)
     ```shell
     brew install font-hackgen font-hackgen-nerd
     ```
