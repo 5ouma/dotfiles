@@ -85,6 +85,7 @@ echoNumber() {
 
 makeSymlink() {
   while read -r pack; do
+    local homeFile homeDir
     homeFile="$2/$(echo "$pack" | perl -pe "s/.*packages\/.*?\///")"
     homeDir=$(dirname "$homeFile")
     if [[ -e "$homeFile" && -n $(diff "$pack" "$homeFile") ]]; then
