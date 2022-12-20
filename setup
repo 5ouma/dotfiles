@@ -322,22 +322,20 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     waitReturn
   echoNumber " 📲 Installing apps with Homebrew..."
   brew bundle --no-lock --file="$dotfiles/data/Brewfile"
-  echoResult "Installed apps!" "Installing apps is failed."
     sleep 1
-
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
     echo "Please install DaVinci Resolve."
       sleep 3
     open https://www.blackmagicdesign.com/jp/products/davinciresolve
       waitReturn
   fi
-
     lporg save -c "$HOME/.temp-launchpad.yaml" > /dev/null 2>&1
   if [[ -n $(diff $HOME/.temp-launchpad.yaml $HOME/.dotfiles/data/launchpad.yaml) ]]; then
     echoInfo "Setting up Launchpad..."
     lporg load -n "$dotfiles/data/launchpad.yaml" > /dev/null 2>&1
   fi
     command rm "$HOME/.temp-launchpad.yaml"
+  echoResult "Installed apps!" "Installing apps is failed."
 
   echoNumber " 🖥 Installing Shell Integration for iTerm2..."
     if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
