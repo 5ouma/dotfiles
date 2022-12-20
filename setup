@@ -363,11 +363,6 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
       sleep 3
     open https://www.blackmagicdesign.com/jp/products/davinciresolve
   fi
-
-  if [[ ! -e "/Applications/Xcode.app" ]]; then
-    echo "Install Xcode."
-    mas install 497799835
-  fi
 fi
 
 echo

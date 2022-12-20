@@ -99,7 +99,6 @@ alias bv="brew -v"
 bbd() {
   while true; do
     brew bundle dump -f --file="$dotfiles/data/Brewfile"
-    sed -i "" "s/mas \"Xcode\"/# mas \"Xcode\"/g" "$dotfiles/data/Brewfile"
     grep -q "mas " "$dotfiles/data/Brewfile" && break
   done
 }
