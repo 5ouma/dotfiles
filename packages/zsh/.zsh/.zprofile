@@ -71,7 +71,6 @@ gcd() {
   fi
 }
 
-
 # Homebrew
 brew() {
   if command brew "$@"; then
@@ -112,22 +111,21 @@ alias mup="mas upgrade"
 
 al() {
   echo "\033[34;1m==>\033[m \033[1mFormulae\033[m"
-    while read -r line; do
-      echo "  $line"
-    done < <(brew list --formulae --version)
+  while read -r line; do
+    echo "  $line"
+  done < <(brew list --formulae --version)
   echo -e "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
-    while read -r line; do
-      echo "  $line"
-    done < <(brew list --cask --version)
+  while read -r line; do
+    echo "  $line"
+  done < <(brew list --cask --version)
   echo -e "\n\033[34;1m==>\033[m \033[1mmas\033[m"
-    while read -r line; do
-      echo "  $line"
-    done < <(mas list)
+  while read -r line; do
+    echo "  $line"
+  done < <(mas list)
 }
 
-
 # bat
-if type bat > /dev/null 2>&1; then
+if type bat >/dev/null 2>&1; then
   alias cat="bat --theme=ansi"
 fi
 
@@ -146,13 +144,13 @@ alias lps="lporg save -c $dotfiles/data/launchpad.yaml > /dev/null 2>&1"
 alias lpl="lporg load -n $dotfiles/data/launchpad.yaml > /dev/null 2>&1"
 
 # lsd
-if type lsd > /dev/null 2>&1; then
+if type lsd >/dev/null 2>&1; then
   alias ls="lsd -A --ignore-glob=\".DS_Store\""
   alias tree="lsd -A --tree --ignore-glob=\".DS_Store\" --ignore-glob=\".git\""
 fi
 
 # trash
-if type trash > /dev/null 2>&1; then
+if type trash >/dev/null 2>&1; then
   alias rm="trash -F"
 fi
 
@@ -170,12 +168,12 @@ alias ci.="code-insiders ."
 # update
 update() {
   echo "\033[34;1m==>\033[m \033[1mHomebrew\033[m"
-    brew update && brew upgrade
+  brew update && brew upgrade
   vim +Jetpack +qall
   echo "\033[34;1m==>\033[m \033[1masdf\033[m"
-    asdf plugin-update --all
+  asdf plugin-update --all
   echo "\033[34;1m==>\033[m \033[1mghq\033[m"
-    ghq list | ghq get --update --parallel
+  ghq list | ghq get --update --parallel
 }
 
 # System

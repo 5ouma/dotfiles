@@ -33,8 +33,8 @@ waitInput() {
   if [[ "$run" =~ "y|Y" ]]; then
     return 0
   elif [[ "$run" =~ "n|N" ]]; then
-    for ((i=0; i<$2; i++)); do
-      (( nowNum++ ))
+    for ((i = 0; i < $2; i++)); do
+      ((nowNum++))
     done
     return 1
   else
@@ -80,7 +80,7 @@ echoResult() {
 
 echoNumber() {
   echo -e "\033[90m[$nowNum/$allNum]\033[m $1"
-  (( nowNum++ ))
+  ((nowNum++))
 }
 
 makeSymlink() {
@@ -143,7 +143,7 @@ setFiles() {
 }
 
 installLang() {
-  if ! (asdf list "$1" > /dev/null 2>&1); then
+  if ! (asdf list "$1" >/dev/null 2>&1); then
     echoInfo "Installing $1..."
     asdf plugin-add "$1"
     if "$2"; then
@@ -161,7 +161,7 @@ installLang() {
 }
 
 uninstallLang() {
-  if (asdf list "$1" > /dev/null 2>&1); then
+  if (asdf list "$1" >/dev/null 2>&1); then
     while read -r ver; do
       asdf uninstall "$1" "$ver"
       asdf plugin remove "$1"
@@ -176,7 +176,7 @@ uninstallLang() {
 #==================================================[ Options ]==================================================#
 
 case "$1" in
-  "-h" | "--help" )
+  "-h" | "--help")
     echo -e "\033[32mdotfiles\033[m"
     echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
 
@@ -192,24 +192,24 @@ case "$1" in
     exec $SHELL -l
     ;;
 
-  "-y" | "--yes" )
+  "-y" | "--yes")
     doAll=true
     ;;
 
-  "-s" | "--set" )
+  "-s" | "--set")
     setFiles
     echo
     exec $SHELL -l
     ;;
 
-  "install" )
+  "install")
     for i in "${@:2}"; do
       installLang "$i" true
     done
     exec $SHELL -l
     ;;
 
-  "uninstall" )
+  "uninstall")
     for i in "${@:2}"; do
       uninstallLang "$i"
     done
@@ -226,7 +226,7 @@ read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
 
 if "$doAll" || waitInput "Install Homebrew." 1; then
   echoNumber " 🍺 Installing Homebrew..."
-  if ! (type brew > /dev/null 2>&1); then
+  if ! (type brew >/dev/null 2>&1); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       waitReturn
     echoResult "Installed Homebrew!" "Installing Homebrew is failed."
@@ -257,7 +257,9 @@ echo
 if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 4; then
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
-    defaults write com.apple.dock springboard-columns -int 9;defaults write com.apple.dock springboard-rows -int 8;defaults write com.apple.dock ResetLaunchPad -bool TRUE
+    defaults write com.apple.dock springboard-columns -int 9
+    defaults write com.apple.dock springboard-rows -int 8
+    defaults write com.apple.dock ResetLaunchPad -bool TRUE
     echoResult "Changed Launchpad size!" "Changing Launchpad size is failed."
       sleep 1
   else
@@ -267,7 +269,7 @@ if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n   
 
   echoNumber " 🔲 Adding spaces on Dock..."
   if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
-    for ((i=0; i<6; i++)); do
+    for ((i = 0; i < 6; i++)); do
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
     done
     echoResult "Added spaces on Dock!" "Adding spaces on Dock is failed."
@@ -329,10 +331,10 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     open https://www.blackmagicdesign.com/jp/products/davinciresolve
       waitReturn
   fi
-    lporg save -c "$HOME/.temp-launchpad.yaml" > /dev/null 2>&1
+    lporg save -c "$HOME/.temp-launchpad.yaml" >/dev/null 2>&1
   if [[ -n $(diff $HOME/.temp-launchpad.yaml $HOME/.dotfiles/data/launchpad.yaml) ]]; then
     echoInfo "Setting up Launchpad..."
-    lporg load -n "$dotfiles/data/launchpad.yaml" > /dev/null 2>&1
+      lporg load -n "$dotfiles/data/launchpad.yaml" >/dev/null 2>&1
   fi
     command rm "$HOME/.temp-launchpad.yaml"
   echoResult "Installed apps!" "Installing apps is failed."
