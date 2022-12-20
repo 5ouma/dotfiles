@@ -127,10 +127,6 @@ al() {
 }
 
 
-# VSCode
-alias c.="code ."
-alias ci.="code-insiders ."
-
 # bat
 if type bat > /dev/null 2>&1; then
   alias cat="bat --theme=ansi"
@@ -163,6 +159,10 @@ alias tokei="tokei -f"
 # Vim
 alias v="vim"
 alias vup="vim +Jetpack +qall"
+
+# VSCode
+alias c.="code ."
+alias ci.="code-insiders ."
 
 # update
 update() {
