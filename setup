@@ -335,10 +335,10 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     sleep 1
 
   echoNumber " 💾 Installing programming language with asdf..."
+    . /usr/local/opt/asdf/libexec/asdf.sh
     while read -r lang; do
       installLang "$lang" false
     done < <(awk '{print $1}' "$packages/asdf/.tool-versions")
-    . /usr/local/opt/asdf/libexec/asdf.sh
       sleep 1
 
   echoNumber " 🧶 Installing packages with yarn..."
