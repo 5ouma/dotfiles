@@ -325,6 +325,12 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
   echoResult "Installed apps!" "Installing apps is failed."
     sleep 1
 
+  if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
+  echo "Please install DaVinci Resolve."
+    sleep 3
+  open https://www.blackmagicdesign.com/jp/products/davinciresolve
+  fi
+
   echoNumber " 🖥 Installing Shell Integration for iTerm2..."
     if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
       curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
@@ -356,13 +362,6 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     vim +Jetpack +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
       sleep 1
-
-
-  if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
-    echo "Please install DaVinci Resolve."
-      sleep 3
-    open https://www.blackmagicdesign.com/jp/products/davinciresolve
-  fi
 fi
 
 echo
