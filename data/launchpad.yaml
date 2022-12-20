@@ -1,0 +1,197 @@
+apps:
+  pages:
+  - number: 1
+    items:
+    - App Store
+    - Safari
+    - Google Chrome
+    - Mail
+    - Spark
+    - Edison Mail
+    - Contacts
+    - Calendar
+    - Reminders
+    - TickTick
+    - Notes
+    - Notion
+    - Instapaper
+    - FaceTime
+    - zoom.us
+    - Messages
+    - LINE
+    - Maps
+    - Find My
+    - Photo Booth
+    - Photos
+    - Preview
+    - Music
+    - Spotify
+    - Podcasts
+    - TV
+    - Voice Memos
+    - iMovie
+    - Stocks
+    - Books
+    - Dictionary
+    - Calculator
+    - Home
+    - Siri
+    - Mission Control
+    - System Preferences
+    - Xcode
+    - Playgrounds
+    - Visual Studio Code
+    - Visual Studio Code - Insiders
+    - iTerm
+    - folder: DaVinci Resolve
+      pages:
+      - number: 1
+        items:
+        - DaVinci Resolve
+        - DaVinci Control Panels Setup
+        - Fairlight Studio Utility
+        - Blackmagic Proxy Generator Lite
+    - Figma
+    - Vectornator
+    - Blender
+    - Tweeten
+    - Discord
+    - Discord PTB
+    - Slack
+    - Microsoft Teams
+    - folder: Resident Apps
+      pages:
+      - number: 1
+        items:
+        - Google Drive
+        - Dropbox
+        - Box Sync
+        - Itsycal
+        - Menubar Countdown
+        - Usage
+        - Perculia
+        - Maccy
+        - MiniNote
+        - MacUpdater
+        - RunCat
+        - RunCat Plugins Manager
+        - MenubarX
+        - Hidden Bar
+        - Dozer
+        - Displaperture
+        - Rectangle
+        - Timetable
+        - DeepL
+        - Grammarly Desktop
+        - Karabiner-EventViewer
+        - Karabiner-Elements
+        - Keyboard Maestro
+        - Mousecape
+        - Yoink
+        - PixelScheduler
+        - HandyPalette
+        - Alfred 5
+        - AltTab
+        - Fuwari
+        - TrashRecover
+        - Brewlet
+        - Fig
+        - OpenInTerminal
+        - Apparency
+        - QLMarkdown
+        - Suspicious Package
+    - folder: Other (Downloaded)
+      pages:
+      - number: 1
+        items:
+        - Geekbench 5
+        - Cinebench
+        - Speedtest
+        - Blackmagic Disk Speed Test
+        - Mactracker
+        - LadioCast
+        - FreeFileSync
+        - OnyX
+        - AppCleaner
+        - Startup Disk Full Fixer
+        - Amphetamine
+        - Amphetamine Enhancer
+        - Airpods Battery Monitor
+        - KeyboardCleanTool
+        - Mockview
+        - GitHub Desktop
+        - TypingLand
+        - Secrets
+        - 1Password
+        - 1Password for Safari
+    - folder: Other
+      pages:
+      - number: 1
+        items:
+        - Shortcuts
+        - QuickTime Player
+        - TextEdit
+        - Grapher
+        - Time Machine
+        - Font Book
+        - Chess
+        - Stickies
+        - Image Capture
+        - VoiceOver Utility
+        - AirPort Utility
+        - Migration Assistant
+        - Terminal
+        - Activity Monitor
+        - Console
+        - Keychain Access
+        - System Information
+        - Automator
+        - Script Editor
+        - Disk Utility
+        - Boot Camp Assistant
+        - Digital Color Meter
+        - ColorSync Utility
+        - Screenshot
+        - Bluetooth File Exchange
+        - Audio MIDI Setup
+widgets:
+  pages: []
+dock_items:
+- ""
+- Google Chrome
+- Tweeten
+- Discord
+- Discord PTB
+- Slack
+- ""
+- Xcode
+- Visual Studio Code
+- Visual Studio Code - Insiders
+- iTerm
+- DaVinci Resolve
+- Figma
+- Blender
+- ""
+- TickTick
+- Notion
+- Instapaper
+- Mail
+- Spark
+- Edison Mail
+- LINE
+- ""
+- App Store
+- Secrets
+- 1Password
+- System Preferences
+- AppCleaner
+- Activity Monitor
+- ""
+- ""
+- ============
+- souma
+- Desktop
+- Downloads
+- Screen Capture
+- Temp Folder
+desktop: {}

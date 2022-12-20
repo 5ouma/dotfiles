@@ -141,6 +141,10 @@ alias fg="fig source"
 # Glow
 alias glow="glow -p"
 
+# lporg
+alias lps="lporg save -c $dotfiles/data/launchpad.yaml > /dev/null 2>&1"
+alias lpl="lporg load -n $dotfiles/data/launchpad.yaml > /dev/null 2>&1"
+
 # lsd
 if type lsd > /dev/null 2>&1; then
   alias ls="lsd -A --ignore-glob=\".DS_Store\""
