@@ -97,8 +97,9 @@ apps:
         - Brewlet
         - Fig
         - OpenInTerminal
-        - Apparency
+        - Syntax Highlight
         - QLMarkdown
+        - Apparency
         - Suspicious Package
     - folder: Other (Downloaded)
       pages:
