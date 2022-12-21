@@ -157,6 +157,9 @@ fi
 # tokei
 alias tokei="tokei -f"
 
+# topgrade
+alias tg="topgrade --config $HOME/.config/topgrade/config.toml"
+
 # Vim
 alias v="vim"
 alias vup="vim +Jetpack +qall"
@@ -164,17 +167,6 @@ alias vup="vim +Jetpack +qall"
 # VSCode
 alias c.="code ."
 alias ci.="code-insiders ."
-
-# update
-update() {
-  echo "\033[34;1m==>\033[m \033[1mHomebrew\033[m"
-  brew update && brew upgrade
-  vim +Jetpack +qall
-  echo "\033[34;1m==>\033[m \033[1masdf\033[m"
-  asdf plugin-update --all
-  echo "\033[34;1m==>\033[m \033[1mghq\033[m"
-  ghq list | ghq get --update --parallel
-}
 
 # System
 alias ka="killall"

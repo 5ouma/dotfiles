@@ -1,0 +1,25 @@
+# Disable specific steps
+disable = ["github_cli_extensions", "node", "pip3", "system"]
+
+# Set the terminal title
+set_title = true
+
+# Display the time in step titles
+display_time = false
+
+# Cleanup temporary or old files
+cleanup = true
+
+[brew]
+autoremove = true
+
+[git]
+repos = [
+  "~/*",
+  "~/ghq/*/*/*"
+]
+
+# Custom commands
+[commands]
+"Jetpack" = "vim +Jetpack +qall; test $? = 0 && echo \"Updated Vim Plugins\""
+"lporg" = "lporg save -c \"$dotfiles/data/launchpad.yaml\" >/dev/null 2>&1 | tail -n 1 | cut -d \" \" -f 5-"
