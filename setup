@@ -85,7 +85,7 @@ echoNumber() {
 
 makeSymlink() {
   while read -r pack; do
-    local homeFile homeDir
+    local homeFile homeDir >/dev/null 2>&1
     homeFile="$2/$(echo "$pack" | perl -pe "s/.*packages\/.*?\///")"
     homeDir=$(dirname "$homeFile")
     if [[ -e "$homeFile" && -n $(diff "$pack" "$homeFile") ]]; then
@@ -198,7 +198,6 @@ case "$1" in
 
   "-s" | "--set")
     setFiles
-    echo
     exec $SHELL -l
     ;;
 
@@ -332,7 +331,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
       waitReturn
   fi
     lporg save -c "$HOME/.temp-launchpad.yaml" >/dev/null 2>&1
-  if [[ -n $(diff $HOME/.temp-launchpad.yaml $HOME/.dotfiles/data/launchpad.yaml) ]]; then
+  if [[ -n $(diff $HOME/.temp-launchpad.yaml $dotfiles/data/launchpad.yaml) ]]; then
     echoInfo "Setting up Launchpad..."
       lporg load -n "$dotfiles/data/launchpad.yaml" >/dev/null 2>&1
   fi
