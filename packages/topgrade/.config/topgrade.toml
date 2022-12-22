@@ -21,6 +21,6 @@ repos = [
 
 # Custom commands
 [commands]
-"Jetpack" = "vim +Jetpack +qall; test $? = 0 && echo \"Updated Vim Plugins\""
+"Jetpack" = "vim +Jetpack +qall; test $? = 0 && echo \"Updated Vim Plugins.\""
 "lporg" = "lporg save -c \"$dotfiles/data/launchpad.yaml\" >/dev/null 2>&1 | tail -n 1 | cut -d \" \" -f 5-"
 "mackup" = "test -z $(mackup -f backup) && echo \"Already backuped.\""
