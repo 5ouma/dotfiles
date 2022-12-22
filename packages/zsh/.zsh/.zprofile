@@ -149,6 +149,9 @@ if type lsd >/dev/null 2>&1; then
   alias tree="lsd -A --tree --ignore-glob=\".DS_Store\" --ignore-glob=\".git\""
 fi
 
+# Macup
+alias mb="mackup -f backup"
+
 # trash
 if type trash >/dev/null 2>&1; then
   alias rm="trash -F"
