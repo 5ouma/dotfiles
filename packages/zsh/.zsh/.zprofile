@@ -158,7 +158,7 @@ fi
 alias tokei="tokei -f"
 
 # topgrade
-alias tg="topgrade --config $HOME/.config/topgrade/config.toml"
+alias tg="topgrade"
 
 # Vim
 alias v="vim"
