@@ -335,12 +335,11 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     echoInfo "Setting up Launchpad..."
       lporg load -n "$dotfiles/data/launchpad.yaml" >/dev/null 2>&1
   fi
+    command rm "$HOME/.temp-launchpad.yaml"
   if [[ -e "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup" ]]; then
     echoInfo "Restoring appliaction settings with Mackup..."
     mackup restore
   fi
-
-    command rm "$HOME/.temp-launchpad.yaml"
   echoResult "Installed apps!" "Installing apps is failed."
 
   echoNumber " 🖥 Installing Shell Integration for iTerm2..."
