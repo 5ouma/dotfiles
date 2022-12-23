@@ -20,7 +20,7 @@
 	},
 	"theme": "light",
 	"systemThemeSync": true,
-	"columnWidth": "265",
+	"columnWidth": "226",
 	"fontSize": "smallest",
 	"roundProfilePics": true,
 	"displayTweetSep": true,
@@ -80,5 +80,5 @@
 	"analyticsWarningShown": true,
 	"donationTipShownOn550": true,
 	"notificationsInit": true,
-	"customCSS": ".js-column-header.js-action-header.flex-shrink--0.column-header {\n  display: none;\n}\n.js-column-message.scroll-none {\n  display: none;\n}"
+	"customCSS": ".js-column-header.js-action-header.flex-shrink--0.column-header, .js-column-message.scroll-none {\n  display: none;\n}\n\np, .css-901oao, .js-tweet-text.tweet-text {\n  font-size: 11px;\n}\n\n.js-tweet.tweet {\n  padding-left: 35px;\n}\nimg.tweet-avatar.avatar.pin-top-full-width {\n  height: 25px;\n  width: auto;\n  margin: 0 0 0 auto;\n}\n"
 }
