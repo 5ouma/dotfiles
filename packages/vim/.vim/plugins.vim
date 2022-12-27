@@ -33,7 +33,7 @@ highlight GitGutterChangeDelete ctermfg=red
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ 'active': {
-    \   'left':  [ [ 'mode', 'paste' ],
+  \   'left':  [ [ 'mode', 'paste' ],
   \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
@@ -67,6 +67,9 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
   \ 'Unknown'   :'?',
   \ }
 let g:NERDTreeGitStatusConcealBrackets = 1
+
+" Pencil
+let g:pencil_gutter_color = 1
 
 "============================================================[ Aliases ]============================================================"
 

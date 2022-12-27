@@ -12,38 +12,24 @@ export VIMINIT="source $VIMRC"
 export dotfiles="$HOME/.dotfiles"
 
 # setup
-export PATH="$dotfiles":$PATH
+export PATH="$dotfiles:$PATH"
 
 #============================================================[ Settings ]============================================================#
 
-# Use Japanese
 export LANG=ja_JP.UTF-8
 
 #============================================================[ History ]============================================================#
 
-# Where to save history file
-export HISTFILE="$HOME/.zsh/.zsh_history"
-
-# Number of histories stored in memory
+export HISTFILE="$ZDOTDIR/.zsh_history"
 export HISTSIZE=1000
-
-# Number of histories saved in the history file
 export SAVEHIST=10000
-
-# Share histories between concurrently running zsh
 setopt share_history
-
-# Remove extra space when saving to histories
 setopt hist_reduce_blanks
-
-# If the command entered is already in the command history, delete the older command
 setopt hist_ignore_all_dups
-
-# Add black frame when selecting with Tab
 autoload -Uz compinit
-compinit -d $HOME/.zsh/.zcompdump
+compinit -d "$ZDOTDIR/.zcompdump"
 
-# Search the history for commands that begin with the characters entered and completes them with the up and down arrows
+# Search
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search

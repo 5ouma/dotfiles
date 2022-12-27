@@ -1,5 +1,12 @@
+" Move to top and bottom
+nnoremap <Down> gj
+nnoremap <Up> gk
+
 " Redo
 nmap r <C-r>
+
+" Search
+nmap <Esc> :nohlsearch<Return><Esc>
 
 " New tab
 nmap <silent> to :tabedit<Return>
