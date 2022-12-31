@@ -1,0 +1,21 @@
+{
+  "version": "",
+  "users": [
+    {
+      "name": "5ouma",
+      "email": "101255979+5ouma@users.noreply.github.com",
+      "alias": "5",
+      "gpg_key_id": "",
+      "added_at": "2022-12-31T14:38:07.913473+09:00",
+      "modified_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "name": "Souma-S",
+      "email": "102800255+Souma-S@users.noreply.github.com",
+      "alias": "S",
+      "gpg_key_id": "",
+      "added_at": "2022-12-31T14:38:42.428306+09:00",
+      "modified_at": "0001-01-01T00:00:00Z"
+    }
+  ]
+}

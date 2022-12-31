@@ -40,24 +40,14 @@ gcv() {
   git config core.editor "code --wait"
 }
 
-g-5ouma() {
-  git config user.name "5ouma"
-  git config user.email "101255979+5ouma@users.noreply.github.com"
-  echo "name: $(git config user.name)"
-  echo "email: $(git config user.email)"
-}
-
-g-Souma-S() {
-  git config user.name "Souma-S"
-  git config user.email "102800255+Souma-S@users.noreply.github.com"
-  echo "name: $(git config user.name)"
-  echo "email: $(git config user.email)"
-}
-
 # forgit
 alias gflg="git forgit log"
 alias gfd="git forgit diff"
 alias gfrh="git forgit reset HEAD"
+
+# gitsu
+alias gsi="git-su init"
+alias gss="git-su select"
 
 # ghq
 alias gg="ghq get"
