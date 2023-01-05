@@ -6,6 +6,7 @@ if [[ ! -e "$HOME/.dotfiles" ]]; then
   echo -e "\033[36minfo\033[m Cloning repository into \`~/.dotfiles\`..."
   git clone https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
   git -C ~/.dotfiles remote set-url origin git@github.com:5ouma/dotfiles.git
+  git -C ~/.dotfiles switch -c main && git -C ~/.dotfiles branch -d master
 fi
 
 #==================================================[ Settings ]==================================================#
@@ -315,7 +316,7 @@ echo
 
 #==================================================[ Install apps and more ]==================================================#
 
-if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; then
+if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 6; then
   echoInfo "Opening App Store..."
   echoInfo "Please sign in to App Store."
       sleep 3
@@ -372,6 +373,19 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 5; 
     export VIMINIT="source $VIMRC"
     vim +Jetpack +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
+      sleep 1
+
+  echoNumber " 🐙 Settting remote repository to GitHub..."
+    if [[ $(git -C ~/.dotfiles branch --remotes) =~ "master" ]]; then
+      echoInfo "Please sign in to 1Password."
+          sleep 3
+        open -a "1Password"
+          waitReturn
+        git -C ~/.dotfiles fetch --set-upstream origin main && git -C ~/.dotfiles reset --hard origin/main && git -C ~/.dotfiles remote set-head origin main && git -C ~/.dotfiles branch -dr origin/master
+        echoResult "Set remote repository!" "Settings remote repository is failed."
+    else
+      echoWarning "Remote repository is already set."
+    fi
       sleep 1
 fi
 
