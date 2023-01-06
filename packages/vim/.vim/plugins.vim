@@ -1,5 +1,12 @@
 "============================================================[ Jetpack ]============================================================"
 
+let s:jetpackfile = expand('<sfile>:p:h') .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
+endif
+
+packadd vim-jetpack
 call jetpack#begin()
   Jetpack 'airblade/vim-gitgutter'
   Jetpack 'bronson/vim-trailing-whitespace'
@@ -9,12 +16,19 @@ call jetpack#begin()
   Jetpack 'mbbill/undotree'
   Jetpack 'preservim/nerdtree'
   Jetpack 'ryanoasis/vim-devicons'
+  Jetpack 'tani/vim-jetpack'
   Jetpack 'tpope/vim-commentary'
   Jetpack 'tpope/vim-surround'
   Jetpack 'vim-scripts/vim-auto-save'
   Jetpack 'Xuyuanp/nerdtree-git-plugin'
 call jetpack#end()
-let g:jetpack#optimization=2
+
+for name in jetpack#names()
+  if !jetpack#tap(name)
+    call jetpack#sync()
+    break
+  endif
+endfor
 
 "============================================================[ Settings ]============================================================"
 

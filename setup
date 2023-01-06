@@ -371,7 +371,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 6; 
   echoNumber " 📝 Installing Vim plugins with Jetpack..."
     export VIMRC="$HOME/.vim/.vimrc"
     export VIMINIT="source $VIMRC"
-    vim +Jetpack +qall
+    vim +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
       sleep 1
 

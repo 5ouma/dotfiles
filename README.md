@@ -120,12 +120,4 @@ COMMANDS:
 
   - #### Plugin Manager : [🚀 `Jetpack`](https://github.com/tani/vim-jetpack)
 
-    ```shell
-    # Install for the first time.
-    curl -fLo ~/.vim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim
-
-    # It has been already installed.
-    vim +Jetpack +qall
-    ```
-
   - #### Color Scheme : [✏️ `Pencil`](https://github.com/preservim/vim-colors-pencil)
