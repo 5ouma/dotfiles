@@ -316,32 +316,61 @@ echo
 
 #==================================================[ Install apps and more ]==================================================#
 
-if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 6; then
-  echoInfo "Opening App Store..."
-  echoInfo "Please sign in to App Store."
-      sleep 3
-    open -a "App Store"
-    waitReturn
-  echoNumber " 📲 Installing apps with Homebrew..."
-  brew bundle --no-lock --file="$dotfiles/data/Brewfile"
-    sleep 1
-  if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
-    echo "Please install DaVinci Resolve."
-      sleep 3
-    open https://www.blackmagicdesign.com/jp/products/davinciresolve
+if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; then
+    echoInfo "Opening App Store..."
+    echoInfo "Please sign in to App Store."
+        sleep 3
+      open -a "App Store"
       waitReturn
-  fi
-    lporg save -c "$HOME/.temp-launchpad.yaml" >/dev/null 2>&1
-  if [[ -n $(diff $HOME/.temp-launchpad.yaml $dotfiles/data/launchpad.yaml) ]]; then
-    echoInfo "Setting up Launchpad..."
+    if [[ ! -e "/Applications/1Password.app" ]]; then
+      echoInfo "Installing 1Password..."
+        brew install 1password
+      echoInfo "Please sign in to 1Password and save public ssh keys."
+          sleep 3
+        open -a "1Password"
+          waitReturn
+    fi
+  echoNumber " 📲 Installing apps with Homebrew..."
+    brew bundle --no-lock --file="$dotfiles/data/Brewfile"
+      sleep 1
+    if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
+      echo "Please install DaVinci Resolve."
+        sleep 3
+      open https://www.blackmagicdesign.com/jp/products/davinciresolve
+        waitReturn
+    fi
+    echoResult "Installed apps!" "Installing apps is failed."
+      sleep 1
+
+  echoNumber " 🟩 Setting up Launchpad..."
+      lporg save -c "$HOME/.temp-launchpad.yaml" >/dev/null 2>&1
+    if [[ -n $(diff $HOME/.temp-launchpad.yaml $dotfiles/data/launchpad.yaml) ]]; then
       lporg load -n "$dotfiles/data/launchpad.yaml" >/dev/null 2>&1
-  fi
-    command rm "$HOME/.temp-launchpad.yaml"
-  if [[ -e "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup" ]]; then
-    echoInfo "Restoring appliaction settings with Mackup..."
-    mackup restore
-  fi
-  echoResult "Installed apps!" "Installing apps is failed."
+      echoResult "Set up Launchpad!" "Setting up Launchpad is failed."
+    else
+      echoWarning "Launchpad is already set."
+    fi
+      command rm "$HOME/.temp-launchpad.yaml"
+      sleep 1
+
+  echoNumber " 📀 Restoring appliaction settings with Mackup..."
+    if [[ -e "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup" ]]; then
+      mackup restore
+      echoResult "Restored app settings!" "Restoring app settings is failed."
+    else
+      echoWarning "App settings is already restored."
+    fi
+      sleep 1
+
+  echoNumber " ⌨️ Restoring App Shortcuts..."
+    if [[ ! "$(defaults read com.apple.universalaccess "com.apple.custommenu.apps")" =~ "\"" ]]; then
+      eas load "$dotfiles/data/keyboard_shortcuts.json"
+      echoResult "Restored App Shortcuts!" "Restoring App Shortcuts is failed."
+    else
+      echoWarning "App Shortcuts is already restored."
+    fi
+      sleep 1
+
 
   echoNumber " 🖥 Installing Shell Integration for iTerm2..."
     if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
@@ -377,12 +406,8 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 6; 
 
   echoNumber " 🐙 Settting remote repository to GitHub..."
     if [[ $(git -C ~/.dotfiles branch --remotes) =~ "master" ]]; then
-      echoInfo "Please sign in to 1Password."
-          sleep 3
-        open -a "1Password"
-          waitReturn
-        git -C ~/.dotfiles fetch --set-upstream origin main && git -C ~/.dotfiles reset --hard origin/main && git -C ~/.dotfiles remote set-head origin main && git -C ~/.dotfiles branch -dr origin/master
-        echoResult "Set remote repository!" "Settings remote repository is failed."
+      git -C ~/.dotfiles fetch --set-upstream origin main && git -C ~/.dotfiles reset --hard origin/main && git -C ~/.dotfiles remote set-head origin main && git -C ~/.dotfiles branch -dr origin/master
+      echoResult "Set remote repository!" "Settings remote repository is failed."
     else
       echoWarning "Remote repository is already set."
     fi

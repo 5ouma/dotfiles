@@ -1,0 +1,81 @@
+{
+    "com.apple.ActivityMonitor": {
+        "Hide Activity Monitor": "⌘W"
+    },
+    "com.edisonmail.edisonmail": {
+        "Check for Mail…": "⌘R",
+        "Close Window": "⌘⇧W"
+    },
+    "com.google.Chrome": {
+        "AirDrop": "⌥⇧A",
+        "Close Other Tabs": "⌘⌥^⇧W",
+        "Select Next Tab": "⌥]",
+        "Select Previous Tab": "⌥["
+    },
+    "com.kawauso.LadioCast": {
+        "Hide LadioCast": "⌘W"
+    },
+    "jp.naver.line.mac": {
+        "Hide LINE": "⌘W"
+    },
+    "com.apple.mail": {
+        "Hide Mail": "⌘W"
+    },
+    "com.microsoft.teams": {
+        "Go Back": "⌘[",
+        "Go Forward": "⌘]"
+    },
+    "com.apple.Music": {
+        "Hide Music": "⌘W"
+    },
+    "notion.id": {
+        "Hide Notion": "⌘W",
+        "Show Next Tab": "⌥]",
+        "Show Previous Tab": "⌥["
+    },
+    "com.apple.podcasts": {
+        "Hide Podcast": "⌘W"
+    },
+    "com.apple.Preview": {
+        "Export As…": "⌘E"
+    },
+    "com.apple.Safari": {
+        "Close Other Tabs": "⌘⌥^⇧W",
+        "Duplicate Tab": "⌥T",
+        "Pin Tab": "⌥⇧T",
+        "Show Next Tab": "⌥]",
+        "Show Previous Tab": "⌥["
+    },
+    "com.outercorner.osx.Secrets": {
+        "Hide Secrets": "⌘W"
+    },
+    "com.tinyspeck.slackmacgap": {
+        "Hide Slack": "⌘W"
+    },
+    "com.readdle.smartemail-Mac": {
+        "Hide Spark": "⌘W",
+        "Save Message Data…": "⌘E"
+    },
+    "com.spotify.client": {
+        "Go Back": "⌘[",
+        "Go Forward": "⌘]",
+        "Hide Spotify": "⌘W",
+        "Seek Backward": "←",
+        "Seek Forward": "→",
+        "Volume Down": "↓",
+        "Volume Up": "↑"
+    },
+    "com.TickTick.task.mac": {
+        "Hide TickTick": "⌘W",
+        "Sync": "⌘R"
+    },
+    "com.builtbymeh.tweeten": {
+        "Hide Tweeten": "⌘W"
+    },
+    "com.microsoft.VSCode": {
+        "More…": "⌘R"
+    },
+    "com.microsoft.VSCodeInsiders": {
+        "More…": "⌘R"
+    }
+}
