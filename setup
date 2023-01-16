@@ -254,7 +254,7 @@ echo
 
 #==================================================[ System write ]==================================================#
 
-if "$doAll" || waitInput "Run to change Launchpad size, add spaces on Dock,\n    change the saving screen capture location to the new folder and change computer name." 4; then
+if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
   echoNumber " 🟩 Changing Launchpad size..."
   if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
     defaults write com.apple.dock springboard-columns -int 9
