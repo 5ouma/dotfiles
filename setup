@@ -405,8 +405,8 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
       sleep 1
 
   echoNumber " 🐙 Settting remote repository to GitHub..."
-    if [[ $(git -C ~/.dotfiles branch --remotes) =~ "master" ]]; then
-      git -C ~/.dotfiles fetch --set-upstream origin main && git -C ~/.dotfiles reset --hard origin/main && git -C ~/.dotfiles remote set-head origin main && git -C ~/.dotfiles branch -dr origin/master
+    if [[ $(git -C $dotfiles branch --remotes) =~ "master" ]]; then
+      git -C $dotfiles fetch --set-upstream origin main && git -C $dotfiles reset --hard origin/main && git -C $dotfiles remote set-head origin main && git -C $dotfiles branch -dr origin/master
       echoResult "Set remote repository!" "Settings remote repository is failed."
     else
       echoWarning "Remote repository is already set."
