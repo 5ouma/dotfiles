@@ -2,6 +2,53 @@
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
 #============================================================[ Aliases ]============================================================#
 
+# bat
+if type bat >/dev/null 2>&1; then
+  alias cat="bat --theme=ansi"
+fi
+
+# delta
+if type delta >/dev/null 2>&1 && type dark-mode >/dev/null 2>&1; then
+  diff() {
+    if [[ "$(dark-mode status)" = "off" ]]; then
+      command delta --syntax-theme=GitHub "$@"
+    else
+      command delta --syntax-theme=ansi "$@"
+    fi
+  }
+  git() {
+    if [[ "$(dark-mode status)" = "off" ]]; then
+      command git -c delta.syntax-theme=GitHub "$@"
+    else
+      command git -c delta.syntax-theme=ansi "$@"
+    fi
+  }
+fi
+
+# doctors
+alias doctor="brew doctor && fig doctor"
+
+# Fig
+alias fd="fig doctor"
+alias fg="fig source"
+
+# forgit
+alias gflg="git forgit log"
+alias gfd="git forgit diff"
+alias gfrh="git forgit reset HEAD"
+
+# ghq
+alias gg="ghq get"
+alias gup="ghq list | ghq get --update --parallel"
+
+gcd() {
+  local repo
+  repo=$(ghq list | fzf --preview="if [[ -e $(ghq root)/{}/README.md ]]; then glow $(ghq root)/{}/README.md; else bat --theme=ansi --color=always --style=header,grid --line-range :300 $(ghq root)/{}/*; fi")
+  if [[ -n "$repo" ]]; then
+    cd "$(ghq list --full-path --exact "$repo")" || return
+  fi
+}
+
 # git
 alias ga="git forgit add"
 alias gapa="git add -p"
@@ -40,37 +87,12 @@ gcv() {
   git config core.editor "code --wait"
 }
 
-# forgit
-alias gflg="git forgit log"
-alias gfd="git forgit diff"
-alias gfrh="git forgit reset HEAD"
-
 # gitsu
 alias gsi="git-su init"
 alias gss="git-su select"
 
-# ghq
-alias gg="ghq get"
-alias gup="ghq list | ghq get --update --parallel"
-
-gcd() {
-  local repo
-  repo=$(ghq list | fzf --preview="if [[ -e $(ghq root)/{}/README.md ]]; then glow $(ghq root)/{}/README.md; else bat --theme=ansi --color=always --style=header,grid --line-range :300 $(ghq root)/{}/*; fi")
-  if [[ -n "$repo" ]]; then
-    cd "$(ghq list --full-path --exact "$repo")" || return
-  fi
-}
-
-# delta
-if type delta >/dev/null 2>&1 && type dark-mode >/dev/null 2>&1; then
-  git() {
-    if [[ "$(dark-mode status)" = "off" ]]; then
-      command git -c delta.syntax-theme=GitHub "$@"
-    else
-      command git -c delta.syntax-theme=ansi "$@"
-    fi
-  }
-fi
+# Glow
+alias glow="glow -p"
 
 # Homebrew
 brew() {
@@ -103,13 +125,6 @@ bbd() {
   done
 }
 
-# mas
-alias mi="mas install"
-alias ml="mas list"
-alias ms="mas search"
-alias mun="mas uninstall"
-alias mup="mas upgrade"
-
 al() {
   echo "\033[34;1m==>\033[m \033[1mFormulae\033[m"
   while read -r line; do
@@ -125,32 +140,6 @@ al() {
   done < <(mas list)
 }
 
-# bat
-if type bat >/dev/null 2>&1; then
-  alias cat="bat --theme=ansi"
-fi
-
-# delta
-if type delta >/dev/null 2>&1 && type dark-mode >/dev/null 2>&1; then
-  diff() {
-    if [[ "$(dark-mode status)" = "off" ]]; then
-      command delta --syntax-theme=GitHub "$@"
-    else
-      command delta --syntax-theme=ansi "$@"
-    fi
-  }
-fi
-
-# doctors
-alias doctor="brew doctor && fig doctor"
-
-# Fig
-alias fd="fig doctor"
-alias fg="fig source"
-
-# Glow
-alias glow="glow -p"
-
 # lporg
 alias lps="lporg save -c $dotfiles/data/launchpad.yaml >/dev/null 2>&1"
 alias lpl="lporg load -n $dotfiles/data/launchpad.yaml >/dev/null 2>&1"
@@ -163,6 +152,13 @@ fi
 
 # Macup
 alias mb="mackup -f backup"
+
+# mas
+alias mi="mas install"
+alias ml="mas list"
+alias ms="mas search"
+alias mun="mas uninstall"
+alias mup="mas upgrade"
 
 # trash
 if type trash >/dev/null 2>&1; then
