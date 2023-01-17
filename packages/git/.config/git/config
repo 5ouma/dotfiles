@@ -1,11 +1,29 @@
 [core]
   editor = code --wait
+  pager = delta --side-by-side --width ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+[difftool]
+  prompt = false
 [init]
   defaultBranch = main
 [merge]
   tool = code --wait \"$MERGED\"
 [push]
   default = simple
+
+[delta]
+  file-added-label = "+"
+  file-modified-label = "!"
+  file-removed-label = "-"
+  file-renamed-label = "?"
+  right-arrow = "→"
+  keep-plus-minus-markers = true
+  line-numbers = true
+  navigate = true
+  side-by-side = true
+  tabs = 2
+[interactive]
+  diffFilter = delta --color-only
+
 [url "github:"]
   InsteadOf = https://gist.github.com/
   InsteadOf = git@gist.github.com/
@@ -22,7 +40,3 @@
   InsteadOf = https://github.com/Nit-Suzuka-Program-Design
   InsteadOf = git@github.com:Nit-Suzuka-Program-Design
   InsteadOf = ssh://git@github.com/Nit-Suzuka-Program-Design
-[diff]
-  tool = vimdiff
-[difftool]
-  prompt = false

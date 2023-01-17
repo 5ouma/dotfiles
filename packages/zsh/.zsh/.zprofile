@@ -61,6 +61,17 @@ gcd() {
   fi
 }
 
+# delta
+if type delta >/dev/null 2>&1 && type dark-mode >/dev/null 2>&1; then
+  git() {
+    if [[ "$(dark-mode status)" = "off" ]]; then
+      command git -c delta.syntax-theme=GitHub "$@"
+    else
+      command git -c delta.syntax-theme=ansi "$@"
+    fi
+  }
+fi
+
 # Homebrew
 brew() {
   if command brew "$@"; then
@@ -117,6 +128,17 @@ al() {
 # bat
 if type bat >/dev/null 2>&1; then
   alias cat="bat --theme=ansi"
+fi
+
+# delta
+if type delta >/dev/null 2>&1 && type dark-mode >/dev/null 2>&1; then
+  diff() {
+    if [[ "$(dark-mode status)" = "off" ]]; then
+      command delta --syntax-theme=GitHub "$@"
+    else
+      command delta --syntax-theme=ansi "$@"
+    fi
+  }
 fi
 
 # doctors
