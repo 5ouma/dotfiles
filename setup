@@ -364,7 +364,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
 
   echoNumber " ⌨️ Restoring App Shortcuts..."
     if [[ ! "$(defaults read com.apple.universalaccess "com.apple.custommenu.apps")" =~ "\"" ]]; then
-      eas load "$dotfiles/data/keyboard_shortcuts.json"
+      mksei load "$dotfiles/data/keyboard_shortcuts.json"
       echoResult "Restored App Shortcuts!" "Restoring App Shortcuts is failed."
     else
       echoWarning "App Shortcuts is already restored."
