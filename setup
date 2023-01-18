@@ -3,7 +3,7 @@
 #==================================================[ Clone repository ]==================================================#
 
 if [[ ! -e "$HOME/.dotfiles" ]]; then
-  echo -e "\033[36minfo\033[m Cloning repository into \`~/.dotfiles\`..."
+  printf "\033[36m%s\033[m %s\n" "info" "Cloning repository into \`~/.dotfiles\`..."
   git clone https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
   git -C ~/.dotfiles remote set-url origin git@github.com:5ouma/dotfiles.git
   git -C ~/.dotfiles switch -c main && git -C ~/.dotfiles branch -d master
@@ -27,10 +27,94 @@ allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
 
 #==================================================[ Functions ]==================================================#
 
-waitInput() {
-  echo -en "\033[34;1mask\033[m $1 (y/n/other to abort): "
-  read -r -k 1 run
+printn() {
+  print "$1\n"
+}
+
+printc() {
+  local color
+  local isBold
+  case "$1" in
+    red)
+      color=31
+      ;;
+    green)
+      color=32
+      ;;
+    yellow)
+      color=33
+      ;;
+    blue)
+      color=34
+      ;;
+    magenta)
+      color=35
+      ;;
+    cyan)
+      color=36
+      ;;
+    white)
+      color=37
+      ;;
+    gray)
+      color=90
+      ;;
+  esac
+  [[ "$2" = true ]] && isBold=1 || isBold=0
+  if [[ "$3" = true ]]; then
+    printf "\033[%s;%sm%s\033[m %s\n" "$isBold" "$color" "$4" "$5"
+  else
+    printf "\033[%s;%sm%s\033[m %s" "$isBold" "$color" "$4" "$5"
+  fi
+}
+
+printOpt() {
+  printf "    \033[32m-%s\033[m, \033[32m--%s\033[m%s\n" "$1" "$2" "$3"
+}
+
+echoAsk() {
+  printc blue true false "ask" "$1: "
+}
+
+echoQue() {
+  printc gray true false "question" "$1: "
+}
+
+echoInfo() {
+  printc cyan false true "info" "$1"
+}
+
+echoWarning() {
+  printc yellow false true "warning" "$1"
+}
+
+echoResult() {
+  if [[ $? = 0 ]]; then
+    printc green false true "success" "$1"
+    doneAnything=true
+  else
+    printc red false true "error" "$2"
+  fi
+}
+
+echoNumber() {
+  printc gray false true "[$nowNum/$allNum]" "$1"
+  ((nowNum++))
+}
+
+echoDone() {
+  newLine
+  printn " ✨ Setting up successfully!"
+}
+
+newLine() {
   echo
+}
+
+waitInput() {
+  echoAsk "$1 (y/n/other to abort)"
+  read -r -k 1 run
+  newLine
   if [[ "$run" =~ "y|Y" ]]; then
     return 0
   elif [[ "$run" =~ "n|N" ]]; then
@@ -40,48 +124,18 @@ waitInput() {
     return 1
   else
     if "$doneAnything"; then
-      echo -e "\n✨ Setting up successfully!\n"
+      echoDone
     else
-      echo
-      echoWarning "Nothing has changed.\n"
+      newLine
+      echoWarning "Nothing has changed."
     fi
     exec $SHELL -l
   fi
 }
 
 waitReturn() {
-  echo "Press RETURN to continue"
+  printf "Press RETURN to continue"
   read -rs
-}
-
-echoAsk() {
-  echo -en "\033[34;1mask\033[m $1: "
-}
-
-echoQue() {
-  echo -en "\033[90;1mquestion\033[m $1: "
-}
-
-echoInfo() {
-  echo -e "\033[36minfo\033[m $1"
-}
-
-echoWarning() {
-  echo -e "\033[33mwarning\033[m $1"
-}
-
-echoResult() {
-  if [[ $? = 0 ]]; then
-    echo -e "\033[32msuccess\033[m $1"
-    doneAnything=true
-  else
-    echo -e "\033[31merror\033[m $2"
-  fi
-}
-
-echoNumber() {
-  echo -e "\033[90m[$nowNum/$allNum]\033[m $1"
-  ((nowNum++))
 }
 
 makeSymlink() {
@@ -105,7 +159,7 @@ makeFile() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
       touch "$target"
-      echo "$target"
+      printn "$target"
         notSetup=false
     fi
   done
@@ -115,7 +169,7 @@ makeDir() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
       mkdir -p "$target"
-      echo "$target"
+      printn "$target"
         notSetup=false
     fi
   done
@@ -169,18 +223,21 @@ uninstallLang() {
 
 case "$1" in
   "-h" | "--help")
-    echo -e "\033[32mdotfiles\033[m"
-    echo -e "My zsh, vim and other settings, plugins, etc and setup.\n"
+    printc green false true "dotfiles"
+    printn "My zsh, vim and other settings, plugins, etc and setup."
 
-    echo -e "\033[33mUSAGE:\033[m
-    setup\n"
-    echo -e "\033[33mOPTIONS:\033[m
-    \033[32m-h\033[m, \033[32m--help\033[m    Print help information
-    \033[32m-y\033[m, \033[32m--yes\033[m     Run all configuration
-    \033[32m-s\033[m, \033[32m--set\033[m     Set files to home directory\n"
-    echo -e "\033[33mCOMMANDS:\033[m
-    \033[32minstall\033[m <languages>      Install programming languages with asdf
-    \033[32muninstall\033[m <languages>    Uninstall programming languages from asdf\n"
+    printc yellow false true "USAGE:"
+    printn "    setup"
+
+    printc yellow false true "OPTIONS:"
+    printOpt "h" "help" "    Print help information"
+    printOpt "y" "yes" "     Run all configuration"
+    printOpt "s" "set" "     Set files to home directory"
+    newLine
+
+    printc yellow false true "COMMANDS:"
+    printc green false true "    install" "<languages>      Install programming languages with asdf"
+    printc green false true "    uninstall" "<languages>    Uninstall programming languages from asdf"
     exec $SHELL -l
     ;;
 
@@ -210,13 +267,13 @@ esac
 
 #==================================================[ Ask to confirm ]==================================================#
 
-echo -en "\033[34;1mask\033[m Are you sure to start setup? (y/n): "
-read -rq && echo -e "\n" || { echo -e "\n" && exec $SHELL -l; }
+echoAsk "Are you sure to start setup? (y/n)"
+read -rq && echo -e "\n" || { newLine && exec $SHELL -l; }
 
 #==================================================[ Homebrew install ]==================================================#
 
 if "$doAll" || waitInput "Install Homebrew." 1; then
-  echoNumber " 🍺 Installing Homebrew..."
+  echoNumber "🍺 Installing Homebrew..."
   if ! (type brew >/dev/null 2>&1); then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       waitReturn
@@ -232,21 +289,21 @@ if "$doAll" || waitInput "Install Homebrew." 1; then
   fi
 fi
 
-echo
+newLine
 
 #==================================================[ Files, directories and commands ]==================================================#
 
 if "$doAll" || waitInput "Make symlinks or create terminal files." 1; then
-  echoNumber " 🔗 The following files and directories will be symlinked or created:"
+  echoNumber "🔗 The following files and directories will be symlinked or created:"
     setFiles
 fi
 
-echo
+newLine
 
 #==================================================[ System write ]==================================================#
 
 if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
-  echoNumber " 🟩 Changing Launchpad size..."
+  echoNumber "🟩 Changing Launchpad size..."
   if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
     defaults write com.apple.dock springboard-columns -int 9
     defaults write com.apple.dock springboard-rows -int 8
@@ -258,7 +315,7 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
       sleep 0.5
   fi
 
-  echoNumber " 🔲 Adding spaces on Dock..."
+  echoNumber "🔲 Adding spaces on Dock..."
   if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
     for ((i = 0; i < 6; i++)); do
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
@@ -270,7 +327,7 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
       sleep 0.5
   fi
 
-  echoNumber " 📷 Creating a screen capture directory and changing its directory to it..."
+  echoNumber "📷 Creating a screen capture directory and changing its directory to it..."
   if [[ $(defaults read com.apple.screencapture location) != "$HOME/Pictures/Screen Capture" ]]; then
     mkdir -p "$HOME/Pictures/Screen Capture"
     defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
@@ -284,17 +341,17 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
   killall Dock
   killall SystemUIServer
 
-  echoNumber " 💻 Setting computer name..."
+  echoNumber "💻 Setting computer name..."
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
     echoQue "What's your computer name?"
     read -r computerName
     localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
     scutil --set ComputerName "$computerName"
-      echo "computerName: $(sudo scutil --get ComputerName)"
+      printn "computerName: $(sudo scutil --get ComputerName)"
     scutil --set LocalHostName "$localName"
-      echo "LocalHostName: $(sudo scutil --get LocalHostName)"
+      printn "LocalHostName: $(sudo scutil --get LocalHostName)"
     scutil --set HostName "$computerName"
-      echo "HostName: $(sudo scutil --get HostName)"
+      printn "HostName: $(sudo scutil --get HostName)"
     echoResult "Set computer name!" "Setting computer name is failed."
       sleep 1
   else
@@ -303,7 +360,7 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
   fi
 fi
 
-echo
+newLine
 
 #==================================================[ Install apps and more ]==================================================#
 
@@ -321,11 +378,11 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
         open -a "1Password"
           waitReturn
     fi
-  echoNumber " 📲 Installing apps with Homebrew..."
+  echoNumber "📲 Installing apps with Homebrew..."
     brew bundle --no-lock --file="$dotfiles/data/Brewfile"
       sleep 1
     if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
-      echo "Please install DaVinci Resolve."
+      printn "Please install DaVinci Resolve."
         sleep 3
       open https://www.blackmagicdesign.com/jp/products/davinciresolve
         waitReturn
@@ -333,7 +390,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
     echoResult "Installed apps!" "Installing apps is failed."
       sleep 1
 
-  echoNumber " 🟩 Setting up Launchpad..."
+  echoNumber "🟩 Setting up Launchpad..."
       lporg save -c "$HOME/.temp-launchpad.yaml" >/dev/null 2>&1
     if [[ -n $(diff $HOME/.temp-launchpad.yaml $dotfiles/data/launchpad.yaml) ]]; then
       lporg load -n "$dotfiles/data/launchpad.yaml" >/dev/null 2>&1
@@ -344,7 +401,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
       command rm "$HOME/.temp-launchpad.yaml"
       sleep 1
 
-  echoNumber " 📀 Restoring appliaction settings with Mackup..."
+  echoNumber "📀 Restoring appliaction settings with Mackup..."
     if [[ -e "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup" ]]; then
       mackup restore
       echoResult "Restored app settings!" "Restoring app settings is failed."
@@ -353,7 +410,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
     fi
       sleep 1
 
-  echoNumber " ⌨️ Restoring App Shortcuts..."
+  echoNumber "⌨️ Restoring App Shortcuts..."
     if [[ ! "$(defaults read com.apple.universalaccess "com.apple.custommenu.apps")" =~ "\"" ]]; then
       mksei load "$dotfiles/data/keyboard_shortcuts.json"
       echoResult "Restored App Shortcuts!" "Restoring App Shortcuts is failed."
@@ -363,7 +420,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
       sleep 1
 
 
-  echoNumber " 🖥 Installing Shell Integration for iTerm2..."
+  echoNumber "🖥 Installing Shell Integration for iTerm2..."
     if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
       curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
       echoResult "Installed Shell Integration!" "Installing Shell Integration is failed."
@@ -372,14 +429,14 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
     fi
     sleep 1
 
-  echoNumber " 💾 Installing programming language with asdf..."
+  echoNumber "💾 Installing programming language with asdf..."
     . /usr/local/opt/asdf/libexec/asdf.sh
     while read -r lang; do
       installLang "$lang" false
     done < <(awk '{print $1}' "$packages/asdf/.tool-versions")
       sleep 1
 
-  echoNumber " 🧶 Installing packages with yarn..."
+  echoNumber "🧶 Installing packages with yarn..."
     if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
       yarn global add
       echoResult "Installed packages!" "Installing packages is failed."
@@ -388,14 +445,14 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
     fi
       sleep 1
 
-  echoNumber " 📝 Installing Vim plugins with Jetpack..."
+  echoNumber "📝 Installing Vim plugins with Jetpack..."
     export VIMRC="$HOME/.vim/.vimrc"
     export VIMINIT="source $VIMRC"
     vim +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
       sleep 1
 
-  echoNumber " 🐙 Settting remote repository to GitHub..."
+  echoNumber "🐙 Settting remote repository to GitHub..."
     if [[ $(git -C $dotfiles branch --remotes) =~ "master" ]]; then
       git -C $dotfiles fetch --set-upstream origin main && git -C $dotfiles reset --hard origin/main && git -C $dotfiles remote set-head origin main && git -C $dotfiles branch -dr origin/master
       echoResult "Set remote repository!" "Settings remote repository is failed."
@@ -405,12 +462,11 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
       sleep 1
 fi
 
-echo
-
 #==================================================[ Done! ]==================================================#
 
 if "$doneAnything"; then
-  echo "✨ Setting up successfully!"
+  echoDone
 else
+  newLine
   echoWarning "Nothing has changed."
 fi
