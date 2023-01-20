@@ -98,9 +98,9 @@ alias glow="glow -p"
 brew() {
   if command brew "$@"; then
     if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
-      echo "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m"
+      printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
       bbd
-      echo "🍺  Brewfile was successfully generated!"
+      printf "🍺 Brewfile was successfully generated!\n"
     fi
   fi
 }
@@ -126,17 +126,17 @@ bbd() {
 }
 
 al() {
-  echo "\033[34;1m==>\033[m \033[1mFormulae\033[m"
+  printf "\033[34;1m==>\033[m \033[1mFormulae\033[m\n"
   while read -r line; do
-    echo "  $line"
+    printf "  $line\n"
   done < <(brew list --formulae --version)
-  echo -e "\n\033[34;1m==>\033[m \033[1mCasks\033[m"
+  printf "\n\033[34;1m==>\033[m \033[1mCasks\033[m\n"
   while read -r line; do
-    echo "  $line"
+    printf "  $line\n"
   done < <(brew list --cask --version)
-  echo -e "\n\033[34;1m==>\033[m \033[1mmas\033[m"
+  printf "\n\033[34;1m==>\033[m \033[1mmas\033[m\n"
   while read -r line; do
-    echo "  $line"
+    printf "  $line\n"
   done < <(mas list)
 }
 
