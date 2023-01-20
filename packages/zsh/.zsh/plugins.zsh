@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # Powerlevel10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of "$ZDOTDIR"/.zshrc.
