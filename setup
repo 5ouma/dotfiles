@@ -89,7 +89,7 @@ newLine() {
 
 waitInput() {
   echoAsk "$1 (y/n/other to abort)"
-  read -r -k 1 run
+  read -rk 1 run
   newLine
   if [[ "$run" =~ "y|Y" ]]; then
     return 0
@@ -253,9 +253,7 @@ if "$doAll" || waitInput "Install Homebrew." 1; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       waitReturn
     echoResult "Installed Homebrew!" "Installing Homebrew is failed."
-    if [[ $(uname -m) = "arm64" ]]; then
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
+    [ "$(uname -m)" = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
     brew doctor
       sleep 2
   else
@@ -303,7 +301,7 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
   fi
 
   echoNumber "📷 Creating a screen capture directory and changing its directory to it..."
-  if [[ $(defaults read com.apple.screencapture location) != "$HOME/Pictures/Screen Capture" ]]; then
+  if [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
     mkdir -p "$HOME/Pictures/Screen Capture"
     defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
     echoResult "Created screen capture directory and changed its directory!" "Creating screen capture directory and changing its directory is failed."
@@ -341,11 +339,12 @@ newLine
 #==================================================[ Install apps and more ]==================================================#
 
 if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; then
+  echoNumber "📲 Installing apps with Homebrew..."
     echoInfo "Opening App Store..."
     echoInfo "Please sign in to App Store."
         sleep 3
       open -a "App Store"
-      waitReturn
+        waitReturn
     if [[ ! -e "/Applications/1Password.app" ]]; then
       echoInfo "Installing 1Password..."
         brew install 1password
@@ -354,7 +353,6 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
         open -a "1Password"
           waitReturn
     fi
-  echoNumber "📲 Installing apps with Homebrew..."
     brew bundle --no-lock --file="$dotfiles/data/Brewfile"
       sleep 1
     if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
