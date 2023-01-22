@@ -5,11 +5,11 @@ export PATH="/usr/local/bin":$PATH
 export HOMEBREW_AUTOREMOVE=1
 
 # Vim
-export VIMRC="$HOME/.vim/.vimrc"
-export VIMINIT="source $VIMRC"
+export -r VIMRC="$HOME/.vim/.vimrc"
+export -r VIMINIT="source $VIMRC"
 
 # dotfiles
-export dotfiles="$HOME/.dotfiles"
+export -r dotfiles="$HOME/.dotfiles"
 
 # setup
 export PATH="$dotfiles:$PATH"

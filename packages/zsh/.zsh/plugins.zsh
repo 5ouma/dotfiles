@@ -11,7 +11,7 @@ fi
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
 # forgit
-export FORGIT_NO_ALIASES=1
+export -r FORGIT_NO_ALIASES=1
 
 # zsh-you-should-use
-export YSU_MESSAGE_FORMAT="💡 $(tput setaf 6)%alias$(tput sgr0)"
+export -r YSU_MESSAGE_FORMAT="💡 $(tput setaf 6)%alias$(tput sgr0)"

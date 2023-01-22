@@ -15,15 +15,15 @@ zstyle ":completion:*:commands" rehash 1
 
 #==================================================[ Variables ]==================================================#
 
-dotfiles="$HOME/.dotfiles"
-packages="$dotfiles/packages"
-export ZDOTDIR="$HOME/.zsh"
+[ -z "$dotfiles" ] && declare -r dotfiles="$HOME/.dotfiles"
+declare -r packages="$dotfiles/packages"
+export -r ZDOTDIR="$HOME/.zsh"
 
-doAll=false
-notSetup=true
-doneAnything=false
-nowNum=1
-allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
+declare doAll=false
+declare notSetup=true
+declare doneAnything=false
+declare nowNum=1
+declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
 
 #==================================================[ Functions ]==================================================#
 
@@ -339,7 +339,8 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
     echoQue "What's your computer name?"
     read -r computerName
-    localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+    declare -r localName
+      localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
     scutil --set ComputerName "$computerName"
       printn "computerName: $(sudo scutil --get ComputerName)"
     scutil --set LocalHostName "$localName"
@@ -440,8 +441,8 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
       sleep 1
 
   echoNumber "📝 Installing Vim plugins with Jetpack..."
-    export VIMRC="$HOME/.vim/.vimrc"
-    export VIMINIT="source $VIMRC"
+    [ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
+    [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
     vim +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
       sleep 1

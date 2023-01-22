@@ -1,2 +1,2 @@
-export ZDOTDIR="$HOME/.zsh"
+export -r ZDOTDIR="$HOME/.zsh"
 source "$ZDOTDIR/.zshenv"
