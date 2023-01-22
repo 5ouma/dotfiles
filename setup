@@ -80,7 +80,7 @@ echoNumber() {
 
 echoDone() {
   newLine
-  printn " ✨ Setting up successfully!"
+  print "✨ Setting up successfully!"
 }
 
 newLine() {
@@ -110,7 +110,7 @@ waitInput() {
 }
 
 waitReturn() {
-  printf "Press RETURN to continue"
+  print "Press RETURN to continue"
   read -rs
 }
 
@@ -135,7 +135,7 @@ makeFile() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
       touch "$target"
-      printn "$target"
+      print "$target"
         notSetup=false
     fi
   done
@@ -145,7 +145,7 @@ makeDir() {
   for target in "$@"; do
     if [[ ! -e "$target" ]]; then
       mkdir -p "$target"
-      printn "$target"
+      print "$target"
         notSetup=false
     fi
   done
@@ -323,11 +323,11 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." 4; then
     declare -r localName
       localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
     scutil --set ComputerName "$computerName"
-      printn "computerName: $(sudo scutil --get ComputerName)"
+      print "computerName: $(sudo scutil --get ComputerName)"
     scutil --set LocalHostName "$localName"
-      printn "LocalHostName: $(sudo scutil --get LocalHostName)"
+      print "LocalHostName: $(sudo scutil --get LocalHostName)"
     scutil --set HostName "$computerName"
-      printn "HostName: $(sudo scutil --get HostName)"
+      print "HostName: $(sudo scutil --get HostName)"
     echoResult "Set computer name!" "Setting computer name is failed."
       sleep 1
   else
@@ -358,7 +358,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
     brew bundle --no-lock --file="$dotfiles/data/Brewfile"
       sleep 1
     if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
-      printn "Please install DaVinci Resolve."
+      print "Please install DaVinci Resolve."
         sleep 3
       open https://www.blackmagicdesign.com/jp/products/davinciresolve
         waitReturn
