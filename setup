@@ -27,72 +27,54 @@ declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
 
 #==================================================[ Functions ]==================================================#
 
-printn() {
-  print "$1\n"
+getColor() {
+  case "$1" in
+    red) echo -n 31 ;;
+    green) echo -n 32 ;;
+    yellow) echo -n 33 ;;
+    blue) echo -n 34 ;;
+    cyan) echo -n 36 ;;
+    gray) echo -n 90 ;;
+  esac
 }
 
 printc() {
-  local color
-  local isBold
-  case "$1" in
-    red)
-      color=31
-      ;;
-    green)
-      color=32
-      ;;
-    yellow)
-      color=33
-      ;;
-    blue)
-      color=34
-      ;;
-    cyan)
-      color=36
-      ;;
-    gray)
-      color=90
-      ;;
-  esac
-  [[ "$2" = true ]] && isBold=1 || isBold=0
-  if [[ "$3" = true ]]; then
-    printf "\033[%s;%sm%s\033[m %s\n" "$isBold" "$color" "$4" "$5"
-  else
-    printf "\033[%s;%sm%s\033[m %s" "$isBold" "$color" "$4" "$5"
-  fi
+  declare -r color="$(getColor "$1")"
+  [ "$2" = true ] && declare -r isBold=1 || declare -r isBold=0
+  printf "\033[%s;%sm%s\033[m" "$isBold" "$color" "$3"
 }
 
 printOpt() {
-  printf "    \033[32m-%s\033[m, \033[32m--%s\033[m%s\n" "$1" "$2" "$3"
+  printf "  %s, %s%s\n" "$(printc green false "-$1")" "$(printc green false "--$2")" "$3"
 }
 
 echoAsk() {
-  printc blue true false "ask" "$1: "
+  printf "$(printc blue true "ask") %s: " "$1"
 }
 
 echoQue() {
-  printc gray true false "question" "$1: "
+  printf "$(printc gray true "question") %s: " "$1"
 }
 
 echoInfo() {
-  printc cyan false true "info" "$1"
+  printf "$(printc cyan true "info") %s\n" "$1"
 }
 
 echoWarning() {
-  printc yellow false true "warning" "$1"
+  printf "$(printc yellow true "warning") %s\n" "$1"
 }
 
 echoResult() {
   if [[ $? = 0 ]]; then
-    printc green false true "success" "$1"
+    printf "$(printc green false "success") %s\n" "$1"
     doneAnything=true
   else
-    printc red false true "error" "$2"
+    printf "$(printc red false "error") %s\n" "$2"
   fi
 }
 
 echoNumber() {
-  printc gray false true "[$nowNum/$allNum]" "$1"
+  printf "$(printc gray false "[$nowNum/$allNum]") %s\n" "$1"
   ((nowNum++))
 }
 
@@ -217,21 +199,20 @@ uninstallLang() {
 
 case "$1" in
   "-h" | "--help")
-    printc green false true "dotfiles"
-    printn "My zsh, vim and other settings, plugins, etc and setup."
-
-    printc yellow false true "USAGE:"
-    printn "    setup"
-
-    printc yellow false true "OPTIONS:"
+    print "$(printc green false "dotfiles")"
+    print "My zsh, vim and other settings, plugins, etc and setup."
+    newLine
+    print "$(printc yellow false "USAGE:")"
+    print "  setup"
+    newLine
+    print "$(printc yellow false "OPTIONS:")"
     printOpt "h" "help" "    Print help information"
     printOpt "y" "yes" "     Run all configuration"
     printOpt "s" "set" "     Set files to home directory"
     newLine
-
-    printc yellow false true "COMMANDS:"
-    printc green false true "    install" "<languages>      Install programming languages with asdf"
-    printc green false true "    uninstall" "<languages>    Uninstall programming languages from asdf"
+    print "$(printc yellow false "COMMANDS:")"
+    print "  $(printc green false "install") <languages>      Install programming languages with asdf"
+    print "  $(printc green false "uninstall") <languages>    Uninstall programming languages with asdf"
     exec $SHELL -l
     ;;
 
