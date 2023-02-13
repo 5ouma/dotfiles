@@ -8,16 +8,16 @@ if type bat >/dev/null 2>&1; then
 fi
 
 # delta
-if type delta >/dev/null 2>&1 && type dark-mode >/dev/null 2>&1; then
+if (type delta >/dev/null 2>&1); then
   diff() {
-    if [[ "$(dark-mode status)" = "off" ]]; then
+    if ! (defaults read -g AppleInterfaceStyle >/dev/null 2>&1); then
       command delta --syntax-theme=GitHub "$@"
     else
       command delta --syntax-theme=ansi "$@"
     fi
   }
   git() {
-    if [[ "$(dark-mode status)" = "off" ]]; then
+    if ! (defaults read -g AppleInterfaceStyle >/dev/null 2>&1); then
       command git -c delta.syntax-theme=GitHub "$@"
     else
       command git -c delta.syntax-theme=ansi "$@"
