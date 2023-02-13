@@ -53,6 +53,20 @@ OPTIONS:
 
 ## 📝 Detail
 
+- ### Package Manager : [🍺 `Homebrew`](https://brew.sh)
+  ```shell
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+<br>
+
+- ### Runtime Manager : [🧾 `rtx`](https://github.com/jdxcode/rtx)
+  ```shell
+  brew install jdxcode/tap/rtx
+  ```
+
+<br>
+
 - ### Terminal : [📺 `iTerm2`](https://iterm2.com)
 
   ```shell
@@ -87,20 +101,6 @@ OPTIONS:
     ```shell
     fig plugins add powerlevel10k
     ```
-
-<br>
-
-- ### Package Manager : [🍺 `Homebrew`](https://brew.sh)
-  ```shell
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  ```
-
-<br>
-
-- ### Runtime Manager : [🧾 `rtx`](https://brew.sh)
-  ```shell
-  brew install jdxcode/tap/rtx
-  ```
 
 <br>
 
