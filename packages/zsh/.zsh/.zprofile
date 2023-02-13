@@ -3,7 +3,7 @@
 #============================================================[ Aliases ]============================================================#
 
 # bat
-if type bat >/dev/null 2>&1; then
+if (type bat >/dev/null 2>&1); then
   alias cat="bat --theme=ansi"
 fi
 
@@ -114,7 +114,7 @@ gc() {
 
 # Homebrew
 brew() {
-  if command brew "$@"; then
+  if (command brew "$@"); then
     if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
       printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
       bbd
@@ -163,7 +163,7 @@ alias lps="lporg save -c $dotfiles/data/launchpad.yaml >/dev/null 2>&1"
 alias lpl="lporg load -n $dotfiles/data/launchpad.yaml >/dev/null 2>&1"
 
 # lsd
-if type lsd >/dev/null 2>&1; then
+if (type lsd >/dev/null 2>&1); then
   alias ls="lsd -A --ignore-glob=\".DS_Store\""
   alias tree="lsd -A --tree --ignore-glob=\".DS_Store\" --ignore-glob=\".git\""
 fi
@@ -179,7 +179,7 @@ alias mun="mas uninstall"
 alias mup="mas upgrade"
 
 # trash
-if type trash >/dev/null 2>&1; then
+if (type trash >/dev/null 2>&1); then
   alias rm="trash -F"
 fi
 
