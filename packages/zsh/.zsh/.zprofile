@@ -201,12 +201,6 @@ alias ci.="code-insiders ."
 alias ka="killall"
 alias mv="mv -i -v"
 
-# memo
-alias mgc="memo git change"
-alias mgm="memo git message"
-alias mgfp="memo git force pull"
-alias mgfr="memo git force reset"
-
 #============================================================[ Paths ]============================================================#
 
 # Fig post block. Keep at the bottom of this file.
