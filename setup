@@ -117,7 +117,7 @@ waitReturn() {
 makeSymlink() {
   while read -r pack; do
     local homeFile homeDir >/dev/null 2>&1
-    homeFile="$2/$(echo "$pack" | perl -pe "s/.*$(basename "$1")\/.*?\///")"
+    homeFile="$2/$(echo "$pack" | sed -r "s/.*$(basename "$1")\/[^\/]*\///")"
     homeDir=$(dirname "$homeFile")
     if [[ -e "$homeFile" && -n $(diff "$pack" "$homeFile") ]]; then
       mkdir -p "$(dirname "$1")/backup"
