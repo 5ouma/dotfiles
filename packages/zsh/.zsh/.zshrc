@@ -16,6 +16,9 @@ fi
 # iTerm2
 test -e "$ZDOTDIR/.iterm2_shell_integration.zsh" && source "$ZDOTDIR/.iterm2_shell_integration.zsh"
 
+# 1Password
+source "$HOME/.config/op/plugins.sh"
+
 #===========================================================[ Settings ]===========================================================#
 
 setopt print_eight_bit
