@@ -3,7 +3,7 @@
 <div align="center">
   <img width=500 src="https://user-images.githubusercontent.com/101255979/187659228-d6105c84-d0e0-431c-8034-c132db2ca3c5.png#gh-light-mode-only" alt="DOTFILES - light">
   <img width=500 src="https://user-images.githubusercontent.com/101255979/187659366-ccd98f00-6ab3-4aa3-813b-46fdbbc3252a.png#gh-dark-mode-only" alt="DOTFILES - dark">
-  <p><b>The most minimal and useful dotfiles ever.</b><br>
+  <p><b>The most minimal and powerful dotfiles ever.</b><br>
   My zsh, vim and other settings, plugins, etc and setup.</p>
 </div>
 
