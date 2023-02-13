@@ -240,7 +240,7 @@ read -rq && newLine || { newLine; exec $SHELL -l; }
 
 if [[ ! -e "$HOME/.dotfiles" ]]; then
   echoInfo "Cloning repository into \`~/.dotfiles\`..."
-  git clone -q https://github.com/5ouma/dotfiles.git ~/.dotfiles
+  git clone -q https://github.com/5ouma/dotfiles.git "$dotfiles"
   declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/scripts"/* | wc -l)))
 fi
 newLine
