@@ -7,14 +7,6 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
         sleep 3
       open -a "App Store"
         waitReturn
-    if [[ ! -e "/Applications/1Password.app" ]]; then
-      echoInfo "Installing 1Password..."
-        brew install 1password
-      echoInfo "Please sign in to 1Password and save public ssh keys."
-          sleep 3
-        open -a "1Password"
-          waitReturn
-    fi
     brew bundle --no-lock --file="$data/Brewfile"
       sleep 1
     if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
@@ -86,14 +78,5 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
     [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
     vim +qall
     echoResult "Installed plugins!" "Installing plugins is failed."
-      sleep 1
-
-  echoNumber "🐙 Settting remote repository to GitHub..."
-    if [[ $(git -C "$dotfiles" branch --remotes) =~ "master" ]]; then
-      git -C "$dotfiles" fetch --set-upstream origin main && git -C "$dotfiles" reset --hard origin/main && git -C "$dotfiles" remote set-head origin main && git -C "$dotfiles" branch -dr origin/master
-      echoResult "Set remote repository!" "Settings remote repository is failed."
-    else
-      echoWarning "Remote repository is already set."
-    fi
       sleep 1
 fi

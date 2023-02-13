@@ -240,9 +240,7 @@ read -rq && echo -e "\n" || { newLine && exec $SHELL -l; }
 
 if [[ ! -e "$HOME/.dotfiles" ]]; then
   echoInfo "Cloning repository into \`~/.dotfiles\`..."
-  git clone -q https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
-  git -C ~/.dotfiles remote set-url origin git@github.com:5ouma/dotfiles.git
-  git -C ~/.dotfiles switch -c main && git -C ~/.dotfiles branch -d master
+  git clone -q https://github.com/5ouma/dotfiles.git ~/.dotfiles
   declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/scripts"/* | wc -l)))
 fi
 
