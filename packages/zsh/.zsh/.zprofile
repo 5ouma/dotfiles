@@ -54,7 +54,6 @@ alias ga="git forgit add"
 alias gapa="git add -p"
 alias gb="git branch"
 alias gc!="git commit -v --no-edit --amend"
-alias gc="git commit -v"
 alias gcf="git config"
 alias gcl="git clone --recurse-submodules"
 alias gd="git diff"
@@ -93,6 +92,25 @@ alias gss="git-su select"
 
 # Glow
 alias glow="glow -p"
+
+# Gum
+gc() {
+  local -r types=("fix : Fix bugs"
+    "hotfix : Fix critical bugs"
+    "add : Add new files or features"
+    "update : Update functions"
+    "change : Change specification"
+    "clean : Clean or refactor"
+    "disable : Disable functions"
+    "remove : Remove files"
+    "upgrade : Upgrade versions"
+    "revert : Revert changes"
+  )
+  local -r type="[$(gum choose "${types[@]}" | awk '{print $1}')]"
+  local -r summary=$(gum input --prompt "$type " --placeholder "Summary of this change")
+  local -r description=$(gum input --header "$type $summary" --placeholder "Details of this change")
+  gum confirm "Commit changes?" && git commit -m "$type $summary" -m "$description"
+}
 
 # Homebrew
 brew() {
