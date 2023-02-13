@@ -38,10 +38,6 @@ OPTIONS:
     -h, --help    Print help information
     -y, --yes     Run all configuration
     -s, --set     Set files to home directory
-
-COMMANDS:
-    install <languages>      Install programming languages with asdf
-    uninstall <languages>    Uninstall programming languages from asdf
 ```
 
 <br><br>
@@ -97,6 +93,13 @@ COMMANDS:
 - ### Package Manager : [🍺 `Homebrew`](https://brew.sh)
   ```shell
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+<br>
+
+- ### Runtime Manager : [🧾 `rtx`](https://brew.sh)
+  ```shell
+  brew install jdxcode/tap/rtx
   ```
 
 <br>

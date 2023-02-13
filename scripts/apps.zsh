@@ -57,11 +57,14 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
     fi
     sleep 1
 
-  echoNumber "💾 Installing programming language with asdf..."
-    . /usr/local/opt/asdf/libexec/asdf.sh
-    while read -r lang; do
-      installLang "$lang" false
-    done < <(awk '{print $1}' "$packages/asdf/.tool-versions")
+  echoNumber "💾 Installing programming language with rtx..."
+    eval "$(rtx activate zsh -q)"
+    if [[ "$(rtx ls)" =~ "missing" ]]; then
+      rtx install --all
+      echoResult "Installed all languages!" "Installing languages is failed."
+    else
+      echoWarning "Languages are already installed."
+    fi
       sleep 1
 
   echoNumber "🧶 Installing packages with yarn..."

@@ -10,8 +10,8 @@ if [[ $(uname -m) = "arm64" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
+# rtx
+eval "$(rtx activate zsh -q)"
 
 # iTerm2
 test -e "$ZDOTDIR/.iterm2_shell_integration.zsh" && source "$ZDOTDIR/.iterm2_shell_integration.zsh"

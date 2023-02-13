@@ -155,37 +155,6 @@ setFiles() {
   fi
 }
 
-installLang() {
-  if ! (asdf list "$1" >/dev/null 2>&1); then
-    echoInfo "Installing $1..."
-    asdf plugin-add "$1"
-    if "$2"; then
-      asdf install "$1" latest
-      asdf global "$1" latest
-    else
-      asdf install "$1"
-    fi
-    echoResult "Installed $1!" "Installing $1 is failed."
-    sleep 1
-  else
-    echoWarning "$1 is already installed."
-    sleep 0.5
-  fi
-}
-
-uninstallLang() {
-  if (asdf list "$1" >/dev/null 2>&1); then
-    while read -r ver; do
-      asdf uninstall "$1" "$ver"
-      asdf plugin remove "$1"
-      sed -i "" "/$1/d" "$packages/asdf/.tool-versions"
-    done < <(asdf list "$1" | awk '{print $1}')
-    echoResult "Uninstalled $1!\n" "Uninstalling $1 is failed.\n"
-  else
-    echoWarning "$1 doesn't exist."
-  fi
-}
-
 #==================================================[ Options ]==================================================#
 
 case "$1" in
@@ -200,10 +169,6 @@ case "$1" in
     printOpt "h" "help" "    Print help information"
     printOpt "y" "yes" "     Run all configuration"
     printOpt "s" "set" "     Set files to home directory"
-    newLine
-    print "$(printc yellow false "COMMANDS:")"
-    print "  $(printc green false "install") <languages>      Install programming languages with asdf"
-    print "  $(printc green false "uninstall") <languages>    Uninstall programming languages with asdf"
     exec $SHELL -l
     ;;
 
@@ -213,20 +178,6 @@ case "$1" in
 
   "-s" | "--set")
     setFiles
-    exec $SHELL -l
-    ;;
-
-  "install")
-    for i in "${@:2}"; do
-      installLang "$i" true
-    done
-    exec $SHELL -l
-    ;;
-
-  "uninstall")
-    for i in "${@:2}"; do
-      uninstallLang "$i"
-    done
     exec $SHELL -l
     ;;
 esac

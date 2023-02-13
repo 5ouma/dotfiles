@@ -21,7 +21,8 @@ repos = [
 
 # Custom commands
 [commands]
-"mksei" = "mksei save $dotfiles/data/keyboard_shortcuts.json"
 "Jetpack" = "vim +Jetpack +qall"
 "lporg" = "lporg save -c \"$dotfiles/data/launchpad.yaml\" >/dev/null 2>&1"
 "mackup" = "mackup -f backup"
+"mksei" = "mksei save $dotfiles/data/keyboard_shortcuts.json"
+"rtx" = "rtx plugins update --all"
