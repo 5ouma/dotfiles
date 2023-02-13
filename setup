@@ -1,14 +1,5 @@
 #!/usr/bin/env zsh
 
-#==================================================[ Clone repository ]==================================================#
-
-if [[ ! -e "$HOME/.dotfiles" ]]; then
-  printf "\033[36m%s\033[m %s\n" "info" "Cloning repository into \`~/.dotfiles\`..."
-  git clone https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
-  git -C ~/.dotfiles remote set-url origin git@github.com:5ouma/dotfiles.git
-  git -C ~/.dotfiles switch -c main && git -C ~/.dotfiles branch -d master
-fi
-
 #==================================================[ Settings ]==================================================#
 
 zstyle ":completion:*:commands" rehash 1
@@ -23,7 +14,7 @@ declare doAll=false
 declare notSetup=true
 declare doneAnything=false
 declare nowNum=1
-declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
+[ -e "$HOME/.dotfiles" ] && declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
 
 #==================================================[ Functions ]==================================================#
 
@@ -244,6 +235,16 @@ esac
 
 echoAsk "Are you sure to start setup? (y/n)"
 read -rq && echo -e "\n" || { newLine && exec $SHELL -l; }
+
+#==================================================[ Clone repository ]==================================================#
+
+if [[ ! -e "$HOME/.dotfiles" ]]; then
+  echoInfo "Cloning repository into \`~/.dotfiles\`..."
+  git clone -q https://gitfront.io/r/Souma/DAeBcWDhv6Cj/dotfiles.git ~/.dotfiles
+  git -C ~/.dotfiles remote set-url origin git@github.com:5ouma/dotfiles.git
+  git -C ~/.dotfiles switch -c main && git -C ~/.dotfiles branch -d master
+  declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/setup" | wc -l) - 2))
+fi
 
 #==================================================[ Homebrew install ]==================================================#
 
