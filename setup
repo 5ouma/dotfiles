@@ -365,14 +365,14 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." 9; 
       sleep 1
 
   echoNumber "🟩 Setting up Launchpad..."
-      lporg save -c "$HOME/.temp-launchpad.yaml" >/dev/null 2>&1
-    if [[ -n $(diff "$HOME/.temp-launchpad.yaml" "$dotfiles/data/launchpad.yaml") ]]; then
+      lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
+    if [[ -n $(diff "$dotfiles/data/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
       lporg load -n "$dotfiles/data/launchpad.yaml" >/dev/null 2>&1
       echoResult "Set up Launchpad!" "Setting up Launchpad is failed."
     else
       echoWarning "Launchpad is already set."
     fi
-      command rm "$HOME/.temp-launchpad.yaml"
+      command rm "$HOME/.cache/launchpad.yaml"
       sleep 1
 
   echoNumber "📀 Restoring appliaction settings with Mackup..."
