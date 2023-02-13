@@ -234,7 +234,7 @@ esac
 #==================================================[ Ask to confirm ]==================================================#
 
 echoAsk "Are you sure to start setup? (y/n)"
-read -rq && echo -e "\n" || { newLine && exec $SHELL -l; }
+read -rq && newLine || { newLine; exec $SHELL -l; }
 
 #==================================================[ Clone repository ]==================================================#
 
@@ -243,6 +243,7 @@ if [[ ! -e "$HOME/.dotfiles" ]]; then
   git clone -q https://github.com/5ouma/dotfiles.git ~/.dotfiles
   declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/scripts"/* | wc -l)))
 fi
+newLine
 
 #==================================================[ Apply preference ]==================================================#
 
