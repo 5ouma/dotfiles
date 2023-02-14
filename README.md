@@ -73,13 +73,13 @@ OPTIONS:
   brew install iterm2-beta
   ```
 
-  - #### Font 1 : [🖌 `Fira Code`](https://github.com/tonsky/FiraCode)
+  - #### Font 1 : [🖋 `Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```shell
     brew install font-firacode
     ```
 
-  - #### Font 2 : [🖍 `HackGen35`](https://github.com/yuru7/hackgen)
+  - #### Font 2 : [✒️ `HackGen35`](https://github.com/yuru7/hackgen)
     ```shell
     brew install font-hackgen font-hackgen-nerd
     ```
@@ -88,7 +88,7 @@ OPTIONS:
 
 - ### Shell : [💾 `Zsh`](https://zsh.org)
 
-  - #### Plugin Manager : [📥 `Fig`](https://fig.io)
+  - #### Plugin Manager : [📦 `Fig`](https://fig.io)
 
     ```shell
     brew install fig
@@ -104,7 +104,7 @@ OPTIONS:
 
 <br>
 
-- ### Terminal Editor : 🖋 `Vim`
+- ### Terminal Editor : 🖌 `Vim`
 
   - #### Plugin Manager : [🚀 `Jetpack`](https://github.com/tani/vim-jetpack)
 
@@ -118,7 +118,7 @@ OPTIONS:
 
 ## 📲 Other Apps
 
-### Managing with [🍺 `Brewfile`](data/Brewfile)
+**Managing with [🍺 `Brewfile`](data/Brewfile)**
 
 <br><br>
 
