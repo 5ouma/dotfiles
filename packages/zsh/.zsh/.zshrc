@@ -9,7 +9,7 @@
 eval "$(rtx activate zsh -q)"
 
 # iTerm2
-[ -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ] && source "$ZDOTDIR/.iterm2_shell_integration.zsh"
+source $(brew --prefix)/opt/iterm2-shell-integration/bin/iterm2_shell_integration.zsh
 
 # 1Password
 source "$HOME/.config/op/plugins.sh"

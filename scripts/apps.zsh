@@ -47,16 +47,6 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
     fi
       sleep 1
 
-
-  echoNumber "🖥 Installing Shell Integration for iTerm2..."
-    if [[ ! -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ]]; then
-      curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
-      echoResult "Installed Shell Integration!" "Installing Shell Integration is failed."
-    else
-      echoWarning "Shell Integration is already installed."
-    fi
-    sleep 1
-
   echoNumber "💾 Installing programming language with rtx..."
     eval "$(rtx activate zsh -q)"
     if [[ "$(rtx ls)" =~ "missing" ]]; then
