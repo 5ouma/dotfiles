@@ -41,8 +41,7 @@ if "$doAll" || waitInput "Run some \`defaults\` commands." "$0"; then
   if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
     echoQue "What's your computer name?"
     read -r computerName
-    declare -r localName
-    localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+    declare -r localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
     scutil --set ComputerName "$computerName"
     print "computerName: $(sudo scutil --get ComputerName)"
     scutil --set LocalHostName "$localName"
