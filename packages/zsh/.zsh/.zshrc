@@ -2,9 +2,6 @@
 [ -f "$HOME/.fig/shell/zshrc.pre.zsh" ] && source "$HOME/.fig/shell/zshrc.pre.zsh"
 #========================================================[ Configurations ]========================================================#
 
-# Load plugin's settings
-source "$ZDOTDIR/plugins.zsh"
-
 # Homebrew
 [ $(uname -m) = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -16,6 +13,9 @@ eval "$(rtx activate zsh -q)"
 
 # 1Password
 source "$HOME/.config/op/plugins.sh"
+
+# Load plugin's settings
+source "$ZDOTDIR/plugins.zsh"
 
 #===========================================================[ Settings ]===========================================================#
 
