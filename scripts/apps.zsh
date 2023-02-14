@@ -30,7 +30,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
       sleep 1
 
   echoNumber "📀 Restoring appliaction settings with Mackup..."
-    if [[ -e "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Mackup" ]]; then
+    if [[ -n "$(mackup -n backup)" ]]; then
       mackup restore
       echoResult "Restored app settings!" "Restoring app settings is failed."
     else
