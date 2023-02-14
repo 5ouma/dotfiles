@@ -1,10 +1,5 @@
 if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0"; then
   echoNumber "📲 Installing apps with Homebrew..."
-  echoInfo "Opening App Store..."
-  echoInfo "Please sign in to App Store."
-  sleep 2
-  open -a "App Store"
-  waitReturn
   brew bundle --no-lock --file="$data/Brewfile"
   sleep 1
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
