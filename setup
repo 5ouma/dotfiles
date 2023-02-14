@@ -1,16 +1,14 @@
 #!/usr/bin/env zsh
 
-#==================================================[ Settings ]==================================================#
-
-zstyle ":completion:*:commands" rehash 1
-
 #==================================================[ Variables ]==================================================#
 
+declare -r gitRepo="https://github.com/5ouma/dotfiles.git"
+[ -z "$ZDOTDIR" ] && export -r ZDOTDIR="$HOME/.zsh"
 [ -z "$dotfiles" ] && declare -r dotfiles="$HOME/.dotfiles"
-declare -r packages="$dotfiles/packages"
+declare -r packageDir="$dotfiles/packages"
+declare -r scriptDir="$dotfiles/scripts"
+declare -r preferences=("homebrew" "files" "defaults" "apps")
 declare -r data="$dotfiles/data"
-declare -r scripts="$dotfiles/scripts"
-export -r ZDOTDIR="$HOME/.zsh"
 
 declare doAll=false
 declare notSetup=true
@@ -22,12 +20,12 @@ declare nowNum=1
 
 getColor() {
   case "$1" in
-    red) echo -n 31 ;;
-    green) echo -n 32 ;;
-    yellow) echo -n 33 ;;
-    blue) echo -n 34 ;;
-    cyan) echo -n 36 ;;
-    gray) echo -n 90 ;;
+  red) echo -n 31 ;;
+  green) echo -n 32 ;;
+  yellow) echo -n 33 ;;
+  blue) echo -n 34 ;;
+  cyan) echo -n 36 ;;
+  gray) echo -n 90 ;;
   esac
 }
 
@@ -37,10 +35,7 @@ printc() {
   printf "\033[%s;%sm%s\033[m" "$isBold" "$color" "$3"
 }
 
-printOpt() {
-  printf "  %s, %s%s\n" "$(printc green false "-$1")" "$(printc green false "--$2")" "$3"
-}
-
+# echo with message
 echoAsk() {
   printf "$(printc blue true "ask") %s: " "$1"
 }
@@ -57,6 +52,11 @@ echoWarning() {
   printf "$(printc yellow true "warning") %s\n" "$1"
 }
 
+echoNumber() {
+  printf "$(printc gray false "[$nowNum/$allNum]") %s\n" "$1"
+  ((nowNum++))
+}
+
 echoResult() {
   if [[ $? = 0 ]]; then
     printf "$(printc green false "success") %s\n" "$1"
@@ -66,20 +66,19 @@ echoResult() {
   fi
 }
 
-echoNumber() {
-  printf "$(printc gray false "[$nowNum/$allNum]") %s\n" "$1"
-  ((nowNum++))
-}
-
 echoDone() {
-  newLine
-  print "✨ Setting up successfully!"
+  if "$doneAnything"; then
+    print "✨ Setting up successfully!"
+  else
+    echoWarning "Nothing has changed."
+  fi
 }
 
 newLine() {
   echo
 }
 
+# wait user input
 waitInput() {
   echoAsk "$1 (y/n/other to abort)"
   read -rk 1 run
@@ -87,16 +86,12 @@ waitInput() {
   if [[ "$run" =~ "y|Y" ]]; then
     return 0
   elif [[ "$run" =~ "n|N" ]]; then
-    ((nowNum+=$(grep -o "echoNumber" "$2" | wc -l)))
+    ((nowNum += $(grep -o "echoNumber" "$2" | wc -l)))
     return 1
   else
-    if "$doneAnything"; then
-      echoDone
-    else
-      newLine
-      echoWarning "Nothing has changed."
-    fi
-    exec $SHELL -l
+    newLine
+    echoDone
+    exit
   fi
 }
 
@@ -105,119 +100,58 @@ waitReturn() {
   read -rs
 }
 
-makeSymlink() {
-  while read -r pack; do
-    local homeFile homeDir >/dev/null 2>&1
-    homeFile="$2/$(echo "$pack" | sed -r "s/.*$(basename "$1")\/[^\/]*\///")"
-    homeDir=$(dirname "$homeFile")
-    if [[ -e "$homeFile" && -n $(diff "$pack" "$homeFile") ]]; then
-      mkdir -p "$(dirname "$1")/backup"
-      mv "$homeFile" "$(dirname "$1")/backup/"
-    fi
-    if [[ ! -e "$homeFile" || -n $(diff "$pack" "$homeFile") ]]; then
-      mkdir -p "$homeDir"
-      ln -s -v "$pack" "$homeDir"
-        notSetup=false
-    fi
-  done < <(find "$1" -type f ! -name ".DS_Store")
-}
-
-makeFile() {
-  for target in "$@"; do
-    if [[ ! -e "$target" ]]; then
-      touch "$target"
-      print "$target"
-        notSetup=false
-    fi
-  done
-}
-
-makeDir() {
-  for target in "$@"; do
-    if [[ ! -e "$target" ]]; then
-      mkdir -p "$target"
-      print "$target"
-        notSetup=false
-    fi
-  done
-}
-
-setFiles() {
-  makeSymlink "$packages" "$HOME"
-  makeDir "$HOME/.vim/undo" "$HOME/.ssh/git"
-  makeFile "$HOME/.hushlogin"
-  if ! "$notSetup"; then
-    echoResult "Set these files!" "Setting files is failed."
-      sleep 1
-  else
-    echoWarning "All files are already set."
-      sleep 0.5
-  fi
-}
-
-#==================================================[ Options ]==================================================#
+#==================================================[ Flags ]==================================================#
 
 case "$1" in
-  "-h" | "--help")
-    print "$(printc green false "dotfiles")"
-    print "My zsh, vim and other settings, plugins, etc and setup."
-    newLine
-    print "$(printc yellow false "USAGE:")"
-    print "  setup"
-    newLine
-    print "$(printc yellow false "OPTIONS:")"
-    printOpt "h" "help" "    Print help information"
-    printOpt "y" "yes" "     Run all configuration"
-    printOpt "s" "set" "     Set files to home directory"
-    exec $SHELL -l
-    ;;
+"-h" | "--help")
+  command cat <<EOF
+Usage: setup
 
-  "-y" | "--yes")
-    doAll=true
-    ;;
+💻 The most minimal and powerful dotfiles ever
 
-  "-s" | "--set")
-    setFiles
-    exec $SHELL -l
-    ;;
+Flags:
+  -h, --help    Print help information
+  -y, --yes     Run all configuration
+  -s, --set     Set files to home directory
+EOF
+  exit
+  ;;
+
+"-y" | "--yes")
+  doAll=true
+  ;;
+
+"-s" | "--set")
+  source "$scriptDir/files.zsh" true
+  exit
+  ;;
 esac
 
-#==================================================[ Ask to confirm ]==================================================#
+#==================================================[ Operations ]==================================================#
 
+# Zsh setting
+zstyle ":completion:*:commands" rehash 1
+
+# Ask to confirm
 echoAsk "Are you sure to start setup? (y/n)"
-read -rq && newLine || { newLine; exec $SHELL -l; }
+read -rq && newLine || {
+  newLine
+  exit
+}
 
-#==================================================[ Clone repository ]==================================================#
-
+# Clone repository
 if [[ ! -e "$HOME/.dotfiles" ]]; then
   echoInfo "Cloning repository into \`~/.dotfiles\`..."
-  git clone -q https://github.com/5ouma/dotfiles.git "$dotfiles"
+  git clone -q "$gitRepo" "$dotfiles"
   declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/scripts"/* | wc -l)))
 fi
 newLine
 
-#==================================================[ Apply preference ]==================================================#
-
-# Homebrew
-source "$scripts/homebrew.zsh"
-newLine
-
-# Set files and folders
-source "$scripts/files.zsh"
-newLine
-
-# Defaults commands
-source "$scripts/defaults.zsh"
-newLine
-
-# Apps and more
-source "$scripts/apps.zsh"
-
-#==================================================[ Done! ]==================================================#
-
-if "$doneAnything"; then
-  echoDone
-else
+# Apply preference
+for script in "${preferences[@]}"; do
+  source "$scriptDir/$script.zsh" false
   newLine
-  echoWarning "Nothing has changed."
-fi
+done
+
+# Done!
+echoDone

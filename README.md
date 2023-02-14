@@ -31,13 +31,14 @@ Run [setup script](https://github.com/5ouma/dotfiles/blob/HEAD/setup) with `curl
 ### `setup --help`
 
 ```
-USAGE:
-    setup
+Usage: setup
 
-OPTIONS:
-    -h, --help    Print help information
-    -y, --yes     Run all configuration
-    -s, --set     Set files to home directory
+💻 The most minimal and powerful dotfiles ever
+
+Flags:
+  -h, --help    Print help information
+  -y, --yes     Run all configuration
+  -s, --set     Set files to home directory
 ```
 
 <br><br>
