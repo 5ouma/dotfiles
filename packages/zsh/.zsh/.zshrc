@@ -1,20 +1,18 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ] && source "$HOME/.fig/shell/zshrc.pre.zsh"
 #========================================================[ Configurations ]========================================================#
 
 # Load plugin's settings
 source "$ZDOTDIR/plugins.zsh"
 
 # Homebrew
-if [[ $(uname -m) = "arm64" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+[ $(uname -m) = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # rtx
 eval "$(rtx activate zsh -q)"
 
 # iTerm2
-test -e "$ZDOTDIR/.iterm2_shell_integration.zsh" && source "$ZDOTDIR/.iterm2_shell_integration.zsh"
+[ -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ] && source "$ZDOTDIR/.iterm2_shell_integration.zsh"
 
 # 1Password
 source "$HOME/.config/op/plugins.sh"
@@ -42,4 +40,4 @@ bindkey '^Q' show_buffer_stack
 #==============================================================[ Paths ]==============================================================#
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+[ -f "$HOME/.fig/shell/zshrc.post.zsh" ] && source "$HOME/.fig/shell/zshrc.post.zsh"
