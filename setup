@@ -32,8 +32,8 @@ getColor() {
 }
 
 printc() {
-  declare -r color="$(getColor "$1")"
-  [ "$2" = true ] && declare -r isBold=1 || declare -r isBold=0
+  local -r color="$(getColor "$1")"
+  [ "$2" = true ] && local -r isBold=1 || local -r isBold=0
   printf "\033[%s;%sm%s\033[m" "$isBold" "$color" "$3"
 }
 
