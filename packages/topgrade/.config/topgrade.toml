@@ -1,5 +1,5 @@
 # Disable specific steps
-disable = ["github_cli_extensions", "node", "pip3", "system"]
+disable = ["github_cli_extensions", "pip3", "pnpm", "system"]
 
 # Set the terminal title
 set_title = true
