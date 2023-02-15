@@ -51,17 +51,6 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
     sleep 1
   else
     echoWarning "Languages are already installed."
-    sleep 0.5
-  fi
-
-  echoNumber "🧶 Installing packages with yarn..."
-  if [[ ! -e "$HOME/.config/yarn/global/node_modules" ]]; then
-    yarn global add
-    echoResult "Installed packages!" "Installing packages is failed."
-    sleep 1
-  else
-    echoWarning "Packages are already installed."
-    sleep 0.5
   fi
 
   echoNumber "📝 Installing Vim plugins with Jetpack..."
