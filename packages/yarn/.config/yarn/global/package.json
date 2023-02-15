@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "create-completion-spec": "^1.1.9",
-    "create-next-app": "^13.1.0",
-    "create-react-app": "^5.0.1"
-  }
-}
