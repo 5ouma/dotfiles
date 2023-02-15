@@ -2,10 +2,6 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #========================================================[ Configurations ]========================================================#
 
-# Homebrew
-[ $(uname -m) = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
-[ $(uname -m) = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # rtx
 eval "$(rtx activate zsh -q)"
 

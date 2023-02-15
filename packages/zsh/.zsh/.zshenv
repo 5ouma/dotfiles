@@ -1,5 +1,9 @@
 #============================================================[ Paths ]============================================================#
 
+# Homebrew
+[ $(uname -m) = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
+[ $(uname -m) = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Vim
 export -r VIMRC="$HOME/.vim/.vimrc"
 export -r VIMINIT="source $VIMRC"
