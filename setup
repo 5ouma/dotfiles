@@ -59,6 +59,12 @@ echoResult() {
   else
     printf "$(printc red false "error") %s\n" "$2"
   fi
+  sleep 1
+}
+
+echoWarning() {
+  printf "$(printc yellow true "warning") %s\n" "$1"
+  sleep 0.5
 }
 
 echoDone() {

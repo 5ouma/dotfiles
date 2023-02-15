@@ -10,6 +10,5 @@ if "$doAll" || waitInput "Install Homebrew." "$0"; then
     sleep 1
   else
     echoWarning "Homebrew is already installed."
-    sleep 0.5
   fi
 fi
