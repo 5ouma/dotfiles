@@ -11,9 +11,9 @@ fi
 if (type delta >/dev/null 2>&1); then
   diff() {
     if ! (defaults read -g AppleInterfaceStyle >/dev/null 2>&1); then
-      command delta --syntax-theme=GitHub "$@"
+      delta --syntax-theme=GitHub "$@"
     else
-      command delta --syntax-theme=ansi "$@"
+      delta --syntax-theme=ansi "$@"
     fi
   }
   git() {
