@@ -119,7 +119,7 @@ Flags:
 
 ## 📲 Other Apps
 
-**Managing with [🍺 `Brewfile`](data/Brewfile)**
+**Managing with [🍺 `Brewfile`](datas/Brewfile)**
 
 <br><br>
 

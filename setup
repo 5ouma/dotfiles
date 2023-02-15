@@ -2,19 +2,19 @@
 
 #==================================================[ Variables ]==================================================#
 
-declare -r gitRepo="https://github.com/5ouma/dotfiles.git"
+declare -r githubURL="https://github.com/5ouma/dotfiles.git"
 [ -z "$ZDOTDIR" ] && export -r ZDOTDIR="$HOME/.zsh"
 [ -z "$dotfiles" ] && declare -r dotfiles="$HOME/.dotfiles"
-declare -r packageDir="$dotfiles/packages"
-declare -r scriptDir="$dotfiles/scripts"
+declare -r packages="$dotfiles/packages"
+declare -r scripts="$dotfiles/scripts"
 declare -r preferences=("homebrew" "files" "defaults" "apps")
-declare -r data="$dotfiles/data"
+[ -z "$datas" ] && declare -r datas="$dotfiles/datas"
 
 declare doAll=false
 declare notSetup=true
 declare doneAnything=false
 declare nowNum=1
-[ -e "$HOME/.dotfiles" ] && declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/scripts"/* | wc -l)))
+[ -e "$dotfiles" ] && declare -r allNum=$(($(grep -o "echoNumber" "$scripts"/* | wc -l)))
 
 #==================================================[ Functions ]==================================================#
 
@@ -122,7 +122,7 @@ EOF
   ;;
 
 "-s" | "--set")
-  source "$scriptDir/files.zsh" true
+  source "$scripts/files.zsh" true
   exit
   ;;
 esac
@@ -140,16 +140,16 @@ read -rq && newLine || {
 }
 
 # Clone repository
-if [[ ! -e "$HOME/.dotfiles" ]]; then
+if [[ ! -e "$dotfiles" ]]; then
   echoInfo "Cloning repository into \`~/.dotfiles\`..."
-  git clone -q "$gitRepo" "$dotfiles"
-  declare -r allNum=$(($(grep -o "echoNumber" "$dotfiles/scripts"/* | wc -l)))
+  git clone -q "$githubURL" "$dotfiles"
+  declare -r allNum=$(($(grep -o "echoNumber" "$scripts"/* | wc -l)))
 fi
 newLine
 
 # Apply preference
 for script in "${preferences[@]}"; do
-  source "$scriptDir/$script.zsh" false
+  source "$scripts/$script.zsh" false
   newLine
 done
 

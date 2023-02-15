@@ -138,8 +138,8 @@ alias bv="brew -v"
 
 bbd() {
   while true; do
-    brew bundle dump -f --file="$dotfiles/data/Brewfile"
-    grep -q "mas " "$dotfiles/data/Brewfile" && break
+    brew bundle dump -f --file="$datas/Brewfile"
+    grep -q "mas " "$datas/Brewfile" && break
   done
 }
 
@@ -159,8 +159,8 @@ al() {
 }
 
 # lporg
-alias lps="lporg save -c $dotfiles/data/launchpad.yaml >/dev/null 2>&1"
-alias lpl="lporg load -n $dotfiles/data/launchpad.yaml >/dev/null 2>&1"
+alias lps="lporg save -c $datas/launchpad.yaml >/dev/null 2>&1"
+alias lpl="lporg load -n $datas/launchpad.yaml >/dev/null 2>&1"
 
 # lsd
 if (type lsd >/dev/null 2>&1); then

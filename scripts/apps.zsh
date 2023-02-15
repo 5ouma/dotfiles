@@ -1,6 +1,6 @@
 if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0"; then
   echoNumber "📲 Installing apps with Homebrew..."
-  brew bundle --no-lock --file="$data/Brewfile"
+  brew bundle --no-lock --file="$datas/Brewfile"
   sleep 1
   if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
     print "Please install DaVinci Resolve."
@@ -13,8 +13,8 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
 
   echoNumber "🟩 Setting up Launchpad..."
   lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
-  if [[ -n $(diff "$data/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
-    lporg load -n "$data/launchpad.yaml" >/dev/null 2>&1
+  if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
+    lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1
     echoResult "Set up Launchpad!" "Setting up Launchpad is failed."
     sleep 1
   else
@@ -35,7 +35,7 @@ if "$doAll" || waitInput "Install packages and apps with Homebrew and more." "$0
 
   echoNumber "⌨️ Restoring App Shortcuts..."
   if [[ ! "$(defaults read com.apple.universalaccess "com.apple.custommenu.apps")" =~ "\"" ]]; then
-    mksei load "$data/keyboard_shortcuts.json"
+    mksei load "$datas/keyboard_shortcuts.json"
     echoResult "Restored App Shortcuts!" "Restoring App Shortcuts is failed."
     sleep 1
   else
