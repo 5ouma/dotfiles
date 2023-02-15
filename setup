@@ -147,7 +147,7 @@ esac
 zstyle ":completion:*:commands" rehash 1
 
 # Display welcome message
-[ ! -e "$dotfiles" ] && print "$setupMessage"
+[ "$(dirname "$0")" != "$dotfiles" ] && print "$setupMessage"
 
 # Ask to confirm
 echoAsk "Are you sure to start setup? (y/n)"
