@@ -16,6 +16,18 @@ declare doneAnything=false
 declare nowNum=1
 [ -e "$dotfiles" ] && declare -r allNum=$(($(grep -o "echoNumber" "$scripts"/* | wc -l)))
 
+declare -r setupMessage="
+ ██████╗   ██████╗  ████████╗ ███████╗ ██╗ ██╗      ███████╗ ███████╗
+ ██╔══██╗ ██╔═══██╗ ╚══██╔══╝ ██╔════╝ ██║ ██║      ██╔════╝ ██╔════╝
+ ██║  ██║ ██║   ██║    ██║    █████╗   ██║ ██║      █████╗   ███████╗
+ ██║  ██║ ██║   ██║    ██║    ██╔══╝   ██║ ██║      ██╔══╝   ╚════██║
+ ██████╔╝ ╚██████╔╝    ██║    ██║      ██║ ███████╗ ███████╗ ███████║
+ ╚═════╝   ╚═════╝     ╚═╝    ╚═╝      ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝
+
+                     \033[;1mWelcome to dotfiles setup!\033[m
+                  \033[;2;4mhttps://github.com/5ouma/dotfiles\033[m
+"
+
 #==================================================[ Functions ]==================================================#
 
 getColor() {
@@ -133,6 +145,9 @@ esac
 
 # Zsh setting
 zstyle ":completion:*:commands" rehash 1
+
+# Display welcome message
+[ ! -e "$dotfiles" ] && print "$setupMessage"
 
 # Ask to confirm
 echoAsk "Are you sure to start setup? (y/n)"
