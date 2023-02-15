@@ -28,7 +28,7 @@ setopt share_history
 setopt hist_reduce_blanks
 setopt hist_ignore_all_dups
 autoload -Uz compinit
-compinit -d "$ZDOTDIR/.zcompdump"
+compinit -ud "$ZDOTDIR/.zcompdump"
 
 # Search
 autoload -U up-line-or-beginning-search
