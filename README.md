@@ -21,7 +21,7 @@
 Run [setup script](https://github.com/5ouma/dotfiles/blob/HEAD/setup) with `curl`, then you will be able to set up by operation.
 
 ```shell
-zsh <(curl -sL 5ouma.vercel.app/dotfiles)
+zsh <(curl -sL dotup.vercel.app)
 ```
 
 <br><br>
