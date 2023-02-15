@@ -83,8 +83,10 @@ echoWarning() {
 echoDone() {
   if "$doneAnything"; then
     print "✨  Setting up successfully!"
+    exit
   else
     printf "$(printc yellow true "warning") Nothing has changed.\n"
+    exit 1
   fi
 }
 
@@ -105,7 +107,6 @@ waitInput() {
   else
     newLine
     echoDone
-    exit
   fi
 }
 
@@ -153,7 +154,7 @@ zstyle ":completion:*:commands" rehash 1
 echoAsk "Are you sure to start setup? (y/n)"
 read -rq && newLine || {
   newLine
-  exit
+  exit 1
 }
 
 # Clone repository
