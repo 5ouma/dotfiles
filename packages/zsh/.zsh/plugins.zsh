@@ -1,4 +1,5 @@
-#!/usr/bin/env zsh
+# Homebrew
+export HOMEBREW_AUTOREMOVE=1
 
 # Powerlevel10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of "$ZDOTDIR"/.zshrc.
