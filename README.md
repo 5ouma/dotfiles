@@ -33,7 +33,7 @@ zsh <(curl -sL dotup.vercel.app)
 ```
 Usage: setup
 
-💻 The most minimal and powerful dotfiles ever
+💻 The most minimal and powerful dotfiles ever.
 
 Flags:
   -h, --help    Print help information

@@ -109,7 +109,7 @@ case "$1" in
   cat <<EOF
 Usage: setup
 
-💻 The most minimal and powerful dotfiles ever
+💻 The most minimal and powerful dotfiles ever.
 
 Flags:
   -h, --help    Print help information
