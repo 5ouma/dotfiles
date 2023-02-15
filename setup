@@ -36,7 +36,7 @@ printc() {
 
 # Echo with message
 echoNumber() {
-  printf "$(printc gray false "[$nowNum/$allNum]") %s\n" "$1"
+  printf "$(printc gray false "[$nowNum/$allNum]") %s  %s\n" "$1" "$2"
   ((nowNum++))
 }
 
@@ -45,7 +45,7 @@ echoAsk() {
 }
 
 echoQue() {
-  printf "$(printc gray true "question") %s: " "$1"
+  printf "$(printc gray true "question") %s › " "$1"
 }
 
 echoInfo() {
@@ -69,9 +69,9 @@ echoWarning() {
 
 echoDone() {
   if "$doneAnything"; then
-    print "✨ Setting up successfully!"
+    print "✨  Setting up successfully!"
   else
-    echoWarning "Nothing has changed."
+    printf "$(printc yellow true "warning") Nothing has changed.\n"
   fi
 }
 
@@ -124,7 +124,7 @@ makeSymlink() {
 
 case "$1" in
 "-h" | "--help")
-  command cat <<EOF
+  cat <<EOF
 Usage: setup
 
 💻 The most minimal and powerful dotfiles ever
