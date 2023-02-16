@@ -6,170 +6,220 @@ declare -r githubURL="https://github.com/5ouma/dotfiles.git"
 [ -z "$ZDOTDIR" ] && export -r ZDOTDIR="$HOME/.zsh"
 [ -z "$dotfiles" ] && declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
-declare -r scripts="$dotfiles/scripts"
-declare -r preferences=("homebrew" "files" "defaults" "apps")
 [ -z "$datas" ] && declare -r datas="$dotfiles/datas"
-declare -r backup="$dotfiles/backup"
-
-declare doAll=false
-declare doneAnything=false
-declare nowNum=1
-[ -e "$dotfiles" ] && declare -r allNum=$(($(grep -o "echoNumber" "$scripts"/* | wc -l)))
-
-declare -r setupMessage="
- ██████╗   ██████╗  ████████╗ ███████╗ ██╗ ██╗      ███████╗ ███████╗
- ██╔══██╗ ██╔═══██╗ ╚══██╔══╝ ██╔════╝ ██║ ██║      ██╔════╝ ██╔════╝
- ██║  ██║ ██║   ██║    ██║    █████╗   ██║ ██║      █████╗   ███████╗
- ██║  ██║ ██║   ██║    ██║    ██╔══╝   ██║ ██║      ██╔══╝   ╚════██║
- ██████╔╝ ╚██████╔╝    ██║    ██║      ██║ ███████╗ ███████╗ ███████║
- ╚═════╝   ╚═════╝     ╚═╝    ╚═╝      ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝
-
-                     \033[;1mWelcome to dotfiles setup!\033[m
-                  \033[;2;4mhttps://github.com/5ouma/dotfiles\033[m
-"
 
 #==================================================[ Functions ]==================================================#
 
-getColor() {
-  case "$1" in
-  red) echo -n 31 ;;
-  green) echo -n 32 ;;
-  yellow) echo -n 33 ;;
-  blue) echo -n 34 ;;
-  cyan) echo -n 36 ;;
-  gray) echo -n 90 ;;
+getGum() {
+  declare -r ver="0.9.0"
+  declare -r url="https://github.com/charmbracelet/gum/releases/download/v$ver/gum_${ver}_$(uname)_$(uname -m).tar.gz"
+  declare -r dir="$HOME/.cache/gum"
+
+  if ! (type gum >/dev/null 2>&1); then
+    printf "Wait a moment..."
+    mkdir -p "$dir" && curl -sL "$url" | tar -x -C "$dir"
+    printf "\r                "
+    declare -gr gumCom="$dir/gum"
+  else
+    # shellcheck disable=SC2155
+    declare -gr gumCom="$(which gum)"
+  fi
+}
+getGum
+
+gum() {
+  case $1 in
+  confirm)
+    [[ "$2" =~ "#" ]] && echo
+    $gumCom confirm --affirmative "Yes!" --negative "Skip" "${@:2}"
+    ;;
+  format) $gumCom format "${@:2}" ;;
+  input) $gumCom input --header="$2" --placeholder="$3" ;;
+  spin) $gumCom spin --spinner=meter --title="$2" "${@:3}" ;;
+  done) $gumCom format "✅ Done!" ;;
   esac
 }
 
-printc() {
-  local -r color="$(getColor "$1")"
-  [ "$2" = true ] && local -r isBold=1 || local -r isBold=0
-  printf "\033[%s;%sm%s\033[m" "$isBold" "$color" "$3"
+chsym() {
+  typeset -ag packs files
+  declare -g num=0
+  while read -r pack; do
+    declare file="$HOME/${pack#"$packages"/*/}"
+    if [[ ! -e "$file" || -n $(diff "$pack" "$file") ]]; then
+      packs+=("$pack")
+      files+=("$file")
+      ((num++))
+    fi
+  done < <(find "$packages" -type f ! -name ".DS_Store")
 }
 
-# Echo with message
-echoNumber() {
-  printf "$(printc gray false "[$nowNum/$allNum]") %s  %s\n" "$1" "$2"
-  ((nowNum++))
-}
-
-echoAsk() {
-  printf "$(printc blue true "ask") %s: " "$1"
-}
-
-echoQue() {
-  printf "$(printc gray true "question") %s › " "$1"
-}
-
-echoInfo() {
-  printf "$(printc cyan true "info") %s\n" "$1"
-}
-
-echoResult() {
-  if [[ $? = 0 ]]; then
-    printf "$(printc green false "success") %s\n" "$1"
-    doneAnything=true
-  else
-    printf "$(printc red false "error") %s\n" "$2"
-  fi
-  sleep 1
-}
-
-echoWarning() {
-  printf "$(printc yellow true "warning") %s\n" "$1"
-  sleep 0.5
-}
-
-echoDone() {
-  if "$doneAnything"; then
-    print "✨  Setting up successfully!"
-    exit
-  else
-    printf "$(printc yellow true "warning") Nothing has changed.\n"
-    exit 1
-  fi
-}
-
-newLine() {
-  echo
-}
-
-# Wait user input
-waitInput() {
-  echoAsk "$1 (y/n/other to abort)"
-  read -rk 1 run
-  newLine
-  if [[ "$run" =~ "y|Y" ]]; then
-    return 0
-  elif [[ "$run" =~ "n|N" ]]; then
-    ((nowNum += $(grep -o "echoNumber" "$2" | wc -l)))
-    return 1
-  else
-    newLine
-    echoDone
-  fi
-}
-
-waitReturn() {
-  print "Press RETURN to continue"
-  read -rs
+mksym() {
+  declare homeFiles
+  for ((i = 1; i <= num; i++)); do
+    mkdir -p "$(dirname "${files[i]}")"
+    ln -s "${packs[i]}" "${files[i]}"
+    homeFiles+=("- ~${files[i]#~}")
+  done
+  gum format -- "${homeFiles[@]}"
 }
 
 #==================================================[ Flags ]==================================================#
 
 case "$1" in
 "-h" | "--help")
-  cat <<EOM
-Usage: setup
+  gum format <<EOM
+## Usage: setup
 
-💻 The most minimal and powerful dotfiles ever.
+> 💻 The most minimal and powerful dotfiles ever.
 
-Flags:
-  -h, --help    Print help information
-  -y, --yes     Run all configuration
-  -s, --set     Set files to home directory
+## Flags:
+-  -h, --help    Print help information
+-  -y, --yes     Run all configuration
+-  -s, --set     Set files to home directory
 EOM
   exit
   ;;
-
-"-y" | "--yes")
-  doAll=true
-  ;;
-
 "-s" | "--set")
-  source "$scripts/files.zsh" true
+  chsym && mksym
   exit
   ;;
 esac
 
-#==================================================[ Operations ]==================================================#
+#==================================================[ Preperations ]==================================================#
+
+# Display welcome message
+if [[ "$(dirname "$0")" != "$dotfiles" ]]; then
+  gum format <<EOM
+# Welcome to 💻 dotfiles setup!
+> https://github.com/5ouma/dotfiles
+EOM
+fi
+
+# Ask to confirm
+$gumCom confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
+
+# Clone repository
+if [[ ! -e "$dotfiles" ]]; then
+  echo && gum spin "Cloning repository into \`~/.dotfiles\`..." -- git clone -q "$githubURL" "$dotfiles"
+fi
 
 # Zsh setting
 zstyle ":completion:*:commands" rehash 1
 
-# Display welcome message
-[ "$(dirname "$0")" != "$dotfiles" ] && print "$setupMessage"
+#==================================================[ Homebrew ]==================================================#
 
-# Ask to confirm
-echoAsk "Are you sure to start setup? (y/n)"
-read -rq && newLine || {
-  newLine
-  exit 1
-}
-
-# Clone repository
-if [[ ! -e "$dotfiles" ]]; then
-  echoInfo "Cloning repository into \`~/.dotfiles\`..."
-  git clone -q "$githubURL" "$dotfiles"
-  declare -r allNum=$(($(grep -o "echoNumber" "$scripts"/* | wc -l)))
+if ! (type brew >/dev/null 2>&1); then
+  gum format "# 🍺 Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  [ "$(uname -m)" = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
+  [ "$(uname -m)" = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+  brew doctor
+  gum done
 fi
-newLine
 
-# Apply preference
-for script in "${preferences[@]}"; do
-  source "$scripts/$script.zsh" false
-  newLine
-done
+#==================================================[ Symlink ]==================================================#
 
-# Done!
-echoDone
+mkdir -p "$HOME/.cache" "$HOME/.vim/undo" "$HOME/.ssh/git"
+touch "$HOME/.hushlogin"
+chsym
+if [[ "$num" != 0 ]]; then
+  gum format "# 🔗 Symlinking files..."
+  mksym
+  gum done
+fi
+
+#==================================================[ defaults ]==================================================#
+
+if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
+  gum format "# 🟩 Changing Launchpad size..."
+  defaults write com.apple.dock springboard-columns -int 9
+  defaults write com.apple.dock springboard-rows -int 8
+  defaults write com.apple.dock ResetLaunchPad -bool TRUE
+  gum done
+fi
+
+if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
+  gum format "# 🔲 Adding spaces on Dock..."
+  for ((i = 0; i < 6; i++)); do
+    defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+  done
+  gum done
+fi
+
+if [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
+  gum format "# 📷 Changing screen capture path..."
+  mkdir -p "$HOME/Pictures/Screen Capture"
+  defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
+  gum done
+fi
+
+killall Dock
+killall SystemUIServer
+
+if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
+  gum format "# 💻 Setting computer name..."
+  # shellcheck disable=SC2155
+  declare -r computerName=$(gum input "What's your computer name?" "Type your willing computer name")
+  # shellcheck disable=SC2155
+  declare -r localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+  scutil --set ComputerName "$computerName"
+  scutil --set HostName "$computerName"
+  scutil --set LocalHostName "$localName"
+  gum format <<EOM
+- ComputerName : $(sudo scutil --get ComputerName)
+- HostName : $(sudo scutil --get HostName)
+- LocalHostName : $(sudo scutil --get LocalHostName)
+EOM
+  gum done
+fi
+
+#==================================================[ Apps ]==================================================#
+
+gum format "# 📲 Installing apps and commands..."
+brew bundle --no-lock --file="$datas/Brewfile"
+sleep 1
+if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
+  gum format "## Please install DaVinci Resolve."
+  open "https://www.blackmagicdesign.com/jp/products/davinciresolve"
+  gum confirm "Continue when you done." --affirmative "Done" --negative ""
+fi
+gum done
+
+lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
+if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
+  gum format "# 🟩 Setting up Launchpad..."
+  lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1
+  gum done
+fi
+command rm "$HOME/.cache/launchpad.yaml"
+
+if [[ -n "$(mackup -n backup)" ]]; then
+  gum format "# 📀 Restoring appliaction settings..."
+  mackup restore
+  gum done
+fi
+
+if ! (defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/null 2>&1); then
+  gum format "# ⌨️ Restoring App Shortcuts..."
+  gum spin "running \`mksei load\`" mksei load "$datas/keyboard_shortcuts.json"
+  gum done
+fi
+
+eval "$(rtx activate zsh -q)"
+if [[ "$(rtx ls)" =~ "missing" ]]; then
+  gum format "# 💾 Installing programming languages..."
+  rtx install --all
+  gum done
+fi
+
+gum format "# 📝 Installing Vim plugins..."
+[ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
+[ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
+vim +qall
+gum done
+
+#==================================================[ Done! ]==================================================#
+
+[[ -e "$dir" ]] && command rm -r "$dir"
+
+gum format "# 🎉 Setup up completed!"
