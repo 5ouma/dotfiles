@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+trap '[ -e "$dir" ] && rm -r "$dir"' EXIT
+
 #==================================================[ Variables ]==================================================#
 
 declare -r githubURL="https://github.com/5ouma/dotfiles.git"
@@ -218,7 +220,5 @@ vim +qall
 gum done
 
 #==================================================[ Done! ]==================================================#
-
-[[ -e "$dir" ]] && command rm -r "$dir"
 
 gum format "# 🎉 Setup up completed!"
