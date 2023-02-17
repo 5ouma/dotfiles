@@ -195,7 +195,7 @@ if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
   lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1
   gumDone
 fi
-command rm "$HOME/.cache/launchpad.yaml"
+rm "$HOME/.cache/launchpad.yaml"
 
 if [[ -n "$(mackup -n backup)" ]]; then
   gum format "## 💾 Restoring appliaction settings..."
