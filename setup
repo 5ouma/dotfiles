@@ -164,11 +164,10 @@ if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
   gum format "## 🖥 Setting computer name..."
   # shellcheck disable=SC2155
   declare -r computerName=$(gum input "What's your computer name?" "Type your willing computer name")
-  # shellcheck disable=SC2155
-  declare -r localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
+  declare -r nonSpace="${computerName//\'/}"
   gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computerName"
   gum spin "Setting HostName..." -- scutil --set HostName "$computerName"
-  gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "$localName"
+  gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "${nonSpace// /-}"
   gum format <<EOM
 - ComputerName : $(sudo scutil --get ComputerName)
 - HostName : $(sudo scutil --get HostName)
