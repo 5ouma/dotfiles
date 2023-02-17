@@ -132,7 +132,7 @@ fi
 #==================================================[ defaults ]==================================================#
 
 if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
-  gum format "# 🟩 Changing Launchpad size..."
+  gum format "# 🖼 Changing Launchpad size..."
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
   defaults write com.apple.dock ResetLaunchPad -bool TRUE
@@ -140,7 +140,7 @@ if [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults rea
 fi
 
 if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
-  gum format "# 🔲 Adding spaces on Dock..."
+  gum format "# 🚥 Adding spaces on Dock..."
   for ((i = 0; i < 6; i++)); do
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
   done
@@ -188,7 +188,7 @@ gum done
 
 lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
 if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
-  gum format "# 🟩 Setting up Launchpad..."
+  gum format "# 🖼 Setting up Launchpad..."
   lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1
   gum done
 fi
@@ -208,12 +208,12 @@ fi
 
 eval "$(rtx activate zsh -q)"
 if [[ "$(rtx ls)" =~ "missing" ]]; then
-  gum format "# 💾 Installing programming languages..."
+  gum format "# 📼 Installing programming languages..."
   rtx install --all
   gum done
 fi
 
-gum format "# 📝 Installing Vim plugins..."
+gum format "# 🖌 Installing Vim plugins..."
 [ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
 [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
 vim +qall

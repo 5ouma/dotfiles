@@ -60,7 +60,7 @@ Flags:
 
 <br>
 
-- ### Runtime Manager : [🧾 `rtx`](https://github.com/jdxcode/rtx)
+- ### Runtime Manager : [📼 `rtx`](https://github.com/jdxcode/rtx)
   ```shell
   brew install jdxcode/tap/rtx
   ```
@@ -86,9 +86,9 @@ Flags:
 
 <br>
 
-- ### Shell : [💾 `Zsh`](https://zsh.org)
+- ### Shell : [🐚 `Zsh`](https://zsh.org)
 
-  - #### Plugin Manager : [📦 `Fig`](https://fig.io)
+  - #### Plugin Manager : [🔌 `Fig`](https://fig.io)
 
     ```shell
     brew install fig
