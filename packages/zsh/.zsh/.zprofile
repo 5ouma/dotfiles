@@ -115,9 +115,7 @@ gc() {
 brew() {
   if (command brew "$@"); then
     if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
-      printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
       bbd
-      printf "🍺 Brewfile was successfully generated!\n"
     fi
   fi
 }
@@ -136,10 +134,12 @@ alias bun="brew uninstall"
 alias bv="brew -v"
 
 bbd() {
+  printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
   while true; do
     brew bundle dump -f --file="$datas/Brewfile"
     grep -q "mas " "$datas/Brewfile" && break
   done
+  printf "🍺 Brewfile was successfully generated!\n"
 }
 
 al() {
