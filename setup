@@ -45,6 +45,10 @@ gumDone() {
   echo && gum format "✅ Done!"
 }
 
+cyan() {
+  printf "\033[36m%s\033[m" "$@"
+}
+
 chsym() {
   typeset -ag packs files
   declare -g num=0
@@ -59,13 +63,11 @@ chsym() {
 }
 
 mksym() {
-  declare homeFiles
   for ((i = 1; i <= num; i++)); do
     mkdir -p "$(dirname "${files[i]}")"
-    ln -s "${packs[i]}" "${files[i]}"
-    homeFiles+=("- ~${files[i]#~}")
-  done
-  gum format -- "${homeFiles[@]}"
+    ln -is "${packs[i]}" "${files[i]}"
+    echo "- $(cyan "~${files[i]#~}")"
+  done | gum format
 }
 
 #==================================================[ Flags ]==================================================#
@@ -169,9 +171,9 @@ if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
   gum spin "Setting HostName..." -- scutil --set HostName "$computerName"
   gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "${nonSpace// /-}"
   gum format <<EOM
-- ComputerName : $(sudo scutil --get ComputerName)
-- HostName : $(sudo scutil --get HostName)
-- LocalHostName : $(sudo scutil --get LocalHostName)
+- ComputerName : $(cyan "$(sudo scutil --get ComputerName)")
+- HostName : $(cyan "$(sudo scutil --get HostName)")
+- LocalHostName : $(cyan "$(sudo scutil --get LocalHostName)")
 EOM
   gumDone
 fi
