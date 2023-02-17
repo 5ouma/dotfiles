@@ -31,11 +31,11 @@ getGum
 
 gum() {
   case $1 in
-  confirm)
+  confirm) $gumCom confirm --affirmative "Yes!" --negative "Skip" "${@:2}" ;;
+  format)
     [[ "$2" =~ "#" ]] && echo
-    $gumCom confirm --affirmative "Yes!" --negative "Skip" "${@:2}"
+    $gumCom format "${@:2}"
     ;;
-  format) $gumCom format "${@:2}" ;;
   input) $gumCom input --header="$2" --placeholder="$3" ;;
   spin) $gumCom spin --spinner=meter --title="$2" "${@:3}" ;;
   esac
@@ -100,7 +100,7 @@ EOM
 fi
 
 # Ask to confirm
-$gumCom confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
+gum confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
 
 # Clone repository
 if [[ ! -e "$dotfiles" ]]; then
