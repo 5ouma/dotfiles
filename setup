@@ -74,7 +74,6 @@ case "$1" in
 
 ## Flags:
 -  -h, --help    Print help information
--  -y, --yes     Run all configuration
 -  -s, --set     Set files to home directory
 EOM
   exit
