@@ -4,9 +4,9 @@
 
 declare -r githubURL="https://github.com/5ouma/dotfiles.git"
 [ -z "$ZDOTDIR" ] && export -r ZDOTDIR="$HOME/.zsh"
-[ -z "$dotfiles" ] && declare -r dotfiles="$HOME/.dotfiles"
+[ -z "$dotfiles" ] && export -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
-[ -z "$datas" ] && declare -r datas="$dotfiles/datas"
+[ -z "$datas" ] && export -r datas="$dotfiles/datas"
 
 #==================================================[ Functions ]==================================================#
 

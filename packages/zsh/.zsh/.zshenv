@@ -10,7 +10,7 @@ export -r VIMINIT="source $VIMRC"
 
 # dotfiles
 export -r dotfiles="$HOME/.dotfiles"
-declare -r datas="$dotfiles/datas"
+export -r datas="$dotfiles/datas"
 
 # setup
 export PATH="$dotfiles:$PATH"
