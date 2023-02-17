@@ -37,7 +37,7 @@ gum() {
     $gumCom format "${@:2}"
     ;;
   input) $gumCom input --header="$2" --placeholder="$3" ;;
-  spin) $gumCom spin --spinner=meter --title="$2" "${@:3}" ;;
+  spin) $gumCom spin --spinner=jump --title="$2" "${@:3}" ;;
   esac
 }
 
@@ -166,9 +166,9 @@ if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
   declare -r computerName=$(gum input "What's your computer name?" "Type your willing computer name")
   # shellcheck disable=SC2155
   declare -r localName=$(echo "$computerName" | sed -e "s/'//g" -e "s/ /-/g")
-  scutil --set ComputerName "$computerName"
-  scutil --set HostName "$computerName"
-  scutil --set LocalHostName "$localName"
+  gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computerName"
+  gum spin "Setting HostName..." -- scutil --set HostName "$computerName"
+  gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "$localName"
   gum format <<EOM
 - ComputerName : $(sudo scutil --get ComputerName)
 - HostName : $(sudo scutil --get HostName)
@@ -192,7 +192,7 @@ gumDone
 lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
 if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
   gum format "## 🖼 Setting up Launchpad..."
-  lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1
+  gum spin "running \`lporg load\`" -- lporg load -n "$datas/launchpad.yaml"
   gumDone
 fi
 rm "$HOME/.cache/launchpad.yaml"
@@ -205,7 +205,7 @@ fi
 
 if ! (defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/null 2>&1); then
   gum format "## ⌨️ Restoring App Shortcuts..."
-  gum spin "running \`mksei load\`" mksei load "$datas/keyboard_shortcuts.json"
+  gum spin "running \`mksei load\`" -- mksei load "$datas/keyboard_shortcuts.json"
   gumDone
 fi
 
