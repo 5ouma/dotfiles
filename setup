@@ -18,9 +18,9 @@ getGum() {
   declare -gr dir="$HOME/.cache/gum"
 
   if ! (type gum >/dev/null 2>&1); then
-    printf "Wait a moment..."
+    printf "  🚚💨 now delivering..."
     mkdir -p "$dir" && curl -sL "$url" | tar -x -C "$dir"
-    printf "\r                "
+    printf "\r  🏠 📦 arrived!        "
     declare -gr gumCom="$dir/gum"
   else
     # shellcheck disable=SC2155
