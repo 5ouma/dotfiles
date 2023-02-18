@@ -127,7 +127,6 @@ cask "visual-studio-code-insiders"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
-mas "Cinebench", id: 1438772273
 mas "Disk Speed Test", id: 425264550
 mas "Edison Mail", id: 1489591003
 mas "Fuwari", id: 1187652334
@@ -139,8 +138,6 @@ mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
 mas "Menubar Countdown", id: 1485343244
 mas "MenubarX", id: 1575588022
-mas "MiniNote", id: 492486856
-mas "Mockview", id: 1592728145
 mas "Perculia", id: 1462633284
 mas "PixelScheduler", id: 976996075
 mas "Playgrounds", id: 1496833156

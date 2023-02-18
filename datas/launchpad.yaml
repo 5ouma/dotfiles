@@ -71,7 +71,6 @@ apps:
         - Usage
         - Perculia
         - Maccy
-        - MiniNote
         - MacUpdater
         - RunCat
         - RunCat Plugins Manager
@@ -106,8 +105,7 @@ apps:
       pages:
       - number: 1
         items:
-        - Geekbench 5
-        - Cinebench
+        - Geekbench 6
         - Speedtest
         - Blackmagic Disk Speed Test
         - Mactracker
@@ -120,7 +118,6 @@ apps:
         - Amphetamine Enhancer
         - Airpods Battery Monitor
         - KeyboardCleanTool
-        - Mockview
         - GitHub Desktop
         - TypingLand
         - Secrets
