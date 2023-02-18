@@ -189,15 +189,18 @@ fi
 
 #==================================================[ Apps ]==================================================#
 
-gum format "## 📲 Installing apps and commands..."
-brew bundle install --no-lock --file="$datas/Brewfile"
+if [[ ! $(gum spin "Satisfying Brewfile's dependencies..." --show-output -- brew bundle check --file="$datas/Brewfile") = "The Brewfile's dependencies are satisfied." ]]; then
+  gum format "## 📲 Installing apps and commands..."
+  brew bundle install --no-lock --file="$datas/Brewfile"
+  gum executed
+fi
 if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
-  gum format "### Please install DaVinci Resolve."
+  gum format "### 🎨 Please install DaVinci Resolve."
   sleep 2
   open "https://www.blackmagicdesign.com/jp/products/davinciresolve"
   gum confirm "Continue when you done." --affirmative "Done" --negative ""
+  gum executed
 fi
-gum executed
 
 lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
 if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
@@ -226,11 +229,13 @@ if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum executed
 fi
 
-gum format "## 🖌 Installing Vim plugins..."
-[ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
-[ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
-vim +qall
-gum executed
+if [[ ! -e "$HOME/.vim/pack/jetpack/opt" ]]; then
+  gum format "## 🖌 Installing Vim plugins..."
+  [ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
+  [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
+  vim +qall
+  gum executed
+fi
 
 #==================================================[ Done! ]==================================================#
 
