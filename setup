@@ -106,7 +106,7 @@ gum confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
 
 # Clone repository
 if [[ ! -e "$dotfiles" ]]; then
-  echo && gum spin "Cloning repository into \`~/.dotfiles\`..." -- git clone -q "$githubURL" "$dotfiles"
+  echo && gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githubURL" "$dotfiles"
 fi
 
 # Zsh setting
