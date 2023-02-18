@@ -10,6 +10,8 @@ declare -r githubURL="https://github.com/5ouma/dotfiles.git"
 declare -r packages="$dotfiles/packages"
 [ -z "$datas" ] && export -r datas="$dotfiles/datas"
 
+declare gothrough=false
+
 #==================================================[ Functions ]==================================================#
 
 getGum() {
@@ -81,9 +83,13 @@ case "$1" in
 
 ## Flags:
 -  -h, --help    Print help information
+-  -y, --yes     Start without confirming
 -  -s, --set     Set files to home directory
 EOM
   exit
+  ;;
+"-y" | "--yes")
+  gothrough=true
   ;;
 "-s" | "--set")
   chsym && mksym
@@ -102,7 +108,9 @@ EOM
 fi
 
 # Ask to confirm
-gum confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
+if ! $gothrough; then
+  gum confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
+fi
 
 # Clone repository
 if [[ ! -e "$dotfiles" ]]; then

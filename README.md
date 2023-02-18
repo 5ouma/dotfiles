@@ -37,6 +37,7 @@ Usage: setup
 
 Flags:
   -h, --help    Print help information
+w  -y, --yes     Start without confirming
   -s, --set     Set files to home directory
 ```
 
