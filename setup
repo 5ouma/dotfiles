@@ -33,7 +33,7 @@ gum() {
   case $1 in
   confirm) $gumCom confirm --affirmative "Yes!" --negative "Skip" "${@:2}" ;;
   format)
-    [[ "$2" =~ "#" ]] && echo
+    [[ "$2" =~ "^##" ]] && echo
     $gumCom format "${@:2}"
     ;;
   input) $gumCom input --header="$2" --placeholder="$3" ;;
