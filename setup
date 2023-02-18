@@ -10,6 +10,7 @@ declare -r githubURL="https://github.com/5ouma/dotfiles.git"
 declare -r packages="$dotfiles/packages"
 [ -z "$datas" ] && export -r datas="$dotfiles/datas"
 
+declare executed=false
 declare gothrough=false
 
 #==================================================[ Functions ]==================================================#
@@ -40,11 +41,11 @@ gum() {
     ;;
   input) $gumcom input --header="$2" --placeholder="$3" ;;
   spin) $gumcom spin --spinner=jump --title="$2" "${@:3}" ;;
+  executed)
+    echo && $gumcom format "✅ Done!"
+    executed=true
+    ;;
   esac
-}
-
-gumDone() {
-  echo && gum format "✅ Done!"
 }
 
 cyan() {
@@ -128,7 +129,7 @@ if ! (type brew >/dev/null 2>&1); then
   [ "$(uname -m)" = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
   [ "$(uname -m)" = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
   brew doctor
-  gumDone
+  gum executed
 fi
 
 #==================================================[ Symlink ]==================================================#
@@ -139,7 +140,7 @@ chsym
 if [[ "$num" != 0 ]]; then
   gum format "## 🔗 Symlinking files..."
   mksym
-  gumDone
+  gum executed
 fi
 
 #==================================================[ defaults ]==================================================#
@@ -149,7 +150,7 @@ if ! (defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
   defaults write com.apple.dock ResetLaunchPad -bool TRUE
-  gumDone
+  gum executed
 fi
 
 if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
@@ -157,14 +158,14 @@ if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]];
   for ((i = 0; i < 6; i++)); do
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
   done
-  gumDone
+  gum executed
 fi
 
 if ! (defaults read com.apple.screencapture location >/dev/null 2>&1) || [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
   gum format "## 📷 Changing screen capture path..."
   mkdir -p "$HOME/Pictures/Screen Capture"
   defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
-  gumDone
+  gum executed
 fi
 
 killall Dock
@@ -183,7 +184,7 @@ if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
 - HostName : $(cyan "$(sudo scutil --get HostName)")
 - LocalHostName : $(cyan "$(sudo scutil --get LocalHostName)")
 EOM
-  gumDone
+  gum executed
 fi
 
 #==================================================[ Apps ]==================================================#
@@ -196,41 +197,45 @@ if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
   open "https://www.blackmagicdesign.com/jp/products/davinciresolve"
   gum confirm "Continue when you done." --affirmative "Done" --negative ""
 fi
-gumDone
+gum executed
 
 lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
 if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
   gum format "## 🖼 Setting up Launchpad..."
   gum spin "running \`lporg load\`" -- lporg load -n "$datas/launchpad.yaml"
-  gumDone
+  gum executed
 fi
 rm "$HOME/.cache/launchpad.yaml"
 
 if [[ -n "$(mackup -n backup)" ]]; then
   gum format "## 💾 Restoring appliaction settings..."
   mackup restore
-  gumDone
+  gum executed
 fi
 
 if ! (defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/null 2>&1); then
   gum format "## ⌨️ Restoring App Shortcuts..."
   gum spin "running \`mksei load\`" -- mksei load "$datas/keyboard_shortcuts.json"
-  gumDone
+  gum executed
 fi
 
 eval "$(rtx activate zsh -q)"
 if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum format "## 📼 Installing programming languages..."
   rtx install --all
-  gumDone
+  gum executed
 fi
 
 gum format "## 🖌 Installing Vim plugins..."
 [ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
 [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
 vim +qall
-gumDone
+gum executed
 
 #==================================================[ Done! ]==================================================#
 
-gum format "# 🎉 Setup complete!"
+if ($executed); then
+  gum format "# 🎉 Setup complete!"
+else
+  gum format "# 🧊 Nothing has changed."
+fi
