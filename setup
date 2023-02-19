@@ -137,7 +137,7 @@ fi
 mkdir -p "$HOME/.cache" "$HOME/.vim/undo" "$HOME/.ssh/git"
 touch "$HOME/.hushlogin"
 chsym
-if [[ "$num" != 0 ]]; then
+if [[ "$num" > 0 ]]; then
   gum format "## 🔗 Symlinking files..."
   mksym
   gum executed
