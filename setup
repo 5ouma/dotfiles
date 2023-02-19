@@ -179,6 +179,7 @@ if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
   gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computername"
   gum spin "Setting HostName..." -- scutil --set HostName "$computername"
   gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "${nonspacename//\'/}"
+  while ! (gum input "" "Please input your password to get computer name" --password | sudo --stdin echo >/dev/null 2>&1); do :; done
   gum format <<EOM
 - ComputerName : $(cyan "$(sudo scutil --get ComputerName)")
 - HostName : $(cyan "$(sudo scutil --get HostName)")
