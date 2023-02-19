@@ -113,7 +113,7 @@ if ! $gothrough; then
   gum confirm "Let's start setup!" --affirmative="Yes!" --negative="No" || exit 1
 fi
 
-# Clone repository
+# Clone the repository
 if [[ ! -e "$dotfiles" ]]; then
   echo && gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githubURL" "$dotfiles"
 fi
@@ -153,7 +153,7 @@ if ! (defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(
   gum executed
 fi
 
-if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "\"spacer-tile\"" ]]; then
+if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "spacer-tile" ]]; then
   gum format "## 🚥 Adding spaces on Dock..."
   for ((i = 0; i < 6; i++)); do
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
@@ -174,11 +174,11 @@ killall SystemUIServer
 if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
   gum format "## 🖥 Setting computer name..."
   # shellcheck disable=SC2155
-  declare -r computerName=$(gum input "What's your computer name?" "Type your willing computer name")
-  declare -r nonSpace="${computerName//\'/}"
-  gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computerName"
-  gum spin "Setting HostName..." -- scutil --set HostName "$computerName"
-  gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "${nonSpace// /-}"
+  declare -r computername=$(gum input "What's your computer name?" "Type your willing computer name")
+  declare -r nonspacename="${computername// /-}"
+  gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computername"
+  gum spin "Setting HostName..." -- scutil --set HostName "$computername"
+  gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "${nonspacename//\'/}"
   gum format <<EOM
 - ComputerName : $(cyan "$(sudo scutil --get ComputerName)")
 - HostName : $(cyan "$(sudo scutil --get HostName)")
