@@ -34,13 +34,13 @@ getGum
 
 gum() {
   case $1 in
-  confirm) $gumcom confirm --affirmative "Yes!" --negative "Skip" "${@:2}" ;;
+  confirm) $gumcom confirm --affirmative="Yes!" --negative="Skip" "${@:2}" ;;
   format)
     [[ "$2" =~ "^##" ]] && echo
     $gumcom format "${@:2}"
     ;;
-  input) $gumcom input --header="$2" --placeholder="$3" ;;
-  spin) $gumcom spin --spinner=jump --title="$2" "${@:3}" ;;
+  input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
+  spin) $gumcom spin --title="$2" "${@:3}" ;;
   executed)
     echo && $gumcom format "✅ Done!"
     executed=true
@@ -110,7 +110,7 @@ fi
 
 # Ask to confirm
 if ! $gothrough; then
-  gum confirm "Let's start setup!" --affirmative "Yes!" --negative "No" || exit 1
+  gum confirm "Let's start setup!" --affirmative="Yes!" --negative="No" || exit 1
 fi
 
 # Clone repository
@@ -198,7 +198,7 @@ if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
   gum format "### 🎨 Please install DaVinci Resolve."
   sleep 2
   open "https://www.blackmagicdesign.com/jp/products/davinciresolve"
-  gum confirm "Continue when you done." --affirmative "Done" --negative ""
+  gum confirm "Continue when you done." --affirmative="Done" --negative=""
   gum executed
 fi
 
@@ -222,10 +222,10 @@ if ! (defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/
   gum executed
 fi
 
-eval "$(rtx activate zsh -q)"
+eval "$(rtx activate -q zsh)"
 if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum format "## 📼 Installing programming languages..."
-  rtx install --all
+  rtx install
   gum executed
 fi
 

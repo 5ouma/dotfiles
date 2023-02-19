@@ -3,7 +3,7 @@
 #========================================================[ Configurations ]========================================================#
 
 # rtx
-eval "$(rtx activate zsh -q)"
+eval "$(rtx activate -q zsh)"
 
 # iTerm2
 source $(brew --prefix)/opt/iterm2-shell-integration/bin/iterm2_shell_integration.zsh
