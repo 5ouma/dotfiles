@@ -48,7 +48,6 @@ brew "jdxcode/tap/rtx"
 brew "matsuyoshi30/gitsu/gitsu"
 cask "1password"
 cask "1password-cli"
-cask "airpodsbattery-monitor-for-mac"
 cask "alfred"
 cask "alt-tab"
 cask "amphetamine-enhancer"
@@ -59,6 +58,7 @@ cask "blackhole-2ch"
 cask "blender"
 cask "box-sync"
 cask "brewlet"
+cask "cinebench"
 cask "deepl"
 cask "discord"
 cask "discord-ptb"
@@ -138,9 +138,7 @@ mas "Instapaper", id: 288545208
 mas "LadioCast", id: 411213048
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
-mas "Menubar Countdown", id: 1485343244
 mas "MenubarX", id: 1575588022
-mas "Perculia", id: 1462633284
 mas "PixelScheduler", id: 976996075
 mas "Playgrounds", id: 1496833156
 mas "RunCat", id: 1429033973
@@ -150,7 +148,6 @@ mas "Speedtest", id: 1153157709
 mas "Startup Disk Full Fixer", id: 1346655838
 mas "TickTick", id: 966085870
 mas "Timetable", id: 425121147
-mas "TypingLand", id: 1568264476
 mas "Vectornator", id: 1219074514
 mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435
