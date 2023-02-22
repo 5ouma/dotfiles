@@ -171,7 +171,7 @@ fi
 killall Dock
 killall SystemUIServer
 
-if [[ ! $(scutil --get ComputerName) =~ $(id -F)\'s ]]; then
+if [[ ! $(scutil --get ComputerName) =~ "$(id -F)'s" ]]; then
   gum format "## 🖥 Setting computer name..."
   # shellcheck disable=SC2155
   declare -r computername=$(gum input "What's your computer name?" "Type your willing computer name")
