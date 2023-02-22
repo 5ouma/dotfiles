@@ -77,6 +77,7 @@ cask "font-giro"
 cask "font-hackgen"
 cask "font-hackgen-nerd"
 cask "font-inkling"
+cask "font-line-seed-jp"
 cask "font-pacifico"
 cask "font-pixelmplus"
 cask "font-rolachan"
@@ -112,6 +113,7 @@ cask "mousecape"
 cask "notion"
 cask "onyx"
 cask "openinterminal"
+cask "pikopixel"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "quicklook-csv"
@@ -140,7 +142,6 @@ mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
 mas "MenubarX", id: 1575588022
 mas "PixelScheduler", id: 976996075
-mas "Playgrounds", id: 1496833156
 mas "RunCat", id: 1429033973
 mas "Secrets", id: 973049011
 mas "Spark", id: 1176895641

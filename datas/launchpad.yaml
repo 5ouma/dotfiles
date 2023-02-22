@@ -39,7 +39,6 @@ apps:
     - Mission Control
     - System Preferences
     - Xcode
-    - Playgrounds
     - Visual Studio Code
     - Visual Studio Code - Insiders
     - iTerm
@@ -53,6 +52,7 @@ apps:
         - Blackmagic Proxy Generator Lite
     - Figma
     - Vectornator
+    - PikoPixel
     - Blender
     - Tweeten
     - Discord
