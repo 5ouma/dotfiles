@@ -58,10 +58,6 @@ let g:lightline = {
   \ },
 \ }
 
-" move
-nmap <C-j> <Plug>MoveLineDown
-nmap <C-k> <Plug>MoveLineUp
-
 " NERDTree
 " Show hidden files
 let NERDTreeShowHidden = 1
