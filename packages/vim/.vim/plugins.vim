@@ -23,13 +23,6 @@ call jetpack#begin()
   Jetpack 'Xuyuanp/nerdtree-git-plugin'
 call jetpack#end()
 
-for name in jetpack#names()
-  if !jetpack#tap(name)
-    call jetpack#sync()
-    break
-  endif
-endfor
-
 "============================================================[ Settings ]============================================================"
 
 " vim-gitgutter

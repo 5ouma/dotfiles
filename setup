@@ -230,11 +230,11 @@ if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum executed
 fi
 
-if [[ ! -e "$HOME/.vim/pack/jetpack/opt" ]]; then
+if [[ ! -e "$HOME/.vim/pack/jetpack/src" ]]; then
   gum format "## 🖌 Installing Vim plugins..."
   [ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
   [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
-  vim +qall
+  vim +Jetpack +qall
   gum executed
 fi
 
