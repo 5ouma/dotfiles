@@ -52,7 +52,7 @@ apps:
         - Blackmagic Proxy Generator Lite
     - Figma
     - Vectornator
-    - PikoPixel
+    - Aseprite
     - Blender
     - Tweeten
     - Discord
@@ -166,6 +166,7 @@ dock_items:
 - iTerm
 - DaVinci Resolve
 - Figma
+- Aseprite
 - Blender
 - ""
 - TickTick
