@@ -59,6 +59,7 @@ apps:
     - Discord PTB
     - Slack
     - Microsoft Teams
+    - Rhythm Quest Demo
     - folder: Resident Apps
       pages:
       - number: 1
@@ -158,6 +159,7 @@ dock_items:
 - Tweeten
 - Discord
 - Discord PTB
+- Rhythm Quest Demo
 - ""
 - Xcode
 - Visual Studio Code
