@@ -7,7 +7,7 @@ apps:
     - Google Chrome
     - Mail
     - Spark
-    - Edison Mail
+    - Email
     - Contacts
     - Calendar
     - Reminders
@@ -51,9 +51,9 @@ apps:
         - Fairlight Studio Utility
         - Blackmagic Proxy Generator Lite
     - Figma
-    - Vectornator
     - Aseprite
     - Blender
+    - MekimekiChip
     - Tweeten
     - Discord
     - Discord PTB
@@ -168,12 +168,13 @@ dock_items:
 - Figma
 - Aseprite
 - Blender
+- MekimekiChip
 - ""
 - TickTick
 - Notion
 - Mail
 - Spark
-- Edison Mail
+- Email
 - LINE
 - ""
 - App Store

@@ -134,7 +134,7 @@ cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Disk Speed Test", id: 425264550
-mas "Edison Mail", id: 1489591003
+mas "Email", id: 1489591003
 mas "Fuwari", id: 1187652334
 mas "HandyPalette", id: 1515022667
 mas "iMovie", id: 408981434
@@ -142,6 +142,7 @@ mas "Instapaper", id: 288545208
 mas "LadioCast", id: 411213048
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
+mas "MekimekiChip", id: 6443706307
 mas "MenubarX", id: 1575588022
 mas "PixelScheduler", id: 976996075
 mas "RunCat", id: 1429033973
@@ -151,6 +152,5 @@ mas "Speedtest", id: 1153157709
 mas "Startup Disk Full Fixer", id: 1346655838
 mas "TickTick", id: 966085870
 mas "Timetable", id: 425121147
-mas "Vectornator", id: 1219074514
 mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435
