@@ -6,6 +6,8 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AlwaysOpenWindowAtStartup</key>
 	<true/>
 	<key>CheckTestRelease</key>
