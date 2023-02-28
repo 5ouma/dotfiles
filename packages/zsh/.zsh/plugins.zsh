@@ -15,8 +15,9 @@ fi
 export -r FORGIT_NO_ALIASES=1
 
 # Gum
-export GUM_CONFIRM_SELECTED_BACKGROUND="#027AFF"
-export GUM_CHOOSE_CURSOR_FOREGROUND="#027AFF"
+export GUM_CONFIRM_SELECTED_BACKGROUND="33"
+export GUM_CHOOSE_CURSOR_FOREGROUND="33"
+export GUM_SPIN_SPINNER_FOREGROUND="33"
 
 # zsh-you-should-use
 export -r YSU_MESSAGE_FORMAT="💡 $(tput setaf 6)%alias$(tput sgr0)"
