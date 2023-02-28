@@ -18,16 +18,20 @@ declare gothrough=false
 getGum() {
   declare -r ver="0.9.0"
   declare -r url="https://github.com/charmbracelet/gum/releases/download/v$ver/gum_${ver}_$(uname)_$(uname -m).tar.gz"
+  declare -r jsonurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
+  declare -r json="$(basename $jsonurl)"
   declare -gr dir="$HOME/.cache/gum"
 
   if ! (type gum >/dev/null 2>&1); then
     printf "  🚚💨 now delivering..."
-    mkdir -p "$dir" && curl -sL "$url" | tar -x -C "$dir"
+    mkdir -p "$dir" && curl -sL "$url" | tar -x -C "$dir" && curl -sL "$jsonurl" -o "$dir/$json"
     printf "\r  🏠 📦 arrived!        "
     declare -gr gumcom="$dir/gum"
+    declare -gr gumtheme="$dir/$json"
   else
     # shellcheck disable=SC2155
     declare -gr gumcom="$(which gum)"
+    declare -gr gumtheme="$datas/$json"
   fi
 }
 getGum
@@ -35,7 +39,7 @@ getGum
 gum() {
   case $1 in
   confirm) $gumcom confirm --selected.background="#027AFF" --affirmative="Yes!" --negative="Skip" "${@:2}" ;;
-  format) $gumcom format --theme="$datas/blue.json" "${@:2}" ;;
+  format) $gumcom format --theme="$gumtheme" "${@:2}" ;;
   input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
   spin) $gumcom spin --spinner.foreground="#027AFF" --title="$2" "${@:3}" ;;
   executed)
