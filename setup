@@ -174,20 +174,19 @@ fi
 killall Dock
 killall SystemUIServer
 
-
 # shellcheck disable=SC2155
 declare -r modelname="$(system_profiler SPHardwareDataType | grep "Model Name" | sed "s/.*: //")"
 # shellcheck disable=SC2155
 declare -r computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}"
-if [[ "$(scutil --get ComputerName)" != "$computername" ]]; then
+if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostName)" != "$computername" || "$(scutil --get LocalHostName)" != "$localhostname" ]]; then
   gum format "## 🖥 Setting computer name..."
   gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computername"
   gum spin "Setting HostName..." -- scutil --set HostName "$computername"
   gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "$localhostname"
   while ! (gum input "" "Please input your password to get computer name" --password | sudo --stdin echo >/dev/null 2>&1); do :; done
   gum format <<EOM
-- ComputerName : $(cyan "$(sudo scutil --get ComputerName)")
-- HostName : $(cyan "$(sudo scutil --get HostName)")
+- ComputerName : $(cyan "$(scutil --get ComputerName)")
+- HostName : $(cyan "$(scutil --get HostName)")
 - LocalHostName : $(cyan "$(sudo scutil --get LocalHostName)")
 EOM
   gum executed
