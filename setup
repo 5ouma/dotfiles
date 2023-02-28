@@ -4,7 +4,7 @@ trap '[ -e "$dir" ] && rm -r "$dir"' EXIT
 
 #==================================================[ Variables ]==================================================#
 
-declare -r githubURL="https://github.com/5ouma/dotfiles.git"
+declare -r githuburl="https://github.com/5ouma/dotfiles.git"
 [ -z "$ZDOTDIR" ] && export -r ZDOTDIR="$HOME/.zsh"
 [ -z "$dotfiles" ] && export -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
@@ -116,7 +116,7 @@ fi
 
 # Clone the repository
 if [[ ! -e "$dotfiles" ]]; then
-  echo && gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githubURL" "$dotfiles"
+  echo && gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githuburl" "$dotfiles"
 fi
 
 # Zsh setting
@@ -138,7 +138,7 @@ fi
 mkdir -p "$HOME/.cache" "$HOME/.vim/undo" "$HOME/.ssh/git"
 touch "$HOME/.hushlogin"
 chsym
-if [[ "$num" > 0 ]]; then
+if [[ "$num" -gt 0 ]]; then
   gum format "## 🔗 Symlinking files..."
   mksym
   gum executed
