@@ -16,21 +16,24 @@ declare gothrough=false
 #==================================================[ Functions ]==================================================#
 
 getGum() {
-  declare -r ver="0.9.0"
-  declare -r url="https://github.com/charmbracelet/gum/releases/download/v$ver/gum_${ver}_$(uname)_$(uname -m).tar.gz"
+  declare -r gumurl="https://github.com/charmbracelet/gum/releases/download/v0.9.0/gum_0.9.0_$(uname)_$(uname -m).tar.gz"
   declare -r jsonurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
   declare -r json="$(basename $jsonurl)"
   declare -gr dir="$HOME/.cache/gum"
 
   if ! (type gum >/dev/null 2>&1); then
     printf "  🚚💨 now delivering..."
-    mkdir -p "$dir" && curl -sL "$url" | tar -x -C "$dir" && curl -sL "$jsonurl" -o "$dir/$json"
+    mkdir -p "$dir" && curl -sL "$gumurl" | tar -x -C "$dir"
     printf "\r  🏠 📦 arrived!        "
     declare -gr gumcom="$dir/gum"
-    declare -gr gumtheme="$dir/$json"
   else
     # shellcheck disable=SC2155
     declare -gr gumcom="$(which gum)"
+  fi
+  if [[ ! -e "$datas/$json" ]]; then
+    mkdir -p "$dir" && curl -sL "$jsonurl" -o "$dir/$json"
+    declare -gr gumtheme="$dir/$json"
+  else
     declare -gr gumtheme="$datas/$json"
   fi
 }
