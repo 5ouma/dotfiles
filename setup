@@ -38,7 +38,7 @@ getGum
 
 gum() {
   case $1 in
-  confirm) $gumcom confirm --selected.background="#027AFF" --affirmative="Yes!" --negative="Skip" "${@:2}" ;;
+  confirm) $gumcom confirm --selected.background="#027AFF" "${@:2}" ;;
   format) $gumcom format --theme="$gumtheme" "${@:2}" ;;
   input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
   spin) $gumcom spin --spinner.foreground="#027AFF" --title="$2" "${@:3}" ;;
