@@ -154,9 +154,11 @@ if ! (defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(
   gum executed
 fi
 
-if [[ ! $(defaults read com.apple.dock persistent-apps) =~ "spacer-tile" ]]; then
+killall Dock
+declare -r spacecount=$((6 - $(defaults read com.apple.dock persistent-apps | grep "spacer-tile" -c)))
+if [[ $spacecount -gt 0 ]]; then
   gum format "## 🚥 Adding spaces on Dock..."
-  for ((i = 0; i < 6; i++)); do
+  for ((i = 0; i < spacecount; i++)); do
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
   done
   gum executed
