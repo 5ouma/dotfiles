@@ -197,7 +197,7 @@ fi
 
 #==================================================[ Apps ]==================================================#
 
-if [[ ! $(gum spin "Satisfying Brewfile's dependencies..." --show-output -- brew bundle check --file="$datas/Brewfile") = "The Brewfile's dependencies are satisfied." ]]; then
+if [[ $(gum spin "Satisfying Brewfile's dependencies..." --show-output -- brew bundle check --file="$datas/Brewfile") != "The Brewfile's dependencies are satisfied." ]]; then
   gum format "## 📲 Installing apps and commands..."
   brew bundle install --no-lock --file="$datas/Brewfile"
   gum executed
