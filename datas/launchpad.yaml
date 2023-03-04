@@ -66,7 +66,7 @@ apps:
         items:
         - Google Drive
         - Dropbox
-        - Box Sync
+        - Box
         - Itsycal
         - Usage
         - Maccy
@@ -76,7 +76,6 @@ apps:
         - MenubarX
         - Gitify
         - Hidden Bar
-        - Dozer
         - Displaperture
         - Rectangle
         - Timetable
@@ -85,16 +84,12 @@ apps:
         - Karabiner-EventViewer
         - Karabiner-Elements
         - Keyboard Maestro
-        - Mousecape
         - Yoink
-        - PixelScheduler
         - HandyPalette
         - Alfred 5
         - AltTab
         - Fuwari
-        - TrashRecover
         - Brewlet
-        - Fig
         - OpenInTerminal
     - folder: Other (Downloaded)
       pages:
@@ -105,18 +100,17 @@ apps:
         - Speedtest
         - Blackmagic Disk Speed Test
         - Mactracker
-        - LadioCast
         - FreeFileSync
         - OnyX
         - AppCleaner
         - Startup Disk Full Fixer
         - Amphetamine
-        - Amphetamine Enhancer
         - KeyboardCleanTool
         - GitHub Desktop
         - Secrets
         - 1Password
         - 1Password for Safari
+        - Fig
         - Syntax Highlight
         - QLMarkdown
         - Apparency
