@@ -26,15 +26,8 @@ call jetpack#end()
 "============================================================[ Settings ]============================================================"
 
 " vim-gitgutter
-" Being enabled highlighting when it's launched
-let g:gitgutter_highlight_lines = 1
 " The time to reflect when it stops typing
 set updatetime=10
-" The color of symbols
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=blue
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=red
 
 " lightline.vim
 let g:lightline = {
