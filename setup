@@ -158,7 +158,7 @@ if ! (defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(
 fi
 
 killall Dock
-declare -r spacecount=$((6 - $(defaults read com.apple.dock persistent-apps | grep "spacer-tile" -c)))
+declare -r spacecount=$((5 - $(defaults read com.apple.dock persistent-apps | grep "spacer-tile" -c)))
 if [[ $spacecount -gt 0 ]]; then
   gum format "## 🚥 Adding spaces on Dock..."
   for ((i = 0; i < spacecount; i++)); do
