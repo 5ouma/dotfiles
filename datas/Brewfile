@@ -118,7 +118,6 @@ cask "quicklook-csv"
 cask "rectangle"
 cask "rhythm-quest"
 cask "runcat-plugins-manager"
-cask "slack"
 cask "spotify"
 cask "suspicious-package"
 cask "syntax-highlight"
@@ -126,7 +125,6 @@ cask "tweeten"
 cask "usage"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
-cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Disk Speed Test", id: 425264550
