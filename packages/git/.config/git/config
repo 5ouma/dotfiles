@@ -44,7 +44,3 @@
   InsteadOf = https://github.com/Souma-S
   InsteadOf = git@github.com:Souma-S
   InsteadOf = ssh://git@github.com/Souma-S
-[url "github-school:Nit-Suzuka-Program-Design"]
-  InsteadOf = https://github.com/Nit-Suzuka-Program-Design
-  InsteadOf = git@github.com:Nit-Suzuka-Program-Design
-  InsteadOf = ssh://git@github.com/Nit-Suzuka-Program-Design

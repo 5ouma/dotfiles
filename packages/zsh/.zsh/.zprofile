@@ -9,24 +9,12 @@ fi
 
 # delta
 if (type delta >/dev/null 2>&1); then
-  diff() {
-    if ! (defaults read -g AppleInterfaceStyle >/dev/null 2>&1); then
-      delta --syntax-theme=GitHub "$@"
-    else
-      delta --syntax-theme=ansi "$@"
-    fi
-  }
-  git() {
-    if ! (defaults read -g AppleInterfaceStyle >/dev/null 2>&1); then
-      command git -c delta.syntax-theme=GitHub "$@"
-    else
-      command git -c delta.syntax-theme=ansi "$@"
-    fi
-  }
+  alias diff="delta --syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
+  alias git="git -c delta.syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
 fi
 
 # doctors
-alias doctor="brew doctor && fig doctor"
+alias doctor="brew doctor; fig doctor; rtx doctor"
 
 # Fig
 alias fd="fig doctor"
@@ -120,10 +108,8 @@ gum() {
 
 # Homebrew
 brew() {
-  if (command brew "$@"); then
-    if [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
-      bbd
-    fi
+  if (command brew "$@") && [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
+    bbd
   fi
 }
 
@@ -171,6 +157,7 @@ alias lpl="lporg load -n $datas/launchpad.yaml >/dev/null 2>&1"
 # lsd
 if (type lsd >/dev/null 2>&1); then
   alias ls="lsd -A"
+  alias ll="lsd -A -l"
   alias tree="lsd -A --tree --ignore-glob=.git"
 fi
 
