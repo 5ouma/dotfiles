@@ -5,6 +5,14 @@
   prompt = false
 [init]
   defaultBranch = main
+[commit]
+	verbose = true
+[clone]
+	recurse-submodule = true
+[log]
+	decorate = true
+	graph = true
+	all = true
 [merge]
   tool = code --wait \"$MERGED\"
 [push]

@@ -1,0 +1,3 @@
+# == Ignore Globs ==
+ignore-globs:
+  - .DS_Store

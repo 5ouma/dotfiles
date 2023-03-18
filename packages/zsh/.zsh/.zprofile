@@ -4,7 +4,7 @@
 
 # bat
 if (type bat >/dev/null 2>&1); then
-  alias cat="bat --theme=ansi"
+  alias cat="bat"
 fi
 
 # delta
@@ -42,7 +42,7 @@ alias gg="ghq get"
 alias gup="ghq list | ghq get --update --parallel"
 
 gcd() {
-  declare -r repo=$(ghq list | fzf --preview="if [[ -e $(ghq root)/{}/README.md ]]; then glow $(ghq root)/{}/README.md; else bat --theme=ansi --color=always --style=header,grid --line-range :300 $(ghq root)/{}/*; fi")
+  declare -r repo=$(ghq list | fzf --preview="if [[ -e $(ghq root)/{}/README.md ]]; then glow $(ghq root)/{}/README.md; else cat $(ghq root)/{}/*; fi")
   if [[ -n "$repo" ]]; then
     cd "$(ghq list --full-path --exact "$repo")" || return
   fi
@@ -52,13 +52,13 @@ gcd() {
 alias ga="git forgit add"
 alias gapa="git add -p"
 alias gb="git branch"
-alias gc!="git commit -v --no-edit --amend"
+alias gc!="git commit --no-edit --amend"
 alias gcf="git config"
-alias gcl="git clone --recurse-submodules"
+alias gcl="git clone"
 alias gd="git diff"
 alias gdt="git difftool"
 alias gin="git init"
-alias glg="git log --graph --decorate --all"
+alias glg="git log --graph --all"
 alias gls="git ls-files"
 alias gop="git open"
 alias gpl="git pull origin"
@@ -81,7 +81,7 @@ alias gtg="git tag"
 
 gcv() {
   git config core.editor "vim"
-  git commit -v "$@"
+  git commit "$@"
   git config core.editor "code --wait"
 }
 
@@ -170,8 +170,8 @@ alias lpl="lporg load -n $datas/launchpad.yaml >/dev/null 2>&1"
 
 # lsd
 if (type lsd >/dev/null 2>&1); then
-  alias ls="lsd -A --ignore-glob=\".DS_Store\""
-  alias tree="lsd -A --tree --ignore-glob=\".DS_Store\" --ignore-glob=\".git\""
+  alias ls="lsd -A"
+  alias tree="lsd -A --tree --ignore-glob=.git"
 fi
 
 # Macup
