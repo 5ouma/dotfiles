@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-trap '[ -e "$dir" ] && rm -r "$dir"' EXIT
+trap '[ -e "$gumdir" ] && rm -r "$gumdir"' EXIT
 
 #==================================================[ Variables ]==================================================#
 
@@ -19,20 +19,20 @@ getGum() {
   declare -r gumurl="https://github.com/charmbracelet/gum/releases/download/v0.9.0/gum_0.9.0_$(uname)_$(uname -m).tar.gz"
   declare -r jsonurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
   declare -r json="$(basename $jsonurl)"
-  declare -gr dir="$HOME/.cache/gum"
+  declare -gr gumdir="$HOME/.cache/gum"
 
   if ! (type gum >/dev/null 2>&1); then
     printf "  🚚💨 now delivering..."
-    mkdir -p "$dir" && curl -sL "$gumurl" | tar -x -C "$dir"
+    mkdir -p "$gumdir" && curl -sL "$gumurl" | tar -x -C "$gumdir"
     printf "\r  🏠 📦 arrived!        "
-    declare -gr gumcom="$dir/gum"
+    declare -gr gumcom="$gumdir/gum"
   else
     # shellcheck disable=SC2155
     declare -gr gumcom="$(which gum)"
   fi
   if [[ ! -e "$datas/$json" ]]; then
-    mkdir -p "$dir" && curl -sL "$jsonurl" -o "$dir/$json"
-    declare -gr gumtheme="$dir/$json"
+    mkdir -p "$gumdir" && curl -sL "$jsonurl" -o "$gumdir/$json"
+    declare -gr gumtheme="$gumdir/$json"
   else
     declare -gr gumtheme="$datas/$json"
   fi
