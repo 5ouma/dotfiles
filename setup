@@ -41,7 +41,7 @@ getGum
 
 gum() {
   case $1 in
-  confirm) $gumcom confirm --selected.background="#027AFF" "${@:2}" ;;
+  confirm) $gumcom confirm --selected.background="#027AFF" --affirmative="$2" --negative="$3" "${@:4}" ;;
   format) $gumcom format --theme="$gumtheme" "${@:2}" ;;
   input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
   spin) $gumcom spin --spinner.foreground="#027AFF" --title="$2" "${@:3}" ;;
@@ -114,7 +114,7 @@ fi
 
 # Ask to confirm
 if ! $gothrough; then
-  gum confirm "Let's start setup!" --affirmative="Yes!" --negative="No" || exit 1
+  gum confirm "Let's start setup!" "Yes!" "No" || exit 1
 fi
 
 # Clone the repository
@@ -206,7 +206,7 @@ if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
   gum format "### 🎨 Please install DaVinci Resolve."
   sleep 2
   open "https://www.blackmagicdesign.com/jp/products/davinciresolve"
-  gum confirm "Continue when you done." --affirmative="Done" --negative=""
+  gum confirm "Continue when you done." "Done" ""
   gum executed
 fi
 
