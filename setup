@@ -213,7 +213,7 @@ fi
 lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
 if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
   gum format "## 🖼 Setting up Launchpad..."
-  gum spin "running \`lporg load\`" -- lporg load -n "$datas/launchpad.yaml"
+  gum spin "Running \`lporg load\`" -- lporg load -n "$datas/launchpad.yaml"
   gum executed
 fi
 rm "$HOME/.cache/launchpad.yaml"
@@ -226,7 +226,7 @@ fi
 
 if ! (defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/null 2>&1); then
   gum format "## ⌨️ Restoring App Shortcuts..."
-  gum spin "running \`mksei load\`" -- mksei load "$datas/keyboard_shortcuts.json"
+  gum spin "Running \`mksei load\`" -- mksei load "$datas/keyboard_shortcuts.json"
   gum executed
 fi
 
