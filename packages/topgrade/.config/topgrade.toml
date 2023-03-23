@@ -25,4 +25,4 @@ repos = [
 "lporg" = "lporg save -c $datas/launchpad.yaml >/dev/null 2>&1"
 "mackup" = "mackup -f backup"
 "mksei" = "mksei save $datas/keyboard_shortcuts.json"
-"rtx" = "rtx plugins update --all"
+"rtx" = "rtx plugins update"
