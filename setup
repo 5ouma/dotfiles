@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-trap '[ -e "$gumdir" ] && rm -r "$gumdir"' EXIT
+trap '[ -e "$gumbin" ] && rm "$gumbin"' EXIT
 
 #==================================================[ Variables ]==================================================#
 
@@ -17,32 +17,32 @@ declare gothrough=false
 
 getGum() {
   declare -r gumurl="https://github.com/charmbracelet/gum/releases/download/v0.9.0/gum_0.9.0_$(uname)_$(uname -m).tar.gz"
-  declare -r jsonurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
-  declare -r json="$(basename $jsonurl)"
-  declare -gr gumdir="$HOME/.cache/gum"
+  declare -r gumthemeurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
+  declare -gr gumbin="$HOME/.cache/gum"
 
   if ! (type gum >/dev/null 2>&1); then
     printf "  🚚💨 now delivering..."
-    mkdir -p "$gumdir" && curl -sL "$gumurl" | tar -x -C "$gumdir"
-    printf "\r  🏠 📦 arrived!        "
-    declare -gr gumcom="$gumdir/gum"
+    mkdir -p "$HOME/.cache" && curl -sL "$gumurl" | tar -x -C "$HOME/.cache" "gum" && declare -gr gumcom="$gumbin"
+    printf "\r                        "
   else
     # shellcheck disable=SC2155
-    declare -gr gumcom="$(which gum)"
+    declare -gr gumcom=$(which gum)
   fi
-  if [[ ! -e "$datas/$json" ]]; then
-    mkdir -p "$gumdir" && curl -sL "$jsonurl" -o "$gumdir/$json"
-    declare -gr gumtheme="$gumdir/$json"
+
+  if [[ ! -e "$datas/blue.json" ]]; then
+    # shellcheck disable=SC2155
+    declare -gr gumtheme=$(curl -s "$gumthemeurl")
   else
-    declare -gr gumtheme="$datas/$json"
+    # shellcheck disable=SC2155
+    declare -gr gumtheme=$(cat "$datas/${gumthemeurl/*\/}")
   fi
 }
 getGum
 
 gum() {
   case $1 in
-  confirm) $gumcom confirm --selected.background="#027AFF" --affirmative="$2" --negative="$3" "${@:4}" ;;
-  format) $gumcom format --theme="$gumtheme" "${@:2}" ;;
+  confirm) $gumcom confirm "$2" --selected.background="#027AFF" --affirmative="$3" --negative="$4" ;;
+  format) $gumcom format --theme=<(echo -E "$gumtheme") "${@:2}" ;;
   input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
   spin) $gumcom spin --spinner.foreground="#027AFF" --title="$2" "${@:3}" ;;
   executed)
