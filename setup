@@ -57,23 +57,22 @@ cyan() {
 }
 
 chsym() {
-  typeset -ag packs files
-  declare -g num=0
+  declare -Ag packs
   while read -r pack; do
     declare file="$HOME/${pack#"$packages"/*/}"
     if [[ ! -e "$file" || -n $(diff "$pack" "$file") ]]; then
-      packs+=("$pack")
-      files+=("$file")
-      ((num++))
+      packs[$file]=$pack
     fi
   done < <(find "$packages" -type f ! -name ".DS_Store")
+  ((${#packs} > 0)) && return 0
 }
 
 mksym() {
-  for ((i = 1; i <= num; i++)); do
-    mkdir -p "$(dirname "${files[i]}")"
-    ln -is "${packs[i]}" "${files[i]}"
-    echo "- $(cyan "~${files[i]#~}")"
+  # shellcheck disable=SC2296
+  for file in "${(k)packs[@]}"; do
+    mkdir -p "$(dirname "$file")"
+    ln -is "${packs[$file]}" "$file"
+    echo "- $(cyan "~${file#~}")"
   done | gum format
 }
 
@@ -140,8 +139,7 @@ fi
 
 mkdir -p "$HOME/.cache" "$HOME/.vim/undo" "$HOME/.ssh/git"
 touch "$HOME/.hushlogin"
-chsym
-if [[ "$num" -gt 0 ]]; then
+if chsym; then
   gum format "## 🔗 Symlinking files..."
   mksym
   gum executed
