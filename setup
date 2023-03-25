@@ -21,7 +21,7 @@ getGum() {
   declare -gr gumbin="$HOME/.cache/gum"
 
   if ! (type gum >/dev/null 2>&1); then
-    printf "  🚚💨 now delivering..."
+    printf "  🚚💨 Now delivering..."
     mkdir -p "$HOME/.cache" && curl -sL "$gumurl" | tar -x -C "$HOME/.cache" "gum" && declare -gr gumcom="$gumbin"
     printf "\r                        "
   else
@@ -56,7 +56,7 @@ cyan() {
   printf "\033[36m%s\033[m" "$@"
 }
 
-chsym() {
+checkSym() {
   declare -Ag packs
   while read -r pack; do
     declare file="$HOME/${pack#"$packages"/*/}"
@@ -67,7 +67,7 @@ chsym() {
   ((${#packs} > 0)) && return 0
 }
 
-mksym() {
+mkSym() {
   # shellcheck disable=SC2296
   for file in "${(k)packs[@]}"; do
     mkdir -p "$(dirname "$file")"
@@ -96,7 +96,7 @@ EOM
   gothrough=true
   ;;
 "-s" | "--set")
-  chsym && mksym
+  checkSym && mkSym
   exit
   ;;
 esac
@@ -139,9 +139,9 @@ fi
 
 mkdir -p "$HOME/.cache" "$HOME/.vim/undo" "$HOME/.ssh/git"
 touch "$HOME/.hushlogin"
-if chsym; then
+if checkSym; then
   gum format "## 🔗 Symlinking files..."
-  mksym
+  mkSym
   gum executed
 fi
 
