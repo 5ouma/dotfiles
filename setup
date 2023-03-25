@@ -157,7 +157,7 @@ fi
 
 killall Dock
 declare -r spacecount=$((5 - $(defaults read com.apple.dock persistent-apps | grep "small-spacer-tile" -c)))
-if [[ $spacecount -gt 0 ]]; then
+if ((spacecount > 0)); then
   gum format "## 🚥 Adding spaces on Dock..."
   for ((i = 0; i < spacecount; i++)); do
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="small-spacer-tile";}'
