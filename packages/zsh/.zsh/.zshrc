@@ -15,7 +15,7 @@ fi
 source "$HOME/.config/op/plugins.sh"
 
 # iTerm2
-source $(brew --prefix)/opt/iterm2-shell-integration/bin/iterm2_shell_integration.zsh
+[ -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ] && source "$ZDOTDIR/.iterm2_shell_integration.zsh"
 
 #===========================================================[ Settings ]===========================================================#
 
