@@ -11,8 +11,11 @@ source $(brew --prefix)/opt/iterm2-shell-integration/bin/iterm2_shell_integratio
 # 1Password
 source "$HOME/.config/op/plugins.sh"
 
-# Load plugin's settings
-source "$ZDOTDIR/plugins.zsh"
+# Powerlevel10k
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+[ -f "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
 
 #===========================================================[ Settings ]===========================================================#
 
