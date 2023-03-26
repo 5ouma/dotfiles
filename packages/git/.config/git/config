@@ -7,6 +7,7 @@
   defaultBranch = main
 [commit]
   verbose = true
+	gpgsign = true
 [clone]
   recurse-submodule = true
 [log]
@@ -29,6 +30,11 @@
   tabs = 2
 [interactive]
   diffFilter = delta --color-only
+
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
 [url "github:"]
   InsteadOf = https://gist.github.com/

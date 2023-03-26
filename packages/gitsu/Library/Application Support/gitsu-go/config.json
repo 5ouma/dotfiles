@@ -4,13 +4,13 @@
       "name": "5ouma",
       "email": "101255979+5ouma@users.noreply.github.com",
       "alias": "5",
-      "gpg_key_id": ""
+      "gpg_key_id": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAwUx3QBgemsReA0yxOb+Yc6tZPVmDQ+ALy/4PhM9f5s"
     },
     {
       "name": "Souma-S",
       "email": "102800255+Souma-S@users.noreply.github.com",
       "alias": "S",
-      "gpg_key_id": ""
+      "gpg_key_id": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH7vNeS7RAYyP73FJaMujoJ+kj/N5Wa+Xy0Mz/jmuMnp"
     }
   ]
 }
