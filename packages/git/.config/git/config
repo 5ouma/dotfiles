@@ -6,13 +6,11 @@
 [init]
   defaultBranch = main
 [commit]
-	verbose = true
+  verbose = true
 [clone]
-	recurse-submodule = true
+  recurse-submodule = true
 [log]
-	decorate = true
-	graph = true
-	all = true
+  decorate = true
 [merge]
   tool = code --wait \"$MERGED\"
 [push]

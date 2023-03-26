@@ -46,7 +46,7 @@ alias gcl="git clone"
 alias gd="git diff"
 alias gdt="git difftool"
 alias gin="git init"
-alias glg="git log --graph --all"
+alias glg="git log --graph"
 alias gls="git ls-files"
 alias gop="git open"
 alias gpl="git pull origin"
@@ -124,7 +124,6 @@ alias bt="brew tap"
 alias bup="brew update && brew upgrade"
 alias but="brew untap"
 alias bun="brew uninstall"
-alias bv="brew -v"
 
 bbd() {
   printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
@@ -133,21 +132,6 @@ bbd() {
     grep -q "mas " "$datas/Brewfile" && break
   done
   printf "🍺 Brewfile was successfully generated!\n"
-}
-
-al() {
-  printf "\033[34;1m==>\033[m \033[1mFormulae\033[m\n"
-  while read -r line; do
-    printf "  $line\n"
-  done < <(brew list --formulae --version)
-  printf "\n\033[34;1m==>\033[m \033[1mCasks\033[m\n"
-  while read -r line; do
-    printf "  $line\n"
-  done < <(brew list --cask --version)
-  printf "\n\033[34;1m==>\033[m \033[1mmas\033[m\n"
-  while read -r line; do
-    printf "  $line\n"
-  done < <(mas list)
 }
 
 # lporg
