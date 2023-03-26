@@ -34,7 +34,7 @@ export -r GUM_CHOOSE_CURSOR_FOREGROUND="33"
 export -r GUM_SPIN_SPINNER_FOREGROUND="33"
 
 # zsh-you-should-use
-export -r YSU_MESSAGE_FORMAT="💡 $(tput setaf 6)%alias$(tput sgr0)"
+export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"
 
 #============================================================[ History ]============================================================#
 
