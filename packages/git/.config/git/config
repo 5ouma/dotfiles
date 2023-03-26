@@ -7,7 +7,7 @@
   defaultBranch = main
 [commit]
   verbose = true
-	gpgsign = true
+  gpgsign = true
 [clone]
   recurse-submodule = true
 [log]
