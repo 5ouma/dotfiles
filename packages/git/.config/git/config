@@ -16,6 +16,8 @@
   tool = code --wait \"$MERGED\"
 [push]
   default = simple
+[tag]
+  gpgSign = true
 
 [delta]
   file-added-label = "+"
