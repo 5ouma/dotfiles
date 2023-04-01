@@ -1,30 +1,32 @@
-<br>
+<br />
 
 <div align="center">
-  <img width=500 src="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/header/header-light.png#gh-light-mode-only" alt="DOTFILES - light">
-  <img width=500 src="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/header/header-dark.png#gh-dark-mode-only" alt="DOTFILES - dark">
-  <p><b>The most minimal and powerful dotfiles ever.</b><br>
-  My config files and setup for CLI tools and GUI apps.</p>
+  <img width=500px src="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/header/header-light.png#gh-light-mode-only" alt="DOTFILES - light" />
+  <img width=500px src="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/header/header-dark.png#gh-dark-mode-only" alt="DOTFILES - dark" />
+
+**The most minimal and powerful dotfiles ever.** <br />
+My config files and setup for CLI tools and GUI apps.
+
 </div>
 
-<br><br>
+<br /><br />
 
 ## 🔐 Requirements
 
 - **macOS** Big Sur `Version 11` or later
 - Intel or Apple Silicon Mac
 
-<br><br>
+<br /><br />
 
 ## 📥 Installation
 
-Run [setup script](https://github.com/5ouma/dotfiles/blob/HEAD/setup) with `curl`, then you will be able to set up by operation.
+Run [setup script](setup) with `curl`, then you will be able to set up by operation.
 
 ```shell
 zsh <(curl -sL dotup.vercel.app)
 ```
 
-<br><br>
+<br /><br />
 
 ## 📊 Usage
 
@@ -41,7 +43,7 @@ Flags:
   -s, --set     Set files to home directory
 ```
 
-<br><br>
+<br /><br />
 
 ## 🌄 Screenshots
 
@@ -50,7 +52,7 @@ Flags:
 | Light Mode | ![Screenshot 1 - Light](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/light/screenshot-1.png) | ![Screenshot 2 - Light](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/light/screenshot-2.png) | ![Screenshot 3 - Light](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/light/screenshot-3.png) |
 | Dark Mode  |  ![Screenshot 1 - Dark](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/dark/screenshot-1.png)  |  ![Screenshot 2 - Dark](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/dark/screenshot-2.png)  | ![Screenshot 3 - Dark](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/dark/screenshot-3.png)   |
 
-<br><br>
+<br /><br />
 
 ## 📝 Detail
 
@@ -59,14 +61,14 @@ Flags:
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
-<br>
+<br />
 
 - ### Runtime Manager : [📼 `rtx`](https://github.com/jdxcode/rtx)
   ```shell
   brew install jdxcode/tap/rtx
   ```
 
-<br>
+<br />
 
 - ### Terminal : [📺 `iTerm2`](https://iterm2.com)
 
@@ -85,7 +87,7 @@ Flags:
     brew install font-hackgen font-hackgen-nerd
     ```
 
-<br>
+<br />
 
 - ### Shell : [🐚 `Zsh`](https://zsh.org)
 
@@ -103,7 +105,7 @@ Flags:
     fig plugins add powerlevel10k
     ```
 
-<br>
+<br />
 
 - ### Terminal Editor : 🖌 `Vim`
 
@@ -115,13 +117,13 @@ Flags:
 
   - #### Color Scheme : [✏️ `Pencil`](https://github.com/preservim/vim-colors-pencil)
 
-<br><br>
+<br /><br />
 
 ## 📲 Other Apps
 
 **Managing with [🍺 `Brewfile`](datas/Brewfile)**
 
-<br><br>
+<br /><br />
 
 ## 🎨 ANSI Colors
 
