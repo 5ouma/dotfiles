@@ -45,10 +45,10 @@ Flags:
 
 ## 🌄 Screenshots
 
-|            |                              Overview                              |                        Interacting with zsh                        | Vim with [NERDTree](https://github.com/preservim/nerdtree)         |
-| :--------: | :----------------------------------------------------------------: | :----------------------------------------------------------------: | ------------------------------------------------------------------ |
-| Light Mode | ![Screenshot 1 - Light](images/screenshots/light/screenshot-1.png) | ![Screenshot 2 - Light](images/screenshots/light/screenshot-2.png) | ![Screenshot 3 - Light](images/screenshots/light/screenshot-3.png) |
-| Dark Mode  |  ![Screenshot 1 - Dark](images/screenshots/dark/screenshot-1.png)  |  ![Screenshot 2 - Dark](images/screenshots/dark/screenshot-2.png)  | ![Screenshot 3 - Dark](images/screenshots/dark/screenshot-3.png)   |
+|            |                                                         Overview                                                         |                                                   Interacting with zsh                                                   | Vim with [NERDTree](https://github.com/preservim/nerdtree)                                                               |
+| :--------: | :----------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------ |
+| Light Mode | ![Screenshot 1 - Light](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/light/screenshot-1.png) | ![Screenshot 2 - Light](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/light/screenshot-2.png) | ![Screenshot 3 - Light](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/light/screenshot-3.png) |
+| Dark Mode  |  ![Screenshot 1 - Dark](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/dark/screenshot-1.png)  |  ![Screenshot 2 - Dark](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/dark/screenshot-2.png)  | ![Screenshot 3 - Dark](https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/screenshots/dark/screenshot-3.png)   |
 
 <br><br>
 
