@@ -145,6 +145,13 @@ if checkSym; then
   gum executed
 fi
 
+if [[ -e "$HOME/.ssh/git/github.pub" || ! -e "$HOME/.ssh/git/github-school.pub" ]]; then
+  gum format "## 📃 Downloading SSH public keys..."
+  curl -s https://github.com/5ouma.keys | head -n 1 > "$HOME/.ssh/git/github.pub"
+  curl -s https://github.com/Souma-S.keys | head -n 1 > "$HOME/.ssh/git/github-school.pub"
+  gum executed
+fi
+
 #==================================================[ defaults ]==================================================#
 
 if ! (defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
