@@ -17,7 +17,7 @@
 [push]
   default = simple
 [tag]
-  gpgSign = true
+  gpgsign = true
 
 [delta]
   file-added-label = "+"
