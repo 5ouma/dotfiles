@@ -93,10 +93,11 @@ gc() {
     "upgrade : Upgrade versions"
     "revert : Revert changes"
   )
-  declare -r type="[$(gum choose "${types[@]}" | awk '{print $1}')]"
-  declare -r summary=$(gum input --prompt "$type " --placeholder "Summary of this change")
-  declare -r description=$(gum input --header "$type $summary" --placeholder "Details of this change")
-  gum confirm "Commit changes?" && git commit -m "$type $summary" -m "$description"
+  declare -r type="$(gum choose "${types[@]}" | awk '{print $1}')"
+  [ -z "$type" ] && return
+  declare -r summary=$(gum input --prompt "[$type] " --placeholder "Summary of this change")
+  declare -r description=$(gum input --header "[$type] $summary" --placeholder "Details of this change")
+  gum confirm "Commit changes?" && git commit -m "[$type] $summary" -m "$description"
 }
 gum() {
   if [ "$1" = "format" ]; then
