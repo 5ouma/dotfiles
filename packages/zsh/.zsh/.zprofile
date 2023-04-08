@@ -77,6 +77,9 @@ gcv() {
 alias gsi="git-su init"
 alias gss="git-su select"
 
+# gitui
+alias gu="gitui"
+
 # Glow
 alias glow="glow -p"
 
