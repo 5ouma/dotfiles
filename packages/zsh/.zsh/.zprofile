@@ -18,7 +18,6 @@ alias doctor="brew doctor; fig doctor; rtx doctor"
 
 # Fig
 alias fd="fig doctor"
-alias fg="fig source"
 
 # forgit
 alias gflg="git forgit log"
@@ -126,8 +125,8 @@ alias bri="brew reinstall"
 alias bs="brew search"
 alias bt="brew tap"
 alias bup="brew update && brew upgrade"
+alias bui="brew uninstall"
 alias but="brew untap"
-alias bun="brew uninstall"
 
 bbd() {
   printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
@@ -156,7 +155,7 @@ alias mb="mackup -f backup"
 alias mi="mas install"
 alias ml="mas list"
 alias ms="mas search"
-alias mun="mas uninstall"
+alias mui="mas uninstall"
 alias mup="mas upgrade"
 
 # trash
