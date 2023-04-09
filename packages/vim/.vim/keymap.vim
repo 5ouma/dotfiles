@@ -35,3 +35,7 @@ map <C-w><Left> <C-w><
 map <C-w><Right> <C-w>>
 map <C-w><Up> <C-w>+
 map <C-w><Down> <C-w>-
+
+" Move Lines
+map <Esc>[1;9A <A-k>
+map <Esc>[1;9B <A-j>
