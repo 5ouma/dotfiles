@@ -1,37 +1,37 @@
 " Move to top and bottom
-nnoremap <Down> gj
-nnoremap <Up> gk
+map <Down> gj
+map <Up> gk
 
 " Redo
-nmap r <C-r>
+map r <C-r>
 
 " Search
-nmap <Esc> :nohlsearch<Return><Esc>
+map <silent> <Esc> :nohlsearch<Return>
 
 " New tab
-nmap <silent> to :tabedit<Return>
-nmap <silent> tq :tabclose<Return>
+map <silent> to :tabedit<Return>
+map <silent> tq :tabclose<Return>
 
 " Move tab
-nmap <silent> t<left> :tabprevious<Return>
-nmap <silent> t<right> :tabnext<Return>
+map <silent> t<Left> :tabprevious<Return>
+map <silent> t<Right> :tabnext<Return>
 
 
 " Split window
-nmap <silent> sh :split<Return>
-nmap <silent> sv :vsplit<Return>
-nmap sq <C-w>q
+map <silent> sh :split<Return>
+map <silent> sv :vsplit<Return>
+map sq <C-w>q
 
 " Move window
-nmap <Space> <C-w>w
-nmap <S-Space> <C-w><S-w>
-nmap s<left> <C-w>h
-nmap s<right> <C-w>l
-nmap s<up> <C-w>k
-nmap s<down> <C-w>j
+map <Space> <C-w>w
+map <S-Space> <C-w><S-w>
+map s<Left> <C-w>h
+map s<Right> <C-w>l
+map s<Up> <C-w>k
+map s<Down> <C-w>j
 
 " Resize window
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><left> <C-w>-
+map <C-w><Left> <C-w><
+map <C-w><Right> <C-w>>
+map <C-w><Up> <C-w>+
+map <C-w><Down> <C-w>-
