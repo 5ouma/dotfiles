@@ -56,6 +56,14 @@ cyan() {
   printf "\033[36m%s\033[m" "$@"
 }
 
+getdot() {
+  if [[ ! -e "$dotfiles" ]]; then
+    echo && gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githuburl" "$dotfiles"
+  else
+    gum spin "Pulling the dotfiles repository..." -- git -C "$dotfiles" pull -q
+  fi
+}
+
 checkSym() {
   declare -Ag packs
   while read -r pack; do
@@ -96,7 +104,7 @@ EOM
   gothrough=true
   ;;
 "-s" | "--set")
-  checkSym && mkSym
+  getdot && checkSym && mkSym
   exit
   ;;
 esac
@@ -117,9 +125,7 @@ if ! $gothrough; then
 fi
 
 # Clone the repository
-if [[ ! -e "$dotfiles" ]]; then
-  echo && gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githuburl" "$dotfiles"
-fi
+getdot
 
 # Zsh setting
 zstyle ":completion:*:commands" rehash 1
