@@ -22,9 +22,21 @@ My config files and setup for CLI tools and GUI apps.
 
 Run [setup script](setup) with `curl`, then you will be able to set up by operation.
 
-```shell
-zsh <(curl -sL dotup.vercel.app)
-```
+<br />
+
+> _All configurations_
+>
+> ```shell
+> zsh <(curl -sL dotup.vercel.app)
+> ```
+
+<br />
+
+> _Just config files_
+>
+> ```shell
+> zsh <(curl -sL dotup.vercel.app) -s
+> ```
 
 <br /><br />
 
