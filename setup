@@ -86,7 +86,7 @@ mkSym() {
 
 #==================================================[ Welcome ]==================================================#
 
-if [[ "$(dirname "$0")" != "$dotfiles" ]]; then
+if [[ "$(dirname "$(realpath "$0")")" != "$dotfiles" ]]; then
   gum format <<EOM
 # Welcome to 💻 dotfiles setup!
 > https://github.com/5ouma/dotfiles
