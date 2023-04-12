@@ -109,6 +109,7 @@ apps:
         - 1Password
         - 1Password for Safari
         - Fig
+        - FocusRecorder
         - Syntax Highlight
         - QLMarkdown
         - Apparency
