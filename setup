@@ -58,9 +58,9 @@ cyan() {
 
 getdot() {
   if [[ ! -e "$dotfiles" ]]; then
-    gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone -q "$githuburl" "$dotfiles"
+    gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone "$githuburl" "$dotfiles"
   else
-    gum spin "Pulling the dotfiles repository..." -- git -C "$dotfiles" pull -q
+    gum spin "Pulling the dotfiles repository..." -- git -C "$dotfiles" pull
   fi
 }
 
