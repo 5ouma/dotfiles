@@ -37,6 +37,11 @@ zle -N show_buffer_stack
 setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
 
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars ' -,;:"()[]{}@/=|'
+zstyle ':zle:*' word-style unspecified
+
 #==============================================================[ Paths ]==============================================================#
 
 # Fig post block. Keep at the bottom of this file.
