@@ -1,3 +1,9 @@
+" Vim Color File
+" Name:       pencil.vim
+" Version:    0.6
+" Maintainer: github.com/preservim
+" License:    The MIT License (MIT)
+
 " Original iA Writer colors, to use as a guide
 " White           #F1F1F1
 " OffWhiteIPad    #F5F2EC
@@ -116,7 +122,7 @@ else
   let s:bg              = s:none_w
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lighter_gray
-  let s:norm            = s:black
+  let s:norm            = s:light_black
   let s:norm_subtle     = s:lighter_black
   let s:purple          = s:dark_purple
   let s:cyan            = s:dark_cyan
@@ -220,7 +226,7 @@ call s:h("SpecialKey",    {"fg": s:fg_gray})
 call s:h("NonText",       {"fg": s:fg_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
 call s:h("ErrorMsg",      {"fg": s:pink})
-call s:h("IncSearch",     {"bg": s:yellow, "fg": s:black})
+call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
 call s:h("Search",        {"bg": s:bg_subtle})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "gui": "bold", "cterm": "bold"})
 hi! link ModeMsg MoreMsg
