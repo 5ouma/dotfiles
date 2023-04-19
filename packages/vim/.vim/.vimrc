@@ -46,9 +46,10 @@ set showmatch
 set laststatus=2
 set wildmode=list:longest
 syntax enable
+set list listchars=tab:→\ ,space:･,eol:↓
+hi SpecialKey ctermfg=LightGray
 
 " Tab
-set list listchars=tab:\▸\-
 set expandtab
 set shiftwidth=2
 set tabstop=2
