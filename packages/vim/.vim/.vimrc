@@ -47,7 +47,6 @@ set laststatus=2
 set wildmode=list:longest
 syntax enable
 set list listchars=tab:→\ ,space:･,eol:↓
-hi SpecialKey ctermfg=LightGray
 
 " Tab
 set expandtab

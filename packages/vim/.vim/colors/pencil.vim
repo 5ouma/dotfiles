@@ -100,6 +100,7 @@ let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 
 if &background == "dark"
+  let s:fg_gray        = s:medium_gray
   let s:bg              = s:none_b
   let s:bg_subtle       = s:black
   let s:bg_very_subtle  = s:subtle_black
@@ -111,6 +112,7 @@ if &background == "dark"
   let s:red             = s:light_red
   let s:visual          = s:lighter_black
 else
+  let s:fg_gray        = s:light_gray
   let s:bg              = s:none_w
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lighter_gray
@@ -212,8 +214,10 @@ call s:h("Todo",          {"fg": s:actual_white, "bg": s:pink, "gui": "bold"    
 " ui chrome ====================================================================
 " ordered according to `:help hitest.vim`
 
-call s:h("SpecialKey",    {"fg": s:light_green})
-call s:h("NonText",       {"fg": s:bg_subtle})
+" call s:h("SpecialKey",    {"fg": s:light_green})
+call s:h("SpecialKey",    {"fg": s:fg_gray})
+" call s:h("NonText",       {"fg": s:bg_subtle})
+call s:h("NonText",       {"fg": s:fg_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
 call s:h("ErrorMsg",      {"fg": s:pink})
 call s:h("IncSearch",     {"bg": s:yellow, "fg": s:black})
