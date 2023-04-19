@@ -72,7 +72,7 @@ checkSym() {
       packs[$file]=$pack
     fi
   done < <(find "$packages" -type f ! -name ".DS_Store")
-  ((${#packs} > 0)) && return 0
+  ((${#packs} > 0))
 }
 
 mkSym() {
