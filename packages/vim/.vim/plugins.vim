@@ -8,6 +8,7 @@ endif
 
 packadd vim-jetpack
 call jetpack#begin()
+  Jetpack '5ouma/vim-colors-pencil'
   Jetpack 'airblade/vim-gitgutter'
   Jetpack 'bronson/vim-trailing-whitespace'
   Jetpack 'cohama/lexima.vim'
