@@ -153,7 +153,7 @@ if checkSym; then
   gum executed
 fi
 
-if [[ -e "$HOME/.ssh/git/github.pub" || ! -e "$HOME/.ssh/git/github-school.pub" ]]; then
+if [[ ! -e "$HOME/.ssh/git/github.pub" || ! -e "$HOME/.ssh/git/github-school.pub" ]]; then
   gum format "## 📃 Downloading SSH public keys..."
   curl -s https://github.com/5ouma.keys | head -n 1 > "$HOME/.ssh/git/github.pub"
   curl -s https://github.com/Souma-S.keys | head -n 1 > "$HOME/.ssh/git/github-school.pub"
@@ -250,7 +250,7 @@ if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum executed
 fi
 
-if [[ ! -e "$HOME/.vim/pack/jetpack/src" ]]; then
+if [[ ! -e "$HOME/.vim/pack/jetpack/opt" ]]; then
   gum format "## 🖌 Installing Vim plugins..."
   [ -z "$VIMRC" ] && export -r VIMRC="$HOME/.vim/.vimrc"
   [ -z "$VIMINIT" ] && export -r VIMINIT="source $VIMRC"
