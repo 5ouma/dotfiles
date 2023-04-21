@@ -27,6 +27,11 @@ zstyle ':completion:*:default' menu select=1
 bindkey "^[[Z" reverse-menu-complete
 zstyle ":completion:*:commands" rehash 1
 
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars ' -,;:"()[]{}@/=|'
+zstyle ':zle:*' word-style unspecified
+
 # Command line stack
 show_buffer_stack() {
   POSTDISPLAY="
@@ -36,11 +41,6 @@ show_buffer_stack() {
 zle -N show_buffer_stack
 setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
-
-autoload -Uz select-word-style
-select-word-style default
-zstyle ':zle:*' word-chars ' -,;:"()[]{}@/=|'
-zstyle ':zle:*' word-style unspecified
 
 #==============================================================[ Paths ]==============================================================#
 
