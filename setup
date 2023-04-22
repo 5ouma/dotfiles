@@ -22,7 +22,7 @@ getGum() {
 
   if ! (type gum >/dev/null 2>&1); then
     printf "  🚚💨 Now delivering..."
-    mkdir -p "$HOME/.cache" && curl -sL "$gumurl" | tar -x -C "$HOME/.cache" "gum" && declare -gr gumcom="$gumbin"
+    mkdir -p "$HOME/.cache" && curl -sL "$gumurl" | tar -zx -C "$HOME/.cache" "gum" && declare -gr gumcom="$gumbin"
     printf "\r                        "
   else
     # shellcheck disable=SC2155
