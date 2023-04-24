@@ -39,6 +39,7 @@ gcd() {
 alias ga="git forgit add"
 alias gapa="git add -p"
 alias gb="git branch"
+alias gc="git commit"
 alias gc!="git commit --no-edit --amend"
 alias gcf="git config"
 alias gcl="git clone"
@@ -83,7 +84,7 @@ alias gu="gitui"
 alias glow="glow -p"
 
 # Gum
-gc() {
+gcg() {
   (git commit --dry-run >/dev/null 2>&1) || return
   declare -r types=("fix : Fix bugs"
     "hotfix : Fix critical bugs"
