@@ -103,18 +103,22 @@ Flags:
 
 - ### Shell : [🐚 `Zsh`](https://zsh.org)
 
-  - #### Plugin Manager : [🔌 `Fig`](https://fig.io)
+  - #### Plugin Manager : [🔌 `Sheldon`](https://github.com/rossmacarthur/sheldon)
 
     ```shell
-    brew install fig
+    brew install sheldon
     ```
 
   - #### Theme : [❯ `Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 
-    [![Powerlvel10k on Fig](https://fig.io/badges/install-with-fig.svg)](https://fig.io/plugins/other/powerlevel10k)
+    ```shell
+    sheldon add autojump --github romkatv/powerlevel10k --apply source
+    ```
+
+  - #### Terminal Autocompletion : [◧ `Fig`](https://fig.io)
 
     ```shell
-    fig plugins add powerlevel10k
+    brew install fig
     ```
 
 <br />

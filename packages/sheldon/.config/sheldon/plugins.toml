@@ -1,0 +1,31 @@
+shell = "zsh"
+apply = ["defer"]
+
+[templates]
+  defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+
+[plugins]
+  [plugins.zsh-defer]
+    github = "romkatv/zsh-defer"
+    apply = ["source"]
+  [plugins.zsh-autopair]
+    github = "hlissner/zsh-autopair"
+  [plugins.zsh-you-should-use]
+    github = "MichaelAquilina/zsh-you-should-use"
+    [plugins.zsh-you-should-use_config]
+      inline = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
+  [plugins.powerlevel10k]
+    github = "romkatv/powerlevel10k"
+    apply = ["source"]
+  [plugins.forgit]
+    github = "wfxr/forgit"
+    dir = "bin"
+    apply = ["PATH"]
+    [plugins.forgit_config]
+      inline = "export -r FORGIT_NO_ALIASES=1"
+  [plugins.zsh-autosuggestions]
+    github = "zsh-users/zsh-autosuggestions"
+  [plugins.zsh-completions]
+    github = "zsh-users/zsh-completions"
+  [plugins.zsh-syntax-highlighting]
+    github = "zsh-users/zsh-syntax-highlighting"
