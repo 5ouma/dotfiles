@@ -73,6 +73,7 @@ apps:
         - RunCat Plugins Manager
         - MenubarX
         - Gitify
+        - Gitify Sub
         - Hidden Bar
         - Displaperture
         - Rectangle
@@ -108,8 +109,8 @@ apps:
         - Secrets
         - 1Password
         - 1Password for Safari
-        - Fig
         - FocusRecorder
+        - Fig
         - Syntax Highlight
         - QLMarkdown
         - Apparency

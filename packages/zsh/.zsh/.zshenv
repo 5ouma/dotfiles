@@ -1,29 +1,22 @@
-#============================================================[ Settings ]============================================================#
-
-export LANG=ja_JP.UTF-8
-
 #============================================================[ Paths ]============================================================#
 
 # Homebrew
 [ $(uname -m) = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
 [ $(uname -m) = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Vim
-export -r VIMRC="$HOME/.vim/.vimrc"
-export -r VIMINIT="source $VIMRC"
-
 # dotfiles
 export -r dotfiles="$HOME/.dotfiles"
 export -r datas="$dotfiles/datas"
-
-# setup
 export PATH="$dotfiles:$PATH"
-
 
 #============================================================[ Environment Variables ]============================================================#
 
 # Homebrew
-export HOMEBREW_AUTOREMOVE=1
+export -r HOMEBREW_AUTOREMOVE=1
+
+# Vim
+export -r VIMRC="$HOME/.vim/.vimrc"
+export -r VIMINIT="source $VIMRC"
 
 # forgit
 export -r FORGIT_NO_ALIASES=1
