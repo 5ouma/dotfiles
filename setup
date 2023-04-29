@@ -45,15 +45,12 @@ gum() {
   format) $gumcom format --theme=<(echo -E "$gumtheme") "${@:2}" ;;
   input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
   spin) $gumcom spin --spinner.foreground="#027AFF" --title="$2" "${@:3}" ;;
+  style) $gumcom style --foreground="$2" "${@:3}" ;;
   executed)
     echo && $gumcom format "✅ Done!"
     executed=true
     ;;
   esac
-}
-
-cyan() {
-  printf "\033[36m%s\033[m" "$@"
 }
 
 getdot() {
@@ -201,9 +198,9 @@ if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostN
   gum spin "Setting LocalHostName..." -- scutil --set LocalHostName "$localhostname"
   sudo -v
   gum format <<EOM
-- ComputerName : $(cyan "$(scutil --get ComputerName)")
-- HostName : $(cyan "$(scutil --get HostName)")
-- LocalHostName : $(cyan "$(sudo scutil --get LocalHostName)")
+- ComputerName : $(gum style 6 "$(scutil --get ComputerName)")
+- HostName : $(gum style 6 "$(scutil --get HostName)")
+- LocalHostName : $(gum style 6 "$(sudo scutil --get LocalHostName)")
 EOM
   gum executed
 fi
