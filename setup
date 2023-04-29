@@ -80,6 +80,7 @@ mkSym() {
     ln -is "${packs[$file]}" "$file"
     echo "- $(cyan "~${file#~}")"
   done | gum format
+}
 
 # Utilities
 helpMsg() {
