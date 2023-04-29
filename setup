@@ -15,6 +15,7 @@ declare gothrough=false
 
 #==================================================[ Functions ]==================================================#
 
+# Actions
 getGum() {
   declare -r gumurl="https://github.com/charmbracelet/gum/releases/download/v0.10.0/gum_0.10.0_$(uname)_$(uname -m).tar.gz"
   declare -r gumthemeurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
@@ -79,6 +80,16 @@ mkSym() {
     ln -is "${packs[$file]}" "$file"
     echo "- $(cyan "~${file#~}")"
   done | gum format
+
+# Utilities
+exitNonDarwin() {
+  if [[ "$(uname)" != "Darwin" ]]; then
+    gum format <<EOM
+> **$(gum style 3 "Warning")**
+> This operation is macOS only.
+EOM
+    exit 1
+  fi
 }
 
 #==================================================[ Welcome ]==================================================#
@@ -108,11 +119,15 @@ EOM
   exit
   ;;
 "-y" | "--yes")
+  exitNonDarwin
   gothrough=true
   ;;
 "-s" | "--set")
   getdot && checkSym && mkSym
   exit
+  ;;
+"")
+  exitNonDarwin
   ;;
 esac
 
