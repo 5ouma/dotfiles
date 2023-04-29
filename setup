@@ -34,7 +34,7 @@ getGum() {
     declare -gr gumtheme=$(curl -s "$gumthemeurl")
   else
     # shellcheck disable=SC2155
-    declare -gr gumtheme=$(cat "$datas/${gumthemeurl/*\/}")
+    declare -gr gumtheme=$(cat "$datas/${gumthemeurl/*\//}")
   fi
 }
 getGum
@@ -126,7 +126,7 @@ if ! $gothrough; then
   gum confirm "Let's start setup!" "Yes!" "No" || exit 1
 fi
 
-# Clone the repository
+# Clone / Pull the repository
 getdot
 
 # Zsh setting
@@ -155,8 +155,8 @@ fi
 
 if [[ ! -e "$HOME/.ssh/git/github.pub" || ! -e "$HOME/.ssh/git/github-school.pub" ]]; then
   gum format "## 📃 Downloading SSH public keys..."
-  curl -s https://github.com/5ouma.keys | head -n 1 > "$HOME/.ssh/git/github.pub"
-  curl -s https://github.com/Souma-S.keys | head -n 1 > "$HOME/.ssh/git/github-school.pub"
+  curl -s https://github.com/5ouma.keys | head -n 1 >"$HOME/.ssh/git/github.pub"
+  curl -s https://github.com/Souma-S.keys | head -n 1 >"$HOME/.ssh/git/github-school.pub"
   gum executed
 fi
 
