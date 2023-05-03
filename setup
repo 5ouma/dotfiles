@@ -22,7 +22,7 @@ getGum() {
   declare -r gumthemeurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
   declare -gr gumbin="$HOME/.cache/gum"
 
-  if ! (type gum >/dev/null 2>&1); then
+  if (! type gum >/dev/null 2>&1); then
     printf "  🚚💨 Now delivering..."
     mkdir -p "$HOME/.cache" && curl -sL "$gumurl" | tar -zx -C "$HOME/.cache" "gum" && declare -gr gumcom="$gumbin"
     printf "\r                        "
@@ -148,7 +148,7 @@ esac
 #==================================================[ Preperations ]==================================================#
 
 # Ask to confirm
-if ! $gothrough; then
+if (! $gothrough); then
   gum confirm "Let's start setup!" "Yes!" "No" || exit 1
 fi
 
@@ -160,7 +160,7 @@ zstyle ":completion:*:commands" rehash 1
 
 #==================================================[ Homebrew ]==================================================#
 
-if ! (type brew >/dev/null 2>&1); then
+if (! type brew >/dev/null 2>&1); then
   gum format "## 🍺 Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   [ "$(uname -m)" = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
@@ -188,7 +188,7 @@ fi
 
 #==================================================[ defaults ]==================================================#
 
-if ! (defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
+if (! defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
   gum format "## 🖼 Changing Launchpad size..."
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
@@ -206,7 +206,7 @@ if ((spacecount > 0)); then
   gum executed
 fi
 
-if ! (defaults read com.apple.screencapture location >/dev/null 2>&1) || [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
+if (! defaults read com.apple.screencapture location >/dev/null 2>&1) || [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
   gum format "## 📷 Changing screen capture path..."
   mkdir -p "$HOME/Pictures/Screen Capture"
   defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
@@ -263,7 +263,7 @@ if [[ -n "$(mackup -n backup)" ]]; then
   gum executed
 fi
 
-if ! (defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/null 2>&1); then
+if (! defaults read com.apple.universalaccess "com.apple.custommenu.apps" >/dev/null 2>&1); then
   gum format "## ⌨️ Restoring App Shortcuts..."
   gum spin "Running \`mksei load\`" -- mksei load "$datas/keyboard_shortcuts.json"
   gum executed
