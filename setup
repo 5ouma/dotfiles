@@ -67,7 +67,7 @@ checkSym() {
   declare -Ag packs
   while read -r pack; do
     declare file="$HOME/${pack#"$packages"/*/}"
-    if [[ ! -e "$file" || -n $(diff "$pack" "$file") ]]; then
+    if [[ ! -e "$file" ]] || (! diff "$pack" "$file" >/dev/null 2>&1); then
       packs[$file]=$pack
     fi
   done < <(find "$packages" -type f ! -name ".DS_Store")
@@ -250,7 +250,7 @@ if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
 fi
 
 lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
-if [[ -n $(diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml") ]]; then
+if (! diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1); then
   gum format "## 🖼 Setting up Launchpad..."
   gum spin "Running \`lporg load\`" -- lporg load -n "$datas/launchpad.yaml"
   gum executed
