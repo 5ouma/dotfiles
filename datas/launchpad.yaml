@@ -66,7 +66,6 @@ apps:
         - Dropbox
         - Box
         - Itsycal
-        - Usage
         - Maccy
         - MacUpdater
         - RunCat
@@ -77,11 +76,11 @@ apps:
         - Hidden Bar
         - Displaperture
         - Rectangle
-        - Timetable
         - DeepL
         - Grammarly Desktop
         - Karabiner-EventViewer
         - Karabiner-Elements
+        - HotKey
         - Keyboard Maestro
         - Yoink
         - HandyPalette
@@ -99,16 +98,15 @@ apps:
         - Speedtest
         - Blackmagic Disk Speed Test
         - Mactracker
+        - Timetable
         - FreeFileSync
         - OnyX
         - AppCleaner
         - Startup Disk Full Fixer
         - Amphetamine
-        - KeyboardCleanTool
-        - GitHub Desktop
+        - AnyCleaner
         - Secrets
         - 1Password
-        - 1Password for Safari
         - FocusRecorder
         - Fig
         - Syntax Highlight

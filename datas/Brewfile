@@ -95,7 +95,6 @@ cask "font-splatoon1"
 cask "font-splatoon2"
 cask "freefilesync"
 cask "geekbench"
-cask "github"
 cask "gitify"
 cask "google-chrome"
 cask "google-drive"
@@ -105,7 +104,6 @@ cask "iterm2-beta"
 cask "itsycal"
 cask "karabiner-elements"
 cask "keyboard-maestro"
-cask "keyboardcleantool"
 cask "maccy"
 cask "macupdater"
 cask "microsoft-teams"
@@ -122,16 +120,16 @@ cask "spotify"
 cask "suspicious-package"
 cask "syntax-highlight"
 cask "tweeten"
-cask "usage"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
-mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
+mas "AnyCleaner", id: 6444128735
 mas "Disk Speed Test", id: 425264550
 mas "Email", id: 1489591003
 mas "FocusRecorder", id: 6446467176
 mas "Fuwari", id: 1187652334
 mas "HandyPalette", id: 1515022667
+mas "HotKey", id: 975890633
 mas "iMovie", id: 408981434
 mas "Instapaper", id: 288545208
 mas "LINE", id: 539883307
