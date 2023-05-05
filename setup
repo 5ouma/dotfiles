@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 set -e
-trap 'rm -f "$gumbin"' EXIT
 
 #==================================================[ Variables ]==================================================#
 
@@ -18,13 +17,12 @@ declare gothrough=false
 
 # Actions
 getGum() {
-  declare -r gumurl="https://github.com/charmbracelet/gum/releases/download/v0.10.0/gum_0.10.0_$(uname)_$(uname -m).tar.gz"
+  declare -r gumurl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.10.0_$(uname)_$(uname -m).tar.gz"
   declare -r gumthemeurl="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json"
-  declare -gr gumbin="$HOME/.cache/gum"
 
   if (! type gum >/dev/null 2>&1); then
     printf "  🚚💨 Now delivering..."
-    mkdir -p "$HOME/.cache" && curl -sL "$gumurl" | tar -zx -C "$HOME/.cache" "gum" && declare -gr gumcom="$gumbin"
+    curl -sL "$gumurl" | tar -zxC "$TMPDIR" "gum" && declare -gr gumcom="$TMPDIR/gum"
     printf "\r                        "
   else
     # shellcheck disable=SC2155
