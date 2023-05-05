@@ -7,7 +7,6 @@
         "Close Window": "⌘⇧W"
     },
     "com.google.Chrome": {
-        "AirDrop": "⌥⇧A",
         "Close Other Tabs": "⌘⌥^⇧W",
         "Select Next Tab": "⌥]",
         "Select Previous Tab": "⌥["
@@ -65,11 +64,5 @@
     },
     "com.builtbymeh.tweeten": {
         "Hide Tweeten": "⌘W"
-    },
-    "com.microsoft.VSCode": {
-        "More…": "⌘R"
-    },
-    "com.microsoft.VSCodeInsiders": {
-        "More…": "⌘R"
     }
 }
