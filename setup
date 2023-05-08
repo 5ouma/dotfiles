@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -eu
 
 #==================================================[ Variables ]==================================================#
 
@@ -117,31 +117,32 @@ fi
 
 #==================================================[ Flags ]==================================================#
 
-case "$1" in
-"-h" | "--help")
-  helpMsg
-  exit
-  ;;
-"-y" | "--yes")
+if [[ $# = 0 ]]; then
   exitNonDarwin
-  gothrough=true
-  ;;
-"-s" | "--set")
-  getdot && checkSym && mkSym
-  exit
-  ;;
-"")
-  exitNonDarwin
-  ;;
-*)
-  gum format <<EOM
+else
+  case "$1" in
+  "-h" | "--help")
+    helpMsg
+    exit
+    ;;
+  "-y" | "--yes")
+    exitNonDarwin
+    gothrough=true
+    ;;
+  "-s" | "--set")
+    getdot && checkSym && mkSym
+    exit
+    ;;
+  *)
+    gum format <<EOM
 > **$(gum style 1 "Error")**
 > Unknown flag $1
 EOM
-  helpMsg
-  exit 1
-  ;;
-esac
+    helpMsg
+    exit 1
+    ;;
+  esac
+fi
 
 #==================================================[ Preperations ]==================================================#
 
