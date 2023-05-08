@@ -247,13 +247,12 @@ if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
   gum executed
 fi
 
-lporg save -c "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1
-if (! diff "$datas/launchpad.yaml" "$HOME/.cache/launchpad.yaml" >/dev/null 2>&1); then
+lporg save -c "$TMPDIR/launchpad.yaml" >/dev/null 2>&1
+if (! diff "$datas/launchpad.yaml" "$TMPDIR/launchpad.yaml" >/dev/null 2>&1); then
   gum format "## 🖼 Setting up Launchpad..."
   gum spin "Running \`lporg load\`" -- lporg load -n "$datas/launchpad.yaml"
   gum executed
 fi
-rm "$HOME/.cache/launchpad.yaml"
 
 if [[ -n "$(mackup -n backup)" ]]; then
   gum format "## 💾 Restoring appliaction settings..."
