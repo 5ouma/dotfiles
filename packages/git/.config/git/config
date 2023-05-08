@@ -49,7 +49,7 @@
   InsteadOf = https://github.com/5ouma
   InsteadOf = git@github.com:5ouma
   InsteadOf = ssh://git@github.com/5ouma
-[url "github-school:Souma-S"]
-  InsteadOf = https://github.com/Souma-S
-  InsteadOf = git@github.com:Souma-S
-  InsteadOf = ssh://git@github.com/Souma-S
+[url "github-school:6ouma"]
+  InsteadOf = https://github.com/6ouma
+  InsteadOf = git@github.com:6ouma
+  InsteadOf = ssh://git@github.com/6ouma
