@@ -6,7 +6,7 @@ apps:
     - Safari
     - Google Chrome
     - Mail
-    - Spark
+    - Spark Desktop
     - Email
     - Contacts
     - Calendar
@@ -154,7 +154,7 @@ dock_items:
 - TickTick
 - Notion
 - Mail
-- Spark
+- Spark Desktop
 - Email
 - LINE
 - ""
