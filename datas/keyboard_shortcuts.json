@@ -46,10 +46,6 @@
     "com.outercorner.osx.Secrets": {
         "Hide Secrets": "⌘W"
     },
-    "com.readdle.smartemail-Mac": {
-        "Hide Spark": "⌘W",
-        "Save Message Data…": "⌘E"
-    },
     "com.spotify.client": {
         "Go Back": "⌘[",
         "Go Forward": "⌘]",
