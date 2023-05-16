@@ -1,4 +1,7 @@
 {
+    "com.1password.1password": {
+        "Hide 1Password": "⌘W"
+    },
     "com.apple.ActivityMonitor": {
         "Filter Processes": "⌘F",
         "Hide Activity Monitor": "⌘W"
