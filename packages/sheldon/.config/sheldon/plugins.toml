@@ -2,7 +2,7 @@ shell = "zsh"
 apply = ["defer"]
 
 [templates]
-  defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+  defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
 [plugins]
   [plugins.zsh-defer]
@@ -12,8 +12,8 @@ apply = ["defer"]
     github = "hlissner/zsh-autopair"
   [plugins.zsh-you-should-use]
     github = "MichaelAquilina/zsh-you-should-use"
-    [plugins.zsh-you-should-use_config]
-      inline = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
+    [plugins.zsh-you-should-use.hooks]
+      post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
   [plugins.powerlevel10k]
     github = "romkatv/powerlevel10k"
     apply = ["source"]
@@ -21,8 +21,8 @@ apply = ["defer"]
     github = "wfxr/forgit"
     dir = "bin"
     apply = ["PATH"]
-    [plugins.forgit_config]
-      inline = "export -r FORGIT_NO_ALIASES=1"
+    [plugins.forgit.hooks]
+      post = "export -r FORGIT_NO_ALIASES=1"
   [plugins.zsh-autosuggestions]
     github = "zsh-users/zsh-autosuggestions"
   [plugins.zsh-completions]
