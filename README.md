@@ -4,7 +4,7 @@
   <img width=500px src="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/header/header-light.png#gh-light-mode-only" alt="DOTFILES - light" />
   <img width=500px src="https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/images/header/header-dark.png#gh-dark-mode-only" alt="DOTFILES - dark" />
 
-**The most minimal and powerful dotfiles ever.** <br />
+**💻 The most minimal and powerful dotfiles ever.** <br />
 My config files and setup for CLI tools and GUI apps.
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/5ouma/dotfiles?style=flat-square)
