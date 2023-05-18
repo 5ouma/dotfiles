@@ -117,7 +117,7 @@ Flags:
   - #### Theme : [❯ `Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 
     ```shell
-    sheldon add autojump --github romkatv/powerlevel10k --apply source
+    sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
     ```
 
   - #### Terminal Autocompletion : [◧ `Fig`](https://fig.io)
