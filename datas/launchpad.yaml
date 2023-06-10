@@ -71,7 +71,6 @@ apps:
         - RunCat
         - MenubarX
         - Gitify
-        - Gitify Sub
         - Hidden Bar
         - Displaperture
         - Rectangle
@@ -158,7 +157,6 @@ dock_items:
 - LINE
 - ""
 - App Store
-- Secrets
 - 1Password
 - System Preferences
 - AppCleaner
