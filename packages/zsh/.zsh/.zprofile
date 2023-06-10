@@ -1,14 +1,17 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
-#============================================================[ Aliases ]============================================================#
+
+#============================================================[ Aliases & Functions ]============================================================#
+
+has() {
+  type "$1" >/dev/null 2>&1
+}
 
 # bat
-if (type bat >/dev/null 2>&1); then
-  alias cat="bat"
-fi
+has "bat" && alias cat="bat"
 
 # delta
-if (type delta >/dev/null 2>&1); then
+if (has "delta"); then
   alias diff="delta --syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
   alias git="git -c delta.syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
 fi
@@ -134,11 +137,7 @@ alias lps="lporg save -c $datas/launchpad.yaml >/dev/null 2>&1"
 alias lpl="lporg load -n $datas/launchpad.yaml >/dev/null 2>&1"
 
 # lsd
-if (type lsd >/dev/null 2>&1); then
-  alias ls="lsd -A"
-  alias ll="lsd -A -l"
-  alias tree="lsd -A --tree --ignore-glob=.git"
-fi
+has "lsd" && alias ls="lsd -A" ll="lsd -A -l" tree="lsd -A --tree --ignore-glob=.git"
 
 # Macup
 alias mb="mackup -f backup"
@@ -151,9 +150,7 @@ alias mui="mas uninstall"
 alias mup="mas upgrade"
 
 # trash
-if (type trash >/dev/null 2>&1); then
-  alias rm="trash -F"
-fi
+has "trash" && alias rm="trash -F"
 
 # tokei
 alias tokei="tokei -f"
@@ -171,7 +168,9 @@ alias ci.="code-insiders ."
 
 # System
 alias ka="killall"
-alias mv="mv -i -v"
+alias mv="mv -iv"
+
+unset -f has
 
 #============================================================[ Paths ]============================================================#
 
