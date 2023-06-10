@@ -13,17 +13,6 @@ if (type delta >/dev/null 2>&1); then
   alias git="git -c delta.syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
 fi
 
-# doctors
-alias doctor="brew doctor; fig doctor; rtx doctor"
-
-# Fig
-alias fd="fig doctor"
-
-# forgit
-alias gflg="git forgit log"
-alias gfd="git forgit diff"
-alias gfrh="git forgit reset HEAD"
-
 # ghq
 alias gg="ghq get"
 alias gup="ghq list | ghq get --update --parallel"
