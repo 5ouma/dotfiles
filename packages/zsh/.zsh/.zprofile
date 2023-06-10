@@ -75,7 +75,8 @@ alias glow="glow -p"
 # Gum
 gcg() {
   (git commit --dry-run >/dev/null 2>&1) || return
-  declare -r types=("fix : Fix bugs"
+  declare -r types=(
+    "fix : Fix bugs"
     "hotfix : Fix critical bugs"
     "add : Add new files or features"
     "update : Update functions"
