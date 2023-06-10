@@ -1,27 +1,12 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-#========================================================[ Configurations ]========================================================#
+
+#===========================================================[ Settings ]===========================================================#
 
 # Sheldon
 eval "$(sheldon source)"
 
-# rtx
-eval "$(rtx activate -q zsh)"
-
-# Powerlevel10k
-if [[ -r "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-[ -e "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
-
-# 1Password
-[ -e "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
-
-# iTerm2
-[ -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ] && source "$ZDOTDIR/.iterm2_shell_integration.zsh"
-
-#===========================================================[ Settings ]===========================================================#
-
+# Zsh
 setopt print_eight_bit
 setopt auto_cd
 setopt correct
