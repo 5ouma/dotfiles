@@ -140,7 +140,7 @@ Flags:
 
 <br /><br />
 
-## 📲 Other Apps
+## 📲 Other Apps, VSCode Extensions
 
 **Managing with [🍺 `Brewfile`](datas/Brewfile)**
 
