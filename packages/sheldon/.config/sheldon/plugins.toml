@@ -17,6 +17,13 @@ apply = ["defer"]
   [plugins.powerlevel10k]
     github = "romkatv/powerlevel10k"
     apply = ["source"]
+    [plugins.powerlevel10k.hooks]
+      post = """
+        if [[ -r "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+          source "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
+        fi
+        [ -e "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
+      """
   [plugins.forgit]
     github = "wfxr/forgit"
     dir = "bin"
@@ -29,3 +36,12 @@ apply = ["defer"]
     github = "zsh-users/zsh-completions"
   [plugins.zsh-syntax-highlighting]
     github = "zsh-users/zsh-syntax-highlighting"
+
+  [plugins.compinit]
+    inline = "autoload -Uz compinit && zsh-defer compinit"
+  [plugins.1password]
+    inline = '[ -e "$HOME/.config/op/plugins.sh" ] && zsh-defer source "$HOME/.config/op/plugins.sh"'
+  [plugins.iterm]
+    inline = '[ -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ] && source "$ZDOTDIR/.iterm2_shell_integration.zsh"'
+  [plugins.rtx]
+    inline = 'zsh-defer eval "$(rtx activate -q zsh)"'
