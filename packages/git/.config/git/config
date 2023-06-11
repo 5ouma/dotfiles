@@ -10,6 +10,10 @@
   gpgsign = true
 [clone]
   recurse-submodule = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [log]
   decorate = true
 [merge]
@@ -18,6 +22,19 @@
   default = simple
 [tag]
   gpgsign = true
+
+[url "github:"]
+  InsteadOf = https://gist.github.com/
+  InsteadOf = git@gist.github.com/
+  InsteadOf = ssh://git@gist.github.com/
+[url "github:5ouma"]
+  InsteadOf = https://github.com/5ouma
+  InsteadOf = git@github.com:5ouma
+  InsteadOf = ssh://git@github.com/5ouma
+[url "github-school:6ouma"]
+  InsteadOf = https://github.com/6ouma
+  InsteadOf = git@github.com:6ouma
+  InsteadOf = ssh://git@github.com/6ouma
 
 [delta]
   file-added-label = "+"
@@ -35,21 +52,3 @@
 
 [ghq]
   user = 5ouma
-
-[gpg]
-  format = ssh
-[gpg "ssh"]
-  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-
-[url "github:"]
-  InsteadOf = https://gist.github.com/
-  InsteadOf = git@gist.github.com/
-  InsteadOf = ssh://git@gist.github.com/
-[url "github:5ouma"]
-  InsteadOf = https://github.com/5ouma
-  InsteadOf = git@github.com:5ouma
-  InsteadOf = ssh://git@github.com/5ouma
-[url "github-school:6ouma"]
-  InsteadOf = https://github.com/6ouma
-  InsteadOf = git@github.com:6ouma
-  InsteadOf = ssh://git@github.com/6ouma
