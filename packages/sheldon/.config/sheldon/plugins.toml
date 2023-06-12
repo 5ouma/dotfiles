@@ -42,6 +42,7 @@ apply = ["defer"]
   [plugins.1password]
     inline = '[ -e "$HOME/.config/op/plugins.sh" ] && zsh-defer source "$HOME/.config/op/plugins.sh"'
   [plugins.iterm]
-    inline = '[ -e "$ZDOTDIR/.iterm2_shell_integration.zsh" ] && source "$ZDOTDIR/.iterm2_shell_integration.zsh"'
+    remote = "https://iterm2.com/shell_integration/zsh"
+    apply = ["source"]
   [plugins.rtx]
     inline = 'zsh-defer eval "$(rtx activate -q zsh)"'
