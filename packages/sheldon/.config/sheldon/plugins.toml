@@ -1,19 +1,20 @@
 shell = "zsh"
 apply = ["defer"]
 
+[plugins.zsh-defer]
+  github = "romkatv/zsh-defer"
+  apply = ["source"]
+
 [templates]
   defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
 [plugins]
-  [plugins.zsh-defer]
-    github = "romkatv/zsh-defer"
-    apply = ["source"]
-  [plugins.zsh-autopair]
-    github = "hlissner/zsh-autopair"
-  [plugins.zsh-you-should-use]
-    github = "MichaelAquilina/zsh-you-should-use"
-    [plugins.zsh-you-should-use.hooks]
-      post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
+  [plugins.forgit]
+    github = "wfxr/forgit"
+    dir = "bin"
+    apply = ["PATH"]
+    [plugins.forgit.hooks]
+      post = "export -r FORGIT_NO_ALIASES=1"
   [plugins.powerlevel10k]
     github = "romkatv/powerlevel10k"
     apply = ["source"]
@@ -24,24 +25,24 @@ apply = ["defer"]
         fi
         [ -e "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
       """
-  [plugins.forgit]
-    github = "wfxr/forgit"
-    dir = "bin"
-    apply = ["PATH"]
-    [plugins.forgit.hooks]
-      post = "export -r FORGIT_NO_ALIASES=1"
+  [plugins.zsh-autopair]
+    github = "hlissner/zsh-autopair"
   [plugins.zsh-autosuggestions]
     github = "zsh-users/zsh-autosuggestions"
   [plugins.zsh-completions]
     github = "zsh-users/zsh-completions"
   [plugins.zsh-syntax-highlighting]
     github = "zsh-users/zsh-syntax-highlighting"
+  [plugins.zsh-you-should-use]
+    github = "MichaelAquilina/zsh-you-should-use"
+    [plugins.zsh-you-should-use.hooks]
+      post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
 
-  [plugins.compinit]
-    inline = "autoload -Uz compinit && zsh-defer compinit"
   [plugins.1password]
     inline = '[ -e "$HOME/.config/op/plugins.sh" ] && zsh-defer source "$HOME/.config/op/plugins.sh"'
-  [plugins.iterm]
+  [plugins.compinit]
+    inline = "autoload -Uz compinit && zsh-defer compinit"
+  [plugins.iterm2-shell-integration]
     remote = "https://iterm2.com/shell_integration/zsh"
     apply = ["source"]
   [plugins.rtx]
