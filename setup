@@ -25,16 +25,13 @@ getGum() {
     curl -sL "$gumurl" | tar -zxC "$TMPDIR" "gum" && declare -gr gumcom="$TMPDIR/gum"
     printf "\r                        "
   else
-    # shellcheck disable=SC2155
-    declare -gr gumcom=$(which gum)
+    gumcom=$(which gum) && declare -gr gumcom
   fi
 
   if [[ ! -e "$datas/blue.json" ]]; then
-    # shellcheck disable=SC2155
-    declare -gr gumtheme=$(curl -s "$gumthemeurl")
+    gumtheme=$(curl -s "$gumthemeurl") && declare -gr gumtheme
   else
-    # shellcheck disable=SC2155
-    declare -gr gumtheme=$(cat "$datas/${gumthemeurl/*\//}")
+    gumtheme=$(cat "$datas/${gumthemeurl/*\//}") && declare -gr gumtheme
   fi
 }
 getGum
@@ -215,10 +212,8 @@ fi
 killall Dock
 killall SystemUIServer
 
-# shellcheck disable=SC2155
-declare -r modelname="$(system_profiler SPHardwareDataType | grep "Model Name" | sed "s/.*: //")"
-# shellcheck disable=SC2155
-declare -r computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}"
+modelname="$(system_profiler SPHardwareDataType | grep "Model Name" | sed "s/.*: //")" && declare -r modelname
+computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}" && declare -r computername localhostname
 if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostName)" != "$computername" || "$(scutil --get LocalHostName)" != "$localhostname" ]]; then
   gum format "## 🖥 Setting computer name..."
   gum spin "Setting ComputerName..." -- scutil --set ComputerName "$computername"
