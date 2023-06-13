@@ -21,7 +21,7 @@ alias gg="ghq get"
 alias gup="ghq list | ghq get --update --parallel"
 
 gcd() {
-  declare -r repo=$(ghq list | fzf --preview="if [[ -e $(ghq root)/{}/README.md ]]; then glow $(ghq root)/{}/README.md; else cat $(ghq root)/{}/*; fi")
+  declare -r repo="$(ghq list | fzf --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow --style=auto")"
   if [[ -n "$repo" ]]; then
     cd "$(ghq list --full-path --exact "$repo")" || return
   fi
