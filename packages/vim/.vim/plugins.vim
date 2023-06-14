@@ -58,9 +58,9 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
   \ 'Modified'  :'!',
   \ 'Staged'    :'+',
   \ 'Untracked' :'?',
-  \ 'Renamed'   :'➜',
+  \ 'Renamed'   :'→',
   \ 'Unmerged'  :'~',
-  \ 'Deleted'   :'✖',
+  \ 'Deleted'   :'×',
   \ 'Unknown'   :'?',
   \ }
 let g:NERDTreeGitStatusConcealBrackets = 1
