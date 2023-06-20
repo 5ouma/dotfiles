@@ -6,6 +6,12 @@
         "Filter Processes": "⌘F",
         "Hide Activity Monitor": "⌘W"
     },
+    "com.hnc.Discord": {
+        "Hide Discord": "⌘W"
+    },
+    "com.hnc.DiscordPTB": {
+        "Hide Discord": "⌘W"
+    },
     "com.edisonmail.edisonmail": {
         "Check for Mail…": "⌘R",
         "Close Window": "⌘⇧W"
