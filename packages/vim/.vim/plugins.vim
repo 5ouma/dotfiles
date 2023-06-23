@@ -15,6 +15,7 @@ call jetpack#begin()
   Jetpack 'itchyny/lightline.vim'
   Jetpack 'matze/vim-move'
   Jetpack 'mbbill/undotree'
+  Jetpack 'obcat/vim-hitspop'
   Jetpack 'preservim/nerdtree'
   Jetpack 'ryanoasis/vim-devicons'
   Jetpack 'tani/vim-jetpack'
@@ -25,10 +26,6 @@ call jetpack#begin()
 call jetpack#end()
 
 "============================================================[ Settings ]============================================================"
-
-" vim-gitgutter
-" The time to reflect when it stops typing
-set updatetime=10
 
 " lightline.vim
 let g:lightline = {

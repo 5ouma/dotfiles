@@ -36,6 +36,7 @@ if has('persistent_undo')
 endif
 set clipboard+=unnamed
 set mouse=a
+set updatetime=10
 
 " Appearance
 set number
