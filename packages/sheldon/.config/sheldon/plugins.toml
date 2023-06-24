@@ -46,4 +46,4 @@ apply = ["defer"]
     remote = "https://iterm2.com/shell_integration/zsh"
     apply = ["source"]
   [plugins.rtx]
-    inline = 'zsh-defer eval "$(rtx activate -q zsh)"'
+    inline = 'eval "$(rtx activate -q zsh)"'
