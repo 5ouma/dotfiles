@@ -1,14 +1,7 @@
 [misc]
-# Disable specific steps
 disable = ["github_cli_extensions", "pip3", "system"]
-
-# Set the terminal title
 set_title = true
-
-# Display the time in step titles
 display_time = false
-
-# Cleanup temporary or old files
 cleanup = true
 
 [brew]
@@ -20,7 +13,6 @@ repos = [
   "~/ghq/*/*/*"
 ]
 
-# Custom commands
 [commands]
 "Jetpack" = "vim +Jetpack +qall"
 "lporg" = "lporg save -c $datas/launchpad.yaml >/dev/null 2>&1"
