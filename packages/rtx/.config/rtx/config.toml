@@ -1,4 +1,6 @@
+[tools]
+nodejs = "latest"
+
 [settings]
 experimental = true
 missing_runtime_behavior = "autoinstall"
-
