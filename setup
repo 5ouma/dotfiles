@@ -5,7 +5,7 @@ set -eu
 #==================================================[ Variables ]==================================================#
 
 declare -r githuburl="https://github.com/5ouma/dotfiles.git"
-[ -z "${ZDOTDIR:-}" ] && export -r ZDOTDIR="$HOME/.zsh"
+[ -z "${ZDOTDIR:-}" ] && export -r ZDOTDIR="$HOME/.config/zsh"
 [ -z "${dotfiles:-}" ] && export -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 [ -z "${datas:-}" ] && export -r datas="$dotfiles/datas"

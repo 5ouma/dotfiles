@@ -22,8 +22,8 @@ apply = ["defer"]
     apply = ["source"]
     [plugins.powerlevel10k.hooks]
       post = """
-        if [[ -r "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-          source "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
+        if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+          source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
         fi
         [ -e "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
       """
@@ -41,7 +41,7 @@ apply = ["defer"]
       post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
 
   [plugins.1password]
-    inline = '[ -e "$HOME/.config/op/plugins.sh" ] && zsh-defer source "$HOME/.config/op/plugins.sh"'
+    inline = '[ -e "$XDG_CONFIG_HOME/op/plugins.sh" ] && zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"'
   [plugins.compinit]
     inline = "autoload -Uz compinit && zsh-defer compinit"
   [plugins.iterm2-shell-integration]
