@@ -43,7 +43,7 @@ apply = ["defer"]
   [plugins.1password]
     inline = '[ -e "$XDG_CONFIG_HOME/op/plugins.sh" ] && zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"'
   [plugins.compinit]
-    inline = "autoload -Uz compinit && zsh-defer compinit"
+    inline = 'autoload -Uz compinit && zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"'
   [plugins.iterm2-shell-integration]
     remote = "https://iterm2.com/shell_integration/zsh"
     apply = ["source"]
