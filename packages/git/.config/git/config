@@ -1,5 +1,4 @@
 [core]
-  editor = code --wait
   pager = delta --side-by-side --width ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
 [difftool]
   prompt = false
@@ -16,8 +15,6 @@
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [log]
   decorate = true
-[merge]
-  tool = code --wait \"$MERGED\"
 [push]
   default = simple
 [tag]

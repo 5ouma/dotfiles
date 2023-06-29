@@ -17,6 +17,7 @@ export -r HOMEBREW_AUTOREMOVE=1
 # Vim
 export -r VIMRC="$HOME/.vim/.vimrc"
 export -r VIMINIT="source $VIMRC"
+export -r EDITOR="vim"
 
 # Gum
 export -r GUM_CONFIRM_SELECTED_BACKGROUND="33"
