@@ -1,6 +1,6 @@
 "============================================================[ Paths ]============================================================"
 
-set viminfo+=n~/.vim/.viminfo
+set viminfo+=n$XDG_CACHE_HOME/vim/info
 
 source ~/.vim/plugins.vim
 source ~/.vim/keymap.vim
@@ -31,7 +31,7 @@ set hidden
 set showcmd
 set belloff=all
 if has('persistent_undo')
-  set undodir=~/.vim/undo
+  set undodir=$XDG_CACHE_HOME/vim/undo
   set undofile
 endif
 set clipboard+=unnamed
