@@ -59,12 +59,6 @@ alias gsw="git switch"
 alias gswc="git switch -c"
 alias gtg="git tag"
 
-gcv() {
-  git config core.editor "vim"
-  git commit "$@"
-  git config core.editor "code --wait"
-}
-
 # gitsu
 alias gsi="git-su init"
 alias gss="git-su select"
