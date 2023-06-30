@@ -167,8 +167,6 @@ fi
 
 #==================================================[ Configs ]==================================================#
 
-mkdir -p "$HOME/.ssh/git"
-touch "$HOME/.hushlogin"
 if checkSym; then
   gum format "## 🔗 Symlinking files..."
   mkSym
@@ -177,6 +175,7 @@ fi
 
 if [[ ! -f "$HOME/.ssh/git/github.pub" || ! -f "$HOME/.ssh/git/github-school.pub" ]]; then
   gum format "## 📃 Downloading SSH public keys..."
+  mkdir -p "$HOME/.ssh/git"
   curl -s https://github.com/5ouma.keys | head -n 1 >"$HOME/.ssh/git/github.pub"
   curl -s https://github.com/6ouma.keys | head -n 1 >"$HOME/.ssh/git/github-school.pub"
   gum executed
