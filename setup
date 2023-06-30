@@ -167,7 +167,7 @@ fi
 
 #==================================================[ Configs ]==================================================#
 
-mkdir -p "$HOME/.cache" "$HOME/.vim/undo" "$HOME/.ssh/git"
+mkdir -p "$HOME/.ssh/git"
 touch "$HOME/.hushlogin"
 if checkSym; then
   gum format "## 🔗 Symlinking files..."

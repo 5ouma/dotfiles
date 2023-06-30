@@ -33,6 +33,7 @@ if has("persistent_undo")
   set undofile
   set undodir=$XDG_CACHE_HOME/vim/undo
 endif
+call mkdir(&undodir, "p")
 set clipboard+=unnamed
 set mouse=a
 set updatetime=10
