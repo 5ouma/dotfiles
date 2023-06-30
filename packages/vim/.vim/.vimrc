@@ -1,6 +1,4 @@
-"============================================================[ Paths ]============================================================"
-
-set viminfo+=n$XDG_CACHE_HOME/vim/info
+"============================================================[ Source ]============================================================"
 
 source ~/.vim/plugins.vim
 source ~/.vim/keymap.vim
@@ -9,7 +7,7 @@ source ~/.vim/keymap.vim
 
 colorscheme pencil
 function! CAP()
-  let output =  system("defaults read -g AppleInterfaceStyle")
+  exec system("defaults read -g AppleInterfaceStyle")
   if v:shell_error != 0
     set background=light
   else
@@ -30,9 +28,10 @@ set autoread
 set hidden
 set showcmd
 set belloff=all
+set viminfo+=n$XDG_CACHE_HOME/vim/info
 if has("persistent_undo")
-  set undodir=$XDG_CACHE_HOME/vim/undo
   set undofile
+  set undodir=$XDG_CACHE_HOME/vim/undo
 endif
 set clipboard+=unnamed
 set mouse=a
