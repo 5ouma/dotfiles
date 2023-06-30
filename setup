@@ -28,7 +28,7 @@ getGum() {
     gumcom=$(which gum) && declare -gr gumcom
   fi
 
-  if [[ ! -e "$datas/blue.json" ]]; then
+  if [[ ! -f "$datas/blue.json" ]]; then
     gumtheme=$(curl -s "$gumthemeurl") && declare -gr gumtheme
   else
     gumtheme=$(cat "$datas/${gumthemeurl/*\//}") && declare -gr gumtheme
@@ -51,7 +51,7 @@ gum() {
 }
 
 getdot() {
-  if [[ ! -e "$dotfiles" ]]; then
+  if [[ ! -d "$dotfiles" ]]; then
     gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone "$githuburl" "$dotfiles"
   else
     gum spin "Pulling the dotfiles repository..." -- git -C "$dotfiles" pull
@@ -62,7 +62,7 @@ checkSym() {
   declare -Ag packs
   while read -r pack; do
     declare file="$HOME/${pack#"$packages"/*/}"
-    if [[ ! -e "$file" ]] || (! diff "$pack" "$file" >/dev/null 2>&1); then
+    if [[ ! -f "$file" ]] || (! diff "$pack" "$file" >/dev/null 2>&1); then
       packs[$file]=$pack
     fi
   done < <(find "$packages" -type f ! -name ".DS_Store")
@@ -175,7 +175,7 @@ if checkSym; then
   gum executed
 fi
 
-if [[ ! -e "$HOME/.ssh/git/github.pub" || ! -e "$HOME/.ssh/git/github-school.pub" ]]; then
+if [[ ! -f "$HOME/.ssh/git/github.pub" || ! -f "$HOME/.ssh/git/github-school.pub" ]]; then
   gum format "## 📃 Downloading SSH public keys..."
   curl -s https://github.com/5ouma.keys | head -n 1 >"$HOME/.ssh/git/github.pub"
   curl -s https://github.com/6ouma.keys | head -n 1 >"$HOME/.ssh/git/github-school.pub"
@@ -235,7 +235,7 @@ if [[ $(gum spin "Satisfying Brewfile's dependencies..." --show-output -- brew b
   brew bundle install --no-lock --no-upgrade --file="$datas/Brewfile"
   gum executed
 fi
-if [[ ! -e "/Applications/DaVinci Resolve" ]]; then
+if [[ ! -d "/Applications/DaVinci Resolve" ]]; then
   gum format "### 🎨 Please install DaVinci Resolve."
   sleep 2
   open "https://www.blackmagicdesign.com/jp/products/davinciresolve"
@@ -269,7 +269,7 @@ if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum executed
 fi
 
-if [[ ! -e "$HOME/.vim/pack/jetpack/opt" ]]; then
+if [[ ! -d "$HOME/.vim/pack/jetpack/opt" ]]; then
   gum format "## 🖌 Installing Vim plugins..."
   [ -z "${VIMRC:-}" ] && export -r VIMRC="$HOME/.vim/.vimrc"
   [ -z "${VIMINIT:-}" ] && export -r VIMINIT="source $VIMRC"

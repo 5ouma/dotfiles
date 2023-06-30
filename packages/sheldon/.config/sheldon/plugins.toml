@@ -25,7 +25,7 @@ apply = ["defer"]
         if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
           source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
         fi
-        [ -e "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
+        [ -f "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
       """
   [plugins.zsh-autopair]
     github = "hlissner/zsh-autopair"
@@ -41,7 +41,7 @@ apply = ["defer"]
       post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
 
   [plugins.1password]
-    inline = '[ -e "$XDG_CONFIG_HOME/op/plugins.sh" ] && zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"'
+    inline = '[ -f "$XDG_CONFIG_HOME/op/plugins.sh" ] && zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"'
   [plugins.compinit]
     inline = 'autoload -Uz compinit && zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"'
   [plugins.iterm2-shell-integration]
