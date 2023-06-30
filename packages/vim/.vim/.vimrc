@@ -30,7 +30,7 @@ set autoread
 set hidden
 set showcmd
 set belloff=all
-if has('persistent_undo')
+if has("persistent_undo")
   set undodir=$XDG_CACHE_HOME/vim/undo
   set undofile
 endif
