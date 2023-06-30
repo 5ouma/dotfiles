@@ -30,8 +30,8 @@ set showcmd
 set belloff=all
 set viminfo+=n$XDG_CACHE_HOME/vim/info
 if has("persistent_undo")
-  set undofile
   set undodir=$XDG_CACHE_HOME/vim/undo
+  set undofile
 endif
 call mkdir(&undodir, "p")
 set clipboard+=unnamed
