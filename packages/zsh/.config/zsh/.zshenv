@@ -15,8 +15,7 @@ export PATH="$dotfiles:$PATH"
 export -r HOMEBREW_AUTOREMOVE=1
 
 # Vim
-export -r VIMRC="$HOME/.vim/.vimrc"
-export -r VIMINIT="source $VIMRC"
+export -r VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export -r EDITOR="vim"
 
 # Gum

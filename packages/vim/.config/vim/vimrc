@@ -1,7 +1,13 @@
+"============================================================[ Path ]============================================================"
+
+set packpath^=$XDG_DATA_HOME/vim
+set undodir=$XDG_CACHE_HOME/vim/undo | call mkdir(&undodir, 'p')
+set viminfofile=$XDG_CACHE_HOME/vim/info
+
 "============================================================[ Source ]============================================================"
 
-source ~/.vim/plugins.vim
-source ~/.vim/keymap.vim
+source $XDG_CONFIG_HOME/vim/plugins.vim
+source $XDG_CONFIG_HOME/vim/keymap.vim
 
 "============================================================[ Theme ]============================================================"
 
@@ -24,16 +30,11 @@ command Cd set background=dark
 set encoding=UTF-8
 set nobackup
 set noswapfile
+set undofile
 set autoread
 set hidden
 set showcmd
 set belloff=all
-set viminfo+=n$XDG_CACHE_HOME/vim/info
-if has('persistent_undo')
-  set undodir=$XDG_CACHE_HOME/vim/undo
-  set undofile
-endif
-call mkdir(&undodir, 'p')
 set clipboard+=unnamed
 set mouse=a
 set updatetime=10
