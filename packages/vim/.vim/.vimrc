@@ -7,7 +7,7 @@ source ~/.vim/keymap.vim
 
 colorscheme pencil
 function! CAP()
-  exec system("defaults read -g AppleInterfaceStyle")
+  exec system('defaults read -g AppleInterfaceStyle')
   if v:shell_error != 0
     set background=light
   else
@@ -29,11 +29,11 @@ set hidden
 set showcmd
 set belloff=all
 set viminfo+=n$XDG_CACHE_HOME/vim/info
-if has("persistent_undo")
+if has('persistent_undo')
   set undodir=$XDG_CACHE_HOME/vim/undo
   set undofile
 endif
-call mkdir(&undodir, "p")
+call mkdir(&undodir, 'p')
 set clipboard+=unnamed
 set mouse=a
 set updatetime=10

@@ -1,9 +1,9 @@
 "============================================================[ Jetpack ]============================================================"
 
-let s:jetpackfile = expand("<sfile>:p:h") .. "/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim"
-let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+let s:jetpackfile = expand('<sfile>:p:h') .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
 if !filereadable(s:jetpackfile)
-  call system(printf("curl -fsSLo %s --create-dirs %s", s:jetpackfile, s:jetpackurl))
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
 packadd vim-jetpack
@@ -29,16 +29,16 @@ call jetpack#end()
 
 " lightline.vim
 let g:lightline = {
-  \ "colorscheme": "wombat",
-  \ "active": {
-  \   "left":  [ [ "mode", "paste" ],
-  \              [ "gitbranch", "readonly", "filename", "modified" ] ],
-  \   "right": [ [ "lineinfo" ],
-  \              [ "percent" ],
-  \              [ "filetype" ] ]
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left':  [ [ 'mode', 'paste' ],
+  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'filetype' ] ]
   \ },
-  \ "component_function": {
-  \   "gitbranch": "FugitiveHead"
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead'
   \ },
 \ }
 
@@ -52,13 +52,13 @@ let g:auto_save_silent = 1
 
 " NERDTree-git-plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-  \ "Modified"  :"!",
-  \ "Staged"    :"+",
-  \ "Untracked" :"?",
-  \ "Renamed"   :"→",
-  \ "Unmerged"  :"~",
-  \ "Deleted"   :"×",
-  \ "Unknown"   :"?",
+  \ 'Modified'  :'!',
+  \ 'Staged'    :'+',
+  \ 'Untracked' :'?',
+  \ 'Renamed'   :'→',
+  \ 'Unmerged'  :'~',
+  \ 'Deleted'   :'×',
+  \ 'Unknown'   :'?',
   \ }
 let g:NERDTreeGitStatusConcealBrackets = 1
 
