@@ -20,6 +20,7 @@ call jetpack#begin()
   Jetpack 'preservim/nerdtree'
   Jetpack 'ryanoasis/vim-devicons'
   Jetpack 'tpope/vim-commentary'
+  Jetpack 'tpope/vim-fugitive'
   Jetpack 'tpope/vim-surround'
   Jetpack 'vim-scripts/vim-auto-save'
   Jetpack 'Xuyuanp/nerdtree-git-plugin'
