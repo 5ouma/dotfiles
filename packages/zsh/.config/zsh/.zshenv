@@ -11,6 +11,9 @@ export PATH="$dotfiles:$PATH"
 
 #============================================================[ Environment Variables ]============================================================#
 
+# Lang
+export LANG=en_US.UTF-8
+
 # Homebrew
 export -r HOMEBREW_AUTOREMOVE=1
 
