@@ -13,7 +13,7 @@ source $XDG_CONFIG_HOME/vim/keymap.vim
 
 colorscheme pencil
 function! CAP()
-  exec system('defaults read -g AppleInterfaceStyle')
+  call system('defaults read -g AppleInterfaceStyle')
   if v:shell_error != 0
     set background=light
   else

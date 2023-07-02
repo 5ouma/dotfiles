@@ -1,6 +1,6 @@
 "============================================================[ Jetpack ]============================================================"
 
-let s:jetpackfile = expand('$XDG_DATA_HOME') .. '/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackfile = split(&packpath, ',')[0] .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
 let s:jetpackurl = 'https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim'
 if !filereadable(s:jetpackfile)
   call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
@@ -44,7 +44,6 @@ let g:lightline = {
 \ }
 
 " NERDTree
-" Show hidden files
 let NERDTreeShowHidden = 1
 
 " AutoSave

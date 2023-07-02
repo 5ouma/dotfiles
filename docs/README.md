@@ -130,13 +130,13 @@ Flags:
 
 - ### Terminal Editor : 🖌 `Vim`
 
-  - #### Plugin Manager : [🚀 `Jetpack`](https://github.com/tani/vim-jetpack)
+  - #### Plugin Manager : [🚀 `Jetpack`](https://github.com/5ouma/vim-jetpack)
 
     ```shell
-    curl -fLo ~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/state}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim
     ```
 
-  - #### Color Scheme : [✏️ `Pencil`](https://github.com/preservim/vim-colors-pencil)
+  - #### Color Scheme : [✏️ `Pencil`](https://github.com/5ouma/vim-colors-pencil)
 
 <br /><br />
 

@@ -270,8 +270,8 @@ fi
 
 if [[ ! -d "$HOME/.vim/pack/jetpack/opt" ]]; then
   gum format "## 🖌 Installing Vim plugins..."
-  [ -z "${VIMRC:-}" ] && export -r VIMRC="$HOME/.vim/.vimrc"
-  [ -z "${VIMINIT:-}" ] && export -r VIMINIT="source $VIMRC"
+  [ -z "${MYVIMRC:-}" ] && export -r MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+  [ -z "${VIMINIT:-}" ] && export -r VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
   gum executed
 fi
