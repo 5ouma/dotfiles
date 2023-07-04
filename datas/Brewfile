@@ -107,7 +107,6 @@ cask "rhythm-quest"
 cask "spotify"
 cask "suspicious-package"
 cask "syntax-highlight"
-cask "tweeten"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 mas "Amphetamine", id: 937984704

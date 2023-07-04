@@ -54,7 +54,6 @@ apps:
     - Aseprite
     - Blender
     - MekimekiChip
-    - Tweeten
     - Discord
     - Discord PTB
     - Rhythm Quest Demo
@@ -144,7 +143,6 @@ widgets:
 dock_items:
 - ""
 - Google Chrome
-- Tweeten
 - Discord
 - Discord PTB
 - ""
