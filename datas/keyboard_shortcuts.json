@@ -16,11 +16,6 @@
         "Check for Mail…": "⌘R",
         "Close Window": "⌘⇧W"
     },
-    "com.google.Chrome": {
-        "Close Other Tabs": "⌘⌥^⇧W",
-        "Select Next Tab": "⌥]",
-        "Select Previous Tab": "⌥["
-    },
     "jp.naver.line.mac": {
         "Hide LINE": "⌘W"
     },

@@ -4,7 +4,7 @@ apps:
     items:
     - App Store
     - Safari
-    - Google Chrome
+    - Arc
     - Mail
     - Spark Desktop
     - Email
@@ -142,7 +142,7 @@ widgets:
   pages: []
 dock_items:
 - ""
-- Google Chrome
+- Arc
 - Discord
 - Discord PTB
 - LINE
