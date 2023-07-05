@@ -268,7 +268,7 @@ if [[ "$(rtx ls)" =~ "missing" ]]; then
   gum executed
 fi
 
-if [[ ! -d "$HOME/.vim/pack/jetpack/opt" ]]; then
+if [[ ! -d "$HOME/.local/share/vim/pack/jetpack/opt" ]]; then
   gum format "## 🖌 Installing Vim plugins..."
   [ -z "${MYVIMRC:-}" ] && export -r MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   [ -z "${VIMINIT:-}" ] && export -r VIMINIT="source $MYVIMRC"
