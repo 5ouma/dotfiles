@@ -25,7 +25,7 @@ My config files and setup for CLI tools and GUI apps.
 
 ## 📥 Installation
 
-Run [setup script](setup) with `curl`, then you will be able to set up by operation.
+Run [setup script](../setup) with `curl`, then you will be able to set up by operation.
 
 <br />
 
@@ -142,7 +142,7 @@ Flags:
 
 ## 📲 Other Apps, VSCode Extensions
 
-**Managing with [🍺 `Brewfile`](datas/Brewfile)**
+**Managing with [🍺 `Brewfile`](../datas/Brewfile)**
 
 <br /><br />
 
