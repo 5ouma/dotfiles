@@ -11,7 +11,7 @@
   "heading": {
     "block_prefix": "\n",
     "block_suffix": "\n",
-    "color": "26",
+    "color": "27",
     "bold": true
   },
   "h2": {
@@ -42,7 +42,7 @@
     "bold": true
   },
   "hr": {
-    "color": "26",
+    "color": "27",
     "bold": true,
     "format": "\n------------------------\n"
   },
@@ -74,7 +74,7 @@
   "code": {
     "prefix": " ",
     "suffix": " ",
-    "color": "26",
+    "color": "27",
     "background_color": "7"
   },
   "code_block": {
