@@ -38,6 +38,7 @@ set belloff=all
 set clipboard+=unnamed
 set mouse=a
 set updatetime=10
+set backspace=indent,eol,start
 
 " Appearance
 set number
