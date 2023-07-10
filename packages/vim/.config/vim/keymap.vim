@@ -39,3 +39,6 @@ map <C-w><Down> <C-w>-
 " Move Lines
 map <Esc>[1;9A <A-k>
 map <Esc>[1;9B <A-j>
+
+" Asyncomplete
+inoremap <Return> asyncomplete#close_popup()
