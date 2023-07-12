@@ -1,8 +1,18 @@
 <br />
 
 <div align="center">
-  <img width=500px src="images/header/header-light.png#gh-light-mode-only" alt="DOTFILES - light" />
-  <img width=500px src="images/header/header-dark.png#gh-dark-mode-only" alt="DOTFILES - dark" />
+
+  <picture>
+    <source
+      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <source
+      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-dark.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <img width=500px alt="header" />
+  </picture>
 
 **💻 The most minimal and powerful dotfiles ever.** <br />
 My config files and setup for CLI tools and GUI apps.
