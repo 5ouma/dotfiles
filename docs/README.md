@@ -148,6 +148,8 @@ Flags:
 
   - #### Color Scheme : [✏️ `Pencil`](https://github.com/5ouma/vim-colors-pencil)
 
+  - #### LSP: [💾 `vim-lsp`](https://github.com/prabirshrestha/vim-lsp)
+
 <br /><br />
 
 ## 📲 Other Apps, VSCode Extensions
