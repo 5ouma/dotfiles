@@ -50,7 +50,7 @@ gum() {
   esac
 }
 
-getdot() {
+getDot() {
   if [[ ! -d "$dotfiles" ]]; then
     gum spin "Cloning the repository into \`~/.dotfiles\`..." -- git clone "$githuburl" "$dotfiles"
   else
@@ -127,7 +127,7 @@ else
     gothrough=true
     ;;
   "-s" | "--set")
-    getdot && checkSym && mkSym
+    getDot && checkSym && mkSym
     exit
     ;;
   *)
@@ -149,7 +149,7 @@ if (! $gothrough); then
 fi
 
 # Clone / Pull the repository
-getdot
+getDot
 
 # Zsh setting
 zstyle ":completion:*:commands" rehash 1
