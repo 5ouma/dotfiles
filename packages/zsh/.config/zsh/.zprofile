@@ -8,17 +8,17 @@ has() {
 }
 
 # bat
-has "bat" && alias cat="bat"
+has 'bat' && alias cat='bat'
 
 # delta
-if (has "delta"); then
-  alias diff="delta --syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
-  alias git="git -c delta.syntax-theme=\$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")"
+if (has 'delta'); then
+  alias diff='delta --syntax-theme=$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")'
+  alias git='git -c delta.syntax-theme=$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")'
 fi
 
 # ghq
-alias gg="ghq get"
-alias gup="ghq list | ghq get --update --parallel"
+alias gg='ghq get'
+alias gup='ghq list | ghq get --update --parallel'
 
 gcd() {
   declare -r repo="$(ghq list | fzf --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow --style=auto")"
@@ -28,71 +28,71 @@ gcd() {
 }
 
 # git
-alias ga="git forgit add"
-alias gapa="git add -p"
-alias gb="git branch"
-alias gc="git commit"
-alias gc!="git commit --no-edit --amend"
-alias gcf="git config"
-alias gcl="git clone"
-alias gd="git diff"
-alias gdt="git difftool"
-alias gin="git init"
-alias glg="git log --graph"
-alias gls="git ls-files"
-alias gm="git merge"
-alias gop="git open"
-alias gpl="git pull origin"
-alias gps="git push origin"
-alias gr="git remote"
-alias grb="git rebase"
-alias grba="git rebase --abort"
-alias grbc="git rebase --continue"
-alias grbs="git rebase --skip"
-alias grm="git rm"
-alias grmc="git rm --cached"
-alias grs="git restore"
-alias grss="git restore -S"
-alias grv="git remote -v"
-alias gs="git status"
-alias gst="git stash"
-alias gsw="git switch"
-alias gswc="git switch -c"
-alias gtg="git tag"
+alias ga='git forgit add'
+alias gapa='git add -p'
+alias gb='git branch'
+alias gc='git commit'
+alias gc!='git commit --no-edit --amend'
+alias gcf='git config'
+alias gcl='git clone'
+alias gd='git diff'
+alias gdt='git difftool'
+alias gin='git init'
+alias glg='git log --graph'
+alias gls='git ls-files'
+alias gm='git merge'
+alias gop='git open'
+alias gpl='git pull origin'
+alias gps='git push origin'
+alias gr='git remote'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbs='git rebase --skip'
+alias grm='git rm'
+alias grmc='git rm --cached'
+alias grs='git restore'
+alias grss='git restore -S'
+alias grv='git remote -v'
+alias gs='git status'
+alias gst='git stash'
+alias gsw='git switch'
+alias gswc='git switch -c'
+alias gtg='git tag'
 
 # gitsu
-alias gsi="git-su init"
-alias gss="git-su select"
+alias gsi='git-su init'
+alias gss='git-su select'
 
 # gitui
-alias gu="gitui"
+alias gu='gitui'
 
 # Glow
-alias glow="glow -p"
+alias glow='glow -p'
 
 # Gum
 gcg() {
   (git commit --dry-run >/dev/null 2>&1) || return
   declare -r types=(
-    "fix : Fix bugs"
-    "hotfix : Fix critical bugs"
-    "add : Add new files or features"
-    "update : Update functions"
-    "change : Change specification"
-    "clean : Clean or refactor"
-    "disable : Disable functions"
-    "remove : Remove files"
-    "upgrade : Upgrade versions"
-    "revert : Revert changes"
+    'fix : Fix bugs'
+    'hotfix : Fix critical bugs'
+    'add : Add new files or features'
+    'update : Update functions'
+    'change : Change specification'
+    'clean : Clean or refactor'
+    'disable : Disable functions'
+    'remove : Remove files'
+    'upgrade : Upgrade versions'
+    'revert : Revert changes'
   )
   declare -r type="$(gum choose "${types[@]}" | awk '{print $1}')"
   [ -z "$type" ] && return
-  declare -r summary=$(gum input --prompt "[$type] " --placeholder "Summary of this change")
-  declare -r description=$(gum input --header "[$type] $summary" --placeholder "Details of this change")
-  gum confirm "Commit changes?" && git commit -m "[$type] $summary" -m "$description"
+  declare -r summary="$(gum input --prompt="[$type] " --placeholder='Summary of this change')"
+  declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')"
+  gum confirm 'Commit changes?' && git commit -m "[$type] $summary" -m "$description"
 }
 gum() {
-  if [ "$1" = "format" ]; then
+  if [ "$1" = 'format' ]; then
     command gum format --theme="$datas/blue.json" "${@:2}"
   else
     command gum "$@"
@@ -101,69 +101,66 @@ gum() {
 
 # Homebrew
 brew() {
-  if (command brew "$@") && [[ "$1" = "install" || "$1" = "uninstall" || "$1" = "tap" || "$1" = "untap" ]]; then
+  if (command brew "$@") && [[ "$1" = 'install' || "$1" = 'uninstall' || "$1" = 'tap' || "$1" = 'untap' ]]; then
     bbd
   fi
 }
 
-alias bcl="brew cleanup"
-alias bd="brew doctor"
-alias bi="brew install"
-alias bif="brew info"
-alias bl="brew list"
-alias bri="brew reinstall"
-alias bs="brew search"
-alias bt="brew tap"
-alias bup="brew update && brew upgrade"
-alias bui="brew uninstall"
-alias but="brew untap"
+alias bcl='brew cleanup'
+alias bd='brew doctor'
+alias bi='brew install'
+alias bif='brew info'
+alias bl='brew list'
+alias bri='brew reinstall'
+alias bs='brew search'
+alias bt='brew tap'
+alias bup='brew update && brew upgrade'
+alias bui='brew uninstall'
+alias but='brew untap'
 
 bbd() {
-  printf "\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n"
-  while true; do
-    brew bundle dump -f --file="$datas/Brewfile"
-    grep -q "mas " "$datas/Brewfile" && break
-  done
-  printf "🍺 Brewfile was successfully generated!\n"
+  printf '\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n'
+  brew bundle dump -f --file="$datas/Brewfile"
+  printf '🍺 Brewfile was successfully generated!\n'
 }
 
 # lporg
-alias lps="lporg save -c $datas/launchpad.yaml >/dev/null 2>&1"
-alias lpl="lporg load -n $datas/launchpad.yaml >/dev/null 2>&1"
+alias lps='lporg save -c "$datas/launchpad.yaml" >/dev/null 2>&1'
+alias lpl='lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1'
 
 # lsd
-has "lsd" && alias ls="lsd -A" ll="lsd -A -l" tree="lsd -A --tree --ignore-glob=.git"
+has 'lsd' && alias ls='lsd -A' ll='lsd -A -l' tree='lsd -A --tree --ignore-glob=.git'
 
 # Macup
-alias mb="mackup -f backup"
+alias mb='mackup -f backup'
 
 # mas
-alias mi="mas install"
-alias ml="mas list"
-alias ms="mas search"
-alias mui="mas uninstall"
-alias mup="mas upgrade"
+alias mi='mas install'
+alias ml='mas list'
+alias ms='mas search'
+alias mui='mas uninstall'
+alias mup='mas upgrade'
 
 # trash
-has "trash" && alias rm="trash -F"
+has 'trash' && alias rm='trash -F'
 
 # tokei
-alias tokei="tokei -f"
+alias tokei='tokei -f'
 
 # topgrade
-alias tg="topgrade"
+alias tg='topgrade'
 
 # Vim
-alias v="vim"
-alias vup="vim +Jetpack +qall"
+alias v='vim'
+alias vup='vim +Jetpack +qall'
 
 # VSCode
-alias c.="code ."
-alias ci.="code-insiders ."
+alias c.='code .'
+alias ci.='code-insiders .'
 
 # System
-alias ka="killall"
-alias mv="mv -iv"
+alias ka='killall'
+alias mv='mv -iv'
 
 unset -f has
 

@@ -1,8 +1,8 @@
 #============================================================[ Paths ]============================================================#
 
 # Homebrew
-[ $(uname -m) = "x86_64" ] && eval "$(/usr/local/bin/brew shellenv)"
-[ $(uname -m) = "arm64" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ $(uname -m) = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
+[ $(uname -m) = 'arm64' ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # dotfiles
 export -r dotfiles="$HOME/.dotfiles"
@@ -12,7 +12,7 @@ export PATH="$dotfiles:$PATH"
 #============================================================[ Environment Variables ]============================================================#
 
 # Lang
-export LANG=en_US.UTF-8
+export LANG='en_US.UTF-8'
 
 # Homebrew
 export -r HOMEBREW_AUTOREMOVE=1
@@ -22,9 +22,9 @@ export -r MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 export -r VIMINIT="source $MYVIMRC"
 
 # Gum
-export -r GUM_CONFIRM_SELECTED_BACKGROUND="27"
-export -r GUM_CHOOSE_CURSOR_FOREGROUND="27"
-export -r GUM_SPIN_SPINNER_FOREGROUND="27"
+export -r GUM_CONFIRM_SELECTED_BACKGROUND='27'
+export -r GUM_CHOOSE_CURSOR_FOREGROUND='27'
+export -r GUM_SPIN_SPINNER_FOREGROUND='27'
 
 # less
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
