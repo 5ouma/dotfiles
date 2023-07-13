@@ -22,9 +22,7 @@ alias gup='ghq list | ghq get --update --parallel'
 
 gcd() {
   declare -r repo="$(ghq list | fzf --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow --style=auto")"
-  if [[ -n "$repo" ]]; then
-    cd "$(ghq list --full-path --exact "$repo")" || return
-  fi
+  [ -n "$repo" ] && cd "$(ghq list --full-path --exact "$repo")"
 }
 
 # git
