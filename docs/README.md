@@ -5,13 +5,13 @@
   <picture>
     <source
       srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+      media="(prefers-color-scheme: light)"
     />
     <source
       srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-dark.png"
       media="(prefers-color-scheme: dark)"
     />
-    <img width=500px alt="header" />
+    <img width=500px alt="header" src="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png" />
   </picture>
 
 **💻 The most minimal and powerful dotfiles ever.** <br />
