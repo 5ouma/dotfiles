@@ -1,0 +1,3 @@
+alt + shift - q : pmset displaysleepnow
+cmd + shift - q : osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
+cmd + ctrl  - q : osascript -e 'tell app "loginwindow" to «event aevtrrst»'
