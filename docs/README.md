@@ -81,12 +81,15 @@ Flags:
 
 <br /><br />
 
-## 📝 Detail
+## 📝 Details
 
 - ### Package Manager : [🍺 `Homebrew`](https://brew.sh)
+
   ```shell
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
+
+  > See packages in **[`Brewfile`](../datas/Brewfile)** or on **[`GitHub Star List`](https://github.com/stars/5ouma/lists/shell-command)**
 
 <br />
 
@@ -124,6 +127,8 @@ Flags:
     brew install sheldon
     ```
 
+    > See plugins in **[`plugins.toml`](../packages/sheldon/.config/sheldon/plugins.toml)** or on **[`GitHub Star List`](https://github.com/stars/5ouma/lists/zsh-plugin)**
+
   - #### Theme : [❯ `Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 
     ```shell
@@ -146,15 +151,11 @@ Flags:
     curl -fLo "${XDG_DATA_HOME:-$HOME/.local/state}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim
     ```
 
+    > See plugins in **[`plugins.vim`](../packages/vim/.config/vim/plugins.vim)** or on **[`GitHub Star List`](https://github.com/stars/5ouma/lists/vim-plugin)**
+
   - #### Color Scheme : [✏️ `Pencil`](https://github.com/5ouma/vim-colors-pencil)
 
   - #### LSP: [💾 `vim-lsp`](https://github.com/prabirshrestha/vim-lsp)
-
-<br /><br />
-
-## 📲 Other Apps, VSCode Extensions
-
-**Managing with [🍺 `Brewfile`](../datas/Brewfile)**
 
 <br /><br />
 
