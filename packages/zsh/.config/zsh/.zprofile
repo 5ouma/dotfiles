@@ -89,13 +89,6 @@ gcg() {
   declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')"
   gum confirm 'Commit changes?' && git commit -m "[$type] $summary" -m "$description"
 }
-gum() {
-  if [ "$1" = 'format' ]; then
-    command gum format --theme="$datas/blue.json" "${@:2}"
-  else
-    command gum "$@"
-  fi
-}
 
 # Homebrew
 brew() {

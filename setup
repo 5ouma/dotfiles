@@ -17,7 +17,7 @@ declare gothrough=false
 
 # Actions
 getGum() {
-  declare -r gumurl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.10.0_$(uname)_$(uname -m).tar.gz"
+  declare -r gumurl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.11.0_$(uname)_$(uname -m).tar.gz"
   declare -r gumthemeurl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json'
 
   if (! type gum >/dev/null 2>&1); then

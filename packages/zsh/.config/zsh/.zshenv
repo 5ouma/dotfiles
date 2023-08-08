@@ -24,6 +24,8 @@ export -r VIMINIT="source $MYVIMRC"
 # Gum
 export -r GUM_CONFIRM_SELECTED_BACKGROUND='27'
 export -r GUM_CHOOSE_CURSOR_FOREGROUND='27'
+export -r GUM_FORMAT_THEME="$datas/blue.json"
+export -r GUM_INPUT_CURSOR_FOREGROUND='27'
 export -r GUM_SPIN_SPINNER_FOREGROUND='27'
 
 # less
