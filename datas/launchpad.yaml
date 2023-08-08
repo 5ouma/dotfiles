@@ -84,7 +84,6 @@ apps:
         - Alfred 5
         - AltTab
         - Fuwari
-        - OpenInTerminal
     - folder: Other (Downloaded)
       pages:
       - number: 1
@@ -103,6 +102,7 @@ apps:
         - 1Password
         - FocusRecorder
         - Fig
+        - OpenInTerminal
         - Syntax Highlight
         - QLMarkdown
         - Apparency
