@@ -84,7 +84,6 @@ apps:
         - Alfred 5
         - AltTab
         - Fuwari
-        - Brewlet
         - OpenInTerminal
     - folder: Other (Downloaded)
       pages:
