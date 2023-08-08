@@ -1,51 +1,49 @@
 shell = "zsh"
 apply = ["defer"]
 
-[plugins.zsh-defer]
-  github = "romkatv/zsh-defer"
-  apply = ["source"]
-
 [templates]
   defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
-[plugins]
-  [plugins.forgit]
-    github = "wfxr/forgit"
-    dir = "bin"
-    apply = ["PATH"]
-    [plugins.forgit.hooks]
-      post = "export -r FORGIT_NO_ALIASES=1"
-  [plugins.ni]
-    github = "azu/ni.zsh"
-  [plugins.powerlevel10k]
-    github = "romkatv/powerlevel10k"
-    apply = ["source"]
-    [plugins.powerlevel10k.hooks]
-      post = """
-        if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-          source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
-        fi
-        [ -f "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
-      """
-  [plugins.zsh-autopair]
-    github = "hlissner/zsh-autopair"
-  [plugins.zsh-autosuggestions]
-    github = "zsh-users/zsh-autosuggestions"
-  [plugins.zsh-completions]
-    github = "zsh-users/zsh-completions"
-  [plugins.zsh-syntax-highlighting]
-    github = "zsh-users/zsh-syntax-highlighting"
-  [plugins.zsh-you-should-use]
-    github = "MichaelAquilina/zsh-you-should-use"
-    [plugins.zsh-you-should-use.hooks]
-      post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
+[plugins.forgit]
+  github = "wfxr/forgit"
+  dir = "bin"
+  apply = ["PATH"]
+  [plugins.forgit.hooks]
+    post = "export -r FORGIT_NO_ALIASES=1"
+[plugins.ni]
+  github = "azu/ni.zsh"
+[plugins.powerlevel10k]
+  github = "romkatv/powerlevel10k"
+  apply = ["source"]
+  [plugins.powerlevel10k.hooks]
+    post = """
+      if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+        source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
+      fi
+      [ -f "$ZDOTDIR/.p10k.zsh" ] && source "$ZDOTDIR/.p10k.zsh"
+    """
+[plugins.zsh-autopair]
+  github = "hlissner/zsh-autopair"
+[plugins.zsh-autosuggestions]
+  github = "zsh-users/zsh-autosuggestions"
+[plugins.zsh-completions]
+  github = "zsh-users/zsh-completions"
+[plugins.zsh-syntax-highlighting]
+  github = "zsh-users/zsh-syntax-highlighting"
+[plugins.zsh-you-should-use]
+  github = "MichaelAquilina/zsh-you-should-use"
+  [plugins.zsh-you-should-use.hooks]
+    post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
 
-  [plugins.1password]
-    inline = '[ -f "$XDG_CONFIG_HOME/op/plugins.sh" ] && zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"'
-  [plugins.compinit]
-    inline = 'autoload -Uz compinit && zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"'
-  [plugins.iterm2-shell-integration]
-    remote = "https://iterm2.com/shell_integration/zsh"
-    apply = ["source"]
-  [plugins.rtx]
-    inline = 'eval "$(rtx activate -q zsh)"'
+[plugins.1password]
+  inline = '[ -f "$XDG_CONFIG_HOME/op/plugins.sh" ] && zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"'
+[plugins.compinit]
+  inline = 'autoload -Uz compinit && zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"'
+[plugins.iterm2-shell-integration]
+  remote = "https://iterm2.com/shell_integration/zsh"
+  apply = ["source"]
+[plugins.rtx]
+  inline = 'eval "$(rtx activate -q zsh)"'
