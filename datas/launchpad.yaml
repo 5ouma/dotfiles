@@ -78,7 +78,7 @@ apps:
         - Karabiner-EventViewer
         - Karabiner-Elements
         - HotKey
-        - Keyboard Maestro
+        - Hammerspoon
         - Yoink
         - HandyPalette
         - Alfred 5
