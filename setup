@@ -75,7 +75,7 @@ mkSym() {
   for file in "${(k)packs[@]}"; do
     mkdir -p "$(dirname "$file")"
     ln -is "${packs[$file]}" "$file"
-    echo "- $(gum style 6 "~${file#~}")"
+    echo "- $(gum style 6 "${file/~/~}")"
   done | gum format
 }
 
