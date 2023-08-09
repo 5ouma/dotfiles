@@ -42,3 +42,7 @@ map <Esc>[1;9B <A-j>
 
 " Asyncomplete
 inoremap <Return> asyncomplete#close_popup()
+
+" fzf.vim
+map ff :Files<Return>
+map gf :GFiles?<Return>
