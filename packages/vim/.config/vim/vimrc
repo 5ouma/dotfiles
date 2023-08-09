@@ -9,22 +9,6 @@ set viminfofile=$XDG_CACHE_HOME/vim/info
 source $XDG_CONFIG_HOME/vim/plugins.vim
 source $XDG_CONFIG_HOME/vim/keymap.vim
 
-"============================================================[ Theme ]============================================================"
-
-colorscheme pencil
-function! CAP()
-  call system('defaults read -g AppleInterfaceStyle')
-  if v:shell_error != 0
-    set background=light
-  else
-    set background=dark
-  endif
-endfunction
-
-" Aliases
-command Cl set background=light
-command Cd set background=dark
-
 "============================================================[ Settings ]============================================================"
 
 set encoding=UTF-8
@@ -41,6 +25,7 @@ set updatetime=10
 set backspace=indent,eol,start
 
 " Appearance
+colorscheme pencil
 set number
 set cursorline
 set virtualedit=onemore
