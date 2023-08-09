@@ -35,7 +35,7 @@ My config files and setup for CLI tools and GUI apps.
 
 ## 📥 Installation
 
-Run [setup script](../setup) with `curl`, then you will be able to set up by operation.
+Run one line [setup](../setup), see the [usage](#📊-usage).
 
 <br />
 
@@ -94,6 +94,7 @@ Flags:
 <br />
 
 - ### Runtime Manager : [📼 `rtx`](https://github.com/jdxcode/rtx)
+
   ```shell
   brew install jdxcode/tap/rtx
   ```
@@ -113,6 +114,7 @@ Flags:
     ```
 
   - #### Font 2 : [✒️ `HackGen35`](https://github.com/yuru7/hackgen)
+
     ```shell
     brew install font-hackgen font-hackgen-nerd
     ```
