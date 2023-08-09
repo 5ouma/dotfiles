@@ -6,7 +6,7 @@ end
 
 local function getAppearanceMode()
   local _, appearanceMode, _ = hs.osascript.applescript(
-    'tell application "System Events" to tell appearance preferences to return dark mode')
+    'tell app "System Events" to tell appearance preferences to return dark mode')
   return appearanceMode
 end
 
@@ -58,26 +58,26 @@ end)
 
 -- FileSync
 
-hs.timer.doEvery(30 * 60, function()
+FileSyncTimer = hs.timer.new(30 * 60, function()
   local folder = os.getenv("HOME") .. "/Save Folder/0001_data_app-data/FreeFileSync/"
   local files = { "Sync iCloud.ffs_batch", "Sync Strage.ffs_batch" }
   for _, file in ipairs(files) do hs.open(folder .. file) end
-  hs.osascript.applescript('tell application "Shortcuts" to run shortcut "Backup"')
-end)
+  hs.osascript.applescript('tell app "Shortcuts" to run shortcut "Backup"')
+end):start()
 
 
 -- Desktop Picture
 
 PrevAppearance = nil
-hs.timer.doEvery(1, function()
+DesktopPictureTimer = hs.timer.new(1, function()
   local currentAppearance = getAppearanceMode()
   if (currentAppearance ~= PrevAppearance) then
     setDesktopPicture(currentAppearance)
     PrevAppearance = currentAppearance
   end
-end)
+end):start()
 
-CaffeinateWatcher = hs.caffeinate.watcher.new(function(eventType)
+DesktopPictureWatcher = hs.caffeinate.watcher.new(function(eventType)
   local appearanceMode = getAppearanceMode()
   if (eventType == hs.caffeinate.watcher.systemDidWake) then
     setDesktopPicture(appearanceMode)
@@ -94,9 +94,9 @@ SpotifyWatcher = hs.application.watcher.new(function(appName, eventType)
         if (hs.spotify.getCurrentArtist() == "") then
           getApp("Spotify"):kill()
           hs.timer.waitWhile(function() return hs.spotify.isRunning() end, function()
-            hs.osascript.applescript('tell application "Spotify" to set shuffling to false')
+            hs.osascript.applescript('tell app "Spotify" to set shuffling to false')
             hs.spotify.play()
-            hs.osascript.applescript('tell application "Spotify" to set shuffling to true')
+            hs.osascript.applescript('tell app "Spotify" to set shuffling to true')
           end)
         end
       end):start()
