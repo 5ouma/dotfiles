@@ -75,6 +75,7 @@ apps:
         - Rectangle
         - DeepL
         - Grammarly Desktop
+        - Rocket
         - Karabiner-EventViewer
         - Karabiner-Elements
         - HotKey
