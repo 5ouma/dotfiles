@@ -66,7 +66,7 @@ Usage: setup
 
 Flags:
   -h, --help    Print help information
-  -y, --yes     Start without confirming
+  -y, --yes     Start without confirmation
   -s, --set     Set files to home directory
 ```
 
