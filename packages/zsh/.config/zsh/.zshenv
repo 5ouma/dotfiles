@@ -17,10 +17,6 @@ export LANG='en_US.UTF-8'
 # Homebrew
 export HOMEBREW_AUTOREMOVE=1
 
-# Vim
-export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-export VIMINIT="source $MYVIMRC"
-
 # fzf
 export FZF_DEFAULT_COMMAND='fd -H -E={Movies,Music,Pictures,Library,.cache,.local,.vscode,.vscode-insiders,.git}'
 
@@ -34,3 +30,9 @@ export GUM_SPIN_SPINNER_FOREGROUND='27'
 # less
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
+# rtx
+export RTX_USE_TOML=1
+
+# Vim
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+export VIMINIT="source $MYVIMRC"
