@@ -21,6 +21,9 @@ export -r HOMEBREW_AUTOREMOVE=1
 export -r MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 export -r VIMINIT="source $MYVIMRC"
 
+# fzf
+export -r FZF_DEFAULT_COMMAND='fd -H -E={Movies,Music,Pictures,Library,.cache,.local,.vscode,.vscode-insiders,.git}'
+
 # Gum
 export -r GUM_CONFIRM_SELECTED_BACKGROUND='27'
 export -r GUM_CHOOSE_CURSOR_FOREGROUND='27'

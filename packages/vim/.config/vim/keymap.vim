@@ -9,7 +9,7 @@ noremap r <C-r>
 noremap <silent> <Esc> :nohlsearch<Return>
 
 " New tab
-noremap <silent> to :tabedit<Return>
+noremap <silent> to :tabedit<Return>:Files<Return>
 noremap <silent> tq :tabclose<Return>
 
 " Move tab

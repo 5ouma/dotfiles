@@ -14,8 +14,8 @@ call jetpack#begin()
   Jetpack 'bronson/vim-trailing-whitespace'
   Jetpack 'cohama/lexima.vim'
   Jetpack 'itchyny/lightline.vim'
-  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Jetpack 'junegunn/fzf.vim'
+  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Jetpack 'mattn/vim-lsp-settings'
   Jetpack 'matze/vim-move'
   Jetpack 'mbbill/undotree'
