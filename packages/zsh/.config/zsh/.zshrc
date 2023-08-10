@@ -1,10 +1,21 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
-#===========================================================[ Settings ]===========================================================#
+#===========================================================[ Load Tools ]===========================================================#
 
 # Sheldon
 eval "$(sheldon source)"
+
+# 1Password
+zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"
+
+# Atuin
+zsh-defer eval "$(atuin init zsh --disable-up-arrow)"
+
+# rtx
+eval "$(rtx activate -q zsh)"
+
+#===========================================================[ Settings ]===========================================================#
 
 # Zsh
 setopt print_eight_bit
@@ -14,6 +25,9 @@ setopt list_types
 zstyle ':completion:*:default' menu select=1
 bindkey '^[[Z' reverse-menu-complete
 zstyle ':completion:*:commands' rehash 1
+
+autoload -Uz compinit
+zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"
 
 autoload -Uz select-word-style
 select-word-style default
