@@ -63,6 +63,7 @@ FileSyncTimer = hs.timer.new(30 * 60, function()
   local files = { "Sync iCloud.ffs_batch", "Sync Strage.ffs_batch" }
   for _, file in ipairs(files) do hs.open(folder .. file) end
   hs.osascript.applescript('tell app "Shortcuts" to run shortcut "Backup"')
+  getApp("Shortcuts"):kill()
 end):start()
 
 
