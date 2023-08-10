@@ -30,10 +30,13 @@ call jetpack#begin()
   Jetpack 'tpope/vim-surround'
   Jetpack 'vim-scripts/vim-auto-save'
   Jetpack 'vimpostor/vim-lumen'
-  Jetpack 'Xuyuanp/nerdtree-git-plugin'
 call jetpack#end()
 
 "============================================================[ Settings ]============================================================"
+
+" AutoSave
+let g:auto_save = 1
+let g:auto_save_silent = 1
 
 " lightline.vim
 let g:lightline = {
@@ -53,24 +56,12 @@ let g:lightline = {
 " NERDTree
 let NERDTreeShowHidden = 1
 
-" AutoSave
-let g:auto_save = 1
-let g:auto_save_silent = 1
-
-" NERDTree-git-plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-  \ 'Modified'  :'!',
-  \ 'Staged'    :'+',
-  \ 'Untracked' :'?',
-  \ 'Renamed'   :'→',
-  \ 'Unmerged'  :'~',
-  \ 'Deleted'   :'×',
-  \ 'Unknown'   :'?',
-  \ }
-let g:NERDTreeGitStatusConcealBrackets = 1
-
 " Pencil
 let g:pencil_gutter_color = 1
+
+" vim-lsp
+let g:lsp_diagnostics_signs_error = {'text': '⃠'}
+let g:lsp_diagnostics_signs_warning = {'text': '⚠'}
 
 "============================================================[ Aliases ]============================================================"
 
