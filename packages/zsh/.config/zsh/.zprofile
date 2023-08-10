@@ -110,7 +110,7 @@ alias but='brew untap'
 
 bbd() {
   printf '\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n'
-  brew bundle dump -f --file="$datas/Brewfile"
+  brew bundle dump -f --file="$datas/Brewfile" --tap --formula --cask --mas
   printf '🍺 Brewfile was successfully generated!\n'
 }
 
