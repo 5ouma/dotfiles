@@ -21,9 +21,9 @@ zstyle ':zle:*' word-chars ' -,;:"()[]{}@/=|'
 zstyle ':zle:*' word-style unspecified
 
 # History
-export -r HISTFILE="$XDG_CACHE_HOME/zsh/history"
-export -r HISTSIZE=10000
-export -r SAVEHIST=10000
+export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export HISTSIZE=10000
+export SAVEHIST=10000
 setopt share_history
 setopt hist_reduce_blanks
 setopt hist_ignore_all_dups

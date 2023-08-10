@@ -5,10 +5,10 @@ set -eu
 #==================================================[ Variables ]==================================================#
 
 declare -r githuburl='https://github.com/5ouma/dotfiles.git'
-[ -z "${ZDOTDIR:-}" ] && declare -r ZDOTDIR="$HOME/.config/zsh"
-[ -z "${dotfiles:-}" ] && declare -r dotfiles="$HOME/.dotfiles"
+declare -r ZDOTDIR="$HOME/.config/zsh"
+declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
-[ -z "${datas:-}" ] && declare -r datas="$dotfiles/datas"
+declare -r datas="$dotfiles/datas"
 
 declare executed=false
 declare gothrough=false
@@ -273,8 +273,8 @@ fi
 
 if [[ ! -d "$HOME/.local/share/vim/pack/jetpack/opt" ]]; then
   gum format '## 🖌 Installing Vim plugins...'
-  [ -z "${MYVIMRC:-}" ] && declare -r MYVIMRC="$HOME/.config/vim/vimrc"
-  [ -z "${VIMINIT:-}" ] && declare -r VIMINIT="source $MYVIMRC"
+  export MYVIMRC="$HOME/.config/vim/vimrc"
+  export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
   gum executed
 fi
