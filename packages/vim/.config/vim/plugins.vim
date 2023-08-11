@@ -18,7 +18,6 @@ call jetpack#begin()
   Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Jetpack 'mattn/vim-lsp-settings'
   Jetpack 'matze/vim-move'
-  Jetpack 'mbbill/undotree'
   Jetpack 'obcat/vim-hitspop'
   Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
   Jetpack 'prabirshrestha/asyncomplete.vim'
@@ -63,8 +62,3 @@ let g:pencil_gutter_color = 1
 let g:lsp_diagnostics_signs_error = {'text': '⃠'}
 let g:lsp_diagnostics_signs_warning = {'text': '⚠'}
 
-"============================================================[ Aliases ]============================================================"
-
-command Fw FixWhitespace
-command Nt NERDTreeToggle
-command Ut UndotreeToggle

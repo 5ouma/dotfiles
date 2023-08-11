@@ -89,7 +89,7 @@ Flags:
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
-  > See packages in **[`Brewfile`](../datas/Brewfile)** or on **[`Shell Commands`](https://github.com/stars/5ouma/lists/shell-commands)**, **[`Softwares`](https://github.com/stars/5ouma/lists/softwares)**, **[`VSCode Extensions`](https://github.com/stars/5ouma/lists/vscode-extensions)** _(GitHub Star List)_
+  > See packages in **[`Brewfile`](../datas/Brewfile)** or on **[`Shell Commands`](https://github.com/stars/5ouma/lists/shell-commands)**, **[`Softwares`](https://github.com/stars/5ouma/lists/softwares)** _(GitHub Star List)_
 
 <br />
 

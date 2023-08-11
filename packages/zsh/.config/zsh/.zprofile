@@ -110,7 +110,7 @@ alias but='brew untap'
 
 bbd() {
   printf '\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n'
-  brew bundle dump -f --file="$datas/Brewfile" --tap --formula --cask --mas
+  brew bundle dump -f --file="$datas/Brewfile" --{tap,formula,cask,mas}
   printf '🍺 Brewfile was successfully generated!\n'
 }
 
@@ -119,7 +119,7 @@ alias lps='lporg save -c "$datas/launchpad.yaml" >/dev/null 2>&1'
 alias lpl='lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1'
 
 # lsd
-has 'lsd' && alias ls='lsd -A' ll='lsd -A -l' tree='lsd -A --tree --ignore-glob=.git'
+has 'lsd' && alias ls='lsd -A' ll='lsd -Al' tree='lsd -A --tree --ignore-glob=.git'
 
 # Macup
 alias mb='mackup -f backup'
