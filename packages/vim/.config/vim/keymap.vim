@@ -34,13 +34,13 @@ nnoremap s<Down> <C-w>j
 
 " Resize window
 nnoremap <C-w><Left> <C-w><
-nnoremap <C-w><Right> <C-w>
+nnoremap <C-w><Right> <C-w>>
 nnoremap <c-W><uP> <c-W>+
 nnoremap <C-w><Down> <C-w>-
 
 " Move Lines
-nnoremap <Esc>[1;9A <A-k>
-nnoremap <Esc>[1;9B <A-j>
+nmap <Esc>[1;9A <A-k>
+nmap <Esc>[1;9B <A-j>
 
 " Asyncomplete
 inoremap <Return> asyncomplete#close_popup()
