@@ -59,7 +59,7 @@ end)
 -- FileSync
 
 FileSyncTimer = hs.timer.new(30 * 60, function()
-  local folder = os.getenv("HOME") .. "/Save Folder/0001_data_app-data/FreeFileSync/"
+  local folder = os.getenv("HOME") .. "/Storage/0001_data_app-data/FreeFileSync/"
   local files = { "Sync iCloud.ffs_batch", "Sync Strage.ffs_batch" }
   for _, file in ipairs(files) do hs.open(folder .. file) end
   hs.osascript.applescript('tell app "Shortcuts" to run shortcut "Backup"')
