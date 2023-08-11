@@ -18,7 +18,7 @@ export LANG='en_US.UTF-8'
 export HOMEBREW_AUTOREMOVE=1
 
 # fzf
-export FZF_DEFAULT_COMMAND='fd -H -E={Movies,Music,Pictures,Library,.cache,.local,.vscode,.vscode-insiders,.git,node_modules}'
+export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Movies,Music,Pictures,Library,.cache,.local,.vscode,.vscode-insiders,.git,node_modules}'
 
 # Gum
 export GUM_CONFIRM_SELECTED_BACKGROUND='27'
