@@ -5,7 +5,7 @@ set -eu
 #==================================================[ Variables ]==================================================#
 
 declare -r githuburl='https://github.com/5ouma/dotfiles.git'
-declare -r ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR="$HOME/.config/zsh"
 declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 declare -r datas="$dotfiles/datas"
@@ -62,8 +62,8 @@ getDot() {
 checkSym() {
   declare -Ag packs
   while read -r pack; do
-    declare file="$HOME/${pack#"$packages"/*/}"
-    if [[ ! -f "$file" ]] || (! diff "$pack" "$file" >/dev/null 2>&1); then
+    declare file="${pack#"$packages"/*/}"
+    if [[ ! -f "$HOME/$file" ]] || (! diff "$pack" "$HOME/$file" >/dev/null 2>&1); then
       packs[$file]=$pack
     fi
   done < <(find "$packages" -type f ! -name '.DS_Store')
@@ -73,9 +73,10 @@ checkSym() {
 mkSym() {
   # shellcheck disable=SC2296
   for file in "${(k)packs[@]}"; do
-    mkdir -p "$(dirname "$file")"
-    ln -is "${packs[$file]}" "$file"
-    echo "- $(gum style 6 "${file/~/~}")"
+    mkdir -p "$(dirname "$HOME/$file")"
+    ln -is "${packs[$file]}" "$HOME/$file"
+    # shellcheck disable=SC2088
+    echo "- $(gum style 6 "~/$file")"
   done | gum format
 }
 
