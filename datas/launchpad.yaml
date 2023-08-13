@@ -14,7 +14,6 @@ apps:
     - TickTick
     - Notes
     - Notion
-    - Instapaper
     - FaceTime
     - Messages
     - LINE
@@ -38,6 +37,7 @@ apps:
     - Siri
     - Mission Control
     - System Preferences
+    - 1Password
     - Xcode
     - Visual Studio Code
     - Visual Studio Code - Insiders
@@ -76,8 +76,8 @@ apps:
         - DeepL
         - Grammarly Desktop
         - Rocket
-        - Karabiner-EventViewer
         - Karabiner-Elements
+        - Karabiner-EventViewer
         - HotKey
         - Hammerspoon
         - Yoink
@@ -98,9 +98,8 @@ apps:
         - OnyX
         - AppCleaner
         - Startup Disk Full Fixer
+        - KeyboardCleanTool
         - Amphetamine
-        - AnyCleaner
-        - 1Password
         - FocusRecorder
         - Fig
         - OpenInTerminal

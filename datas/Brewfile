@@ -44,6 +44,7 @@ brew "trash"
 brew "vhs"
 brew "vim"
 brew "yarn"
+brew "5ouma/formula/gh-dash"
 brew "5ouma/formula/mksei"
 brew "blacktop/tap/lporg"
 brew "jdxcode/tap/rtx"
@@ -92,6 +93,7 @@ cask "hiddenbar"
 cask "iterm2-beta"
 cask "itsycal"
 cask "karabiner-elements"
+cask "keyboardcleantool"
 cask "maccy"
 cask "macupdater"
 cask "microsoft-teams"
@@ -111,7 +113,6 @@ cask "syntax-highlight"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 mas "Amphetamine", id: 937984704
-mas "AnyCleaner", id: 6444128735
 mas "Disk Speed Test", id: 425264550
 mas "Email", id: 1489591003
 mas "FocusRecorder", id: 6446467176
@@ -119,7 +120,6 @@ mas "Fuwari", id: 1187652334
 mas "HandyPalette", id: 1515022667
 mas "HotKey", id: 975890633
 mas "iMovie", id: 408981434
-mas "Instapaper", id: 288545208
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
 mas "MekimekiChip", id: 6443706307
