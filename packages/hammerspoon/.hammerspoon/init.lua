@@ -92,7 +92,7 @@ SpotifyWatcher = hs.application.watcher.new(function(appName, eventType)
   if (appName == "Spotify") then
     if (eventType == hs.application.watcher.launched) then
       SpotifyTimer = hs.timer.new(1, function()
-        if (hs.spotify.getCurrentArtist() == "") then
+        if (hs.spotify.isPlaying() and hs.spotify.getCurrentArtist() == "") then
           getApp("Spotify"):kill()
           hs.timer.waitWhile(function() return hs.spotify.isRunning() end, function()
             hs.osascript.applescript('tell app "Spotify" to set shuffling to false')
