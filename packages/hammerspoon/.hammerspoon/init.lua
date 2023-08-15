@@ -44,14 +44,19 @@ hs.hotkey.bind({ "cmd", "ctrl" }, "q", function()
 end)
 
 hs.hotkey.bind("option", "space", function()
+  local app
+  local function setApp(appName)
+    app = getApp(appName)
+    return app
+  end
   if (getApp("Music") ~= nil) then
     hs.itunes.playpause()
   elseif (getApp("Spotify") ~= nil) then
     hs.spotify.playpause()
-  elseif (getApp("Podcasts") ~= nil) then
-    hs.eventtap.keyStroke({}, "space", getApp("Podcasts"))
-  elseif (getApp("Arc") ~= nil) then
-    hs.eventtap.keyStroke("option", "space", getApp("Arc"))
+  elseif (setApp("Podcasts") ~= nil) then
+    hs.eventtap.keyStroke({}, "space", app)
+  elseif (setApp("Arc") ~= nil) then
+    hs.eventtap.keyStroke("option", "space", app)
   end
 end)
 
@@ -95,8 +100,9 @@ SpotifyWatcher = hs.application.watcher.new(function(appName, eventType)
         if (hs.spotify.isPlaying() and hs.spotify.getCurrentArtist() == "") then
           getApp("Spotify"):kill()
           hs.timer.waitWhile(function() return hs.spotify.isRunning() end, function()
-            hs.osascript.applescript('tell app "Spotify" to set shuffling to false')
             hs.spotify.play()
+            getApp("Spotify"):hide()
+            hs.osascript.applescript('tell app "Spotify" to set shuffling to false')
             hs.osascript.applescript('tell app "Spotify" to set shuffling to true')
           end)
         end
