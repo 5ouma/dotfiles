@@ -9,6 +9,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 declare -r datas="$dotfiles/datas"
+declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 
 declare executed=false
 declare gothrough=false
