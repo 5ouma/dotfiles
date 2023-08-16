@@ -73,7 +73,7 @@ checkSym() {
 
 mkSym() {
   # shellcheck disable=SC2296
-  for file in "${(k)packs[@]}"; do
+  for file in $(printf "%s\n" "${(k)packs[@]}" | sort); do
     mkdir -p "$(dirname "$HOME/$file")"
     ln -is "${packs[$file]}" "$HOME/$file"
     # shellcheck disable=SC2088

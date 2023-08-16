@@ -35,7 +35,7 @@ My config files and setup for CLI tools and GUI apps.
 
 ## 📥 Installation
 
-Run one line [setup](../setup), see the [usage](#📊-usage).
+Run one line [setup](../setup), see the [usage](#-usage).
 
 <br />
 

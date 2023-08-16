@@ -63,10 +63,11 @@ end)
 
 -- FileSync
 
-FileSyncTimer = hs.timer.new(30 * 60, function()
+FileSyncTimer = hs.timer.new(60 * 60, function()
   local folder = os.getenv("HOME") .. "/Storage/0001_data_app-data/FreeFileSync/"
   local files = { "Sync iCloud.ffs_batch", "Sync Strage.ffs_batch" }
   for _, file in ipairs(files) do hs.open(folder .. file) end
+  hs.execute("mackup -f backup")
   hs.osascript.applescript('tell app "Shortcuts" to run shortcut "Backup"')
   getApp("Shortcuts"):kill()
 end):start()
@@ -84,9 +85,8 @@ DesktopPictureTimer = hs.timer.new(1, function()
 end):start()
 
 DesktopPictureWatcher = hs.caffeinate.watcher.new(function(eventType)
-  local appearanceMode = getAppearanceMode()
   if (eventType == hs.caffeinate.watcher.systemDidWake) then
-    setDesktopPicture(appearanceMode)
+    setDesktopPicture(getAppearanceMode())
   end
 end):start()
 
