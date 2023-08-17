@@ -1,0 +1,24 @@
+issuesSections:
+  - title: Issues
+    filters: is:open author:@me
+  - title: Involved Issues
+    filters: is:open involves:@me
+  - title: Closed Issues
+    filters: is:closed author:@me
+prSections:
+  - title: Pull Requests
+    filters: is:open author:@me
+  - title: Involved Pull Requests
+    filters: is:open involves:@me
+  - title: Closed Pull Requests
+    filters: is:closed author:@me
+
+defaults:
+  preview:
+    open: true
+  view: issues
+
+theme:
+  ui:
+    table:
+      showSeparator: true
