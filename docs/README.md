@@ -74,10 +74,17 @@ Flags:
 
 ## 🌄 Screenshots
 
-|            |                               Overview                               |                         Interacting with zsh                         | Vim with [NERDTree](https://github.com/preservim/nerdtree)           |
-| :--------: | :------------------------------------------------------------------: | :------------------------------------------------------------------: | -------------------------------------------------------------------- |
-| Light Mode | ![Screenshot 1 - Light](./images/screenshots/light/screenshot-1.png) | ![Screenshot 2 - Light](./images/screenshots/light/screenshot-2.png) | ![Screenshot 3 - Light](./images/screenshots/light/screenshot-3.png) |
-| Dark Mode  |  ![Screenshot 1 - Dark](./images/screenshots/dark/screenshot-1.png)  |  ![Screenshot 2 - Dark](./images/screenshots/dark/screenshot-2.png)  | ![Screenshot 3 - Dark](./images/screenshots/dark/screenshot-3.png)   |
+|            |                           Overview                           |                        Vim                         |
+| :--------: | :----------------------------------------------------------: | :------------------------------------------------: |
+| Light Mode | ![Overview - Light](./images/screenshots/light/overview.png) | ![Vim - Light](./images/screenshots/light/vim.png) |
+| Dark Mode  |  ![Overview - Dark](./images/screenshots/dark/overview.png)  |  ![Vim - Dark](./images/screenshots/dark/vim.png)  |
+|   Tools    |                      [fastfetch], [Fig]                      |       [lightline.vim], [NERDTree], [fzf.vim]       |
+
+[fastfetch]: https://github.com/fastfetch-cli/fastfetch
+[Fig]: https://fig.io
+[lightline.vim]: https://github.com/itchyny/lightline.vim
+[NERDTree]: https://github.com/preservim/nerdtree
+[fzf.vim]: https://github.com/junegunn/fzf.vim
 
 <br /><br />
 
