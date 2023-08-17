@@ -73,12 +73,12 @@ checkSym() {
 
 mkSym() {
   # shellcheck disable=SC2296
-  for file in $(printf "%s\n" "${(k)packs[@]}" | sort); do
+  while read -r file; do
     mkdir -p "$(dirname "$HOME/$file")"
     ln -is "${packs[$file]}" "$HOME/$file"
     # shellcheck disable=SC2088
     echo "- $(gum style 6 "~/$file")"
-  done | gum format
+  done < <(printf "%s\n" "${(k)packs[@]}" | sort) | gum format
 }
 
 # Utilities
