@@ -34,7 +34,7 @@ zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"
 
 autoload -Uz select-word-style
 select-word-style default
-zstyle ':zle:*' word-chars ' -,;:"()[]{}@/=|'
+zstyle ':zle:*' word-chars ' -,.;:"()[]{}@/=|'
 zstyle ':zle:*' word-style unspecified
 
 # History
