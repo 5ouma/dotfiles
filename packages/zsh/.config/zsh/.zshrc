@@ -15,6 +15,9 @@ zsh-defer eval "$(atuin init zsh --disable-up-arrow)"
 # rtx
 eval "$(rtx activate -q zsh)"
 
+# zoxide
+zsh-defer eval "$(zoxide init zsh)"
+
 #===========================================================[ Settings ]===========================================================#
 
 # Zsh
