@@ -157,7 +157,7 @@ Flags:
   - #### Plugin Manager : [🚀 `Jetpack`](https://github.com/5ouma/vim-jetpack)
 
     ```shell
-    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/state}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim
+    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim
     ```
 
     > See plugins in **[`plugins.vim`](../packages/vim/.config/vim/plugins.vim)** or on **[`Vim Plugins`](https://github.com/stars/5ouma/lists/vim-plugins)** _(GitHub Star List)_
