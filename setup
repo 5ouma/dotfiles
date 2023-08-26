@@ -4,8 +4,12 @@ set -eu
 
 #==================================================[ Variables ]==================================================#
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 declare -r githuburl='https://github.com/5ouma/dotfiles.git'
-export ZDOTDIR="$HOME/.config/zsh"
 declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 declare -r datas="$dotfiles/datas"
@@ -273,9 +277,9 @@ if [[ -n "$(rtx ls --missing)" ]]; then
   gum executed
 fi
 
-if [[ ! -d "$HOME/.local/share/vim/pack/jetpack/opt" ]]; then
+if [[ ! -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]]; then
   gum format '## 🖌 Installing Vim plugins...'
-  export MYVIMRC="$HOME/.config/vim/vimrc"
+  export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
   gum executed
