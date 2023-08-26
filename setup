@@ -90,7 +90,7 @@ helpMsg() {
   gum format <<EOM
 ## Usage: setup
 
-> 💻 The most minimal and powerful dotfiles ever.
+> ⚙️ The most minimal and powerful dotfiles ever.
 
 ## Flags:
 -  -h, --help    Print help information
@@ -113,7 +113,7 @@ EOM
 
 if [[ ! -x $0 ]]; then
   gum format <<EOM
-# Welcome to 💻 dotfiles setup!
+# Welcome to ⚙️ dotfiles setup!
 > https://github.com/5ouma/dotfiles
 ---
 EOM
@@ -221,7 +221,7 @@ killall SystemUIServer
 modelname="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelname
 computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}" && declare -r computername localhostname
 if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostName)" != "$computername" || "$(scutil --get LocalHostName)" != "$localhostname" ]]; then
-  gum format '## 🖥 Setting computer name...'
+  gum format '## 💻 Setting computer name...'
   gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computername"
   gum spin 'Setting HostName...' -- scutil --set HostName "$computername"
   gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localhostname"

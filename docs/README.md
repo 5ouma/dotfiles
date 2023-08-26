@@ -14,7 +14,7 @@
     <img width=500px alt="header" src="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png" />
   </picture>
 
-**💻 The most minimal and powerful dotfiles ever.** <br />
+**⚙ The most minimal and powerful dotfiles ever.** <br />
 My config files and setup for CLI tools and GUI apps.
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/5ouma/dotfiles?style=flat-square)
@@ -62,7 +62,7 @@ Run one line [setup](../setup), see the [usage](#-usage).
 ```
 Usage: setup
 
-💻 The most minimal and powerful dotfiles ever.
+⚙️ The most minimal and powerful dotfiles ever.
 
 Flags:
   -h, --help    Print help information
