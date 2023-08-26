@@ -20,16 +20,12 @@
 [tag]
   gpgsign = true
 
-[url "github:"]
-  InsteadOf = https://gist.github.com/
-  InsteadOf = git@gist.github.com/
-  InsteadOf = ssh://git@gist.github.com/
 [url "github:5ouma"]
-  InsteadOf = https://github.com/5ouma
+  pushInsteadOf = https://github.com/5ouma
   InsteadOf = git@github.com:5ouma
   InsteadOf = ssh://git@github.com/5ouma
 [url "github-school:6ouma"]
-  InsteadOf = https://github.com/6ouma
+  pushInsteadOf = https://github.com/6ouma
   InsteadOf = git@github.com:6ouma
   InsteadOf = ssh://git@github.com/6ouma
 

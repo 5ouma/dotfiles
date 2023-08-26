@@ -17,7 +17,7 @@ if (has 'delta'); then
 fi
 
 # ghq
-alias gg='ghq get'
+alias gg='ghq get -p'
 alias gup='ghq list | ghq get --update --parallel'
 
 gcd() {
