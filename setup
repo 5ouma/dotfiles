@@ -253,7 +253,7 @@ lporg save -c "$TMPDIR/launchpad.yaml" >/dev/null 2>&1
 if (! diff "$datas/launchpad.yaml" "$TMPDIR/launchpad.yaml" >/dev/null 2>&1); then
   gum format '## 🖼 Setting up Launchpad...'
   # shellcheck disable=SC2016
-  gum spin 'Running `lporg load`' -- lporg load -n "$datas/launchpad.yaml"
+  gum spin 'Running `lporg load`...' -- lporg load -n "$datas/launchpad.yaml"
   gum executed
 fi
 
@@ -266,7 +266,7 @@ fi
 if (! defaults read com.apple.universalaccess 'com.apple.custommenu.apps' >/dev/null 2>&1); then
   gum format '## ⌨️ Restoring App Shortcuts...'
   # shellcheck disable=SC2016
-  gum spin 'Running `mksei load`' -- mksei load "$datas/keyboard_shortcuts.json"
+  gum spin 'Running `mksei load`...' -- mksei load "$datas/keyboard_shortcuts.json"
   gum executed
 fi
 
