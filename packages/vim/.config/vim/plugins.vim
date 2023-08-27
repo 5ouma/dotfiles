@@ -29,7 +29,7 @@ call jetpack#begin()
   Jetpack 'tpope/vim-surround'
   Jetpack 'vim-scripts/vim-auto-save'
   Jetpack 'vimpostor/vim-lumen'
-call jetpack#end()
+silent! call jetpack#end()
 
 "============================================================[ Settings ]============================================================"
 

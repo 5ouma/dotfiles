@@ -25,7 +25,7 @@ set updatetime=10
 set backspace=indent,eol,start
 
 " Appearance
-colorscheme pencil
+silent! colorscheme pencil
 set number
 set cursorline
 set virtualedit=onemore
