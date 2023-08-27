@@ -14,7 +14,7 @@
     },
     "com.edisonmail.edisonmail": {
         "Check for Mail…": "⌘R",
-        "Close Window": "⌘⇧W"
+        "Hide Email": "⌘W"
     },
     "jp.naver.line.mac": {
         "Hide LINE": "⌘W"
@@ -60,8 +60,5 @@
     "com.TickTick.task.mac": {
         "Hide TickTick": "⌘W",
         "Sync": "⌘R"
-    },
-    "com.builtbymeh.tweeten": {
-        "Hide Tweeten": "⌘W"
     }
 }
