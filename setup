@@ -200,6 +200,14 @@ if ((springboard_columns != 9 || springboard_rows != 8)); then
 fi
 
 killall Dock
+tilesize=$(defaults read com.apple.dock tilesize) largesize=$(defaults read com.apple.dock largesize) size_immutable=$(defaults read com.apple.dock size-immutable) >/dev/null 2>&1 && declare -r {tile,large}size size_immutable
+if ((tilesize != 30 || largesize != 33 || size_immutable != 1)); then
+  gum format '## 🚥 Modifying Dock size...'
+  defaults write com.apple.dock tilesize -int 30
+  defaults write com.apple.dock largesize -int 33
+  defaults write com.apple.dock size-immutable -bool true
+  gum executed
+fi
 declare -r spacecount=$((5 - $(defaults read com.apple.dock persistent-apps | grep 'small-spacer-tile' -c)))
 if ((spacecount > 0)); then
   gum format '## ⏹ Adding spacers on Dock...'
