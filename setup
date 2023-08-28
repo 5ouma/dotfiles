@@ -1,4 +1,6 @@
-#!/usr/bin/env zsh -eu
+#!/usr/bin/env zsh
+
+set -eu
 
 #==================================================[ Variables ]==================================================#
 
@@ -188,25 +190,27 @@ fi
 
 #==================================================[ defaults ]==================================================#
 
-if (! defaults read com.apple.dock springboard-columns >/dev/null 2>&1) || [[ $(defaults read com.apple.dock springboard-columns) != 9 || $(defaults read com.apple.dock springboard-rows) != 8 ]]; then
+springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) >/dev/null 2>&1 && declare -r springboard_{columns,rows}
+if ((springboard_columns != 9 || springboard_rows != 8)); then
   gum format '## 🖼 Changing Launchpad size...'
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
-  defaults write com.apple.dock ResetLaunchPad -bool TRUE
+  defaults write com.apple.dock ResetLaunchPad -bool true
   gum executed
 fi
 
 killall Dock
 declare -r spacecount=$((5 - $(defaults read com.apple.dock persistent-apps | grep 'small-spacer-tile' -c)))
 if ((spacecount > 0)); then
-  gum format '## 🚥 Adding spaces on Dock...'
+  gum format '## ⏹ Adding spacers on Dock...'
   for ((i = 0; i < spacecount; i++)); do
     defaults write com.apple.dock persistent-apps -array-add '{tile-type='small-spacer-tile';}'
   done
   gum executed
 fi
 
-if (! defaults read com.apple.screencapture location >/dev/null 2>&1) || [[ "$(defaults read com.apple.screencapture location)" != "$HOME/Pictures/Screen Capture" ]]; then
+screencapture_location="$(defaults read com.apple.screencapture location)" >/dev/null 2>&1 && declare -r screencapture_location
+if [[ "$screencapture_location" != "$HOME/Pictures/Screen Capture" ]]; then
   gum format '## 📷 Changing screen capture path...'
   mkdir -p "$HOME/Pictures/Screen Capture"
   defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
