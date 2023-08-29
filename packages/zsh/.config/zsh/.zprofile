@@ -83,9 +83,9 @@ gcg() {
     'upgrade : Upgrade versions'
     'revert : Revert changes'
   )
-  declare -r type="$(gum choose "${types[@]}" | cut -d ' ' -f 1)" && [ -z "$type" ] && return
-  declare -r summary="$(gum input --prompt="[$type] " --placeholder='Summary of this change')" && [ -z "$summary" ] && return
-  declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')" && [ -z "$description" ] && return
+  declare -r type="$(gum choose "${types[@]}" | cut -d ' ' -f 1)" && [ -z "$type" ] && return 1
+  declare -r summary="$(gum input --prompt="[$type] " --placeholder='Summary of this change')" && [ -z "$summary" ] && return 1
+  declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')" && [ -z "$description" ] && return 1
   if (gum confirm 'Commit changes without editing?'); then
     git commit -m "[$type] $summary" -m "$description"
   else
@@ -95,8 +95,12 @@ gcg() {
 
 # Homebrew
 brew() {
-  if (command brew "$@") && [[ "$1" = 'install' || "$1" = 'uninstall' || "$1" = 'tap' || "$1" = 'untap' ]]; then
-    bbd
+  if (command brew "$@"); then
+    if [[ "$1" = 'install' || "$1" = 'uninstall' || "$1" = 'tap' || "$1" = 'untap' ]]; then
+      bbd
+    fi
+  else
+    return 1
   fi
 }
 
@@ -113,9 +117,12 @@ alias bui='brew uninstall'
 alias but='brew untap'
 
 bbd() {
-  printf '\033[32;1m==>\033[m \033[1mCreating Brewfile\033[m\n'
-  brew bundle dump -f --file="$datas/Brewfile" --{tap,formula,cask,mas}
-  printf '🍺 Brewfile was successfully generated!\n'
+  if (brew bundle dump -f --file="$datas/Brewfile" --{tap,formula,cask,mas}); then
+    printf '\033[32mHomebrew Bundle complete!\033[m\n'
+  else
+    printf '\033[31mHomebrew Bundle failed!\033[m\n'
+    return 1
+  fi
 }
 
 # lporg

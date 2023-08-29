@@ -246,7 +246,7 @@ fi
 
 #==================================================[ Apps ]==================================================#
 
-if [[ $(gum spin "Satisfying Brewfile's dependencies..." --show-output -- brew bundle check --no-upgrade --file="$datas/Brewfile") != "The Brewfile's dependencies are satisfied." ]]; then
+if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$datas/Brewfile"); then
   gum format '## 📲 Installing apps and commands...'
   brew bundle install --no-lock --no-upgrade --file="$datas/Brewfile"
   gum executed
