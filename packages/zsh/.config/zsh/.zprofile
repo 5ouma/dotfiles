@@ -83,7 +83,7 @@ gcg() {
     'upgrade : Upgrade versions'
     'revert : Revert changes'
   )
-  declare -r type="$(gum choose "${types[@]}" | awk '{print $1}')" && [ -z "$type" ] && return
+  declare -r type="$(gum choose "${types[@]}" | cut -d ' ' -f 1)" && [ -z "$type" ] && return
   declare -r summary="$(gum input --prompt="[$type] " --placeholder='Summary of this change')" && [ -z "$summary" ] && return
   declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')" && [ -z "$description" ] && return
   if (gum confirm 'Commit changes without editing?'); then

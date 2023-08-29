@@ -159,7 +159,7 @@ fi
 getDot
 
 # Zsh setting
-zstyle ":completion:*:commands" rehash 1
+zstyle ':completion:*:commands' rehash 1
 
 #==================================================[ Homebrew ]==================================================#
 
