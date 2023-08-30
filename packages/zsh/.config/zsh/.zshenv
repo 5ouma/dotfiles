@@ -17,6 +17,9 @@ export LANG='en_US.UTF-8'
 # Homebrew
 export HOMEBREW_AUTOREMOVE=1
 
+# 1password
+source "$XDG_CONFIG_HOME/op/plugins.sh"
+
 # fzf
 export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Movies,Music,Pictures,Library,.cache,.local,.vscode,.vscode-insiders,.git,node_modules,.DS_Store}'
 
