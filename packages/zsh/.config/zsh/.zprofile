@@ -130,7 +130,7 @@ alias lps='lporg save -c "$datas/launchpad.yaml" >/dev/null 2>&1'
 alias lpl='lporg load -n "$datas/launchpad.yaml" >/dev/null 2>&1'
 
 # lsd
-has 'lsd' && alias ls='lsd -A' ll='lsd -Alg' lt='lsd -A --tree --ignore-glob=.git'
+has 'lsd' && alias ls='lsd -A' ll='lsd -Alg' lt='lsd -A --tree --ignore-glob={.DS_Store,.git}'
 
 # Macup
 alias mb='mackup -f backup'
