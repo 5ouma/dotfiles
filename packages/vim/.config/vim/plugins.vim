@@ -1,15 +1,15 @@
 "============================================================[ Jetpack ]============================================================"
 
-let s:jetpackfile = split(&packpath, ',')[0] .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
-let s:jetpackurl = 'https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim'
+let s:jetpackdir = $XDG_DATA_HOME .. '/vim'
+let s:jetpackfile = s:jetpackdir .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
 if !filereadable(s:jetpackfile)
   call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
-packadd vim-jetpack
-call jetpack#begin()
+execute 'source' s:jetpackfile
+call jetpack#begin(s:jetpackdir)
   Jetpack '5ouma/vim-colors-pencil'
-  Jetpack '5ouma/vim-jetpack'
   Jetpack 'airblade/vim-gitgutter'
   Jetpack 'bronson/vim-trailing-whitespace'
   Jetpack 'cohama/lexima.vim'
@@ -24,6 +24,7 @@ call jetpack#begin()
   Jetpack 'prabirshrestha/vim-lsp'
   Jetpack 'preservim/nerdtree'
   Jetpack 'ryanoasis/vim-devicons'
+  Jetpack 'tani/vim-jetpack'
   Jetpack 'tpope/vim-commentary'
   Jetpack 'tpope/vim-fugitive'
   Jetpack 'tpope/vim-surround'

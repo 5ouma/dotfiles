@@ -1,6 +1,5 @@
 "============================================================[ Path ]============================================================"
 
-set packpath^=$XDG_DATA_HOME/vim
 set undodir=$XDG_CACHE_HOME/vim/undo | call mkdir(&undodir, 'p')
 set viminfofile=$XDG_CACHE_HOME/vim/info
 
