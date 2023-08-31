@@ -118,9 +118,9 @@ alias but='brew untap'
 
 bbd() {
   if (brew bundle dump -f --file="$datas/Brewfile" --{tap,formula,cask,mas}); then
-    printf '\033[32mHomebrew Bundle complete!\033[m\n'
+    printf '\033[32m==>\033[m \033[;1mHomebrew Bundle complete!\033[m\n'
   else
-    printf '\033[31mHomebrew Bundle failed!\033[m\n'
+    printf '\033[31m==>\033[m \033[;1mHomebrew Bundle failed!\033[m\n'
     return 1
   fi
 }
