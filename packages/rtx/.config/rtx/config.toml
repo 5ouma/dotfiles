@@ -1,6 +1,6 @@
 [tools]
 node = "latest"
-go = "latest"
+go = "1.20.7"
 
 [settings]
 experimental = true
