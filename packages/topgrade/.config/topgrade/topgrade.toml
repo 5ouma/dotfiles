@@ -20,3 +20,7 @@ repos = [
 "mackup" = "mackup -f backup"
 "mksei" = 'mksei save "$datas/keyboard_shortcuts.json"'
 "rtx" = "rtx plugins update && rtx upgrade"
+"Shortcuts" = """
+    osascript -e 'tell app "Shortcuts" to run shortcut "Backup"' \
+    -e 'tell app "Shortcuts" to quit'
+  """
