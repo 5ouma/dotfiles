@@ -20,8 +20,10 @@ apply = ["defer"]
   apply = ["source"]
   [plugins.powerlevel10k.hooks]
     post = """
-      source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" 2>/dev/null
-      source "$ZDOTDIR/.p10k.zsh" 2>/dev/null
+      if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+        source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
+      fi
+      [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
     """
 [plugins.zsh-autopair]
   github = "hlissner/zsh-autopair"
