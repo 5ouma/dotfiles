@@ -90,7 +90,7 @@ Flags:
 
 ## 📝 Details
 
-- ### Package Manager : [🍺 `Homebrew`](https://brew.sh)
+- ### 🍺 Package Manager: [`Homebrew`](https://brew.sh)
 
   ```shell
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -100,7 +100,7 @@ Flags:
 
 <br />
 
-- ### Runtime Manager : [📼 `rtx`](https://github.com/jdxcode/rtx)
+- ### 📼 Runtime Manager: [`rtx`](https://github.com/jdxcode/rtx)
 
   ```shell
   brew install jdxcode/tap/rtx
@@ -108,19 +108,19 @@ Flags:
 
 <br />
 
-- ### Terminal : [📺 `iTerm2`](https://iterm2.com)
+- ### 📺 Terminal: [`iTerm2`](https://iterm2.com)
 
   ```shell
   brew install iterm2-beta
   ```
 
-  - #### Font 1 : [🖋 `Fira Code`](https://github.com/tonsky/FiraCode)
+  - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```shell
     brew install font-firacode
     ```
 
-  - #### Font 2 : [✒️ `HackGen35`](https://github.com/yuru7/hackgen)
+  - #### ✒️ Font 2: [`HackGen35`](https://github.com/yuru7/hackgen)
 
     ```shell
     brew install font-hackgen font-hackgen-nerd
@@ -128,9 +128,9 @@ Flags:
 
 <br />
 
-- ### Shell : [🐚 `Zsh`](https://zsh.org)
+- ### 🐚 Shell: [`Zsh`](https://zsh.org)
 
-  - #### Plugin Manager : [🔌 `Sheldon`](https://github.com/rossmacarthur/sheldon)
+  - #### 🔌 Plugin Manager: [`Sheldon`](https://github.com/rossmacarthur/sheldon)
 
     ```shell
     brew install sheldon
@@ -138,13 +138,13 @@ Flags:
 
     > See plugins in **[`plugins.toml`](../packages/sheldon/.config/sheldon/plugins.toml)** or on **[`Zsh Plugins`](https://github.com/stars/5ouma/lists/zsh-plugins)** _(GitHub Star List)_
 
-  - #### Theme : [❯ `Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
+  - #### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 
     ```shell
     sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
     ```
 
-  - #### Terminal Autocompletion : [◧ `Fig`](https://fig.io)
+  - #### ◧ Terminal Autocompletion: [`Fig`](https://fig.io)
 
     ```shell
     brew install fig
@@ -152,9 +152,9 @@ Flags:
 
 <br />
 
-- ### Terminal Editor : [🖌 `Vim`](https://www.vim.org)
+- ### 🖌 Terminal Editor: [`Vim`](https://www.vim.org)
 
-  - #### Plugin Manager : [🚀 `Jetpack`](https://github.com/5ouma/vim-jetpack)
+  - #### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)
 
     ```shell
     curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim
@@ -162,9 +162,9 @@ Flags:
 
     > See plugins in **[`plugins.vim`](../packages/vim/.config/vim/plugins.vim)** or on **[`Vim Plugins`](https://github.com/stars/5ouma/lists/vim-plugins)** _(GitHub Star List)_
 
-  - #### Color Scheme : [✏️ `Pencil`](https://github.com/5ouma/vim-colors-pencil)
+  - #### ✏️ Color Scheme: [`Pencil`](https://github.com/5ouma/vim-colors-pencil)
 
-  - #### LSP: [💾 `vim-lsp`](https://github.com/prabirshrestha/vim-lsp)
+  - #### 💾 LSP: [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp)
 
 <br /><br />
 
