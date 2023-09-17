@@ -1,0 +1,181 @@
+apps:
+  pages:
+    - number: 1
+      items:
+        - App Store
+        - Safari
+        - Arc
+        - Mail
+        - Spark Desktop
+        - Email
+        - Contacts
+        - Calendar
+        - Reminders
+        - TickTick
+        - Notes
+        - Notion
+        - FaceTime
+        - Messages
+        - LINE
+        - Microsoft Teams
+        - Maps
+        - Find My
+        - Photo Booth
+        - Photos
+        - Preview
+        - Music
+        - Spotify
+        - Podcasts
+        - TV
+        - Voice Memos
+        - iMovie
+        - Stocks
+        - Books
+        - Dictionary
+        - Calculator
+        - Home
+        - Siri
+        - Mission Control
+        - System Preferences
+        - 1Password
+        - Xcode
+        - Visual Studio Code
+        - Visual Studio Code - Insiders
+        - iTerm
+        - folder: DaVinci Resolve
+          pages:
+            - number: 1
+              items:
+                - DaVinci Resolve
+                - DaVinci Control Panels Setup
+                - Fairlight Studio Utility
+                - Blackmagic Proxy Generator Lite
+        - Figma
+        - Aseprite
+        - Blender
+        - MekimekiChip
+        - Discord
+        - Discord PTB
+        - Rhythm Quest Demo
+        - folder: Resident Apps
+          pages:
+            - number: 1
+              items:
+                - Google Drive
+                - Dropbox
+                - Box
+                - Itsycal
+                - Maccy
+                - MacUpdater
+                - RunCat
+                - MenubarX
+                - Gitify
+                - Hidden Bar
+                - Displaperture
+                - Rectangle
+                - DeepL
+                - Grammarly Desktop
+                - Rocket
+                - Karabiner-Elements
+                - Karabiner-EventViewer
+                - HotKey
+                - Hammerspoon
+                - Yoink
+                - HandyPalette
+                - Alfred 5
+                - AltTab
+                - Fuwari
+        - folder: Other (Downloaded)
+          pages:
+            - number: 1
+              items:
+                - Geekbench 6
+                - Cinebench
+                - Speedtest
+                - Blackmagic Disk Speed Test
+                - Mactracker
+                - FreeFileSync
+                - OnyX
+                - AppCleaner
+                - Startup Disk Full Fixer
+                - KeyboardCleanTool
+                - Amphetamine
+                - FocusRecorder
+                - Fig
+                - OpenInTerminal
+                - Syntax Highlight
+                - QLMarkdown
+                - Apparency
+                - Suspicious Package
+        - folder: Other
+          pages:
+            - number: 1
+              items:
+                - Shortcuts
+                - QuickTime Player
+                - TextEdit
+                - Grapher
+                - Time Machine
+                - Font Book
+                - Chess
+                - Stickies
+                - Image Capture
+                - VoiceOver Utility
+                - AirPort Utility
+                - Migration Assistant
+                - Terminal
+                - Activity Monitor
+                - Console
+                - Keychain Access
+                - System Information
+                - Automator
+                - Script Editor
+                - Disk Utility
+                - Boot Camp Assistant
+                - Digital Color Meter
+                - ColorSync Utility
+                - Screenshot
+                - Bluetooth File Exchange
+                - Audio MIDI Setup
+widgets:
+  pages: []
+dock_items:
+  apps:
+    - ""
+    - /Applications/Arc.app
+    - /Applications/Discord.app
+    - /Applications/Discord PTB.app
+    - /Applications/LINE.app
+    - ""
+    - /Applications/TickTick.app
+    - /Applications/Notion.app
+    - /System/Applications/Mail.app
+    - /Applications/Spark Desktop.app
+    - /Applications/Email.app
+    - ""
+    - /System/Applications/App Store.app
+    - /System/Applications/System Preferences.app
+    - /Applications/1Password.app
+    - /Applications/AppCleaner.app
+    - /System/Applications/Utilities/Activity Monitor.app
+    - ""
+    - ""
+  others:
+    - path: "~"
+      display: 1
+      sort: 1
+    - path: ~/Downloads
+      sort: 1
+    - path: ~/Pictures/Screen Capture
+      sort: 1
+    - path: ~/Temp
+      sort: 1
+  settings:
+    autohide: true
+    largesize: 33
+    magnification: true
+    minimize-to-application: true
+    mru-spaces: false
+    show-recents: false
+    tilesize: 30
+desktop: {}

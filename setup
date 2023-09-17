@@ -192,28 +192,17 @@ fi
 
 springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) >/dev/null 2>&1 && declare -r springboard_{columns,rows}
 if ((springboard_columns != 9 || springboard_rows != 8)); then
-  gum format '## 🖼 Changing Launchpad size...'
+  gum format '## 🚀 Changing Launchpad size...'
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
   defaults write com.apple.dock ResetLaunchPad -bool true
   gum executed
 fi
 
-killall Dock
-tilesize=$(defaults read com.apple.dock tilesize) largesize=$(defaults read com.apple.dock largesize) size_immutable=$(defaults read com.apple.dock size-immutable) >/dev/null 2>&1 && declare -r {tile,large}size size_immutable
-if ((tilesize != 30 || largesize != 33 || size_immutable != 1)); then
-  gum format '## 🚥 Modifying Dock size...'
-  defaults write com.apple.dock tilesize -int 30
-  defaults write com.apple.dock largesize -int 33
+size_immutable=$(defaults read com.apple.dock size-immutable) >/dev/null 2>&1 && declare -r size_immutable
+if ((size_immutable != 1)); then
+  gum format '## 🚥 Making Dock size immutable...'
   defaults write com.apple.dock size-immutable -bool true
-  gum executed
-fi
-declare -r spacecount=$((5 - $(defaults read com.apple.dock persistent-apps | grep 'small-spacer-tile' -c)))
-if ((spacecount > 0)); then
-  gum format '## ⏹ Adding spacers on Dock...'
-  for ((i = 0; i < spacecount; i++)); do
-    defaults write com.apple.dock persistent-apps -array-add '{tile-type='small-spacer-tile';}'
-  done
   gum executed
 fi
 
@@ -259,11 +248,11 @@ if [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum executed
 fi
 
-lporg save -c "$TMPDIR/launchpad.yaml" >/dev/null 2>&1
-if (! diff "$datas/launchpad.yaml" "$TMPDIR/launchpad.yaml" >/dev/null 2>&1); then
-  gum format '## 🖼 Setting up Launchpad...'
+lporg save -c="$TMPDIR/lporg.yml" >/dev/null 2>&1
+if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" >/dev/null 2>&1); then
+  gum format '## 🚀 Setting up Launchpad and Dock...'
   # shellcheck disable=SC2016
-  gum spin 'Running `lporg load`...' -- lporg load -n "$datas/launchpad.yaml"
+  gum spin 'Running `lporg load`...' -- lporg load -nyc="$datas/lporg.yml"
   gum executed
 fi
 
