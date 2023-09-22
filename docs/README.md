@@ -103,7 +103,7 @@ Flags:
 - ### 📼 Runtime Manager: [`rtx`](https://github.com/jdxcode/rtx)
 
   ```shell
-  brew install jdxcode/tap/rtx
+  brew install rtx
   ```
 
 <br />
@@ -111,7 +111,7 @@ Flags:
 - ### 📺 Terminal: [`iTerm2`](https://iterm2.com)
 
   ```shell
-  brew install iterm2-beta
+  brew install Homebrew/homebrew-cask-versions/iterm2-beta
   ```
 
   - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
