@@ -90,22 +90,27 @@ end):start()
 
 -- Spotify Advertisements Skipper
 
+IsSpotifyQuit = false
 SpotifyWatcher = hs.application.watcher.new(function(appName, eventType)
   if (appName == "Spotify") then
     if (eventType == hs.application.watcher.launched) then
       SpotifyTimer = hs.timer.new(1, function()
         if (hs.spotify.isPlaying() and hs.spotify.getCurrentArtist() == "") then
+          IsSpotifyQuit = true
           getApp("Spotify"):kill()
-          hs.timer.waitWhile(function() return hs.spotify.isRunning() end, function()
-            hs.spotify.play()
-            getApp("Spotify"):hide()
-            hs.osascript.applescript('tell app "Spotify" to set shuffling to false')
-            hs.osascript.applescript('tell app "Spotify" to set shuffling to true')
-          end)
         end
       end):start()
     elseif (eventType == hs.application.watcher.terminated) then
       SpotifyTimer:stop()
+      if (IsSpotifyQuit) then
+        IsSpotifyQuit = false
+        hs.spotify.play()
+        getApp("Spotify"):hide()
+        hs.osascript.applescript('tell app "Spotify" to set shuffling to false')
+        hs.osascript.applescript('tell app "Spotify" to set shuffling to true')
+      else
+        getApp("Spotify"):kill()
+      end
     end
   end
 end):start()
