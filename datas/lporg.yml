@@ -42,6 +42,7 @@ apps:
         - Visual Studio Code
         - Visual Studio Code - Insiders
         - iTerm
+        - OrbStack
         - folder: DaVinci Resolve
           pages:
             - number: 1
@@ -53,7 +54,6 @@ apps:
         - Figma
         - Aseprite
         - Blender
-        - MekimekiChip
         - Discord
         - Discord PTB
         - Rhythm Quest Demo

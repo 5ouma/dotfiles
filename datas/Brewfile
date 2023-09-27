@@ -105,6 +105,7 @@ cask "microsoft-teams"
 cask "notion"
 cask "onyx"
 cask "openinterminal"
+cask "orbstack"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "quicklook-csv"
@@ -127,7 +128,6 @@ mas "HotKey", id: 975890633
 mas "iMovie", id: 408981434
 mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
-mas "MekimekiChip", id: 6443706307
 mas "MenubarX", id: 1575588022
 mas "RunCat", id: 1429033973
 mas "Speedtest", id: 1153157709
