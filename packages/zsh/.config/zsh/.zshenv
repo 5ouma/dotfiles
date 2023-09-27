@@ -21,7 +21,7 @@ export HOMEBREW_AUTOREMOVE=1
 source "$XDG_CONFIG_HOME/op/plugins.sh"
 
 # OrbStack
-source "$HOME/.orbstack/shell/init.zsh"
+source "$HOME/.orbstack/shell/init.zsh" 2>/dev/null || :
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Movies,Music,Pictures,Library,.cache,.local,.vscode,.vscode-insiders,.git,node_modules,.DS_Store}'
