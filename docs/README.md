@@ -28,8 +28,13 @@ My config files and setup for CLI tools and GUI apps.
 
 ## 🔐 Requirements
 
-- **macOS** Big Sur `Version 11` or later
-- Intel or Apple Silicon Mac
+- ### 🍎 macOS
+  - **macOS** Big Sur `Version 11` or later
+  - Intel or Apple Silicon Mac
+- ### 🐧 Linux
+  > ⚠️ Under development
+  - cURL, Git and Zsh to run [setup](../setup)
+  - Compatible with these [Homebrew dependencies](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
 <br /><br />
 

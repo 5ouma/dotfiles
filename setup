@@ -99,13 +99,18 @@ helpMsg() {
 EOM
 }
 
-exitNonDarwin() {
-  if [[ "$(uname)" != 'Darwin' ]]; then
+isDarwin() {
+  [ "$(uname)" = 'Darwin' ]
+}
+
+confirmNonDarwin() {
+  if (! isDarwin); then
     gum format <<EOM
 > **$(gum style 3 "Warning")**
-> This operation is macOS only.
+> Homebrew requires some dependencies on Linux.
+> [](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 EOM
-    exit 1
+    gum confirm "Are you ready to run setup?" 'Yes!' 'No' || exit 1
   fi
 }
 
@@ -121,18 +126,15 @@ fi
 
 #==================================================[ Flags ]==================================================#
 
-if [[ $# = 0 ]]; then
-  exitNonDarwin
+if (( $# == 0 )); then
+  confirmNonDarwin
 else
   case "$1" in
   '-h' | '--help')
     helpMsg
     exit
     ;;
-  '-y' | '--yes')
-    exitNonDarwin
-    gothrough=true
-    ;;
+  '-y' | '--yes') gothrough=true ;;
   '-s' | '--set')
     getDot && checkSym && mkSym
     exit
@@ -166,8 +168,12 @@ zstyle ':completion:*:commands' rehash 1
 if (! type brew >/dev/null 2>&1); then
   gum format '## 🍺 Installing Homebrew...'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
-  [ "$(uname -m)" = 'arm64' ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+  if (isDarwin); then
+    [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
+    [ "$(uname -m)" = 'arm64' ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
   brew doctor
   gum executed
 fi
@@ -190,57 +196,60 @@ fi
 
 #==================================================[ defaults ]==================================================#
 
-springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) >/dev/null 2>&1 && declare -r springboard_{columns,rows}
-if ((springboard_columns != 9 || springboard_rows != 8)); then
-  gum format '## 🚀 Changing Launchpad size...'
-  defaults write com.apple.dock springboard-columns -int 9
-  defaults write com.apple.dock springboard-rows -int 8
-  defaults write com.apple.dock ResetLaunchPad -bool true
-  gum executed
-fi
+if (isDarwin); then
+  springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) >/dev/null 2>&1 && declare -r springboard_{columns,rows}
+  if ((springboard_columns != 9 || springboard_rows != 8)); then
+    gum format '## 🚀 Changing Launchpad size...'
+    defaults write com.apple.dock springboard-columns -int 9
+    defaults write com.apple.dock springboard-rows -int 8
+    defaults write com.apple.dock ResetLaunchPad -bool true
+    gum executed
+  fi
 
-size_immutable=$(defaults read com.apple.dock size-immutable) >/dev/null 2>&1 && declare -r size_immutable
-if ((size_immutable != 1)); then
-  gum format '## 🚥 Making Dock size immutable...'
-  defaults write com.apple.dock size-immutable -bool true
-  gum executed
-fi
+  size_immutable=$(defaults read com.apple.dock size-immutable) >/dev/null 2>&1 && declare -r size_immutable
+  if ((size_immutable != 1)); then
+    gum format '## 🚥 Making Dock size immutable...'
+    defaults write com.apple.dock size-immutable -bool true
+    gum executed
+  fi
 
-screencapture_location="$(defaults read com.apple.screencapture location)" >/dev/null 2>&1 && declare -r screencapture_location
-if [[ "$screencapture_location" != "$HOME/Pictures/Screen Capture" ]]; then
-  gum format '## 📷 Changing screen capture path...'
-  mkdir -p "$HOME/Pictures/Screen Capture"
-  defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
-  gum executed
-fi
+  screencapture_location="$(defaults read com.apple.screencapture location)" >/dev/null 2>&1 && declare -r screencapture_location
+  if [[ "$screencapture_location" != "$HOME/Pictures/Screen Capture" ]]; then
+    gum format '## 📷 Changing screen capture path...'
+    mkdir -p "$HOME/Pictures/Screen Capture"
+    defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
+    gum executed
+  fi
 
-killall Dock
-killall SystemUIServer
+  killall Dock
+  killall SystemUIServer
 
-modelname="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelname
-computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}" && declare -r computername localhostname
-if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostName)" != "$computername" || "$(scutil --get LocalHostName)" != "$localhostname" ]]; then
-  gum format '## 💻 Setting computer name...'
-  gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computername"
-  gum spin 'Setting HostName...' -- scutil --set HostName "$computername"
-  gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localhostname"
-  sudo -v
-  gum format <<EOM
+  modelname="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelname
+  computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}" && declare -r computername localhostname
+  if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostName)" != "$computername" || "$(scutil --get LocalHostName)" != "$localhostname" ]]; then
+    gum format '## 💻 Setting computer name...'
+    gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computername"
+    gum spin 'Setting HostName...' -- scutil --set HostName "$computername"
+    gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localhostname"
+    sudo -v
+    gum format <<EOM
 - ComputerName : $(gum style 6 "$(scutil --get ComputerName)")
 - HostName : $(gum style 6 "$(scutil --get HostName)")
 - LocalHostName : $(gum style 6 "$(sudo scutil --get LocalHostName)")
 EOM
-  gum executed
+    gum executed
+  fi
 fi
 
 #==================================================[ Apps ]==================================================#
 
+(! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP="5ouma/formula/mksei blacktop/tap/lporg"
 if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$datas/Brewfile"); then
   gum format '## 📲 Installing apps and commands...'
   brew bundle install --no-lock --no-upgrade --file="$datas/Brewfile"
   gum executed
 fi
-if [[ ! -d '/Applications/DaVinci Resolve' ]]; then
+if (isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum format '### 🎨 Please install DaVinci Resolve.'
   sleep 2
   open 'https://www.blackmagicdesign.com/jp/products/davinciresolve'
@@ -248,21 +257,23 @@ if [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum executed
 fi
 
-lporg save -c="$TMPDIR/lporg.yml" >/dev/null 2>&1
-if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" >/dev/null 2>&1); then
-  gum format '## 🚀 Setting up Launchpad and Dock...'
-  # shellcheck disable=SC2016
-  gum spin 'Running `lporg load`...' -- lporg load -nyc="$datas/lporg.yml"
-  gum executed
+if (isDarwin); then
+  lporg save -c="$TMPDIR/lporg.yml" >/dev/null 2>&1
+  if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" >/dev/null 2>&1); then
+    gum format '## 🚀 Setting up Launchpad and Dock...'
+    # shellcheck disable=SC2016
+    gum spin 'Running `lporg load`...' -- lporg load -nyc="$datas/lporg.yml"
+    gum executed
+  fi
 fi
 
-if [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
+if (isDarwin) && [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
   gum format '## 💾 Restoring appliaction settings...'
   mackup restore
   gum executed
 fi
 
-if (! defaults read com.apple.universalaccess 'com.apple.custommenu.apps' >/dev/null 2>&1); then
+if (isDarwin && ! defaults read com.apple.universalaccess 'com.apple.custommenu.apps' >/dev/null 2>&1); then
   gum format '## ⌨️ Restoring App Shortcuts...'
   # shellcheck disable=SC2016
   gum spin 'Running `mksei load`...' -- mksei load "$datas/keyboard_shortcuts.json"
