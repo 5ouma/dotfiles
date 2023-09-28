@@ -47,3 +47,9 @@ export VIMINIT="source $MYVIMRC"
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=100000
 export SAVEHIST=100000
+
+#============================================================[ Misc ]============================================================#
+
+has() {
+  type "$1" >/dev/null 2>&1
+}

@@ -256,7 +256,7 @@ if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" >/dev/null 2>&1); then
   gum executed
 fi
 
-if [[ -n "$(mackup -n backup)" ]]; then
+if [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
   gum format '## 💾 Restoring appliaction settings...'
   mackup restore
   gum executed

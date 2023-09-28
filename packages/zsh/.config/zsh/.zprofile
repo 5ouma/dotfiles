@@ -1,11 +1,7 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
+[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh" || :
 
 #============================================================[ Aliases & Functions ]============================================================#
-
-has() {
-  type "$1" >/dev/null 2>&1
-}
 
 # bat
 has 'bat' && alias cat='bat'
@@ -155,9 +151,7 @@ alias ci.='code-insiders .'
 alias ka='killall'
 alias mv='mv -iv'
 
-unset -f has
-
 #============================================================[ Paths ]============================================================#
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"
+[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh" || :

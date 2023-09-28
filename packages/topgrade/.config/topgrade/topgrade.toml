@@ -11,13 +11,13 @@ autoremove = true
 repos = ["~/*", "~/ghq/*/*/*"]
 
 [commands]
-"gh" = "gh repo sync 5ouma/github-read-me-stats"
 "Jetpack" = "vim +Jetpack +qall"
-"lporg" = 'lporg save -c="$datas/lporg.yml" >/dev/null 2>&1'
-"mackup" = "mackup -f backup"
-"mksei" = 'mksei save "$datas/keyboard_shortcuts.json"'
-"rtx" = "rtx plugins update && rtx upgrade"
 "Shortcuts" = """
     osascript -e 'tell app "Shortcuts" to run shortcut "Backup"' \
     -e 'tell app "Shortcuts" to quit'
   """
+"github-read-me-stats" = "gh status >/dev/null 2>&1 && gh repo sync 5ouma/github-read-me-stats || :"
+"lporg" = 'has lporg && lporg save -c="$datas/lporg.yml" || :'
+"mackup" = "mackup -n backup >/dev/null 2>&1 && mackup -f backup || :"
+"mksei" = 'has mksei && mksei save "$datas/keyboard_shortcuts.json" || :'
+"rtx" = "rtx plugins update && rtx upgrade"
