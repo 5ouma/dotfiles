@@ -116,19 +116,19 @@ Flags:
 - ### 📺 Terminal: [`iTerm2`](https://iterm2.com)
 
   ```shell
-  brew install Homebrew/homebrew-cask-versions/iterm2-beta
+  brew install homebrew/cask-versions/iterm2-beta
   ```
 
   - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```shell
-    brew install font-firacode
+    brew install homebrew/cask-fonts/font-fira-code
     ```
 
   - #### ✒️ Font 2: [`HackGen35`](https://github.com/yuru7/hackgen)
 
     ```shell
-    brew install font-hackgen font-hackgen-nerd
+    brew install homebrew/cask-fonts/font-hackgen font-hackgen-nerd
     ```
 
 <br />
@@ -162,7 +162,7 @@ Flags:
   - #### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)
 
     ```shell
-    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/5ouma/vim-jetpack/master/plugin/jetpack.vim
+    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
     ```
 
     > See plugins in **[`plugins.vim`](../packages/vim/.config/vim/plugins.vim)** or on **[`Vim Plugins`](https://github.com/stars/5ouma/lists/vim-plugins)** _(GitHub Star List)_
