@@ -8,10 +8,7 @@ cleanup = true
 autoremove = true
 
 [git]
-repos = [
-  "~/*",
-  "~/ghq/*/*/*"
-]
+repos = ["~/*", "~/ghq/*/*/*"]
 
 [commands]
 "gh" = "gh repo sync 5ouma/github-read-me-stats"

@@ -34,7 +34,7 @@ export GUM_INPUT_CURSOR_FOREGROUND='27'
 export GUM_SPIN_SPINNER_FOREGROUND='27'
 
 # less
-export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 
 # rtx
 export RTX_USE_TOML=1
@@ -42,3 +42,8 @@ export RTX_USE_TOML=1
 # Vim
 export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
+
+# Zsh
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export HISTSIZE=100000
+export SAVEHIST=100000
