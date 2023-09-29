@@ -3,8 +3,16 @@ type 'bat' &>/dev/null && alias cat='bat'
 
 # delta
 if (type 'delta' &>/dev/null); then
-  alias diff='delta --syntax-theme=$(defaults read -g AppleInterfaceStyle &>/dev/null && echo "ansi" || echo "GitHub")'
-  alias git='git -c delta.syntax-theme=$(defaults read -g AppleInterfaceStyle &>/dev/null && echo "ansi" || echo "GitHub")'
+  if [[ "$(uname)" = 'Darwin' ]]; then
+    getSyntaxTheme() {
+      defaults read -g AppleInterfaceStyle &>/dev/null && echo 'ansi' || echo 'GitHub'
+    }
+    alias diff='delta --syntax-theme=$(getSyntaxTheme)'
+    alias git='git -c delta.syntax-theme=$(getSyntaxTheme)'
+  else
+    alias diff='delta --syntax-theme="GitHub"'
+    alias git='git -c delta.syntax-theme="GitHub"'
+  fi
 fi
 
 # ghq
