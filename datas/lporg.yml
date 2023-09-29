@@ -166,7 +166,7 @@ dock_items:
       sort: 1
     - path: ~/Downloads
       sort: 1
-    - path: ~/Pictures/Screen Capture
+    - path: ~/Pictures/Screen Captures
       sort: 1
     - path: ~/Temp
       sort: 1

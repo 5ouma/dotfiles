@@ -212,10 +212,11 @@ if (isDarwin); then
   fi
 
   screencapture_location="$(defaults read com.apple.screencapture location)" &>/dev/null && declare -r screencapture_location
-  if [[ "$screencapture_location" != "$HOME/Pictures/Screen Capture" ]]; then
+  screenCaptures="$HOME/Pictures/Screen Captures"
+  if [[ "$screencapture_location" != "$screenCaptures" ]]; then
     gum format '## 📷 Changing screen capture path...'
-    mkdir -p "$HOME/Pictures/Screen Capture"
-    defaults write com.apple.screencapture location "$HOME/Pictures/Screen Capture"
+    mkdir -p "$screenCaptures"
+    defaults write com.apple.screencapture location "$screenCaptures"
     gum executed
   fi
 
