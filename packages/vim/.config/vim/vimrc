@@ -22,6 +22,7 @@ set clipboard+=unnamed
 set mouse=a
 set updatetime=10
 set backspace=indent,eol,start
+set shellcmdflag=-ic
 
 " Appearance
 silent! colorscheme pencil
@@ -41,8 +42,8 @@ set shiftwidth=2
 set tabstop=2
 
 " Search
-set ignorecase
-set smartcase
-set incsearch
-set wrapscan
 set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set wrapscan

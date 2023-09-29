@@ -17,7 +17,7 @@ repos = ["~/*", "~/ghq/*/*/*"]
     -e 'tell app "Shortcuts" to quit'
   """
 "github-read-me-stats" = "gh status &>/dev/null && gh repo sync 5ouma/github-read-me-stats || :"
-"lporg" = 'has lporg && lporg save -c="$datas/lporg.yml" || :'
+"lporg" = 'type lporg &>/dev/null && lporg save -c="$datas/lporg.yml" || :'
 "mackup" = "mackup -n backup &>/dev/null && mackup -f backup || :"
-"mksei" = 'has mksei && mksei save "$datas/keyboard_shortcuts.json" || :'
+"mksei" = 'type mksei &>/dev/null && mksei save "$datas/keyboard_shortcuts.json" || :'
 "rtx" = "rtx plugins update && rtx upgrade"
