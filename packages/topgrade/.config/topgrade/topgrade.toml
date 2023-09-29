@@ -16,8 +16,8 @@ repos = ["~/*", "~/ghq/*/*/*"]
     osascript -e 'tell app "Shortcuts" to run shortcut "Backup"' \
     -e 'tell app "Shortcuts" to quit'
   """
-"github-read-me-stats" = "gh status >/dev/null 2>&1 && gh repo sync 5ouma/github-read-me-stats || :"
+"github-read-me-stats" = "gh status &>/dev/null && gh repo sync 5ouma/github-read-me-stats || :"
 "lporg" = 'has lporg && lporg save -c="$datas/lporg.yml" || :'
-"mackup" = "mackup -n backup >/dev/null 2>&1 && mackup -f backup || :"
+"mackup" = "mackup -n backup &>/dev/null && mackup -f backup || :"
 "mksei" = 'has mksei && mksei save "$datas/keyboard_shortcuts.json" || :'
 "rtx" = "rtx plugins update && rtx upgrade"

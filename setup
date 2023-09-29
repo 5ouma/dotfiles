@@ -25,7 +25,7 @@ getGum() {
   declare -r gumurl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.11.0_$(uname)_$(uname -m).tar.gz"
   declare -r gumthemeurl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json'
 
-  if (! type gum >/dev/null 2>&1); then
+  if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
     curl -sL "$gumurl" | tar -zxC "$TMPDIR" 'gum' && declare -gr gumcom="$TMPDIR/gum"
     printf '\r                        '
@@ -67,7 +67,7 @@ checkSym() {
   declare -Ag packs
   while read -r pack; do
     declare file="${pack#"$packages"/*/}"
-    if [[ ! -f "$HOME/$file" ]] || (! diff "$pack" "$HOME/$file" >/dev/null 2>&1); then
+    if [[ ! -f "$HOME/$file" ]] || (! diff "$pack" "$HOME/$file" &>/dev/null); then
       packs[$file]=$pack
     fi
   done < <(find "$packages" -type f ! -name '.DS_Store')
@@ -164,7 +164,7 @@ zstyle ':completion:*:commands' rehash 1
 
 #==================================================[ Homebrew ]==================================================#
 
-if (! type brew >/dev/null 2>&1); then
+if (! type brew &>/dev/null); then
   gum format '## 🍺 Installing Homebrew...'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
@@ -196,7 +196,7 @@ fi
 #==================================================[ defaults ]==================================================#
 
 if (isDarwin); then
-  springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) >/dev/null 2>&1 && declare -r springboard_{columns,rows}
+  springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) &>/dev/null && declare -r springboard_{columns,rows}
   if ((springboard_columns != 9 || springboard_rows != 8)); then
     gum format '## 🚀 Changing Launchpad size...'
     defaults write com.apple.dock springboard-columns -int 9
@@ -204,14 +204,14 @@ if (isDarwin); then
     gum executed
   fi
 
-  size_immutable=$(defaults read com.apple.dock size-immutable) >/dev/null 2>&1 && declare -r size_immutable
+  size_immutable=$(defaults read com.apple.dock size-immutable) &>/dev/null && declare -r size_immutable
   if ((size_immutable != 1)); then
     gum format '## 🚥 Making Dock size immutable...'
     defaults write com.apple.dock size-immutable -bool true
     gum executed
   fi
 
-  screencapture_location="$(defaults read com.apple.screencapture location)" >/dev/null 2>&1 && declare -r screencapture_location
+  screencapture_location="$(defaults read com.apple.screencapture location)" &>/dev/null && declare -r screencapture_location
   if [[ "$screencapture_location" != "$HOME/Pictures/Screen Capture" ]]; then
     gum format '## 📷 Changing screen capture path...'
     mkdir -p "$HOME/Pictures/Screen Capture"
@@ -256,8 +256,8 @@ if (isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
 fi
 
 if (isDarwin); then
-  lporg save -c="$TMPDIR/lporg.yml" >/dev/null 2>&1
-  if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" >/dev/null 2>&1); then
+  lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
+  if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
     gum format '## 🚀 Setting up Launchpad and Dock...'
     # shellcheck disable=SC2016
     gum spin 'Running `lporg load`...' -- lporg load -nyc="$datas/lporg.yml"
@@ -271,7 +271,7 @@ if (isDarwin) && [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
   gum executed
 fi
 
-if (isDarwin && ! defaults read com.apple.universalaccess 'com.apple.custommenu.apps' >/dev/null 2>&1); then
+if (isDarwin && ! defaults read com.apple.universalaccess 'com.apple.custommenu.apps' &>/dev/null); then
   gum format '## ⌨️ Restoring App Shortcuts...'
   # shellcheck disable=SC2016
   gum spin 'Running `mksei load`...' -- mksei load "$datas/keyboard_shortcuts.json"

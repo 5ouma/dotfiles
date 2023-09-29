@@ -8,8 +8,8 @@ has 'bat' && alias cat='bat'
 
 # delta
 if (has 'delta'); then
-  alias diff='delta --syntax-theme=$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")'
-  alias git='git -c delta.syntax-theme=$(defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && echo "ansi" || echo "GitHub")'
+  alias diff='delta --syntax-theme=$(defaults read -g AppleInterfaceStyle &>/dev/null && echo "ansi" || echo "GitHub")'
+  alias git='git -c delta.syntax-theme=$(defaults read -g AppleInterfaceStyle &>/dev/null && echo "ansi" || echo "GitHub")'
 fi
 
 # ghq
@@ -66,7 +66,7 @@ alias glow='glow -p'
 
 # Gum
 gcg() {
-  (git commit --dry-run >/dev/null 2>&1) || return
+  (git commit --dry-run &>/dev/null) || return
   declare -r types=(
     'fix : Fix bugs'
     'hotfix : Fix critical bugs'
