@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "5ouma",
+      "email": "101255979+5ouma@users.noreply.github.com",
+      "alias": "5",
+      "gpg_key_id": "~/.ssh/git/github.pub"
+    },
+    {
+      "name": "6ouma",
+      "email": "102800255+6ouma@users.noreply.github.com",
+      "alias": "6",
+      "gpg_key_id": "~/.ssh/git/github-school.pub"
+    }
+  ]
+}
