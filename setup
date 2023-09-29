@@ -45,7 +45,6 @@ gum() {
   case $1 in
   confirm) $gumcom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
   format) $gumcom format --theme=<(echo -E "$gumtheme") "${@:2}" ;;
-  input) $gumcom input --header="$2" --placeholder="$3" "${@:4}" ;;
   spin) $gumcom spin --spinner.foreground='27' --title="$2" "${@:3}" ;;
   style) $gumcom style --foreground="$2" "${@:3}" ;;
   executed)
@@ -106,11 +105,11 @@ isDarwin() {
 confirmNonDarwin() {
   if (! isDarwin); then
     gum format <<EOM
-> **$(gum style 3 "Warning")**
+> **$(gum style 3 'Warning')**
 > Homebrew requires some dependencies on Linux.
 > [](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 EOM
-    gum confirm "Are you ready to run setup?" 'Yes!' 'No' || exit 1
+    gum confirm 'Are you ready to run setup?' 'Yes!' 'No' || exit 1
   fi
 }
 
@@ -126,7 +125,7 @@ fi
 
 #==================================================[ Flags ]==================================================#
 
-if (( $# == 0 )); then
+if (($# == 0)); then
   confirmNonDarwin
 else
   case "$1" in
@@ -202,7 +201,6 @@ if (isDarwin); then
     gum format '## 🚀 Changing Launchpad size...'
     defaults write com.apple.dock springboard-columns -int 9
     defaults write com.apple.dock springboard-rows -int 8
-    defaults write com.apple.dock ResetLaunchPad -bool true
     gum executed
   fi
 
@@ -243,7 +241,7 @@ fi
 
 #==================================================[ Apps ]==================================================#
 
-(! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP="5ouma/formula/mksei blacktop/tap/lporg"
+(! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
 if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$datas/Brewfile"); then
   gum format '## 📲 Installing apps and commands...'
   brew bundle install --no-lock --no-upgrade --file="$datas/Brewfile"
