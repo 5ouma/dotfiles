@@ -248,6 +248,12 @@ if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no
   brew bundle install --no-lock --no-upgrade --file="$datas/Brewfile"
   gum executed
 fi
+if [[ "$SHELL" != "$(which zsh)" ]]; then
+  gum format '### 🐚 Changing login shell to Zsh...'
+  which zsh | sudo tee -a /etc/shells 1>/dev/null
+  chsh -s "$(which zsh)"
+  gum executed
+fi
 if (isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum format '### 🎨 Please install DaVinci Resolve.'
   sleep 2
