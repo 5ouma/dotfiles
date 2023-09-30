@@ -5,7 +5,7 @@ type 'bat' &>/dev/null && alias cat='bat'
 if (type 'delta' &>/dev/null); then
   if [[ "$(uname)" = 'Darwin' ]]; then
     getSyntaxTheme() {
-      defaults read -g AppleInterfaceStyle &>/dev/null && echo 'ansi' || echo 'GitHub'
+      (defaults read -g AppleInterfaceStyle &>/dev/null) && echo 'ansi' || echo 'GitHub'
     }
     alias diff='delta --syntax-theme=$(getSyntaxTheme)'
     alias git='git -c delta.syntax-theme=$(getSyntaxTheme)'

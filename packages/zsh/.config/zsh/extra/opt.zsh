@@ -1,6 +1,6 @@
 setopt auto_cd
 setopt correct
-setopt globdots
+setopt glob_dots
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt list_types

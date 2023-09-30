@@ -55,7 +55,7 @@ Run one line [setup](../setup), see the [usage](#-usage).
 > _Just config files_
 >
 > ```shell
-> zsh <(curl -sL dotup.vercel.app) -s
+> zsh <(curl -sL dotup.vercel.app) --set
 > ```
 
 <br /><br />
