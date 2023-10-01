@@ -30,7 +30,7 @@ getGum() {
     curl -sL "$gumurl" | tar -zxC "$TMPDIR" 'gum' && declare -gr gumcom="$TMPDIR/gum"
     printf '\r                        '
   else
-    gumcom=$(which gum) && declare -gr gumcom
+    gumcom="$(which gum)" && declare -gr gumcom
   fi
 
   if [[ ! -f "$datas/blue.json" ]]; then
@@ -159,9 +159,6 @@ fi
 # Clone / Pull the repository
 getDot
 
-# Zsh setting
-zstyle ':completion:*:commands' rehash 1
-
 #==================================================[ Homebrew ]==================================================#
 
 if (! type brew &>/dev/null); then
@@ -212,7 +209,7 @@ if (isDarwin); then
   fi
 
   screencapture_location="$(defaults read com.apple.screencapture location)" &>/dev/null && declare -r screencapture_location
-  screenCaptures="$HOME/Pictures/Screen Captures"
+  declare -r screenCaptures="$HOME/Pictures/Screen Captures"
   if [[ "$screencapture_location" != "$screenCaptures" ]]; then
     gum format '## 📷 Changing screen capture path...'
     mkdir -p "$screenCaptures"
@@ -278,7 +275,7 @@ if (isDarwin) && [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
   gum executed
 fi
 
-if (isDarwin && ! defaults read com.apple.universalaccess 'com.apple.custommenu.apps' &>/dev/null); then
+if (isDarwin && ! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
   gum format '## ⌨️ Restoring App Shortcuts...'
   # shellcheck disable=SC2016
   gum spin 'Running `mksei load`...' -- mksei load "$datas/keyboard_shortcuts.json"

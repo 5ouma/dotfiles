@@ -13,11 +13,38 @@ repos = ["~/*", "~/ghq/*/*/*"]
 [commands]
 "Jetpack" = "vim +Jetpack +qall"
 "Shortcuts" = """
-    osascript -e 'tell app "Shortcuts" to run shortcut "Backup"' \
-    -e 'tell app "Shortcuts" to quit'
-  """
-"github-read-me-stats" = "gh status &>/dev/null && gh repo sync 5ouma/github-read-me-stats || :"
-"lporg" = 'type lporg &>/dev/null && lporg save -c="$datas/lporg.yml" || :'
-"mackup" = "mackup -n backup &>/dev/null && mackup -f backup || :"
-"mksei" = 'type mksei &>/dev/null && mksei save "$datas/keyboard_shortcuts.json" || :'
+  if (type osascript &>/dev/null); then
+    osascript -e 'tell app "Shortcuts" to run shortcut "Backup"' -e 'tell app "Shortcuts" to quit'
+  else
+    printf '\\033[33;1mSkipped\\033[m\n'
+  fi
+"""
+"github-read-me-stats" = """
+  if (gh status &>/dev/null); then
+    gh repo sync 5ouma/github-read-me-stats
+  else
+    printf '\\033[33;1mSkipped\\033[m\n'
+  fi
+"""
+"lporg" = """
+  if (type lporg &>/dev/null); then
+    lporg save -c="$datas/lporg.yml"
+  else
+    printf '\\033[33;1mSkipped\\033[m\n'
+  fi
+"""
+"mackup" = """
+  if (mackup -n backup &>/dev/null); then
+    mackup -f backup
+  else
+    printf '\\033[33;1mSkipped\\033[m\n'
+  fi
+"""
+"mksei" = """
+  if (type mksei &>/dev/null); then
+    mksei save "$datas/keyboard_shortcuts.json"
+  else
+    printf '\\033[33;1mSkipped\\033[m\n'
+  fi
+"""
 "rtx" = "rtx plugins update && rtx upgrade"

@@ -17,7 +17,6 @@ zstyle ':zle:*' word-style unspecified
 
 zstyle ':completion:*:default' menu select=1
 bindkey '^[[Z' reverse-menu-complete
-zstyle ':completion:*:commands' rehash 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 autoload -U up-line-or-beginning-search
