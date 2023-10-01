@@ -1,9 +1,6 @@
 # Sheldon
 eval "$(sheldon source)"
 
-# 1Password
-zsh-defer source "$XDG_CONFIG_HOME/op/plugins.sh"
-
 # Atuin
 zsh-defer eval "$(atuin init zsh --disable-up-arrow)"
 

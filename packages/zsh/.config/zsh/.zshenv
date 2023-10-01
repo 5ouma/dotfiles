@@ -10,6 +10,9 @@ else
   export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lpor'
 fi
 
+# 1Password
+source "$XDG_CONFIG_HOME/op/plugins.sh"
+
 # dotfiles
 export dotfiles="$HOME/.dotfiles"
 export datas="$dotfiles/datas"
