@@ -174,7 +174,7 @@ if (! type brew &>/dev/null); then
   gum executed
 fi
 
-#==================================================[ Configs ]==================================================#
+#==================================================[ Files ]==================================================#
 
 if checkSym; then
   gum format '## 🔗 Symlinking files...'
@@ -190,9 +190,24 @@ if [[ ! -f "$HOME/.ssh/git/github.pub" || ! -f "$HOME/.ssh/git/github-school.pub
   gum executed
 fi
 
-#==================================================[ defaults ]==================================================#
+#==================================================[ Settings ]==================================================#
 
 if (isDarwin); then
+  if [[ ! "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]]; then
+    # shellcheck disable=SC2016
+    gum format '## 👑 Enabling to use Touch ID with `sudo`...'
+    cat <<EOF | sudo tee /etc/pam.d/sudo 1>/dev/null
+# sudo: auth account password session
+auth       sufficient     pam_tid.so
+auth       sufficient     pam_smartcard.so
+auth       required       pam_opendirectory.so
+account    required       pam_permit.so
+password   required       pam_deny.so
+session    required       pam_permit.so
+EOF
+    gum executed
+  fi
+
   springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) &>/dev/null && declare -r springboard_{columns,rows}
   if ((springboard_columns != 9 || springboard_rows != 8)); then
     gum format '## 🚀 Changing Launchpad size...'
