@@ -9,46 +9,46 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-declare -r githuburl='https://github.com/5ouma/dotfiles.git'
+declare -r githubUrl='https://github.com/5ouma/dotfiles.git'
 declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 declare -r datas="$dotfiles/datas"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 
 declare executed=false
-declare gothrough=false
+declare goThrough=false
 
 #==================================================[ Functions ]==================================================#
 
 # Actions
 getGum() {
-  declare -r gumurl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.11.0_$(uname)_$(uname -m).tar.gz"
-  declare -r gumthemeurl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json'
+  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.11.0_$(uname)_$(uname -m).tar.gz"
+  declare -r gumThemeUrl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json'
 
   if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
-    curl -sL "$gumurl" | tar -zxC "$TMPDIR" 'gum' && declare -gr gumcom="$TMPDIR/gum"
+    curl -sL "$gumUrl" | tar -zxC "$TMPDIR" 'gum' && declare -gr gumCom="$TMPDIR/gum"
     printf '\r                        '
   else
-    gumcom="$(which gum)" && declare -gr gumcom
+    gumCom="$(which gum)" && declare -gr gumCom
   fi
 
   if [[ ! -f "$datas/blue.json" ]]; then
-    gumtheme=$(curl -s "$gumthemeurl") && declare -gr gumtheme
+    gumTheme=$(curl -s "$gumThemeUrl") && declare -gr gumTheme
   else
-    gumtheme=$(cat "$datas/${gumthemeurl/*\//}") && declare -gr gumtheme
+    gumTheme=$(cat "$datas/${gumThemeUrl/*\//}") && declare -gr gumTheme
   fi
 }
 getGum
 
 gum() {
   case $1 in
-  confirm) $gumcom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
-  format) $gumcom format --theme=<(echo -E "$gumtheme") "${@:2}" ;;
-  spin) $gumcom spin --spinner.foreground='27' --title="$2" "${@:3}" ;;
-  style) $gumcom style --foreground="$2" "${@:3}" ;;
+  confirm) $gumCom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
+  format) $gumCom format --theme=<(echo -E "$gumTheme") "${@:2}" ;;
+  spin) $gumCom spin --spinner.foreground='27' --title="$2" "${@:3}" ;;
+  style) $gumCom style --foreground="$2" "${@:3}" ;;
   executed)
-    echo && $gumcom format '✅ Done!'
+    echo && $gumCom format '✅ Done!'
     executed=true
     ;;
   esac
@@ -57,7 +57,7 @@ gum() {
 getDot() {
   if [[ ! -d "$dotfiles" ]]; then
     # shellcheck disable=SC2016
-    gum spin 'Cloning the repository into `~/.dotfiles`...' -- git clone "$githuburl" "$dotfiles"
+    gum spin 'Cloning the repository into `~/.dotfiles`...' -- git clone "$githubUrl" "$dotfiles"
   else
     gum spin 'Pulling the dotfiles repository...' -- git -C "$dotfiles" pull
   fi
@@ -133,7 +133,7 @@ else
     helpMsg
     exit
     ;;
-  '-y' | '--yes') gothrough=true ;;
+  '-y' | '--yes') goThrough=true ;;
   '-s' | '--set')
     getDot && checkSym && mkSym
     exit
@@ -152,7 +152,7 @@ fi
 #==================================================[ Preperations ]==================================================#
 
 # Ask to confirm
-if (! $gothrough); then
+if (! $goThrough); then
   gum confirm "Let's start setup!" 'Yes!' 'No' || exit 1
 fi
 
@@ -208,24 +208,24 @@ EOF
     gum executed
   fi
 
-  springboard_columns=$(defaults read com.apple.dock springboard-columns) springboard_rows=$(defaults read com.apple.dock springboard-rows) &>/dev/null && declare -r springboard_{columns,rows}
-  if ((springboard_columns != 9 || springboard_rows != 8)); then
+  springboardColumns=$(defaults read com.apple.dock springboard-columns) springboardRows=$(defaults read com.apple.dock springboard-rows) &>/dev/null && declare -r springboard{Columns,Rows}
+  if ((springboardColumns != 9 || springboardRows != 8)); then
     gum format '## 🚀 Changing Launchpad size...'
     defaults write com.apple.dock springboard-columns -int 9
     defaults write com.apple.dock springboard-rows -int 8
     gum executed
   fi
 
-  size_immutable=$(defaults read com.apple.dock size-immutable) &>/dev/null && declare -r size_immutable
-  if ((size_immutable != 1)); then
+  sizeImmutable=$(defaults read com.apple.dock size-immutable) &>/dev/null && declare -r sizeImmutable
+  if ((sizeImmutable != 1)); then
     gum format '## 🚥 Making Dock size immutable...'
     defaults write com.apple.dock size-immutable -bool true
     gum executed
   fi
 
-  screencapture_location="$(defaults read com.apple.screencapture location)" &>/dev/null && declare -r screencapture_location
+  screenCaptureLocation="$(defaults read com.apple.screencapture location)" &>/dev/null && declare -r screenCaptureLocation
   declare -r screenCaptures="$HOME/Pictures/Screen Captures"
-  if [[ "$screencapture_location" != "$screenCaptures" ]]; then
+  if [[ "$screenCaptureLocation" != "$screenCaptures" ]]; then
     gum format '## 📷 Changing screen capture path...'
     mkdir -p "$screenCaptures"
     defaults write com.apple.screencapture location "$screenCaptures"
@@ -235,13 +235,13 @@ EOF
   killall Dock
   killall SystemUIServer
 
-  modelname="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelname
-  computername="$(id -F)'s $modelname" localhostname="$(id -F)s-${modelname// /-}" && declare -r computername localhostname
-  if [[ "$(scutil --get ComputerName)" != "$computername" || "$(scutil --get HostName)" != "$computername" || "$(scutil --get LocalHostName)" != "$localhostname" ]]; then
+  modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
+  computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
+  if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
     gum format '## 💻 Setting computer name...'
-    gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computername"
-    gum spin 'Setting HostName...' -- scutil --set HostName "$computername"
-    gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localhostname"
+    gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computerName"
+    gum spin 'Setting HostName...' -- scutil --set HostName "$computerName"
+    gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localHostName"
     sudo -v
     gum format <<EOM
 - ComputerName : $(gum style 6 "$(scutil --get ComputerName)")
