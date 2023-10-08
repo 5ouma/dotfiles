@@ -156,6 +156,9 @@ alias v='vim'
 alias c.='code .'
 alias ci.='code-insiders .'
 
+# yazi
+alias yzi='yazi'
+
 # System
 alias ka='killall'
 alias mv='mv -iv'
