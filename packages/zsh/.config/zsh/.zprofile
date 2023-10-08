@@ -10,7 +10,7 @@ export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,
 # Gum
 export GUM_CONFIRM_SELECTED_BACKGROUND='27'
 export GUM_CHOOSE_CURSOR_FOREGROUND='27'
-export GUM_FORMAT_THEME="$datas/blue.json"
+export GUM_FORMAT_THEME="$data/blue.json"
 export GUM_INPUT_CURSOR_FOREGROUND='27'
 export GUM_SPIN_SPINNER_FOREGROUND='27'
 

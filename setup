@@ -12,7 +12,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 declare -r githubUrl='https://github.com/5ouma/dotfiles.git'
 declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
-declare -r datas="$dotfiles/datas"
+declare -r data="$dotfiles/data"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 
 declare executed=false
@@ -23,7 +23,7 @@ declare goThrough=false
 # Actions
 getGum() {
   declare -r gumUrl="https://github.com/charmbracelet/gum/releases/latest/download/gum_0.11.0_$(uname)_$(uname -m).tar.gz"
-  declare -r gumThemeUrl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/datas/blue.json'
+  declare -r gumThemeUrl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/data/blue.json'
 
   if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
@@ -33,10 +33,10 @@ getGum() {
     gumCom="$(which gum)" && declare -gr gumCom
   fi
 
-  if [[ ! -f "$datas/blue.json" ]]; then
+  if [[ ! -f "$data/blue.json" ]]; then
     gumTheme=$(curl -s "$gumThemeUrl") && declare -gr gumTheme
   else
-    gumTheme=$(cat "$datas/${gumThemeUrl/*\//}") && declare -gr gumTheme
+    gumTheme=$(cat "$data/${gumThemeUrl/*\//}") && declare -gr gumTheme
   fi
 }
 getGum
@@ -149,7 +149,7 @@ EOM
   esac
 fi
 
-#==================================================[ Preperations ]==================================================#
+#==================================================[ Preparations ]==================================================#
 
 # Ask to confirm
 if (! $goThrough); then
@@ -255,9 +255,9 @@ fi
 #==================================================[ Apps ]==================================================#
 
 (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
-if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$datas/Brewfile"); then
+if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$data/Brewfile"); then
   gum format '## 📲 Installing apps and commands...'
-  brew bundle install --no-lock --no-upgrade --file="$datas/Brewfile"
+  brew bundle install --no-lock --no-upgrade --file="$data/Brewfile"
   gum executed
 fi
 if [[ "$SHELL" != "$(which zsh)" ]]; then
@@ -276,16 +276,16 @@ fi
 
 if (isDarwin); then
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  if (! diff "$datas/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
+  if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
     gum format '## 🚀 Setting up Launchpad and Dock...'
     # shellcheck disable=SC2016
-    gum spin 'Running `lporg load`...' -- lporg load -nyc="$datas/lporg.yml"
+    gum spin 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
     gum executed
   fi
 fi
 
 if (isDarwin) && [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
-  gum format '## 💾 Restoring appliaction settings...'
+  gum format '## 💾 Restoring application settings...'
   mackup restore
   gum executed
 fi
@@ -293,7 +293,7 @@ fi
 if (isDarwin && ! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
   gum format '## ⌨️ Restoring App Shortcuts...'
   # shellcheck disable=SC2016
-  gum spin 'Running `mksei load`...' -- mksei load "$datas/keyboard_shortcuts.json"
+  gum spin 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
   gum executed
 fi
 

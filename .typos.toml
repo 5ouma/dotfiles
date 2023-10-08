@@ -1,0 +1,6 @@
+[default.extend-identifiers]
+OnyX = "OnyX"
+
+[default.extend-words]
+iterm = "iterm"
+Sur = "Sur"

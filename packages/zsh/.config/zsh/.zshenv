@@ -15,5 +15,5 @@ source "$XDG_CONFIG_HOME/op/plugins.sh"
 
 # dotfiles
 export dotfiles="$HOME/.dotfiles"
-export datas="$dotfiles/datas"
+export data="$dotfiles/data"
 export PATH="$dotfiles:$PATH"

@@ -101,7 +101,7 @@ Flags:
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
-  > See packages in **[`Brewfile`](../datas/Brewfile)** or on **[`Shell Commands`](https://github.com/stars/5ouma/lists/shell-commands)**, **[`Softwares`](https://github.com/stars/5ouma/lists/softwares)** _(GitHub Star List)_
+  > See packages in **[`Brewfile`](../data/Brewfile)** or on **[`Shell Commands`](https://github.com/stars/5ouma/lists/shell-commands)**, **[`Software`](https://github.com/stars/5ouma/lists/software)** _(GitHub Star List)_
 
 <br />
 

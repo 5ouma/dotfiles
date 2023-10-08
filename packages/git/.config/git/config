@@ -4,6 +4,7 @@
   prompt = false
 [init]
   defaultBranch = main
+  templateDir = ~/.config/git
 [commit]
   gpgsign = true
   verbose = true

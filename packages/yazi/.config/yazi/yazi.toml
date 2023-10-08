@@ -11,4 +11,3 @@ text = [
   { exec = 'code "$@"', display_name = "VSCode" },
   { exec = 'open -R "$@"', display_name = "Reveal in Finder" }
 ]
-

@@ -116,7 +116,7 @@ alias bup='brew update && brew upgrade'
 alias but='brew untap'
 
 bbd() {
-  if (brew bundle dump -f --file="$datas/Brewfile" --{tap,formula,cask,mas}); then
+  if (brew bundle dump -f --file="$data/Brewfile" --{tap,formula,cask,mas}); then
     printf '\033[32m==>\033[m \033[;1mHomebrew Bundle complete!\033[m\n'
   else
     printf '\033[31m==>\033[m \033[;1mHomebrew Bundle failed!\033[m\n'
@@ -133,6 +133,12 @@ alias ml='mas list'
 alias ms='mas search'
 alias mui='mas uninstall'
 alias mup='mas upgrade'
+
+# pre-commit
+pre-commit() {
+  command pre-commit "$@" -c="$data/pre-commit.yml"
+}
+alias pci='pre-commit init-templatedir "$XDG_CONFIG_HOME/git"'
 
 # trash
 type 'trash' &>/dev/null && alias rm='trash -F'
