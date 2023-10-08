@@ -65,26 +65,24 @@ apps:
                 - Dropbox
                 - Box
                 - Itsycal
-                - Maccy
                 - MacUpdater
                 - RunCat
                 - MenubarX
                 - Gitify
                 - Hidden Bar
-                - Displaperture
-                - Rectangle
-                - DeepL
-                - Grammarly Desktop
-                - Rocket
                 - Karabiner-Elements
                 - Karabiner-EventViewer
                 - HotKey
                 - Hammerspoon
-                - Yoink
-                - HandyPalette
                 - Alfred 5
+                - Raycast
                 - AltTab
+                - Displaperture
+                - Rectangle
+                - HandyPalette
                 - Fuwari
+                - DeepL
+                - Grammarly Desktop
         - folder: Other (Downloaded)
           pages:
             - number: 1
@@ -96,7 +94,6 @@ apps:
                 - Mactracker
                 - FreeFileSync
                 - OnyX
-                - AppCleaner
                 - Startup Disk Full Fixer
                 - KeyboardCleanTool
                 - Amphetamine
@@ -156,7 +153,6 @@ dock_items:
     - /System/Applications/App Store.app
     - /System/Applications/System Preferences.app
     - /Applications/1Password.app
-    - /Applications/AppCleaner.app
     - /System/Applications/Utilities/Activity Monitor.app
     - ""
     - ""
