@@ -27,5 +27,6 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
+mkdir -p "$(dirname "$HISTFILE")"
 export HISTSIZE=100000
 export SAVEHIST=100000

@@ -16,6 +16,7 @@ export GUM_SPIN_SPINNER_FOREGROUND='27'
 
 # less
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
+mkdir -p "$(dirname "$LESSHISTFILE")"
 
 # rtx
 export RTX_USE_TOML=1
