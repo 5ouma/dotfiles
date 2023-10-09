@@ -297,6 +297,12 @@ if (isDarwin && ! defaults read com.apple.universalaccess com.apple.custommenu.a
   gum executed
 fi
 
+if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" ]]; then
+  gum format '## 🚸 Generating a Git Hook for pre-commit...'
+  pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
+  gum executed
+fi
+
 eval "$(rtx activate -q zsh)"
 if [[ -n "$(rtx ls --missing)" ]]; then
   gum format '## 📼 Installing programming languages...'
