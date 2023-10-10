@@ -162,7 +162,7 @@ getDot
 #==================================================[ Homebrew ]==================================================#
 
 if (! type brew &>/dev/null); then
-  gum format '## 🍺 Installing Homebrew...'
+  gum format '## 🍺 Install Homebrew.'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
     [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
@@ -177,13 +177,13 @@ fi
 #==================================================[ Files ]==================================================#
 
 if checkSym; then
-  gum format '## 🔗 Symlinking files...'
+  gum format '## 🔗 Symlink files.'
   mkSym
   gum executed
 fi
 
 if [[ ! -f "$HOME/.ssh/git/github.pub" || ! -f "$HOME/.ssh/git/github-school.pub" ]]; then
-  gum format '## 📃 Downloading SSH public keys...'
+  gum format '## 📃 Download SSH public keys.'
   mkdir -p "$HOME/.ssh/git"
   curl -s https://github.com/5ouma.keys | head -n 1 >"$HOME/.ssh/git/github.pub"
   curl -s https://github.com/6ouma.keys | head -n 1 >"$HOME/.ssh/git/github-school.pub"
@@ -195,7 +195,7 @@ fi
 if (isDarwin); then
   if [[ ! "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]]; then
     # shellcheck disable=SC2016
-    gum format '## 👑 Enabling to use Touch ID with `sudo`...'
+    gum format '## 👑 Enable Touch ID for `sudo`.'
     cat <<EOF | sudo tee /etc/pam.d/sudo 1>/dev/null
 # sudo: auth account password session
 auth       sufficient     pam_tid.so
@@ -210,7 +210,7 @@ EOF
 
   springboardColumns=$(defaults read com.apple.dock springboard-columns) springboardRows=$(defaults read com.apple.dock springboard-rows) &>/dev/null && declare -r springboard{Columns,Rows}
   if ((springboardColumns != 9 || springboardRows != 8)); then
-    gum format '## 🚀 Changing Launchpad size...'
+    gum format '## 🚀 Change the Launchpad size.'
     defaults write com.apple.dock springboard-columns -int 9
     defaults write com.apple.dock springboard-rows -int 8
     gum executed
@@ -218,7 +218,7 @@ EOF
 
   sizeImmutable=$(defaults read com.apple.dock size-immutable) &>/dev/null && declare -r sizeImmutable
   if ((sizeImmutable != 1)); then
-    gum format '## 🚥 Making Dock size immutable...'
+    gum format '## 🚥 Make Dock size immutable.'
     defaults write com.apple.dock size-immutable -bool true
     gum executed
   fi
@@ -226,7 +226,7 @@ EOF
   screenCaptureLocation="$(defaults read com.apple.screencapture location)" &>/dev/null && declare -r screenCaptureLocation
   declare -r screenCaptures="$HOME/Pictures/Screen Captures"
   if [[ "$screenCaptureLocation" != "$screenCaptures" ]]; then
-    gum format '## 📷 Changing screen capture path...'
+    gum format '## 📷 Change screen capture path.'
     mkdir -p "$screenCaptures"
     defaults write com.apple.screencapture location "$screenCaptures"
     gum executed
@@ -238,7 +238,7 @@ EOF
   modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
   computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
   if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
-    gum format '## 💻 Setting computer name...'
+    gum format '## 💻 Set the computer name.'
     gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computerName"
     gum spin 'Setting HostName...' -- scutil --set HostName "$computerName"
     gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localHostName"
@@ -256,12 +256,12 @@ fi
 
 (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
 if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$data/Brewfile"); then
-  gum format '## 📲 Installing apps and commands...'
+  gum format '## 📲 Install commands and apps.'
   brew bundle install --no-lock --no-upgrade --file="$data/Brewfile"
   gum executed
 fi
 if [[ "$SHELL" != "$(which zsh)" ]]; then
-  gum format '### 🐚 Changing login shell to Zsh...'
+  gum format '### 🐚 Change login shell to Zsh.'
   which zsh | sudo tee -a /etc/shells 1>/dev/null
   chsh -s "$(which zsh)"
   gum executed
@@ -277,7 +277,7 @@ fi
 if (isDarwin); then
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
   if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
-    gum format '## 🚀 Setting up Launchpad and Dock...'
+    gum format '## 🚀 Restore Launchpad and Dock.'
     # shellcheck disable=SC2016
     gum spin 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
     gum executed
@@ -285,33 +285,33 @@ if (isDarwin); then
 fi
 
 if (isDarwin) && [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
-  gum format '## 💾 Restoring application settings...'
+  gum format '## 💾 Restore application settings.'
   mackup restore
   gum executed
 fi
 
 if (isDarwin && ! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
-  gum format '## ⌨️ Restoring App Shortcuts...'
+  gum format '## ⌨️ Restore App Shortcuts.'
   # shellcheck disable=SC2016
   gum spin 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
   gum executed
 fi
 
 if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" ]]; then
-  gum format '## 🚸 Generating a Git Hook for pre-commit...'
+  gum format '## 🚸 Generate a Git Hook for pre-commit.'
   pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
   gum executed
 fi
 
 eval "$(rtx activate -q zsh)"
 if [[ -n "$(rtx ls --missing)" ]]; then
-  gum format '## 📼 Installing programming languages...'
+  gum format '## 📼 Install programming languages.'
   rtx install
   gum executed
 fi
 
 if [[ ! -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]]; then
-  gum format '## 🖌 Installing Vim plugins...'
+  gum format '## 🖌 Install Vim plugins.'
   export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
@@ -322,7 +322,7 @@ fi
 #==================================================[ Done! ]==================================================#
 
 if ($executed); then
-  gum format '# 🎉 Setup complete!'
+  gum format '# 🎉 Setup completed!'
 else
   gum format '# 🧊 Nothing has changed.'
 fi
