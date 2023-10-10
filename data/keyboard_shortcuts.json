@@ -16,6 +16,10 @@
         "Check for Mail…": "⌘R",
         "Hide Email": "⌘W"
     },
+    "com.figma.Desktop": {
+        "Select Next Tab": "⌥]",
+        "Select Previous Tab": "⌥["
+    },
     "jp.naver.line.mac": {
         "Hide LINE": "⌘W"
     },
