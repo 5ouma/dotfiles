@@ -136,9 +136,12 @@ alias mup='mas upgrade'
 
 # pre-commit
 pre-commit() {
-  command pre-commit "$@" -c="$data/pre-commit.yml"
+  if [[ "$1" != 'clean' && "$1" != 'gc' && "$1" != 'help' ]]; then
+    command pre-commit "$@" -c="$data/pre-commit.yml"
+  else
+    command pre-commit "$@"
+  fi
 }
-alias pci='pre-commit init-templatedir "$XDG_CONFIG_HOME/git"'
 
 # trash
 type 'trash' &>/dev/null && alias rm='trash -F'

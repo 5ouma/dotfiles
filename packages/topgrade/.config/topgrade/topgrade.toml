@@ -47,5 +47,4 @@ repos = ["~/*", "~/ghq/*/*/*"]
     printf '\\033[33;1mSkipped\\033[m\n'
   fi
 """
-"pre-commit" = 'pre-commit autoupdate -c="$data/pre-commit.yml"'
 "rtx" = "rtx plugins update && rtx upgrade"
