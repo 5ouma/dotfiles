@@ -125,7 +125,7 @@ bbd() {
 }
 
 # lsd
-type 'lsd' &>/dev/null && alias ls='lsd -A' ll='lsd -Alg' lt='lsd -A --tree --ignore-glob={.DS_Store,.git}'
+type 'lsd' &>/dev/null && alias ls='lsd -A' ll='lsd -Alg' lt='lsd -A --tree --ignore-glob={.git,node_modules,.next,.DS_Store}'
 
 # mas
 alias mi='mas install'

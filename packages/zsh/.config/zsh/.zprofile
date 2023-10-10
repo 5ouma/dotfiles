@@ -5,7 +5,7 @@
 export HOMEBREW_AUTOREMOVE=1
 
 # fzf
-export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.vscode-insiders,.git,node_modules,.DS_Store}'
+export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.vscode-insiders,.git,node_modules,.next,.DS_Store}'
 
 # Gum
 export GUM_CONFIRM_SELECTED_BACKGROUND='27'
