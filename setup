@@ -299,7 +299,7 @@ fi
 
 if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" ]]; then
   gum format '## 🚸 Generate a Git Hook for pre-commit.'
-  pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
+  pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
   gum executed
 fi
 
