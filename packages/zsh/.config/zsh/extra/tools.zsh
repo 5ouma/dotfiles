@@ -5,7 +5,7 @@ eval "$(sheldon source)"
 zsh-defer eval "$(atuin init zsh --disable-up-arrow)"
 
 # OrbStack
-zsh-defer source "$HOME/.orbstack/shell/init.zsh" 2>/dev/null
+zsh-defer source "$HOME/.orbstack/shell/init.zsh"
 
 # rtx
 eval "$(rtx activate -q zsh)"
