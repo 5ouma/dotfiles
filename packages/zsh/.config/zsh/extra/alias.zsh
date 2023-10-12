@@ -85,7 +85,7 @@ gcg() {
   declare -r type="$(gum choose "${types[@]}" | cut -d ' ' -f 1)" && [ -z "$type" ] && return 1
   declare -r summary="$(gum input --prompt="[$type] " --placeholder='Summary of this change')" && [ -z "$summary" ] && return 1
   declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')" && [ -z "$description" ] && return 1
-  printf '[%s] %s\n%s\n\n' $type $summary $description
+  printf '[%s] %s\n\n%s\n\n' $type $summary $description
   if (gum confirm 'Commit changes without editing?'); then
     git commit -m "[$type] $summary" -m "$description"
   else
