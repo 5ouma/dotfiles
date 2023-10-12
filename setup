@@ -99,17 +99,18 @@ EOM
 }
 
 errMsg() {
-  declare -r stat=$? line=$1
+  declare -r stat=$1 func="${2/"$HOME"/~}" line=$3
   gum format <<EOM
 > **$(gum style 1 'Error')**
 > Unknown error has occurred!
 
-> - Status:      $stat
-> - Line Number: $line
-> - Process ID:  $$
+> - Status:           $stat
+> - File or Function: $func
+> - Line Number:      $line
+> - Process ID:       $$
 EOM
 }
-trap 'errMsg $LINENO' ERR
+trap 'errMsg $? "$0" $LINENO' ERR
 
 isDarwin() {
   [ "$(uname)" = 'Darwin' ]
