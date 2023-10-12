@@ -112,7 +112,7 @@ alias bl='brew list'
 alias bri='brew reinstall'
 alias bs='brew search'
 alias bt='brew tap'
-alias bui='brew uninstall'
+alias bui='brew uninstall --zap'
 alias bup='brew update && brew upgrade'
 alias but='brew untap'
 
