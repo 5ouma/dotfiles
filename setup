@@ -210,7 +210,7 @@ if (isDarwin); then
   if [[ ! "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]]; then
     # shellcheck disable=SC2016
     gum format '## 👑 Enable Touch ID for `sudo`.'
-    cat <<EOF | sudo tee /etc/pam.d/sudo 1>/dev/null
+    cat <<EOF | sudo tee /etc/pam.d/sudo >/dev/null
 # sudo: auth account password session
 auth       sufficient     pam_tid.so
 auth       sufficient     pam_smartcard.so
@@ -276,7 +276,7 @@ if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no
 fi
 if [[ "$SHELL" != "$(which zsh)" ]]; then
   gum format '### 🐚 Change login shell to Zsh.'
-  which zsh | sudo tee -a /etc/shells 1>/dev/null
+  which zsh | sudo tee -a /etc/shells >/dev/null
   chsh -s "$(which zsh)"
   gum executed
 fi
