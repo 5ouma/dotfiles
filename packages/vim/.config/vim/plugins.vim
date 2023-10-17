@@ -13,12 +13,14 @@ call jetpack#begin(s:jetpackdir)
   Jetpack 'airblade/vim-gitgutter'
   Jetpack 'bronson/vim-trailing-whitespace'
   Jetpack 'cohama/lexima.vim'
+  Jetpack 'dstein64/vim-startuptime'
   Jetpack 'itchyny/lightline.vim'
   Jetpack 'junegunn/fzf.vim'
   Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Jetpack 'mattn/vim-lsp-settings'
   Jetpack 'matze/vim-move'
   Jetpack 'obcat/vim-hitspop'
+  Jetpack 'pechorin/any-jump.vim'
   Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
   Jetpack 'prabirshrestha/asyncomplete.vim'
   Jetpack 'prabirshrestha/vim-lsp'
@@ -33,6 +35,10 @@ call jetpack#begin(s:jetpackdir)
 silent! call jetpack#end()
 
 "============================================================[ Settings ]============================================================"
+
+" any-jump
+let g:any_jump_list_numbers = 1
+let g:any_jump_grouping_enabled = 1
 
 " AutoSave
 let g:auto_save = 1

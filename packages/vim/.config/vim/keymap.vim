@@ -42,6 +42,9 @@ nnoremap <C-w><Down> <C-w>-
 nmap <Esc>[1;9A <A-k>
 nmap <Esc>[1;9B <A-j>
 
+" any-jump
+nnoremap <silent> aj :AnyJump<Return>
+
 " Asyncomplete
 inoremap <Return> asyncomplete#close_popup()
 
