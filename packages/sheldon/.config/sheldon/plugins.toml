@@ -29,6 +29,9 @@ apply = ["defer"]
   github = "hlissner/zsh-autopair"
 [plugins.zsh-autosuggestions]
   github = "zsh-users/zsh-autosuggestions"
+[plugins.zsh-bench]
+  github = "romkatv/zsh-bench"
+  apply = ["PATH"]
 [plugins.zsh-completions]
   github = "zsh-users/zsh-completions"
 [plugins.zsh-syntax-highlighting]
