@@ -61,6 +61,7 @@ let g:lightline = {
 
 " NERDTree
 let NERDTreeShowHidden = 1
+let NERDTreeIgnore = ['.git', '.DS_Store']
 
 " Pencil
 let g:pencil_gutter_color = 1
