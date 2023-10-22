@@ -7,7 +7,7 @@ show_hidden = true
 
 [opener]
 text = [
-  { exec = 'vim "$@"', display_name = "Vim", block = true },
-  { exec = 'code "$@"', display_name = "VSCode" },
-  { exec = 'open -R "$@"', display_name = "Reveal in Finder" }
+  { exec = 'vim "$@"', desc = "Vim", block = true },
+  { exec = 'code "$@"', desc = "VSCode" },
+  { exec = 'open -R "$@"', desc = "Reveal in Finder" }
 ]
