@@ -8,7 +8,7 @@ cleanup = true
 autoremove = true
 
 [git]
-repos = ["~/*", "~/ghq/*/*/*"]
+pull_only_repos = ["~/*", "~/ghq/*/*/*"]
 
 [commands]
 "Jetpack" = "vim +Jetpack +qall"
