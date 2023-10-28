@@ -40,7 +40,9 @@
         "Show Previous Tab": "⌥["
     },
     "com.apple.podcasts": {
-        "Hide Podcasts": "⌘W"
+        "Hide Podcasts": "⌘W",
+        "Rewind 15 sec": "←",
+        "Skip 10 sec": "→"
     },
     "com.apple.Preview": {
         "Export As…": "⌘E"
