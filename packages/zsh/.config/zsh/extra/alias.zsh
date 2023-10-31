@@ -104,6 +104,8 @@ gcg() {
   fi
 }
 
+alias bbcp='brew bump-cask-pr'
+alias bbfp='brew bump-formula-pr'
 alias bcl='brew cleanup'
 alias bd='brew doctor'
 alias bi='brew install'
