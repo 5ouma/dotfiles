@@ -61,24 +61,26 @@ gc2() {
   (git commit --dry-run &>/dev/null) || return
   declare message=''
   declare -r types=(
-    'fix: A bug fix'
     'feat: A new feature'
-    "chore: Other changes that don't modify src or test files"
+    'fix: A bug fix'
     'docs: Documentation only changes'
     'style: Changes that do not affect the meaning of the code'
     'refactor: A code change that neither fixes a bug nor adds a feature'
     'perf: A code change that improves performance'
     'test: Adding missing tests or correcting existing tests'
-    'revert: Reverts a previous commit'
     'build: Changes that affect the build system or external dependencies'
     'ci: Changes to our CI configuration files and scripts'
+    "chore: Other changes that don't modify src or test files"
+    'revert: Reverts a previous commit'
   )
-  declare -r type="$(gum choose "${types[@]}" | cut -d ':' -f 1)" && message+="$type: "
+  declare -r type="$(gum choose "${types[@]}" --height=11 | cut -d ':' -f 1)" && message+="$type"
   [ -z "$type" ] && return 1
-  declare -r summary="$(gum input --prompt="$message" --placeholder='A short summary of the code changes')" && message+="$summary"
-  [ -z "$summary" ] && return 1
-  declare -r description="$(gum input --header="$message" --placeholder='Additional contextual information about the code changes')" && message+=$'\n'$'\n'"$description"
+  declare -r scope="$(gum input --placeholder='A commit type to provide additional contextual information' --prompt="$message(")" && message+="($scope): "
+  [ -z "$scope" ] && return 1
+  declare -r description="$(gum input --placeholder='A short summary of the code changes' --prompt="$message")" && message+="$description"
   [ -z "$description" ] && return 1
+  declare -r body="$(gum input --placeholder='Additional contextual information about the code changes' --header="$message" --char-limit=80 --width=80)" && message+=$'\n'$'\n'"$body"
+  [ -z "$body" ] && return 1
   printf "%s\n" "$message"
   if (gum confirm 'Commit changes without editing?'); then
     git commit -m "$message"
