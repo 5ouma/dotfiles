@@ -1,6 +1,3 @@
-" General
-nnoremap <silent> qq :q<Return>
-
 " Move to top and bottom
 nnoremap <Down> gj
 nnoremap <Up> gk
