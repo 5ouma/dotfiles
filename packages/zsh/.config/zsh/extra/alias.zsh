@@ -57,6 +57,36 @@ alias gsw='git switch'
 alias gswc='git switch -c'
 alias gtg='git tag'
 
+gc2() {
+  (git commit --dry-run &>/dev/null) || return
+  declare message=''
+  declare -r types=(
+    'fix: A bug fix'
+    'feat: A new feature'
+    "chore: Other changes that don't modify src or test files"
+    'docs: Documentation only changes'
+    'style: Changes that do not affect the meaning of the code'
+    'refactor: A code change that neither fixes a bug nor adds a feature'
+    'perf: A code change that improves performance'
+    'test: Adding missing tests or correcting existing tests'
+    'revert: Reverts a previous commit'
+    'build: Changes that affect the build system or external dependencies'
+    'ci: Changes to our CI configuration files and scripts'
+  )
+  declare -r type="$(gum choose "${types[@]}" | cut -d ':' -f 1)" && message+="$type: "
+  [ -z "$type" ] && return 1
+  declare -r summary="$(gum input --prompt="$message" --placeholder='A short summary of the code changes')" && message+="$summary"
+  [ -z "$summary" ] && return 1
+  declare -r description="$(gum input --header="$message" --placeholder='Additional contextual information about the code changes')" && message+=$'\n'$'\n'"$description"
+  [ -z "$description" ] && return 1
+  printf "%s\n" "$message"
+  if (gum confirm 'Commit changes without editing?'); then
+    git commit -m "$message"
+  else
+    git commit -em "$message"
+  fi
+}
+
 # gitsu
 alias gsi='git-su init'
 alias gss='git-su select'
@@ -66,32 +96,6 @@ alias gu='gitui'
 
 # Glow
 alias glow='glow -p'
-
-# Gum
-gcg() {
-  (git commit --dry-run >/dev/null 2>&1) || return
-  declare -r types=(
-    'fix : Fix bugs'
-    'hotfix : Fix critical bugs'
-    'add : Add new files or features'
-    'update : Update functions'
-    'change : Change specification'
-    'clean : Clean or refactor'
-    'disable : Disable functions'
-    'remove : Remove files'
-    'upgrade : Upgrade versions'
-    'revert : Revert changes'
-  )
-  declare -r type="$(gum choose "${types[@]}" | cut -d ' ' -f 1)" && [ -z "$type" ] && return 1
-  declare -r summary="$(gum input --prompt="[$type] " --placeholder='Summary of this change')" && [ -z "$summary" ] && return 1
-  declare -r description="$(gum input --header="[$type] $summary" --placeholder='Details of this change')" && [ -z "$description" ] && return 1
-  printf '[%s] %s\n\n%s\n\n' $type $summary $description
-  if (gum confirm 'Commit changes without editing?'); then
-    git commit -m "[$type] $summary" -m "$description"
-  else
-    git commit -e -m "[$type] $summary" -m "$description"
-  fi
-}
 
 # Homebrew
 [ "$(uname)" = 'Darwin' ] && brew() {

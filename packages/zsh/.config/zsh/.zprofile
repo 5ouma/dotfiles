@@ -7,6 +7,9 @@ export HOMEBREW_AUTOREMOVE=1
 # fzf
 export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.vscode-insiders,.git,node_modules,.next,.DS_Store}'
 
+# Gitlint
+export GITLINT_CONTRIB='CT1'
+
 # Gum
 export GUM_CONFIRM_SELECTED_BACKGROUND='27'
 export GUM_CHOOSE_CURSOR_FOREGROUND='27'
