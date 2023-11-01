@@ -312,7 +312,7 @@ if (isDarwin && ! defaults read com.apple.universalaccess com.apple.custommenu.a
 fi
 
 if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" || ! -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]]; then
-  gum format '## 🚸 Generate a Git Hook for pre-commit and commit-msg'
+  gum format '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
   pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
   gitlint --target="$dotfiles" install-hook
   gum executed
