@@ -1,6 +1,9 @@
 # bat
 type 'bat' &>/dev/null && alias cat='bat'
 
+# dasel
+alias dasel='dasel --colour'
+
 # delta
 if (type 'delta' &>/dev/null); then
   if [[ "$(uname)" = 'Darwin' ]]; then
@@ -46,6 +49,7 @@ alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbs='git rebase --skip'
+alias grl='git reflog'
 alias grm='git rm'
 alias grmc='git rm --cached'
 alias grs='git restore'
