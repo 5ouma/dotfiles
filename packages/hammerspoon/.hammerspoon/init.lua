@@ -19,7 +19,7 @@ local function getRandomPicture(appearanceMode)
   end
   local pictures = {}
   for file in hs.fs.dir(pictureDir) do
-    if (file ~= "." and file ~= "..") then table.insert(pictures, file) end
+    if (file ~= "." and file ~= ".." and file ~= ".DS_Store") then table.insert(pictures, file) end
   end
   return "file://" .. pictureDir .. pictures[math.random(#pictures)]
 end
