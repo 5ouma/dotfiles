@@ -5,11 +5,10 @@
       "top": 2
     }
   },
-  "general": {
-    "allowSlowOperations": true
-  },
   "display": {
-    "percentType": 3
+    "percent": {
+      "type": 3
+    }
   },
   "modules": [
     "title",
@@ -35,7 +34,10 @@
     "brightness",
     "monitor",
     "de",
-    "wm",
+    {
+      "type": "wm",
+      "detectPlugin": true
+    },
     "wmtheme",
     "font",
     "cursor",
