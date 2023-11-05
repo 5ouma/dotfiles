@@ -31,8 +31,8 @@ gcd() {
 alias ga='git forgit add'
 alias gapa='git add -p'
 alias gb='git branch'
-alias gc!='git commit --no-edit --amend'
-alias gc='git commit'
+alias gcm!='git commit --no-edit --amend'
+alias gcm='git commit'
 alias gcf='git config'
 alias gcl='git clone'
 alias gd='git diff'
@@ -61,7 +61,7 @@ alias gsw='git switch'
 alias gswc='git switch -c'
 alias gtg='git tag'
 
-gc2() {
+gc() {
   (git commit --dry-run &>/dev/null) || return
   declare message=''
   declare -r types=(
