@@ -9,17 +9,19 @@
     {
       "name": "HHKB for JIS",
       "selected": true,
-      "simple_modifications": [
-        {
-          "from": { "key_code": "right_shift" },
-          "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
-        }
-      ],
       "complex_modifications": {
         "rules": [
           {
             "description": "fn + Symbols → Arrows",
             "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }],
+                "type": "basic"
+              },
               {
                 "from": {
                   "key_code": "open_bracket",
@@ -142,10 +144,6 @@
         {
           "from": { "key_code": "left_control" },
           "to": [{ "key_code": "caps_lock" }]
-        },
-        {
-          "from": { "key_code": "right_shift" },
-          "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
         }
       ],
       "complex_modifications": {
@@ -153,6 +151,14 @@
           {
             "description": "fn + Symbols → Arrows",
             "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }],
+                "type": "basic"
+              },
               {
                 "from": {
                   "key_code": "open_bracket",
