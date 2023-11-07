@@ -17,7 +17,8 @@ apps:
         - FaceTime
         - Messages
         - LINE
-        - Microsoft Teams
+        - Discord
+        - Discord PTB
         - Maps
         - Find My
         - Photo Booth
@@ -37,7 +38,6 @@ apps:
         - Siri
         - Mission Control
         - System Preferences
-        - 1Password
         - Xcode
         - Visual Studio Code
         - Visual Studio Code - Insiders
@@ -54,8 +54,6 @@ apps:
         - Figma
         - Aseprite
         - Blender
-        - Discord
-        - Discord PTB
         - Rhythm Quest Demo
         - folder: Resident Apps
           pages:
@@ -97,6 +95,7 @@ apps:
                 - Startup Disk Full Fixer
                 - KeyboardCleanTool
                 - Amphetamine
+                - 1Password
                 - FocusRecorder
                 - Fig
                 - OpenInTerminal
