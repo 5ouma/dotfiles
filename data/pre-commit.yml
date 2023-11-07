@@ -23,4 +23,4 @@ repos:
     hooks:
       - id: remove-tabs
         args: [--whitespaces-count, '2']
-        exclude: ^(.*\.go|go\..*)$
+        exclude: ^(.*\.go|go\..*|.*\.plist)$
