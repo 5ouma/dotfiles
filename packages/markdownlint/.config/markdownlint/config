@@ -1,0 +1,6 @@
+{
+  "line-length": { "code_blocks": false }, //MD013
+  "header-start-left": false, // MD023
+  "no-inline-html": false, // MD033
+  "first-line-h1": false // MD041
+}
