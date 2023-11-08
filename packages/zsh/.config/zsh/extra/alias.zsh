@@ -23,7 +23,7 @@ alias gg='ghq get -p'
 alias gup='ghq list | ghq get --update --parallel'
 
 gcd() {
-  declare -r repo="$(ghq list | fzf --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow --style=auto")"
+  declare -r repo="$(ghq list | fzf --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow")"
   [ -n "$repo" ] && cd "$(ghq list --full-path --exact "$repo")"
 }
 
@@ -99,9 +99,6 @@ alias gss='git-su select'
 
 # gitui
 alias gu='gitui'
-
-# Glow
-alias glow='glow -p'
 
 # Homebrew
 [ "$(uname)" = 'Darwin' ] && brew() {
