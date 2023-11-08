@@ -17,6 +17,7 @@
 [log]
   decorate = true
 [push]
+  autoSetupRemote = true
   default = simple
 [tag]
   gpgsign = true
