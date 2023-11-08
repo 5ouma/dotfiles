@@ -159,9 +159,6 @@ pre-commit() {
 # trash
 type 'trash' &>/dev/null && alias rm='trash -F'
 
-# tokei
-alias tokei='tokei -f'
-
 # topgrade
 alias tg='topgrade'
 
