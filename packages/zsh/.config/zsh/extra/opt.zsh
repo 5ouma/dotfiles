@@ -8,7 +8,7 @@ setopt print_eight_bit
 setopt share_history
 
 autoload -Uz compinit
-zsh-defer compinit -d "$XDG_CACHE_HOME/zsh/compdump"
+zsh-defer compinit -d "$XDG_DATA_HOME/zsh/compdump"
 
 autoload -Uz select-word-style
 select-word-style default
