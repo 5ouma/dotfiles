@@ -255,20 +255,22 @@ EOF
   killall Dock
   killall SystemUIServer
 
-  modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
-  computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
-  if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
-    gum format '## 💻 Set the computer name'
-    gum run 'Setting ComputerName...' scutil --set ComputerName "$computerName"
-    gum run 'Setting HostName...' scutil --set HostName "$computerName"
-    gum run 'Setting LocalHostName...' scutil --set LocalHostName "$localHostName"
-    sudo -v
-    gum format <<EOM
+  if [[ -z "$SETUP_FROM_CI" ]]; then
+    modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
+    computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
+    if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
+      gum format '## 💻 Set the computer name'
+      gum run 'Setting ComputerName...' scutil --set ComputerName "$computerName"
+      gum run 'Setting HostName...' scutil --set HostName "$computerName"
+      gum run 'Setting LocalHostName...' scutil --set LocalHostName "$localHostName"
+      sudo -v
+      gum format <<EOM
 - ComputerName : $(gum style 6 "$(scutil --get ComputerName)")
 - HostName : $(gum style 6 "$(scutil --get HostName)")
 - LocalHostName : $(gum style 6 "$(sudo scutil --get LocalHostName)")
 EOM
-    gum executed
+      gum executed
+    fi
   fi
 fi
 
