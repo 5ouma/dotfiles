@@ -282,7 +282,7 @@ if (! gum run "Satisfying Brewfile's dependencies..." brew bundle check --no-upg
   brew bundle install --no-lock --no-upgrade --file="$data/Brewfile"
   gum executed
 fi
-if [[ "$SHELL" != "$(which zsh)" ]]; then
+if [[ -z "$SETUP_FROM_CI" && "$SHELL" != "$(which zsh)" ]]; then
   gum format '### 🐚 Change login shell to Zsh'
   which zsh | sudo tee -a /etc/shells >/dev/null
   chsh -s "$(which zsh)"
