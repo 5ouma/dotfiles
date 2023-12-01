@@ -1,7 +1,4 @@
-<br />
-
-<div align="center">
-
+<h1 align="center">
   <picture>
     <source
       srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png"
@@ -14,6 +11,9 @@
     <!-- markdownlint-disable MD013 -->
     <img width=500px alt="header" src="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png" />
   </picture>
+</h1>
+
+<div align="center">
 
 **⚙ The most minimal and powerful dotfiles ever.** <br />
 My config files and setup for CLI tools and GUI apps.
