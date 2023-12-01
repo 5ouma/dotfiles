@@ -9,7 +9,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-declare -r githubUrl='https://github.com/5ouma/dotfiles.git'
+declare -r githubUrl='https://github.com/5ouma/dotfiles'
 declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 declare -r data="$dotfiles/data"
@@ -116,7 +116,19 @@ isDarwin() {
   [ "$(uname)" = 'Darwin' ]
 }
 
-confirmNonDarwin() {
+#==================================================[ Welcome ]==================================================#
+
+if [[ ! -x $0 ]]; then
+  gum format <<EOM
+# Welcome to ⚙️ dotfiles setup!
+> $githubUrl
+---
+EOM
+fi
+
+#==================================================[ Flags ]==================================================#
+
+if (($# == 0)); then
   if (! isDarwin); then
     gum format <<EOM
 > **$(gum style 3 'Warning')**
@@ -125,29 +137,16 @@ confirmNonDarwin() {
 EOM
     gum confirm 'Are you ready to run setup?' 'Yes!' 'No' || exit 1
   fi
-}
-
-#==================================================[ Welcome ]==================================================#
-
-if [[ ! -x $0 ]]; then
-  gum format <<EOM
-# Welcome to ⚙️ dotfiles setup!
-> https://github.com/5ouma/dotfiles
----
-EOM
-fi
-
-#==================================================[ Flags ]==================================================#
-
-if (($# == 0)); then
-  confirmNonDarwin
 else
   case "$1" in
   '-h' | '--help')
     helpMsg
     exit
     ;;
-  '-y' | '--yes') goThrough=true ;;
+  '-y' | '--yes')
+    goThrough=true
+    export NONINTERACTIVE=1
+    ;;
   '-s' | '--set')
     getDot && checkSym && mkSym
     exit
@@ -296,19 +295,19 @@ if (isDarwin); then
     gum spin 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
     gum executed
   fi
-fi
 
-if (isDarwin) && [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
-  gum format '## 💾 Restore application settings'
-  mackup restore
-  gum executed
-fi
+  if [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
+    gum format '## 💾 Restore application settings'
+    mackup restore
+    gum executed
+  fi
 
-if (isDarwin && ! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
-  gum format '## ⌨️ Restore App Shortcuts'
-  # shellcheck disable=SC2016
-  gum spin 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
-  gum executed
+  if (! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
+    gum format '## ⌨️ Restore App Shortcuts'
+    # shellcheck disable=SC2016
+    gum spin 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
+    gum executed
+  fi
 fi
 
 if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" || ! -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]]; then
