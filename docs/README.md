@@ -84,18 +84,18 @@ Flags:
 
 ## 🌄 Screenshots
 
-|            |      Overview       |                  Vim                   |
-| :--------: | :-----------------: | :------------------------------------: |
-| Light Mode | ![Overview - Light] |             ![Vim - Light]             |
-| Dark Mode  | ![Overview - Dark]  |             ![Vim - Dark]              |
-|   Tools    | [fastfetch], [Fig]  | [lightline.vim], [NERDTree], [fzf.vim] |
+|            |           Overview           |                  Vim                   |
+| :--------: | :--------------------------: | :------------------------------------: |
+| Light Mode |     ![Overview - Light]      |             ![Vim - Light]             |
+| Dark Mode  |      ![Overview - Dark]      |             ![Vim - Dark]              |
+|   Tools    | [fastfetch], [CodeWhisperer] | [lightline.vim], [NERDTree], [fzf.vim] |
 
 [Overview - Light]: ./images/screenshots/light/overview.png
 [Overview - Dark]: ./images/screenshots/dark/overview.png
 [Vim - Light]: ./images/screenshots/light/vim.png
 [Vim - Dark]: ./images/screenshots/dark/vim.png
 [fastfetch]: https://github.com/fastfetch-cli/fastfetch
-[Fig]: https://fig.io
+[CodeWhisperer]: https://aws.amazon.com/codewhisperer
 [lightline.vim]: https://github.com/itchyny/lightline.vim
 [NERDTree]: https://github.com/preservim/nerdtree
 [fzf.vim]: https://github.com/junegunn/fzf.vim
@@ -168,10 +168,12 @@ Flags:
     sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
     ```
 
-  - #### ◧ Terminal Autocompletion: [`Fig`](https://fig.io)
+  - #### 🧠 Terminal Autocompletion: [`CodeWhisperer`](https://aws.amazon.com/codewhisperer)
+
+    > _Formally [Fig](https://fig.io)_
 
     ```shell
-    brew install fig
+    brew install codewhisperer
     ```
 
 <br />
