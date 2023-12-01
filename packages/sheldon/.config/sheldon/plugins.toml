@@ -12,7 +12,7 @@ apply = ["defer"]
   dir = "bin"
   apply = ["PATH"]
   [plugins.forgit.hooks]
-    post = "export -r FORGIT_NO_ALIASES=1"
+    post = "export FORGIT_NO_ALIASES=1"
 [plugins.ni]
   github = "azu/ni.zsh"
 [plugins.powerlevel10k]
@@ -39,7 +39,7 @@ apply = ["defer"]
 [plugins.zsh-you-should-use]
   github = "MichaelAquilina/zsh-you-should-use"
   [plugins.zsh-you-should-use.hooks]
-    post = 'export -r YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
+    post = 'export YSU_MESSAGE_FORMAT="💡 \033[36m%alias\033[m"'
 
 [plugins.iterm2-shell-integration]
   remote = "https://iterm2.com/shell_integration/zsh"
