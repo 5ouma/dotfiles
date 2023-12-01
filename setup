@@ -190,7 +190,7 @@ if (! type brew &>/dev/null); then
   else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
-  brew doctor
+  [ -z "$SETUP_FROM_CI" ] && brew doctor
   gum executed
 fi
 
