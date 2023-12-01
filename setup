@@ -22,7 +22,7 @@ declare goThrough=false
 
 # Actions
 getGum() {
-  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/v0.12.0/download/gum_0.12.0_$(uname)_$(uname -m).tar.gz"
+  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/download/v0.12.0/gum_0.12.0_$(uname)_$(uname -m).tar.gz"
   declare -r gumThemeUrl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/data/blue.json'
 
   if (! type gum &>/dev/null); then
