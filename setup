@@ -291,7 +291,7 @@ if (! $SETUP_FROM_CI) && [[ "$SHELL" != "$(which zsh)" ]]; then
   chsh -s "$(which zsh)"
   gum executed
 fi
-if ($SETUP_FROM_CI && isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
+if (! $SETUP_FROM_CI && isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum format '### 🎨 Please install DaVinci Resolve'
   sleep 2
   open 'https://www.blackmagicdesign.com/jp/products/davinciresolve'
