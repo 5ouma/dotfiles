@@ -15,6 +15,9 @@ declare -r packages="$dotfiles/packages"
 declare -r data="$dotfiles/data"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 
+declare -r SETUP_FROM_CI=${SETUP_FROM_CI:-false}
+declare -r GIT_REF="${GITHUB_HEAD_REF:-main}"
+
 declare executed=false
 declare goThrough=false
 
@@ -22,8 +25,8 @@ declare goThrough=false
 
 # Actions
 getGum() {
-  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/v0.12.0/download/gum_0.12.0_$(uname)_$(uname -m).tar.gz"
-  declare -r gumThemeUrl='https://raw.githubusercontent.com/5ouma/dotfiles/HEAD/data/blue.json'
+  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/download/v0.12.0/gum_0.12.0_$(uname)_$(uname -m).tar.gz"
+  declare -r gumThemeUrl='https://raw.githubusercontent.com/5ouma/dotfiles/$GIT_REF/data/blue.json'
 
   if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
@@ -45,7 +48,14 @@ gum() {
   case $1 in
   confirm) $gumCom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
   format) $gumCom format --theme=<(echo -E "$gumTheme") "${@:2}" ;;
-  spin) $gumCom spin --spinner.foreground='27' --title="$2" "${@:3}" ;;
+  run)
+    if (! $SETUP_FROM_CI); then
+      $gumCom spin --spinner.foreground='27' --title="$2" -- "${@:3}"
+    else
+      echo && $gumCom log --level='info' "$2"
+      "${@:3}"
+    fi
+    ;;
   style) $gumCom style --foreground="$2" "${@:3}" ;;
   executed)
     echo && $gumCom format '✅ Done!'
@@ -57,9 +67,9 @@ gum() {
 getDot() {
   if [[ ! -d "$dotfiles" ]]; then
     # shellcheck disable=SC2016
-    gum spin 'Cloning the repository into `~/.dotfiles`...' -- git clone "$githubUrl" "$dotfiles"
+    gum run 'Cloning the repository into `~/.dotfiles`...' git clone "$githubUrl" -b="$GIT_REF" "$dotfiles"
   else
-    gum spin 'Pulling the dotfiles repository...' -- git -C "$dotfiles" pull
+    gum run 'Pulling the dotfiles repository...' git -C "$dotfiles" pull
   fi
 }
 
@@ -183,7 +193,7 @@ if (! type brew &>/dev/null); then
   else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
-  brew doctor
+  $SETUP_FROM_CI || brew doctor
   gum executed
 fi
 
@@ -248,38 +258,40 @@ EOF
   killall Dock
   killall SystemUIServer
 
-  modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
-  computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
-  if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
-    gum format '## 💻 Set the computer name'
-    gum spin 'Setting ComputerName...' -- scutil --set ComputerName "$computerName"
-    gum spin 'Setting HostName...' -- scutil --set HostName "$computerName"
-    gum spin 'Setting LocalHostName...' -- scutil --set LocalHostName "$localHostName"
-    sudo -v
-    gum format <<EOM
+  if (! $SETUP_FROM_CI); then
+    modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
+    computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
+    if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
+      gum format '## 💻 Set the computer name'
+      gum run 'Setting ComputerName...' scutil --set ComputerName "$computerName"
+      gum run 'Setting HostName...' scutil --set HostName "$computerName"
+      gum run 'Setting LocalHostName...' scutil --set LocalHostName "$localHostName"
+      sudo -v
+      gum format <<EOM
 - ComputerName : $(gum style 6 "$(scutil --get ComputerName)")
 - HostName : $(gum style 6 "$(scutil --get HostName)")
 - LocalHostName : $(gum style 6 "$(sudo scutil --get LocalHostName)")
 EOM
-    gum executed
+      gum executed
+    fi
   fi
 fi
 
 #==================================================[ Apps ]==================================================#
 
 (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
-if (! gum spin "Satisfying Brewfile's dependencies..." -- brew bundle check --no-upgrade --file="$data/Brewfile"); then
+if (! gum run "Satisfying Brewfile's dependencies..." brew bundle check --no-upgrade --file="$data/Brewfile"); then
   gum format '## 📲 Install commands and apps'
   brew bundle install --no-lock --no-upgrade --file="$data/Brewfile"
   gum executed
 fi
-if [[ "$SHELL" != "$(which zsh)" ]]; then
+if (! $SETUP_FROM_CI) && [[ "$SHELL" != "$(which zsh)" ]]; then
   gum format '### 🐚 Change login shell to Zsh'
   which zsh | sudo tee -a /etc/shells >/dev/null
   chsh -s "$(which zsh)"
   gum executed
 fi
-if (isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
+if ($SETUP_FROM_CI && isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum format '### 🎨 Please install DaVinci Resolve'
   sleep 2
   open 'https://www.blackmagicdesign.com/jp/products/davinciresolve'
@@ -288,12 +300,14 @@ if (isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
 fi
 
 if (isDarwin); then
-  lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
-    gum format '## 🚀 Restore Launchpad and Dock'
-    # shellcheck disable=SC2016
-    gum spin 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
-    gum executed
+  if (! $SETUP_FROM_CI); then
+    lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
+    if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
+      gum format '## 🚀 Restore Launchpad and Dock'
+      # shellcheck disable=SC2016
+      gum run 'Running `lporg load`...' lporg load -nyc="$data/lporg.yml"
+      gum executed
+    fi
   fi
 
   if [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
@@ -305,7 +319,7 @@ if (isDarwin); then
   if (! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
     gum format '## ⌨️ Restore App Shortcuts'
     # shellcheck disable=SC2016
-    gum spin 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
+    gum run 'Running `mksei load`...' mksei load "$data/keyboard_shortcuts.json"
     gum executed
   fi
 fi
@@ -329,7 +343,7 @@ if [[ ! -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]]; then
   export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
-  gum spin 'Building a binary of vim-lumen...' -- vim +qall
+  gum run 'Building a binary of vim-lumen...' vim +qall
   gum executed
 fi
 
