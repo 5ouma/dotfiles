@@ -34,8 +34,8 @@ jobs:
           declare -r BREWFILE="$(curl -s https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile)"
           declare -r HOMEBREW_BUNDLE_CASK_SKIP="$(echo "$BREWFILE" | sed -nE 's/^cask "(.*)"$/\1/gp' | tr '\n' ' ')"
           declare -r HOMEBREW_BUNDLE_MAS_SKIP="$(echo "$BREWFILE" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
-          echo "HOMEBREW_BUNDLE_CASK_SKIP=$HOMEBREW_BUNDLE_CASK_SKIP" >> "$GITHUB_OUTPUT"
-          echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" >> "$GITHUB_OUTPUT"
+          echo "HOMEBREW_BUNDLE_CASK_SKIP=$HOMEBREW_BUNDLE_CASK_SKIP" | tee -a "$GITHUB_OUTPUT"
+          echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
 
       - name: Run setup
         env:
@@ -45,4 +45,4 @@ jobs:
         run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
 
       - name: Launch New Login Shell
-        run: exec zsh -ilc exit
+        run: exec zsh -ilxc exit
