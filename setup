@@ -67,7 +67,7 @@ gum() {
 getDot() {
   if [[ ! -d "$dotfiles" ]]; then
     # shellcheck disable=SC2016
-    gum run 'Cloning the repository into `~/.dotfiles`...' git clone "$githubUrl" -b="$GIT_REF" "$dotfiles"
+    gum run 'Cloning the repository into `~/.dotfiles`...' git clone "$githubUrl" -b "$GIT_REF" "$dotfiles"
   else
     gum run 'Pulling the dotfiles repository...' git -C "$dotfiles" pull
   fi
