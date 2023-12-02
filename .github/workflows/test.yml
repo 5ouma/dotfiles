@@ -5,10 +5,12 @@ on:
     branches:
       - main
     paths:
-     - "setup"
+      - "setup"
+      - ".github/workflows/**"
   pull_request:
     paths:
-     - "setup"
+      - "setup"
+      - ".github/workflows/**"
   schedule:
     - cron: "0 0 1 * *"
   workflow_dispatch:
