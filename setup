@@ -280,9 +280,9 @@ fi
 #==================================================[ Apps ]==================================================#
 
 (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
-if (! gum run "Satisfying Brewfile's dependencies..." brew bundle check --no-upgrade --file="$data/Brewfile"); then
+if (! gum run "Satisfying Brewfile's dependencies..." brew bundle check --file="$data/Brewfile"); then
   gum format '## 📲 Install commands and apps'
-  brew bundle install --no-lock --no-upgrade --file="$data/Brewfile"
+  brew update && brew bundle install --no-lock --file="$data/Brewfile"
   gum executed
 fi
 if (! $SETUP_FROM_CI) && [[ "$SHELL" != "$(which zsh)" ]]; then
