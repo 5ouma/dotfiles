@@ -14,6 +14,7 @@ declare -r dotfiles="$HOME/.dotfiles"
 declare -r packages="$dotfiles/packages"
 declare -r data="$dotfiles/data"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
+declare -r SETUP_FROM_CI=${SETUP_FROM_CI:-false}
 
 declare executed=false
 declare goThrough=false
@@ -46,10 +47,10 @@ gum() {
   confirm) $gumCom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
   format) $gumCom format --theme=<(echo -E "$gumTheme") "${@:2}" ;;
   run)
-    if [[ -z "$SETUP_FROM_CI" ]]; then
+    if (! $SETUP_FROM_CI); then
       $gumCom spin --spinner.foreground='27' --title="$2" -- "${@:3}"
     else
-      $gumCom log --level='info' "$2"
+      echo && $gumCom log --level='info' "$2"
       "${@:3}"
     fi
     ;;
@@ -190,7 +191,7 @@ if (! type brew &>/dev/null); then
   else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
-  [ -z "$SETUP_FROM_CI" ] && brew doctor
+  $SETUP_FROM_CI || brew doctor
   gum executed
 fi
 
@@ -255,7 +256,7 @@ EOF
   killall Dock
   killall SystemUIServer
 
-  if [[ -z "$SETUP_FROM_CI" ]]; then
+  if (! $SETUP_FROM_CI); then
     modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed "s/.*: //")" && declare -r modelName
     computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}" && declare -r computerName localHostName
     if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
@@ -282,7 +283,7 @@ if (! gum run "Satisfying Brewfile's dependencies..." brew bundle check --no-upg
   brew bundle install --no-lock --no-upgrade --file="$data/Brewfile"
   gum executed
 fi
-if [[ -z "$SETUP_FROM_CI" && "$SHELL" != "$(which zsh)" ]]; then
+if (! $SETUP_FROM_CI) && [[ "$SHELL" != "$(which zsh)" ]]; then
   gum format '### 🐚 Change login shell to Zsh'
   which zsh | sudo tee -a /etc/shells >/dev/null
   chsh -s "$(which zsh)"
@@ -290,12 +291,14 @@ if [[ -z "$SETUP_FROM_CI" && "$SHELL" != "$(which zsh)" ]]; then
 fi
 
 if (isDarwin); then
-  lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
-    gum format '## 🚀 Restore Launchpad and Dock'
-    # shellcheck disable=SC2016
-    gum run 'Running `lporg load`...' lporg load -nyc="$data/lporg.yml"
-    gum executed
+  if (! $SETUP_FROM_CI); then
+    lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
+    if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
+      gum format '## 🚀 Restore Launchpad and Dock'
+      # shellcheck disable=SC2016
+      gum run 'Running `lporg load`...' lporg load -nyc="$data/lporg.yml"
+      gum executed
+    fi
   fi
 
   if [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
