@@ -5,10 +5,10 @@ on:
     branches:
       - main
     paths:
-     - "/setup"
+     - "setup"
   pull_request:
     paths:
-     - "/setup"
+     - "setup"
   schedule:
     - cron: "0 0 1 * *"
 
