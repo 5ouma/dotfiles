@@ -47,4 +47,4 @@ jobs:
         run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
 
       - name: Launch New Login Shell
-        run: exec zsh -ilxc exit
+        run: exec zsh -ilexc exit
