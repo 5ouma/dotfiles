@@ -2,15 +2,13 @@ name: Test
 
 on:
   push:
-    branches:
-      - main
     paths:
       - "setup"
-      - ".github/workflows/**"
+      - ".github/workflows/test.yml"
   pull_request:
     paths:
       - "setup"
-      - ".github/workflows/**"
+      - ".github/workflows/test.yml"
   schedule:
     - cron: "0 0 1 * *"
   workflow_dispatch:
