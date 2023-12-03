@@ -7,10 +7,10 @@ itemData="$(op item get "$itemTitle" --fields='label=database-id,credential')" &
 databaseId="$(echo "$itemData" | cut -d ',' -f 1)" && declare -r databaseId
 credential="$(echo "$itemData" | cut -d ',' -f 2)" && declare -r credential
 
-gitLog="$(git log -n 1 HEAD --format='%ad,%h,%s' --date=format:'%Y-%m-%d %H:%M:%S')" && declare -r gitLog
-gitCommitDate="$(echo "$gitLog" | cut -d ',' -f 1)" && declare -r gitCommitDate
-gitCommitHash="$(echo "$gitLog" | cut -d ',' -f 2)" && declare -r gitCommitHash
-gitCommitMessage="$(echo "$gitLog" | cut -d ',' -f 3-)" && declare -r gitCommitMessage
+gitCommitDate="$(git log -n 1 HEAD --format='%ad' --date=format:'%Y-%m-%d %H:%M:%S')" && declare -r gitCommitDate
+gitCommitHash="$(git log -n 1 HEAD --format='%h')" && declare -r gitCommitHash
+gitCommitMessage="$(git log -n 1 HEAD --format='%s')" && declare -r gitCommitMessage
+gitCommitDescription="$(git log -n 1 HEAD --format='%b')" && declare -r gitCommitDescription
 gitRepoUrl="https://$(git config --get remote.origin.url | sed -E -e 's/(^ssh:\/\/|git@|\.git)//g' -e 's/:/\//')" && declare -r gitRepoUrl
 
 notionData="$(
@@ -19,6 +19,7 @@ notionData="$(
   "parent": { "database_id": "$databaseId" },
   "properties": {
     "Message": { "title": [{ "text": { "content": "$gitCommitMessage" } }] },
+    "Description": { "rich_text": [{ "text": { "content": "$gitCommitDescription" } }] },
     "Hash": { "rich_text": [{ "text": { "content": "$gitCommitHash" } }] },
     "URL": { "url": "$gitRepoUrl" },
     "Date": { "date": { "start": "$gitCommitDate", "time_zone": "Asia/Tokyo" } }
