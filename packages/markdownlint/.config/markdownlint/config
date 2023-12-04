@@ -1,6 +1,6 @@
 {
   "line-length": { "code_blocks": false }, //MD013
-  "header-start-left": false, // MD023
+  "heading-start-left": false, // MD023
   "no-duplicate-header": { "siblings_only": true }, // MD024
   "no-inline-html": false // MD033
 }
