@@ -27,6 +27,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install build-essential procps curl file git zsh
 
+      - name: Uninstall Homebrew
+        env:
+          NONINTERACTIVE: 1
+        if: matrix.os == 'macOS-Latest'
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+
       - name: Skip Cask and mas
         id: skip
         if: matrix.os == 'macOS-Latest'
