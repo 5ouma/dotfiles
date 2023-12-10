@@ -30,10 +30,10 @@ getGum() {
 
   if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
-    curl -sL "$gumUrl" | tar -zxC "$TMPDIR" 'gum' && declare -gr gumCom="$TMPDIR/gum"
+    curl -sL "$gumUrl" | tar -zxC "$TMPDIR" 'gum' && alias gumCom='$TMPDIR/gum'
     printf '\r                        '
   else
-    gumCom="$(which gum)" && declare -gr gumCom
+    alias gumCom='$(which gum)'
   fi
 
   if [[ ! -f "$data/blue.json" ]]; then
@@ -46,19 +46,19 @@ getGum
 
 gum() {
   case $1 in
-  confirm) $gumCom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
-  format) $gumCom format --theme=<(echo -E "$gumTheme") "${@:2}" ;;
+  confirm) gumCom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
+  format) gumCom format --theme=<(echo -E "$gumTheme") "${@:2}" ;;
   run)
     if (! $SETUP_FROM_CI); then
-      $gumCom spin --spinner.foreground='27' --title="$2" -- "${@:3}"
+      gumCom spin --spinner.foreground='27' --title="$2" -- "${@:3}"
     else
-      echo && $gumCom log --level='info' "$2"
+      echo && gumCom log --level='info' "$2"
       "${@:3}"
     fi
     ;;
-  style) $gumCom style --foreground="$2" "${@:3}" ;;
+  style) gumCom style --foreground="$2" "${@:3}" ;;
   executed)
-    echo && $gumCom format '✅ Done!'
+    echo && gumCom format '✅ Done!'
     executed=true
     ;;
   esac
