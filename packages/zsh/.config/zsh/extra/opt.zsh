@@ -12,7 +12,7 @@ zsh-defer compinit -d "$XDG_DATA_HOME/zsh/compdump"
 
 autoload -Uz select-word-style
 select-word-style default
-zstyle ':zle:*' word-chars ' -,.;:"()[]{}@/=|'
+zstyle ':zle:*' word-chars ' -_,.;:"()[]{}@/=|'
 zstyle ':zle:*' word-style unspecified
 
 zstyle ':completion:*:default' menu select=1
