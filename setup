@@ -41,8 +41,7 @@ getGum() {
   else
     gumTheme=$(cat "$data/${gumThemeUrl/*\//}") && declare -gr gumTheme
   fi
-}
-getGum
+} && getGum
 
 gum() {
   case $1 in
@@ -123,8 +122,7 @@ errMsg() {
 > - Line Number:      $line
 > - Process ID:       $$
 EOM
-}
-trap 'errMsg $? "$0" $LINENO' ERR
+} && trap 'errMsg $? "$0" $LINENO' ERR
 
 isDarwin() {
   [ "$(uname)" = 'Darwin' ]
@@ -289,12 +287,14 @@ if (! gum run "Satisfying Brewfile's dependencies..." brew bundle check --file="
   brew update && brew bundle install --no-lock --file="$data/Brewfile"
   gum executed
 fi
+
 if (! $SETUP_FROM_CI) && [[ "$SHELL" != "$(which zsh)" ]]; then
   gum format '### 🐚 Change login shell to Zsh'
   which zsh | sudo tee -a /etc/shells >/dev/null
   chsh -s "$(which zsh)"
   gum executed
 fi
+
 if (! $SETUP_FROM_CI && isDarwin) && [[ ! -d '/Applications/DaVinci Resolve' ]]; then
   gum format '### 🎨 Please install DaVinci Resolve'
   sleep 2
