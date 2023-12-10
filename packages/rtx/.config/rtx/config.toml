@@ -1,6 +1,3 @@
 [tools]
 node = "latest"
 go = "latest"
-
-[settings]
-missing_runtime_behavior = "autoinstall"
