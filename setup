@@ -284,9 +284,6 @@ changeScreenCapturePath() {
   fi
 } && run 'changeScreenCapturePath' '## 📷 Change screen capture path' true
 
-killall Dock
-killall SystemUIServer
-
 setComputerName() {
   declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed 's/.*: //')"
   declare -r computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}"
@@ -399,6 +396,7 @@ installVimPlugins() {
 #==================================================[ Done! ]==================================================#
 
 if ($executed); then
+  (isDarwin) && killall Dock SystemUIServer
   gum format '# 🎉 Setup completed!'
 else
   gum format '# 🧊 Nothing has changed'
