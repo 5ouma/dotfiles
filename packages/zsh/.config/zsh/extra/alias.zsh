@@ -23,7 +23,7 @@ alias gg='ghq get -p'
 alias gup='ghq list | ghq get --update --parallel'
 
 gcd() {
-  declare -r repo="$(ghq list | fzf --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow")"
+  declare -r repo="$(ghq list | fzf --height=70% --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow")"
   [ -n "$repo" ] && cd "$(ghq list --full-path --exact "$repo")"
 }
 
@@ -169,6 +169,17 @@ alias ci.='code-insiders .'
 # yazi
 alias yzi='yazi'
 
+# zoxide
+zcd() {
+  declare -r dir="$(zoxide query -l | fzf --height=70% --preview="lsd -Alg {}")"
+  [ -n "$dir" ] && cd "$dir"
+}
+
 # System
 alias ka='killall'
 alias mv='mv -iv'
+
+
+# Keybinds
+bindkey -s '^G' 'gcd^M'
+bindkey -s '^Z' 'zcd^M'
