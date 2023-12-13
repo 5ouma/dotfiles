@@ -104,7 +104,9 @@ run() {
     gum skipped
     return
   fi
-  eval '$1'
+  if (eval '$1'); then
+    gum executed
+  fi
 }
 
 isDarwin() {
@@ -196,48 +198,49 @@ getDot
 #==================================================[ Homebrew ]==================================================#
 
 installHomebrew() {
-  if (! type brew &>/dev/null); then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    if (isDarwin); then
-      [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
-      [ "$(uname -m)" = 'arm64' ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    fi
-    gum executed
-  else
+  if (type brew &>/dev/null); then
     gum skipped
+    return 2
+  fi
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if (isDarwin); then
+    [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
+    [ "$(uname -m)" = 'arm64' ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 } && run 'installHomebrew' '## 🍺 Install Homebrew'
 
 #==================================================[ Files ]==================================================#
 
 setSymlink() {
-  if checkSym; then
-    mkSym
-    gum executed
-  else
+  if ! checkSym; then
     gum skipped
+    return 2
   fi
+  mkSym
 } && run 'setSymlink' '## 🔗 Symlink files'
 
 downloadSshKey() {
-  if [[ ! -f "$HOME/.ssh/git/github.pub" || ! -f "$HOME/.ssh/git/github-school.pub" ]]; then
-    mkdir -p "$HOME/.ssh/git"
-    curl -s https://github.com/5ouma.keys | head -n 1 >"$HOME/.ssh/git/github.pub"
-    curl -s https://github.com/6ouma.keys | head -n 1 >"$HOME/.ssh/git/github-school.pub"
-    gum executed
-  else
+  declare -r githubPub="$HOME/.ssh/git/github.pub" githubSchoolPub="$HOME/.ssh/git/github-school.pub"
+  if [[ -f "$githubPub" && -f "$githubSchoolPub" ]]; then
     gum skipped
+    return 2
   fi
+  mkdir -p "$(dirname "$githubPub")"
+  curl -s https://github.com/5ouma.keys | head -n 1 >"$githubPub"
+  curl -s https://github.com/6ouma.keys | head -n 1 >"$githubSchoolPub"
 } && run 'downloadSshKey' '## 📃 Download SSH public keys'
 
 #==================================================[ Settings ]==================================================#
 
 # shellcheck disable=SC2016
 enableTouchID() {
-  if [[ ! "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]]; then
-    cat <<EOF | sudo tee /etc/pam.d/sudo >/dev/null
+  if [[ "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]]; then
+    gum skipped
+    return 2
+  fi
+  cat <<EOF | sudo tee /etc/pam.d/sudo >/dev/null
 # sudo: auth account password session
 auth       sufficient     pam_tid.so
 auth       sufficient     pam_smartcard.so
@@ -246,153 +249,138 @@ account    required       pam_permit.so
 password   required       pam_deny.so
 session    required       pam_permit.so
 EOF
-    gum executed
-  else
-    gum skipped
-  fi
 } && run 'enableTouchID' '## 👑 Enable Touch ID for `sudo`' true
 
 changeLaunchpadSize() {
-  declare -r springboardColumns=$(defaults read com.apple.dock springboard-columns) springboardRows=$(defaults read com.apple.dock springboard-rows) &>/dev/null
-  if [[ $springboardColumns != 9 || $springboardRows != 8 ]]; then
-    defaults write com.apple.dock springboard-columns -int 9
-    defaults write com.apple.dock springboard-rows -int 8
-    gum executed
-  else
+  declare -r springboardColumns="$(defaults read com.apple.dock springboard-columns)" springboardRows="$(defaults read com.apple.dock springboard-rows)" &>/dev/null
+  if [[ $springboardColumns = 9 && $springboardRows = 8 ]]; then
     gum skipped
+    return 2
   fi
+  defaults write com.apple.dock springboard-columns -int 9
+  defaults write com.apple.dock springboard-rows -int 8
 } && run 'changeLaunchpadSize' '## 🚀 Change the Launchpad size' true
 
 makeDockImmutable() {
-  declare -r sizeImmutable=$(defaults read com.apple.dock size-immutable) &>/dev/null
-  if [[ $sizeImmutable != 1 ]]; then
-    defaults write com.apple.dock size-immutable -bool true
-    gum executed
-  else
+  declare -r sizeImmutable="$(defaults read com.apple.dock size-immutable)" &>/dev/null
+  if [[ $sizeImmutable = 1 ]]; then
     gum skipped
+    return 2
   fi
+  defaults write com.apple.dock size-immutable -bool true
 } && run 'makeDockImmutable' '## 🚥 Make Dock size immutable' true
 
 changeScreenCapturePath() {
   declare -r screenCaptureLocation="$(defaults read com.apple.screencapture location)" screenCaptures="$HOME/Pictures/Screen Captures" &>/dev/null
-  if [[ "$screenCaptureLocation" != "$screenCaptures" ]]; then
-    mkdir -p "$screenCaptures"
-    defaults write com.apple.screencapture location "$screenCaptures"
-    gum executed
-  else
+  if [[ "$screenCaptureLocation" = "$screenCaptures" ]]; then
     gum skipped
+    return 2
   fi
+  mkdir -p "$screenCaptures"
+  defaults write com.apple.screencapture location "$screenCaptures"
 } && run 'changeScreenCapturePath' '## 📷 Change screen capture path' true
 
 setComputerName() {
   declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed 's/.*: //')"
   declare -r computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}"
-  if [[ "$(scutil --get ComputerName)" != "$computerName" || "$(scutil --get HostName)" != "$computerName" || "$(scutil --get LocalHostName)" != "$localHostName" ]]; then
-    gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
-    gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
-    gum run 'Setting LocalHostName...' -- sudo scutil --set LocalHostName "$localHostName"
-    gum format <<EOM
+  if [[ "$(scutil --get ComputerName)" = "$computerName" && "$(scutil --get HostName)" = "$computerName" && "$(scutil --get LocalHostName)" = "$localHostName" ]]; then
+    gum skipped
+    return 2
+  fi
+  gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
+  gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
+  gum run 'Setting LocalHostName...' -- sudo scutil --set LocalHostName "$localHostName"
+  gum format <<EOM
 - ComputerName : $(gum style 6 "$(sudo scutil --get ComputerName)")
 - HostName : $(gum style 6 "$(sudo scutil --get HostName)")
 - LocalHostName : $(gum style 6 "$(sudo scutil --get LocalHostName)")
 EOM
-    gum executed
-  else
-    gum skipped
-  fi
 } && run 'setComputerName' '## 💻 Set the computer name' true
 
 #==================================================[ Apps ]==================================================#
 
 installApps() {
   (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
-  if (! gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile"); then
-    brew update && brew bundle install --no-lock --file="$data/Brewfile"
-    gum executed
-  else
+  if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile"); then
     gum skipped
+    return 2
   fi
+  brew update && brew bundle install --no-lock --file="$data/Brewfile"
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
-  if [[ "$SHELL" != "$(which zsh)" ]]; then
-    which zsh | sudo tee -a /etc/shells >/dev/null
-    chsh -s "$(which zsh)"
-    gum executed
-  else
+  if [[ "$SHELL" = "$(which zsh)" ]]; then
     gum skipped
+    return 2
   fi
+  which zsh | sudo tee -a /etc/shells >/dev/null
+  chsh -s "$(which zsh)"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
 
 installDavinciResolve() {
-  if [[ ! -d '/Applications/DaVinci Resolve' ]]; then
-    sleep 2
-    open 'https://www.blackmagicdesign.com/jp/products/davinciresolve'
-    gum confirm 'Continue when you done' 'Done' ''
-    gum executed
-  else
+  if [[ -d '/Applications/DaVinci Resolve' ]]; then
     gum skipped
+    return 2
   fi
-} && run 'installDavinciResolve' '### 🎨 Please install DaVinci Resolve' true
+  sleep 2
+  open 'https://www.blackmagicdesign.com/products/davinciresolve'
+  gum confirm 'Continue when you done' 'Done' ''
+} && run 'installDavinciResolve' '### 🎨 Install DaVinci Resolve' true
 
 restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  if (! diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
-    # shellcheck disable=SC2016
-    gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
-    gum executed
-  else
+  if (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
     gum skipped
+    return 2
   fi
+  # shellcheck disable=SC2016
+  gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
 } && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
 
 restoreAppSettings() {
-  if [[ -n "$(mackup -n backup 2>/dev/null)" && $? ]]; then
-    mackup restore
-    gum executed
-  else
+  if [[ -z "$(mackup -n backup 2>/dev/null)" || ! $? ]]; then
     gum skipped
+    return 2
   fi
+  mackup restore
 } && run 'restoreAppSettings' '## 💾 Restore application settings' true
 
 restoreAppShortcuts() {
-  if (! defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
-    # shellcheck disable=SC2016
-    gum run 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
-    gum executed
+  if (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
+    gum skipped
+    return 2
   fi
+  # shellcheck disable=SC2016
+  gum run 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
 } && run 'restoreAppShortcuts' '## ⌨️ Restore App Shortcuts' true
 
 generateGitHooks() {
-  if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" || ! -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]]; then
-    pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
-    gitlint --target="$dotfiles" install-hook
-    gum executed
-  else
+  if [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]]; then
     gum skipped
+    return 2
   fi
+  pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
+  gitlint --target="$dotfiles" install-hook
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
 
 installProgrammingLanguages() {
   eval "$(rtx activate -q zsh)"
-  if [[ -n "$(rtx ls --missing)" ]]; then
-    rtx install
-    gum executed
-  else
+  if [[ -z "$(rtx ls --missing)" ]]; then
     gum skipped
+    return 2
   fi
+  rtx install
 } && run 'installProgrammingLanguages' '## 📼 Install programming languages'
 
 installVimPlugins() {
-  if [[ ! -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]]; then
-    export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-    export VIMINIT="source $MYVIMRC"
-    vim +Jetpack +qall
-    gum run 'Building a binary of vim-lumen...' -- vim +qall
-    gum executed
-  else
+  if [[ -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]]; then
     gum skipped
+    return 2
   fi
+  export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+  export VIMINIT="source $MYVIMRC"
+  vim +Jetpack +qall
+  gum run 'Building a binary of vim-lumen...' -- vim +qall
 } && run 'installVimPlugins' '## 🖌 Install Vim plugins'
 
 #==================================================[ Done! ]==================================================#
