@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+(! type op &>/dev/null) && exit
+
+itemData="$(op item get 'Notion Git Integration' --fields='label=database-id,credential')" && declare -r itemData
+databaseId="$(echo "$itemData" | cut -d ',' -f 1)" && declare -r databaseId
+credential="$(echo "$itemData" | cut -d ',' -f 2)" && declare -r credential
+
+gitRepoUrl="https://$(git config --get remote.origin.url | sed -Ee 's/((https|ssh):\/\/|git@|\.git)//g' -e 's/:/\//')" && declare -r gitRepoUrl
+while read -r gitCommitHash; do
+  declare gitCommitDate && gitCommitDate="$(git log -n 1 "$gitCommitHash" --format='%ad' --date=format:'%Y-%m-%d %H:%M:%S')"
+  declare gitCommitMessage && gitCommitMessage="$(git log -n 1 "$gitCommitHash" --format='%s')"
+  declare gitCommitDescription && gitCommitDescription="$(git log -n 1 "$gitCommitHash" --format='%b')"
+
+  declare notionData && notionData="$(
+    cat <<EOF
+{
+  "parent": { "database_id": "$databaseId" },
+  "properties": {
+    "Message": { "title": [{ "text": { "content": "$gitCommitMessage" } }] },
+    "Description": { "rich_text": [{ "text": { "content": "$gitCommitDescription" } }] },
+    "Hash": { "rich_text": [{ "text": { "content": "$gitCommitHash" } }] },
+    "URL": { "url": "$gitRepoUrl" },
+    "Date": { "date": { "start": "$gitCommitDate", "time_zone": "Asia/Tokyo" } }
+  }
+}
+EOF
+  )"
+
+  curl -s -X POST https://api.notion.com/v1/pages \
+    -H "Authorization: Bearer $credential" \
+    -H "Content-Type: application/json" \
+    -H "Notion-Version: 2022-06-28" \
+    --data "$notionData"
+done < <(git log --branches --not --remotes --format='%h')
