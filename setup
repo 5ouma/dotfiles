@@ -94,6 +94,7 @@ mkSym() {
     # shellcheck disable=SC2088
     echo "- $(gum style 6 "~/$file")"
   done < <(printf "%s\n" "${(k)packs[@]}" | sort) | gum format
+  unset packs
 }
 
 # Utilities
