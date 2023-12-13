@@ -105,7 +105,7 @@ run() {
     gum skipped
     return
   fi
-  if (eval '$1'); then
+  if eval '$1'; then
     gum executed
   fi
 }
