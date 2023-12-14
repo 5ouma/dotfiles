@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -euo pipefail
+
 (! type op &>/dev/null) && exit
 
 itemData="$(op item get 'Notion Git Integration' --fields='label=database-id,credential')" && declare -r itemData

@@ -2,7 +2,7 @@
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 
 declare files=('tools' 'opt' 'alias')
-for file in $files; do
+for file in "${files[@]}"; do
   source "$ZDOTDIR/extra/$file.zsh"
 done
 unset file files
