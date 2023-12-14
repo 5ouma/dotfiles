@@ -6,22 +6,22 @@ itemData="$(op item get 'Notion Git Integration' --fields='label=database-id,cre
 databaseId="$(echo "$itemData" | cut -d ',' -f 1)" && declare -r databaseId
 credential="$(echo "$itemData" | cut -d ',' -f 2)" && declare -r credential
 
-gitRepoUrl="https://$(git config --get remote.origin.url | sed -Ee 's/((https|ssh):\/\/|git@|\.git)//g' -e 's/:/\//')" && declare -r gitRepoUrl
-while read -r gitCommitHash; do
-  declare gitCommitDate && gitCommitDate="$(git log -n 1 "$gitCommitHash" --format='%ad' --date=format:'%Y-%m-%d %H:%M:%S')"
-  declare gitCommitMessage && gitCommitMessage="$(git log -n 1 "$gitCommitHash" --format='%s')"
-  declare gitCommitDescription && gitCommitDescription="$(git log -n 1 "$gitCommitHash" --format='%b')"
+url="https://$(git config --get remote.origin.url | sed -Ee 's/((https|ssh):\/\/|git@|\.git)//g' -e 's/:/\//')" && declare -r url
+while read -r hash; do
+  declare message && message="$(git log -n 1 "$hash" --format='%s')"
+  declare description && description="$(git log -n 1 "$hash" --format='%b')"
+  declare date && date="$(git log -n 1 "$hash" --format='%ad' --date=format:'%Y-%m-%d %H:%M:%S')"
 
   declare notionData && notionData="$(
     cat <<EOF
 {
   "parent": { "database_id": "$databaseId" },
   "properties": {
-    "Message": { "title": [{ "text": { "content": "$gitCommitMessage" } }] },
-    "Description": { "rich_text": [{ "text": { "content": "$gitCommitDescription" } }] },
-    "Hash": { "rich_text": [{ "text": { "content": "$gitCommitHash" } }] },
-    "URL": { "url": "$gitRepoUrl" },
-    "Date": { "date": { "start": "$gitCommitDate", "time_zone": "Asia/Tokyo" } }
+    "Message": { "title": [{ "text": { "content": "$message" } }] },
+    "Description": { "rich_text": [{ "text": { "content": "$description" } }] },
+    "Hash": { "rich_text": [{ "text": { "content": "$hash" } }] },
+    "URL": { "url": "$url" },
+    "Date": { "date": { "start": "$date", "time_zone": "Asia/Tokyo" } }
   }
 }
 EOF
