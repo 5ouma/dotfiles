@@ -289,7 +289,7 @@ installApps() {
 changeLoginShell() {
   [ "$SHELL" = "$(which zsh)" ] && return 2
   which zsh | sudo tee -a /etc/shells >/dev/null
-  chsh -s "$(which zsh)"
+  sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
 
 installDavinciResolve() {
