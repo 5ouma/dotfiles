@@ -34,10 +34,27 @@ jobs:
           [ "$(uname)" = 'Darwin' ] && brew install 5ouma/formula/mksei blacktop/tap/lporg
 
       - name: Run setup
+        if: ${{ github.event_name != 'schedule' }}
         env:
           SETUP_SKIP_installApps: true
           SETUP_SKIP_installDavinciResolve: true
           SETUP_SKIP_restoreLaunchpad: true
+        run: |
+          export SHELL="$SHELL"
+          zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
+
+      - name: Skip mas
+        id: skip
+        if: ${{ github.event_name == 'schedule'  && matrix.os == 'macOS-Latest' }}
+        run: |
+          declare -r HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
+          echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
+
+      - name: Run setup with Casks
+        if: ${{ github.event_name == 'schedule' }}
+        env:
+          SETUP_SKIP_installDavinciResolve: true
+          HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
         run: |
           export SHELL="$SHELL"
           zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
