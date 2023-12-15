@@ -107,6 +107,10 @@ run() {
   fi
   if eval '$1'; then
     gum executed
+  elif [[ $? = 2 ]]; then
+    gum skipped
+  else
+    exit 1
   fi
 }
 
@@ -199,10 +203,7 @@ getDot
 #==================================================[ Homebrew ]==================================================#
 
 installHomebrew() {
-  if (type brew &>/dev/null); then
-    gum skipped
-    return 2
-  fi
+  (type brew &>/dev/null) && return 2
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
     [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
@@ -215,19 +216,13 @@ installHomebrew() {
 #==================================================[ Files ]==================================================#
 
 setSymlink() {
-  if ! checkSym; then
-    gum skipped
-    return 2
-  fi
+  checkSym || return 2
   mkSym
 } && run 'setSymlink' '## 🔗 Symlink files'
 
 downloadSshKey() {
   declare -r githubPub="$HOME/.ssh/git/github.pub" githubSchoolPub="$HOME/.ssh/git/github-school.pub"
-  if [[ -f "$githubPub" && -f "$githubSchoolPub" ]]; then
-    gum skipped
-    return 2
-  fi
+  [[ -f "$githubPub" && -f "$githubSchoolPub" ]] && return 2
   mkdir -p "$(dirname "$githubPub")"
   curl -s https://github.com/5ouma.keys | head -n 1 >"$githubPub"
   curl -s https://github.com/6ouma.keys | head -n 1 >"$githubSchoolPub"
@@ -237,10 +232,7 @@ downloadSshKey() {
 
 # shellcheck disable=SC2016
 enableTouchID() {
-  if [[ "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]]; then
-    gum skipped
-    return 2
-  fi
+  [[ "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]] && return 2
   cat <<EOF | sudo tee /etc/pam.d/sudo >/dev/null
 # sudo: auth account password session
 auth       sufficient     pam_tid.so
@@ -254,29 +246,20 @@ EOF
 
 changeLaunchpadSize() {
   declare -r springboardColumns="$(defaults read com.apple.dock springboard-columns)" springboardRows="$(defaults read com.apple.dock springboard-rows)" &>/dev/null
-  if [[ $springboardColumns = 9 && $springboardRows = 8 ]]; then
-    gum skipped
-    return 2
-  fi
+  [[ $springboardColumns = 9 && $springboardRows = 8 ]] && return 2
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
 } && run 'changeLaunchpadSize' '## 🚀 Change the Launchpad size' true
 
 makeDockImmutable() {
   declare -r sizeImmutable="$(defaults read com.apple.dock size-immutable)" &>/dev/null
-  if [[ $sizeImmutable = 1 ]]; then
-    gum skipped
-    return 2
-  fi
+  [ "$sizeImmutable" = 1 ] && return 2
   defaults write com.apple.dock size-immutable -bool true
 } && run 'makeDockImmutable' '## 🚥 Make Dock size immutable' true
 
 changeScreenCapturePath() {
   declare -r screenCaptureLocation="$(defaults read com.apple.screencapture location)" screenCaptures="$HOME/Pictures/Screen Captures" &>/dev/null
-  if [[ "$screenCaptureLocation" = "$screenCaptures" ]]; then
-    gum skipped
-    return 2
-  fi
+  [ "$screenCaptureLocation" = "$screenCaptures" ] && return 2
   mkdir -p "$screenCaptures"
   defaults write com.apple.screencapture location "$screenCaptures"
 } && run 'changeScreenCapturePath' '## 📷 Change screen capture path' true
@@ -284,10 +267,7 @@ changeScreenCapturePath() {
 setComputerName() {
   declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed 's/.*: //')"
   declare -r computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}"
-  if [[ "$(scutil --get ComputerName)" = "$computerName" && "$(scutil --get HostName)" = "$computerName" && "$(scutil --get LocalHostName)" = "$localHostName" ]]; then
-    gum skipped
-    return 2
-  fi
+  [[ "$(scutil --get ComputerName)" = "$computerName" && "$(scutil --get HostName)" = "$computerName" && "$(scutil --get LocalHostName)" = "$localHostName" ]] && return 2
   gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
   gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
   gum run 'Setting LocalHostName...' -- sudo scutil --set LocalHostName "$localHostName"
@@ -302,27 +282,18 @@ EOM
 
 installApps() {
   (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei blacktop/tap/lporg'
-  if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile"); then
-    gum skipped
-    return 2
-  fi
+  (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && return 2
   brew update && brew bundle install --no-lock --file="$data/Brewfile"
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
-  if [[ "$SHELL" = "$(which zsh)" ]]; then
-    gum skipped
-    return 2
-  fi
+  [ "$SHELL" = "$(which zsh)" ] && return 2
   which zsh | sudo tee -a /etc/shells >/dev/null
-  chsh -s "$(which zsh)"
+  sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
 
 installDavinciResolve() {
-  if [[ -d '/Applications/DaVinci Resolve' ]]; then
-    gum skipped
-    return 2
-  fi
+  [ -d '/Applications/DaVinci Resolve' ] && return 2
   sleep 2
   open 'https://www.blackmagicdesign.com/products/davinciresolve'
   gum confirm 'Continue when you done' 'Done' ''
@@ -330,54 +301,36 @@ installDavinciResolve() {
 
 restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  if (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null); then
-    gum skipped
-    return 2
-  fi
+  (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null) && return 2
   # shellcheck disable=SC2016
   gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
 } && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
 
 restoreAppSettings() {
-  if [[ -z "$(mackup -n backup 2>/dev/null)" || ! $? ]]; then
-    gum skipped
-    return 2
-  fi
+  [[ -z "$(mackup -n backup 2>/dev/null)" || ! $? ]] && return 2
   mackup restore
 } && run 'restoreAppSettings' '## 💾 Restore application settings' true
 
 restoreAppShortcuts() {
-  if (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null); then
-    gum skipped
-    return 2
-  fi
+  (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null) && return 2
   # shellcheck disable=SC2016
   gum run 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
 } && run 'restoreAppShortcuts' '## ⌨️ Restore App Shortcuts' true
 
 generateGitHooks() {
-  if [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]]; then
-    gum skipped
-    return 2
-  fi
+  [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] && return 2
   pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
   gitlint --target="$dotfiles" install-hook
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
 
 installProgrammingLanguages() {
   eval "$(rtx activate -q zsh)"
-  if [[ -z "$(rtx ls --missing)" ]]; then
-    gum skipped
-    return 2
-  fi
+  [ -z "$(rtx ls --missing)" ] && return 2
   rtx install
 } && run 'installProgrammingLanguages' '## 📼 Install programming languages'
 
 installVimPlugins() {
-  if [[ -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]]; then
-    gum skipped
-    return 2
-  fi
+  [ -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ] && return 2
   export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall

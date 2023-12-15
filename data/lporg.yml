@@ -43,14 +43,7 @@ apps:
         - Visual Studio Code - Insiders
         - iTerm
         - OrbStack
-        - folder: DaVinci Resolve
-          pages:
-            - number: 1
-              items:
-                - DaVinci Resolve
-                - DaVinci Control Panels Setup
-                - Fairlight Studio Utility
-                - Blackmagic Proxy Generator Lite
+        - DaVinci Resolve
         - Figma
         - Aseprite
         - Blender
@@ -99,6 +92,7 @@ apps:
                 - FocusRecorder
                 - CodeWhisperer
                 - OpenInTerminal
+                - Blackmagic Proxy Generator Lite
                 - Syntax Highlight
                 - QLMarkdown
                 - Apparency
