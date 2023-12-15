@@ -23,39 +23,20 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Install Dependencies
-        if: matrix.os == 'Ubuntu-Latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install build-essential procps curl file git zsh
+      - name: Setup Homebrew
+        id: setup-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Uninstall Homebrew Related
-        env:
-          NONINTERACTIVE: 1
-        if: matrix.os == 'macOS-Latest'
+      - name: Install tools via Homebrew
         run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
-          rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/2to3-3.12 \
-                /Library/Frameworks/Python.framework/Versions/3.12/bin/idle3.12 \
-                /Library/Frameworks/Python.framework/Versions/3.12/bin/pydoc3.12 \
-                /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12 \
-                /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12-config
-
-      - name: Skip Cask and mas
-        id: skip
-        if: matrix.os == 'macOS-Latest'
-        run: |
-          declare -r BREWFILE="$(curl -s https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile)"
-          declare -r HOMEBREW_BUNDLE_CASK_SKIP="$(echo "$BREWFILE" | sed -nE 's/^cask "(.*)"$/\1/gp' | tr '\n' ' ')"
-          declare -r HOMEBREW_BUNDLE_MAS_SKIP="$(echo "$BREWFILE" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
-          echo "HOMEBREW_BUNDLE_CASK_SKIP=$HOMEBREW_BUNDLE_CASK_SKIP" | tee -a "$GITHUB_OUTPUT"
-          echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
+          rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
+          brew install atuin gitlint mackup pre-commit rtx sheldon vim zoxide zsh
+          [ "$(uname)" = 'Darwin' ] && brew install 5ouma/formula/mksei blacktop/tap/lporg
 
       - name: Run setup
         env:
+          SETUP_SKIP_installApps: true
           SETUP_SKIP_installDavinciResolve: true
-          HOMEBREW_BUNDLE_CASK_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_CASK_SKIP }}
-          HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
         run: |
           export SHELL="$SHELL"
           zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
