@@ -37,6 +37,7 @@ jobs:
         env:
           SETUP_SKIP_installApps: true
           SETUP_SKIP_installDavinciResolve: true
+          SETUP_SKIP_restoreLaunchpad: true
         run: |
           export SHELL="$SHELL"
           zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
