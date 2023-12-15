@@ -55,7 +55,6 @@ jobs:
         env:
           SETUP_SKIP_changeLoginShell: true
           SETUP_SKIP_installDavinciResolve: true
-          SETUP_SKIP_restoreLaunchpad: true
           HOMEBREW_BUNDLE_CASK_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_CASK_SKIP }}
           HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
         run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
