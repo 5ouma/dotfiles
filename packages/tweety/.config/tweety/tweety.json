@@ -1,0 +1,13 @@
+{
+  "$schema": "https://github.com/pomdtr/tweety/releases/latest/download/config.schema.json",
+  "xterm": {
+    "cursorStyle": "bar",
+    "cursorWidth": 2,
+    "fontFamily": ["Fira Code", "HackGen35 Console NF", "Apple Color Emoji"],
+    "fontSize": 18,
+    "fontWeight": 500
+  },
+  "env": { "TMPDIR": "/tmp" },
+  "defaultProfile": "zsh",
+  "profiles": { "zsh": { "command": "/usr/local/bin/zsh", "args": ["-il"] } }
+}
