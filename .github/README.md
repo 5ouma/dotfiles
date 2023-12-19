@@ -32,7 +32,7 @@ My config files and setup for CLI tools and GUI apps.
 
 - ### 🍎 macOS
 
-  - **macOS** Big Sur `Version 11` or later
+  - **macOS** Monterey `Version 12` or later
   - Intel or Apple Silicon Mac
 
 - ### 🐧 Linux
