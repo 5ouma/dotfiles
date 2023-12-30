@@ -226,6 +226,7 @@ downloadSshKey() {
   mkdir -p "$(dirname "$githubPub")"
   curl -s https://github.com/5ouma.keys | head -n 1 >"$githubPub"
   curl -s https://github.com/6ouma.keys | head -n 1 >"$githubSchoolPub"
+  chmod -R 700 "$(dirname "$githubPub")"
 } && run 'downloadSshKey' '## 📃 Download SSH public keys'
 
 #==================================================[ Settings ]==================================================#
