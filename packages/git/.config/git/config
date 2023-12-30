@@ -20,15 +20,13 @@
   default = simple
 [tag]
   gpgsign = true
+[user]
+  name = 5ouma
+  email = 101255979+5ouma@users.noreply.github.com
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAwUx3QBgemsReA0yxOb+Yc6tZPVmDQ+ALy/4PhM9f5s
 
-[url "github.com:5ouma"]
-  pushInsteadOf = https://github.com/5ouma
-  InsteadOf = git@github.com:5ouma
-  InsteadOf = ssh://git@github.com/5ouma
-[url "school.github.com:6ouma"]
-  pushInsteadOf = https://github.com/6ouma
-  InsteadOf = git@github.com:6ouma
-  InsteadOf = ssh://git@github.com/6ouma
+[url "git@github.com:"]
+  pushInsteadOf = https://github.com/
 
 [ghq]
   user = 5ouma
