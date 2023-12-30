@@ -4,19 +4,8 @@ type 'bat' &>/dev/null && alias cat='bat'
 # dasel
 alias dasel='dasel --colour'
 
-# delta
-if (type 'delta' &>/dev/null); then
-  if [[ "$(uname)" = 'Darwin' ]]; then
-    getSyntaxTheme() {
-      (defaults read -g AppleInterfaceStyle &>/dev/null) && echo 'ansi' || echo 'GitHub'
-    }
-    alias diff='delta --syntax-theme=$(getSyntaxTheme)'
-    alias git='git -c delta.syntax-theme=$(getSyntaxTheme)'
-  else
-    alias diff='delta --syntax-theme="GitHub"'
-    alias git='git -c delta.syntax-theme="GitHub"'
-  fi
-fi
+# diffastic
+alias diff='difft'
 
 # ghq
 alias gg='ghq get -p'
@@ -36,7 +25,6 @@ alias gcm='git commit'
 alias gcf='git config'
 alias gcl='git clone'
 alias gd='git diff'
-alias gdt='git difftool'
 alias gin='git init'
 alias glg='git log --graph'
 alias gls='git ls-files'

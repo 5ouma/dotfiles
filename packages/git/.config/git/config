@@ -1,8 +1,7 @@
 [core]
   hooksPath = ~/.config/git/hooks
-  pager = delta --side-by-side --width ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
-[difftool]
-  prompt = false
+[diff]
+  external = difft
 [init]
   defaultBranch = main
 [commit]
@@ -30,20 +29,6 @@
   pushInsteadOf = https://github.com/6ouma
   InsteadOf = git@github.com:6ouma
   InsteadOf = ssh://git@github.com/6ouma
-
-[delta]
-  file-added-label = "+"
-  file-modified-label = "!"
-  file-removed-label = "-"
-  file-renamed-label = "?"
-  right-arrow = "→"
-  keep-plus-minus-markers = true
-  line-numbers = true
-  navigate = true
-  side-by-side = true
-  tabs = 2
-[interactive]
-  diffFilter = delta --color-only
 
 [ghq]
   user = 5ouma
