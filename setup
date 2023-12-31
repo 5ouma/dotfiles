@@ -315,6 +315,11 @@ generateGitHooks() {
   gitlint --target="$dotfiles" install-hook
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
 
+loginGitHubCli() {
+  (gh auth status) && return 2
+  gh auth login -h='GitHub.com' -p='SSH' -s='delete_repo,workflow' -w
+} && run 'loginGitHubCli' '## 🐙 Login to GitHub CLI'
+
 installProgrammingLanguages() {
   eval "$(rtx activate -q zsh)"
   [ -z "$(rtx ls --missing)" ] && return 2
