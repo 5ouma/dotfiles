@@ -54,7 +54,6 @@ apps:
               items:
                 - Google Drive
                 - Dropbox
-                - Box
                 - Itsycal
                 - MacUpdater
                 - RunCat
