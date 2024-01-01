@@ -1,0 +1,35 @@
+name: Detail Test
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  Test:
+    strategy:
+      matrix:
+        os: [Ubuntu-Latest, macOS-Latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Remove Python files
+        run: rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
+
+      - name: Skip mas
+        id: skip
+        if: ${{ matrix.os == 'macOS-Latest' }}
+        run: |
+          declare -r HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
+          echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
+
+      - name: Run setup
+        env:
+          SHELL: null
+          SETUP_SKIP_installDavinciResolve: true
+          SETUP_SKIP_loginGitHubCli: true
+          HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
+        run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
+
+      - name: Launch New Login Shell
+        run: exec zsh -ilexc exit
