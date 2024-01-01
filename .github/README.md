@@ -22,7 +22,9 @@ My config files and setup for CLI tools and GUI apps.
 ![GitHub repo size](https://img.shields.io/github/repo-size/5ouma/dotfiles?style=flat-square)
 [![GitHub last commit](https://img.shields.io/github/last-commit/5ouma/dotfiles?style=flat-square)](https://github.com/5ouma/dotfiles/commit/HEAD)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/5ouma/dotfiles?style=flat-square)](https://github.com/5ouma/dotfiles/commits/main)
+<br />
 [![Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/test.yml?label=test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/test.yml)
+[![Detail Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/detail-test.yml?label=detail%20test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/detail-test.yml)
 
 </div>
 
