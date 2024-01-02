@@ -6,8 +6,7 @@ sort_reverse = false
 show_hidden = true
 
 [opener]
-text = [
+edit = [
   { exec = 'vim "$@"', desc = "Vim", block = true },
   { exec = 'code "$@"', desc = "VSCode" },
-  { exec = 'open -R "$@"', desc = "Reveal in Finder" }
 ]
