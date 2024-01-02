@@ -7,6 +7,9 @@ alias dasel='dasel --colour'
 # diffastic
 alias diff='difft'
 
+# gh-dash
+alias ghd='gh-dash'
+
 # ghq
 alias gg='ghq get -p'
 alias gup='ghq list | ghq get --update --parallel'
@@ -170,5 +173,5 @@ alias mv='mv -iv'
 
 
 # Keybinds
-bindkey -s '^G' 'gcd^M'
-bindkey -s '^Z' 'zcd^M'
+bindkey -s '^G' '^Ugcd^M'
+bindkey -s '^Z' '^Uzcd^M'
