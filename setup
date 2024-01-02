@@ -206,8 +206,11 @@ installHomebrew() {
   (type brew &>/dev/null) && return 2
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
-    [ "$(uname -m)" = 'x86_64' ] && eval "$(/usr/local/bin/brew shellenv)"
-    [ "$(uname -m)" = 'arm64' ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+    if [[ "$(uname -m)" = 'x86_64' ]]; then
+      eval "$(/usr/local/bin/brew shellenv)"
+    elif [[ "$(uname -m)" = 'arm64' ]]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
   else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
