@@ -16,7 +16,7 @@ repos:
         exclude: ^(.*\.go|go\..*|.*\.plist)$
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.16.24
+    rev: v1.16.26
     hooks:
       - id: typos
 
