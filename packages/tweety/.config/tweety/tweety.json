@@ -9,5 +9,5 @@
   },
   "env": { "TMPDIR": "/tmp" },
   "defaultProfile": "zsh",
-  "profiles": { "zsh": { "command": "/usr/local/bin/zsh", "args": ["-il"] } }
+  "profiles": { "zsh": { "command": "/usr/bin/env", "args": ["zsh", "-il"] } }
 }
