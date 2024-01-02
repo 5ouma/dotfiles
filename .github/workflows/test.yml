@@ -35,7 +35,6 @@ jobs:
 
       - name: Run setup
         env:
-          SHELL: "null"
           SETUP_SKIP_installApps: true
           SETUP_SKIP_installDavinciResolve: true
           SETUP_SKIP_loginGitHubCli: true

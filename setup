@@ -279,7 +279,7 @@ installApps() {
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
-  [ "$SHELL" = "$(which zsh)" ] && return 2
+  [ "${SHELL:-""}" = "$(which zsh)" ] && return 2
   which zsh | sudo tee -a /etc/shells >/dev/null
   sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
