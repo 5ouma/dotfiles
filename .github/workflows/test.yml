@@ -28,7 +28,10 @@ jobs:
         run: |
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
           brew install atuin gitlint mackup pre-commit rtx sheldon vim zoxide zsh
-          [ "$(uname)" = 'Darwin' ] && brew install 5ouma/formula/mksei blacktop/tap/lporg || :
+
+      - name: Install macOS tools via Homebrew
+        if: ${{ matrix.os == 'macOS-Latest' }}
+        run: brew install 5ouma/formula/mksei blacktop/tap/lporg
 
       - name: Run setup
         env:
