@@ -34,7 +34,7 @@ jobs:
 
       - name: Run setup
         env:
-          SHELL: null
+          SHELL: "null"
           SETUP_SKIP_installDavinciResolve: true
           SETUP_SKIP_loginGitHubCli: true
           HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
