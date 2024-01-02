@@ -89,9 +89,9 @@ alias gss='git-su select'
 alias gu='gitui'
 
 # Homebrew
-[ "$(uname)" = 'Darwin' ] && brew() {
+[[ "$(uname)" == 'Darwin' ]] && brew() {
   if (command brew "$@"); then
-    if [[ "$1" = 'install' || "$1" = 'uninstall' || "$1" = 'tap' || "$1" = 'untap' ]]; then
+    if [[ "$1" == 'install' || "$1" == 'uninstall' || "$1" == 'tap' || "$1" == 'untap' ]]; then
       bbd
     fi
   else

@@ -107,7 +107,7 @@ run() {
   fi
   if eval '$1'; then
     gum executed
-  elif [[ $? = 2 ]]; then
+  elif [[ $? == 2 ]]; then
     gum skipped
   else
     exit 1
@@ -115,7 +115,7 @@ run() {
 }
 
 isDarwin() {
-  [ "$(uname)" = 'Darwin' ]
+  [[ "$(uname)" == 'Darwin' ]]
 }
 
 helpMsg() {
@@ -206,9 +206,9 @@ installHomebrew() {
   (type brew &>/dev/null) && return 2
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
-    if [[ "$(uname -m)" = 'x86_64' ]]; then
+    if [[ "$(uname -m)" == 'x86_64' ]]; then
       eval "$(/usr/local/bin/brew shellenv)"
-    elif [[ "$(uname -m)" = 'arm64' ]]; then
+    elif [[ "$(uname -m)" == 'arm64' ]]; then
       eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
   else
@@ -241,20 +241,20 @@ EOF
 
 changeLaunchpadSize() {
   declare -r springboardColumns="$(defaults read com.apple.dock springboard-columns)" springboardRows="$(defaults read com.apple.dock springboard-rows)" &>/dev/null
-  [[ $springboardColumns = 9 && $springboardRows = 8 ]] && return 2
+  [[ $springboardColumns == 9 && $springboardRows == 8 ]] && return 2
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
 } && run 'changeLaunchpadSize' '## 🚀 Change the Launchpad size' true
 
 makeDockImmutable() {
   declare -r sizeImmutable="$(defaults read com.apple.dock size-immutable)" &>/dev/null
-  [ "$sizeImmutable" = 1 ] && return 2
+  [[ "$sizeImmutable" == 1 ]] && return 2
   defaults write com.apple.dock size-immutable -bool true
 } && run 'makeDockImmutable' '## 🚥 Make Dock size immutable' true
 
 changeScreenCapturePath() {
   declare -r screenCaptureLocation="$(defaults read com.apple.screencapture location)" screenCaptures="$HOME/Pictures/Screen Captures" &>/dev/null
-  [ "$screenCaptureLocation" = "$screenCaptures" ] && return 2
+  [[ "$screenCaptureLocation" == "$screenCaptures" ]] && return 2
   mkdir -p "$screenCaptures"
   defaults write com.apple.screencapture location "$screenCaptures"
 } && run 'changeScreenCapturePath' '## 📷 Change screen capture path' true
@@ -262,7 +262,7 @@ changeScreenCapturePath() {
 setComputerName() {
   declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed 's/.*: //')"
   declare -r computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}"
-  [[ "$(scutil --get ComputerName)" = "$computerName" && "$(scutil --get HostName)" = "$computerName" && "$(scutil --get LocalHostName)" = "$localHostName" ]] && return 2
+  [[ "$(scutil --get ComputerName)" == "$computerName" && "$(scutil --get HostName)" == "$computerName" && "$(scutil --get LocalHostName)" == "$localHostName" ]] && return 2
   gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
   gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
   gum run 'Setting LocalHostName...' -- sudo scutil --set LocalHostName "$localHostName"
@@ -282,7 +282,7 @@ installApps() {
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
-  [ "${SHELL:-""}" = "$(which zsh)" ] && return 2
+  [[ "${SHELL:-""}" == "$(which zsh)" ]] && return 2
   which zsh | sudo tee -a /etc/shells >/dev/null
   sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
