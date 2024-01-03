@@ -260,7 +260,7 @@ changeScreenCapturePath() {
 } && run 'changeScreenCapturePath' '## 📷 Change screen capture path' true
 
 setComputerName() {
-  declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | sed 's/.*: //')"
+  declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | cut -d ':' -f 2 | xargs)"
   declare -r computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}"
   [[ "$(scutil --get ComputerName)" == "$computerName" && "$(scutil --get HostName)" == "$computerName" && "$(scutil --get LocalHostName)" == "$localHostName" ]] && return 2
   gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
@@ -282,7 +282,7 @@ installApps() {
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
-  [[ "${SHELL:-""}" == "$(which zsh)" ]] && return 2
+  [[ "${SHELL:-''}" == "$(which zsh)" ]] && return 2
   which zsh | sudo tee -a /etc/shells >/dev/null
   sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
