@@ -27,7 +27,7 @@ jobs:
       - name: Install tools via Homebrew
         run: |
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
-          brew install atuin gitlint mackup pre-commit rtx sheldon vim zoxide zsh
+          brew install atuin gitlint mackup mise pre-commit sheldon vim zoxide zsh
 
       - name: Install macOS tools via Homebrew
         if: ${{ matrix.os == 'macOS-Latest' }}

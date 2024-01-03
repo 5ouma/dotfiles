@@ -324,9 +324,9 @@ loginGitHubCli() {
 } && run 'loginGitHubCli' '## 🐙 Login to GitHub CLI'
 
 installProgrammingLanguages() {
-  eval "$(rtx activate -q zsh)"
-  [ -z "$(rtx ls --missing)" ] && return 2
-  rtx install
+  eval "$(mise activate -q zsh)"
+  [ -z "$(mise ls --missing)" ] && return 2
+  mise install
 } && run 'installProgrammingLanguages' '## 📼 Install programming languages'
 
 installVimPlugins() {

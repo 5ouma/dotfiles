@@ -123,10 +123,10 @@ Flags:
 
 <br />
 
-- ### 📼 Runtime Manager: [`rtx`](https://github.com/jdxcode/rtx)
+- ### 📼 Runtime Manager: [`mise`](https://github.com/jdx/mise)
 
   ```shell
-  brew install rtx
+  brew install mise
   ```
 
 <br />

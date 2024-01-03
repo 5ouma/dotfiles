@@ -40,6 +40,7 @@ pull_only_repos = ["~/*", "~/ghq/*/*/*"]
     printf '\\033[33;1mSkipped\\033[m\n'
   fi
 """
+"mise" = "mise plugins update && mise upgrade"
 "mksei" = """
   if (type mksei &>/dev/null); then
     mksei save "$data/keyboard_shortcuts.json"
@@ -47,4 +48,3 @@ pull_only_repos = ["~/*", "~/ghq/*/*/*"]
     printf '\\033[33;1mSkipped\\033[m\n'
   fi
 """
-"rtx" = "rtx plugins update && rtx upgrade"

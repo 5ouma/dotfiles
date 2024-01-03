@@ -25,8 +25,8 @@ export HOMEBREW_NO_ENV_HINTS=1
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 mkdir -p "$(dirname "$LESSHISTFILE")"
 
-# rtx
-export RTX_USE_TOML=1
+# mise
+export MISE_USE_TOML=1
 
 # Vim
 export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
