@@ -1,4 +1,4 @@
-name: Test
+name: 🧪 Test
 
 on:
   push:
@@ -20,20 +20,20 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Setup Homebrew
+      - name: 🍺 Setup Homebrew
         id: setup-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Install tools via Homebrew
+      - name: 🔨 Install tools via Homebrew
         run: |
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
           brew install atuin gitlint mackup mise pre-commit sheldon vim zoxide zsh
 
-      - name: Install macOS tools via Homebrew
+      - name: 🍎 Install macOS tools via Homebrew
         if: ${{ matrix.os == 'macOS-Latest' }}
         run: brew install 5ouma/formula/mksei blacktop/tap/lporg
 
-      - name: Run setup
+      - name: ⚙️ Run setup
         env:
           SETUP_SKIP_installApps: true
           SETUP_SKIP_installDavinciResolve: true
@@ -41,5 +41,5 @@ jobs:
           SETUP_SKIP_restoreLaunchpad: true
         run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
 
-      - name: Launch New Login Shell
+      - name: 🐚 Launch New Login Shell
         run: exec zsh -ilexc exit

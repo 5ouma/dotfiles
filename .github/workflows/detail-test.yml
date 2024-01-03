@@ -1,4 +1,4 @@
-name: Detail Test
+name: 🧪 Detail Test
 
 on:
   schedule:
@@ -13,11 +13,11 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Install Dependencies
+      - name: 🧰 Install Dependencies
         if: ${{ matrix.os == 'Ubuntu-Latest' }}
         run: sudo apt-get install -y build-essential procps curl file git zsh
 
-      - name: Uninstall Homebrew Related
+      - name: 🍺 Uninstall Homebrew Related
         env:
           NONINTERACTIVE: 1
         if: ${{ matrix.os == 'macOS-Latest' }}
@@ -25,19 +25,19 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
 
-      - name: Skip mas
+      - name: 📦 Skip mas
         id: skip
         if: ${{ matrix.os == 'macOS-Latest' }}
         run: |
           declare -r HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
           echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
 
-      - name: Run setup
+      - name: ⚙️ Run setup
         env:
           SETUP_SKIP_installDavinciResolve: true
           SETUP_SKIP_loginGitHubCli: true
           HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
         run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
 
-      - name: Launch New Login Shell
+      - name: 🐚 Launch New Login Shell
         run: exec zsh -ilexc exit
