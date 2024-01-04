@@ -65,7 +65,7 @@ end)
 
 FileSyncTimer = hs.timer.new(60 * 60, function()
   local folder = os.getenv("HOME") .. "/Storage/0001_data_app-data/FreeFileSync/"
-  local files = { "Sync iCloud.ffs_batch", "Sync Storage.ffs_batch" }
+  local files = { "Sync iCloud.ffs_batch" }
   for _, file in ipairs(files) do hs.open(folder .. file) end
 end):start()
 

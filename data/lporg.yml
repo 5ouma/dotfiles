@@ -53,11 +53,9 @@ apps:
             - number: 1
               items:
                 - Google Drive
-                - Dropbox
                 - Itsycal
                 - MacUpdater
                 - RunCat
-                - MenubarX
                 - Gitify
                 - Hidden Bar
                 - Karabiner-Elements
