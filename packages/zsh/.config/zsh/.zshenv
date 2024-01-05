@@ -14,3 +14,6 @@ fi
 export dotfiles="$HOME/.dotfiles"
 export data="$dotfiles/data"
 export PATH="$dotfiles:$PATH"
+
+# mise
+export PATH="$HOME/.local/share/mise/shims:$PATH"
