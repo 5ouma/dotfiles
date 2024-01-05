@@ -11,4 +11,4 @@ eval "$(mise activate -q zsh)"
 zsh-defer source "$HOME/.orbstack/shell/init.zsh"
 
 # zoxide
-zsh-defer eval "$(zoxide init zsh --cmd=j)"
+zsh-defer eval "$(zoxide init zsh --cmd=cd)"
