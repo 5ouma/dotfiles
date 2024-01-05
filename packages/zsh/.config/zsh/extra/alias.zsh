@@ -33,8 +33,8 @@ alias glg='git log --graph'
 alias gls='git ls-files'
 alias gm='git merge'
 alias gop='git open'
-alias gpl='git pull origin'
-alias gps='git push origin'
+alias gpl='git pull'
+alias gps='git push'
 alias gr='git remote'
 alias grb='git rebase'
 alias grba='git rebase --abort'
@@ -83,10 +83,6 @@ gc() {
     git commit -em "$message"
   fi
 }
-
-# gitsu
-alias gsi='git-su init'
-alias gss='git-su select'
 
 # gitui
 alias gu='gitui'
