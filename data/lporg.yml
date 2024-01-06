@@ -17,8 +17,6 @@ apps:
         - FaceTime
         - Messages
         - LINE
-        - Discord
-        - Discord PTB
         - Maps
         - Find My
         - Photo Booth
@@ -30,14 +28,16 @@ apps:
         - TV
         - Voice Memos
         - iMovie
+        - Weather
         - Stocks
         - Books
         - Dictionary
         - Calculator
+        - Freeform
         - Home
+        - Clock
         - Siri
-        - Mission Control
-        - System Preferences
+        - System Settings
         - Xcode
         - Visual Studio Code
         - Visual Studio Code - Insiders
@@ -47,6 +47,8 @@ apps:
         - Figma
         - Aseprite
         - Blender
+        - Discord
+        - Discord PTB
         - Rhythm Quest Demo
         - folder: Resident Apps
           pages:
@@ -104,6 +106,7 @@ apps:
                 - Grapher
                 - Time Machine
                 - Font Book
+                - Mission Control
                 - Chess
                 - Stickies
                 - Image Capture
@@ -141,7 +144,7 @@ dock_items:
     - /Applications/Email.app
     - ""
     - /System/Applications/App Store.app
-    - /System/Applications/System Preferences.app
+    - /System/Applications/System Settings.app
     - /Applications/1Password.app
     - /System/Applications/Utilities/Activity Monitor.app
     - ""

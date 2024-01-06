@@ -34,7 +34,7 @@ My config files and setup for CLI tools and GUI apps.
 
 - ### 🍎 macOS
 
-  - **macOS** Monterey `Version 12` or later
+  - **macOS** Ventura `Version 13` or later
   - Intel or Apple Silicon Mac
 
 - ### 🐧 Linux

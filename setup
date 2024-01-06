@@ -244,6 +244,7 @@ changeLaunchpadSize() {
   [[ $springboardColumns == 9 && $springboardRows == 8 ]] && return 2
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
+  killall Dock
 } && run 'changeLaunchpadSize' '## 🚀 Change the Launchpad size' true
 
 makeDockImmutable() {
@@ -298,7 +299,7 @@ restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
   (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null) && return 2
   # shellcheck disable=SC2016
-  gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml"
+  gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml" >/dev/null
 } && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
 
 restoreAppSettings() {
