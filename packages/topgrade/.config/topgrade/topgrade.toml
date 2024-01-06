@@ -5,6 +5,7 @@ display_time = false
 cleanup = true
 
 [brew]
+greedy_cask = true
 autoremove = true
 
 [git]
