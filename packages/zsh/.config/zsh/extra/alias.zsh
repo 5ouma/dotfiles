@@ -113,7 +113,7 @@ alias bs='brew search'
 alias bsv='brew services'
 alias bt='brew tap'
 alias bui='brew uninstall --zap'
-alias bup='brew update && brew upgrade'
+alias bup='brew update && brew upgrade --greedy'
 alias but='brew untap'
 
 bbd() {
