@@ -39,7 +39,7 @@ jobs:
           SETUP_SKIP_installDavinciResolve: true
           SETUP_SKIP_loginGitHubCli: true
           SETUP_SKIP_restoreLaunchpad: true
-        run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
+        run: zsh <(curl -sL "dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}") --yes
 
       - name: 🐚 Launch New Login Shell
         run: exec zsh -ilexc exit

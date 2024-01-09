@@ -29,7 +29,7 @@ jobs:
         id: skip
         if: ${{ matrix.os == 'macOS-13' }}
         run: |
-          declare -r HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
+          declare HOMEBREW_BUNDLE_MAS_SKIP && HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s "https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
           echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
 
       - name: ⚙️ Run setup
@@ -37,7 +37,7 @@ jobs:
           SETUP_SKIP_installDavinciResolve: true
           SETUP_SKIP_loginGitHubCli: true
           HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
-        run: zsh <(curl -sL dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}) --yes
+        run: zsh <(curl -sL "dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}") --yes
 
       - name: 🐚 Launch New Login Shell
         run: exec zsh -ilexc exit
