@@ -76,7 +76,7 @@ gc() {
   [ -z "$description" ] && return 1
   declare -r body="$(gum input --placeholder='Additional contextual information about the code changes' --header="$message" --char-limit=80 --width=80)" && message+=$'\n'$'\n'"$body"
   [ -z "$body" ] && return 1
-  printf "%s\n" "$message"
+  printf "%s\n\n" "$message"
   if (gum confirm 'Commit changes without editing?'); then
     git commit -m "$message"
   else
