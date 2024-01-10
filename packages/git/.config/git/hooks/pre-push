@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-(! type op &>/dev/null) && exit
+(type op &>/dev/null) || exit
 
 itemData="$(op item get 'Notion Git Integration' --fields='label=database-id,credential')" && declare -r itemData
 databaseId="$(echo "$itemData" | cut -d ',' -f 1)" && declare -r databaseId
