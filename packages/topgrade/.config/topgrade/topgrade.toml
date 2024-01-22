@@ -9,7 +9,7 @@ greedy_cask = true
 autoremove = true
 
 [git]
-pull_only_repos = ["~/*", "~/ghq/*/*/*"]
+repos = ["~/*", "~/ghq/*/*/*"]
 
 [commands]
 "Jetpack" = "vim +Jetpack +qall"
