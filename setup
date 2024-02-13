@@ -101,9 +101,10 @@ mkSym() {
 # Utilities
 alias skip='skipped=true && return'
 run() {
+  declare -r func="${1:u}"
   gum format "$2"
-  (${3:-false} && ! isDarwin) && eval 'declare SETUP_SKIP_$1=true'
-  if (eval '${SETUP_SKIP_'"$1:-false}"); then
+  (${3:-false} && ! isDarwin) && eval 'declare SETUP_SKIP_'"$func"'=true'
+  if (eval '${SETUP_SKIP_'"$func"':-false}'); then
     gum skipped
     return
   fi
