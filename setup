@@ -11,7 +11,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 declare -r githubUrl='https://github.com/5ouma/dotfiles'
 declare -r dotfiles="$HOME/.dotfiles"
-declare -r packages="$dotfiles/packages"
+declare -r config="$dotfiles/config"
 declare -r data="$dotfiles/data"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 declare -r GIT_REF="${GITHUB_HEAD_REF:-main}"
@@ -73,29 +73,29 @@ getDot() {
 }
 
 checkSym() {
-  declare -Ag packs
-  while read -r pack; do
-    declare file="${pack#"$packages"/*/}"
-    if [[ ! -f "$HOME/$file" ]] || (! diff "$pack" "$HOME/$file" &>/dev/null); then
-      packs[$file]=$pack
+  declare -Ag cfgs
+  while read -r cfg; do
+    declare file="${cfg#"$config"/*/}"
+    if [[ ! -f "$HOME/$file" ]] || (! diff "$cfg" "$HOME/$file" &>/dev/null); then
+      cfgs[$file]=$cfg
     fi
-  done < <(find "$packages" -type f ! -name '.DS_Store')
-  ((${#packs} > 0))
+  done < <(find "$config" -type f ! -name '.DS_Store')
+  ((${#cfgs} > 0))
 }
 
 mkSym() {
   # shellcheck disable=SC2296
   while read -r file; do
     mkdir -p "$(dirname "$HOME/$file")"
-    if [[ -f "$HOME/$file" ]]; then
+    if [[ -f "$HOME/$file" || -L "$HOME/$file" ]]; then
       mkdir -p "$HOME/.backup"
       mv "$HOME/$file" "$HOME/.backup/$(date +'%H%M%S')_$(basename "$file")"
     fi
-    ln -s "${packs[$file]}" "$HOME/$file"
+    ln -s "${cfgs[$file]}" "$HOME/$file"
     # shellcheck disable=SC2088
-    echo "- $(gum style 6 "~/$file")"
-  done < <(printf "%s\n" "${(k)packs[@]}" | sort) | gum format
-  unset packs
+    printf "- \033[36m%s\033[m\n" "~/$file"
+  done < <(printf "%s\n" "${(k)cfgs[@]}" | sort) | gum format
+  unset cfgs
 }
 
 # Utilities
