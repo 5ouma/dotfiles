@@ -128,10 +128,12 @@ helpMsg() {
 
 > ⚙️ The most minimal and powerful dotfiles ever.
 
+## Commands:
+-  help    Print help information
+-  set     Set files to home directory
+
 ## Flags:
--  -h, --help    Print help information
--  -y, --yes     Start without confirmation
--  -s, --set     Set files to home directory
+-  -y, --yes    Start without confirmation
 EOM
 }
 
@@ -171,17 +173,17 @@ EOM
   fi
 else
   case "$1" in
-  '-h' | '--help')
+  'help')
     helpMsg
+    exit
+    ;;
+  'set')
+    getDot && checkSym && mkSym
     exit
     ;;
   '-y' | '--yes')
     goThrough=true
     export NONINTERACTIVE=1
-    ;;
-  '-s' | '--set')
-    getDot && checkSym && mkSym
-    exit
     ;;
   *)
     gum format <<EOM

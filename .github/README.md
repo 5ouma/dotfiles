@@ -63,24 +63,28 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 > _Just config files_
 >
 > ```shell
-> zsh <(curl -sL dotup.vercel.app) --set
+> zsh <(curl -sL dotup.vercel.app) set
 > ```
 
 <br /><br />
 
 ## 📊 Usage
 
-### `setup --help`
+### `setup help`
 
 ```shell
-Usage: setup
+  ▌ Usage: setup
 
-⚙️ The most minimal and powerful dotfiles ever.
+  │ ⚙️ The most minimal and powerful dotfiles ever.
 
-Flags:
-  -h, --help    Print help information
-  -y, --yes     Start without confirmation
-  -s, --set     Set files to home directory
+  ▌ Commands:
+
+  • help    Print help information
+  • set     Set files to home directory
+
+  ▌ Flags:
+
+  • -y, --yes    Start without confirmation
 ```
 
 <br /><br />
