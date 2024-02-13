@@ -58,7 +58,7 @@ jobs:
 
       - name: 🔍 Check the Changes
         id: changes
-        uses: UnicornGlobal/has-changes-action@v1.0.11
+        uses: UnicornGlobal/has-changes-action@v1.0.12
 
       - name: ⬆️ Commit & Push Changes
         if: ${{ steps.changes.outputs.changed == 1 }}
