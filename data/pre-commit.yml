@@ -16,12 +16,12 @@ repos:
         exclude: ^(.*\.go|go\..*|.*\.plist)$
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.17.2
+    rev: typos-v0.10.20
     hooks:
       - id: typos
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.18.1
+    rev: v8.18.2
     hooks:
       - id: gitleaks
 
@@ -31,7 +31,7 @@ repos:
       - id: actionlint
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.38.0
+    rev: v0.39.0
     hooks:
       - id: markdownlint-fix
 
