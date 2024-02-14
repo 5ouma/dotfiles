@@ -16,7 +16,7 @@ jobs:
   Test:
     strategy:
       matrix:
-        os: [Ubuntu-Latest, macOS-13]
+        os: [Ubuntu-Latest, macOS-13, macOS-14]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -30,7 +30,7 @@ jobs:
           brew install atuin gitlint mackup mise pre-commit sheldon vim zoxide zsh
 
       - name: 🍎 Install macOS tools via Homebrew
-        if: ${{ matrix.os == 'macOS-13' }}
+        if: ${{ matrix.os == 'macOS-13' || matrix.os == 'macOS-14' }}
         run: brew install 5ouma/formula/mksei blacktop/tap/lporg
 
       - name: ⚙️ Run setup
