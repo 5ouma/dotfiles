@@ -29,7 +29,7 @@ getGum() {
 
   if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
-    curl -sL "$gumUrl" | tar -zxC "$TMPDIR" 'gum' && alias gumCom='$TMPDIR/gum'
+    curl -sL "$gumUrl" | tar zxC "$TMPDIR" 'gum' && alias gumCom='$TMPDIR/gum'
     printf '\r                        '
   else
     alias gumCom='$(which gum)'
@@ -343,7 +343,7 @@ installVimPlugins() {
   export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
-  gum run 'Building a binary of vim-lumen...' -- vim +qall
+  gum run 'Building a binary of vim-lumen...' -- vim +qall!
 } && run 'installVimPlugins' '## 🖌 Install Vim plugins'
 
 #==================================================[ Done! ]==================================================#
