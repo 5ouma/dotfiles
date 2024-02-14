@@ -46,6 +46,7 @@ jobs:
           title: |
             chore(deps): Bump charmbracelet/gum to ${{ steps.gum.outputs.version }}
           body: Bumps [charmbracelet/gum](https://github.com/charmbracelet/gum) to ${{ steps.gum.outputs.version }}
+          labels: dependencies
 
   pre-commit:
     runs-on: Ubuntu-Latest
@@ -77,3 +78,4 @@ jobs:
           title: |
             chore(deps): Bump pre-commit hooks
           body: Bumps some [pre-commit/pre-commit](https://github.com/pre-commit/pre-commit) hooks.
+          labels: dependencies
