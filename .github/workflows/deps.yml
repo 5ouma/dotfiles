@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   Gum:
@@ -32,15 +33,19 @@ jobs:
           replace: ${{ steps.gum.outputs.version }}
           include: "setup"
 
-      - name: ⬆️ Commit & Push Changes
+      - name: 🎈 Create Pull Request
         if: ${{ steps.find-replace.outputs.modifiedFiles > 0 }}
-        uses: actions-js/push@v1.4
+        uses: peter-evans/create-pull-request@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: |
+          commit-message: |
             chore(setup): Version up Gum version
 
             Change Gum version to v${{ steps.gum.outputs.version }}.
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          branch: bump-gum
+          title: |
+            chore(deps): Bump charmbracelet/gum to ${{ steps.gum.outputs.version }}
+          body: Bumps [charmbracelet/gum](https://github.com/charmbracelet/gum) to ${{ steps.gum.outputs.version }}
 
   pre-commit:
     runs-on: Ubuntu-Latest
@@ -59,12 +64,16 @@ jobs:
         id: changes
         run: echo "changes=$(git status --porcelain)" | tee -a "$GITHUB_OUTPUT"
 
-      - name: ⬆️ Commit & Push Changes
+      - name: 🎈 Create Pull Request
         if: ${{ steps.changes.outputs.changes != '' }}
-        uses: actions-js/push@v1.4
+        uses: peter-evans/create-pull-request@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: |
-            chore(pre-commit): Update pre-commit tools
+          commit-message: |
+            chore(pre-commit): Update pre-commit hooks
 
             To use the latest feature of pre-commit.
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          branch: bump-pre-commit
+          title: |
+            chore(deps): Bump pre-commit hooks
+          body: Bumps some [pre-commit/pre-commit](https://github.com/pre-commit/pre-commit) hooks.
