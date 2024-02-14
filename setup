@@ -343,7 +343,7 @@ installVimPlugins() {
   export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
   export VIMINIT="source $MYVIMRC"
   vim +Jetpack +qall
-  gum run 'Building a binary of vim-lumen...' -- vim +qall!
+  # gum run 'Building a binary of vim-lumen...' -- vim +qall!
 } && run 'installVimPlugins' '## 🖌 Install Vim plugins'
 
 #==================================================[ Done! ]==================================================#
