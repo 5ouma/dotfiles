@@ -15,5 +15,8 @@ export dotfiles="$HOME/.dotfiles"
 export data="$dotfiles/data"
 export PATH="$dotfiles:$PATH"
 
+# Go
+export GOPATH="$XDG_CACHE_HOME/go"
+
 # mise
 export PATH="$HOME/.local/share/mise/shims:$PATH"
