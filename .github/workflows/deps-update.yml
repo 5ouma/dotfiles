@@ -61,12 +61,14 @@ jobs:
       - name: 🚸 Auto-update pre-commit.yml
         run: pre-commit autoupdate -c='data/pre-commit.yml'
 
-      - name: 🔍 Check the Changes
-        id: changes
-        run: echo "changes=$(git status --porcelain)" | tee -a "$GITHUB_OUTPUT"
+      - name: 🔍 Check the Result
+        id: result
+        uses: andstor/file-existence-action@v3
+        with:
+          files: data/pre-commit.yml
 
       - name: 🎈 Create Pull Request
-        if: ${{ steps.changes.outputs.changes != '' }}
+        if: ${{ steps.result.outputs.files_exists == 'true' }}
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: |
