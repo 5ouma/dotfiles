@@ -26,6 +26,7 @@ jobs:
 
       - name: 🔨 Install tools via Homebrew
         run: |
+          rm -fv /Library/Frameworks/Python.framework/Versions/3.11/bin/{2to3-3.11,idle3.11,pydoc3.11,python3.11,python3.11-config}
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
           brew install atuin gitlint mackup mise pre-commit sheldon vim zoxide zsh
 

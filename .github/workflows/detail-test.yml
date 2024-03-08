@@ -23,6 +23,7 @@ jobs:
         if: ${{ matrix.os == 'macOS-13' || matrix.os == 'macOS-14' }}
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+          rm -fv /Library/Frameworks/Python.framework/Versions/3.11/bin/{2to3-3.11,idle3.11,pydoc3.11,python3.11,python3.11-config}
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
 
       - name: 📦 Skip mas
