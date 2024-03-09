@@ -32,7 +32,7 @@ jobs:
 
       - name: 🍎 Install macOS tools via Homebrew
         if: ${{ matrix.os == 'macOS-13' || matrix.os == 'macOS-14' }}
-        run: brew install 5ouma/formula/mksei blacktop/tap/lporg
+        run: brew install 5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg
 
       - name: ⚙️ Run setup
         env:

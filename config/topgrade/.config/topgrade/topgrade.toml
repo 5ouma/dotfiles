@@ -49,3 +49,10 @@ repos = ["~/*", "~/ghq/*/*/*"]
     printf '\\033[33;1mSkipped\\033[m\n'
   fi
 """
+"mli" = """
+  if (type mli &>/dev/null); then
+    mli save -f --file="$data/login_items.json"
+  else
+    printf '\\033[33;1mSkipped\\033[m\n'
+  fi
+"""

@@ -1,0 +1,137 @@
+[
+  {
+    "Name": "1Password",
+    "Path": "/Applications/1Password.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Activity Monitor",
+    "Path": "/System/Applications/Utilities/Activity Monitor.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Alfred 5",
+    "Path": "/Applications/Alfred 5.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Discord",
+    "Path": "/Applications/Discord.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Discord PTB",
+    "Path": "/Applications/Discord PTB.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Displaperture",
+    "Path": "/Applications/Displaperture.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Email",
+    "Path": "/Applications/Email.app",
+    "Hidden": false
+  },
+  {
+    "Name": "FigmaAgent",
+    "Path": "/Users/souma/Library/Application Support/Figma/FigmaAgent.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Fuwari",
+    "Path": "/Applications/Fuwari.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Gitify",
+    "Path": "/Applications/Gitify.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Google Drive",
+    "Path": "/Applications/Google Drive.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Hammerspoon",
+    "Path": "/Applications/Hammerspoon.app",
+    "Hidden": false
+  },
+  {
+    "Name": "HandyPalette",
+    "Path": "/Applications/HandyPalette.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Hidden Bar",
+    "Path": "/Applications/Hidden Bar.app",
+    "Hidden": false
+  },
+  {
+    "Name": "HotKey",
+    "Path": "/Applications/HotKey.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Itsycal",
+    "Path": "/Applications/Itsycal.app",
+    "Hidden": false
+  },
+  {
+    "Name": "LINE",
+    "Path": "/Applications/LINE.app",
+    "Hidden": false
+  },
+  {
+    "Name": "MacUpdater",
+    "Path": "/Applications/MacUpdater.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Mail",
+    "Path": "/System/Applications/Mail.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Notion",
+    "Path": "/Applications/Notion.app",
+    "Hidden": false
+  },
+  {
+    "Name": "OrbStack",
+    "Path": "/Applications/OrbStack.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Raycast",
+    "Path": "/Applications/Raycast.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Rectangle",
+    "Path": "/Applications/Rectangle.app",
+    "Hidden": false
+  },
+  {
+    "Name": "RunCat",
+    "Path": "/Applications/RunCat.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Spark Desktop",
+    "Path": "/Applications/Spark Desktop.app",
+    "Hidden": false
+  },
+  {
+    "Name": "Speedtest",
+    "Path": "/Applications/Speedtest.app",
+    "Hidden": false
+  },
+  {
+    "Name": "TickTick",
+    "Path": "/Applications/TickTick.app",
+    "Hidden": false
+  }
+]
