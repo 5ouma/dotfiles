@@ -38,7 +38,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: |
-            chore(setup): Version up Gum version
+            chore(setup): Version up Gum
 
             Change Gum version to v${{ steps.gum.outputs.version }}.
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
