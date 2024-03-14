@@ -1,29 +1,30 @@
+[user]
+  name = 5ouma
+  email = 101255979+5ouma@users.noreply.github.com
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAwUx3QBgemsReA0yxOb+Yc6tZPVmDQ+ALy/4PhM9f5s
 [core]
   hooksPath = ~/.config/git/hooks
-[diff]
-  external = difft
-[init]
-  defaultBranch = main
-[commit]
-  gpgsign = true
-  verbose = true
-[clone]
-  recurse-submodule = true
 [gpg]
   format = ssh
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[init]
+  defaultBranch = main
+[clone]
+  recurse-submodule = true
+[commit]
+  gpgsign = true
+  verbose = true
 [log]
   decorate = true
 [push]
   autoSetupRemote = true
   default = simple
+[rebase]
+  autostash = true
 [tag]
   gpgsign = true
-[user]
-  name = 5ouma
-  email = 101255979+5ouma@users.noreply.github.com
-  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAwUx3QBgemsReA0yxOb+Yc6tZPVmDQ+ALy/4PhM9f5s
 
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
