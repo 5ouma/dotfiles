@@ -34,8 +34,8 @@ My config files and setup for CLI tools and GUI apps.
 
 - ### 🍎 macOS
 
-  - **macOS** Ventura `Version 13` or later
-  - Intel or Apple Silicon Mac
+  - **macOS** Sonoma `Version 14` or later
+  - Apple Silicon Mac
 
 - ### 🐧 Linux
 

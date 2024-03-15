@@ -212,11 +212,7 @@ installHomebrew() {
   (type brew &>/dev/null) && skip
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
-    if [[ "$(uname -m)" == 'x86_64' ]]; then
-      eval "$(/usr/local/bin/brew shellenv)"
-    elif [[ "$(uname -m)" == 'arm64' ]]; then
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
@@ -235,16 +231,8 @@ setSymlink() {
 
 # shellcheck disable=SC2016
 enableTouchID() {
-  [[ "$(cat /etc/pam.d/sudo)" =~ pam_tid.so ]] && skip
-  cat <<EOF | sudo tee /etc/pam.d/sudo >/dev/null
-# sudo: auth account password session
-auth       sufficient     pam_tid.so
-auth       sufficient     pam_smartcard.so
-auth       required       pam_opendirectory.so
-account    required       pam_permit.so
-password   required       pam_deny.so
-session    required       pam_permit.so
-EOF
+  [[ -f '/etc/pam.d/sudo_local' ]] && skip
+  sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local >/dev/null
 } && run 'enableTouchID' '## 👑 Enable Touch ID for `sudo`' true
 
 changeLaunchpadSize() {
