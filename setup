@@ -203,6 +203,13 @@ if (! $goThrough); then
   gum confirm "Let's start setup!" 'Yes!' 'No' || exit 1
 fi
 
+# Install Command Line Tools
+if (isDarwin && ! xcode-select -p &>/dev/null); then
+  xcode-select --install
+  gum confirm 'Continue when you done' 'Done' ''
+  sudo xcodebuild -license accept
+fi
+
 # Clone / Pull the repository
 getDot
 
