@@ -36,7 +36,6 @@ jobs:
       - name: ⚙️ Run setup
         env:
           SETUP_SKIP_INSTALLAPPS: true
-          SETUP_SKIP_INSTALLDAVINCIRESOLVE: true
           SETUP_SKIP_LOGINGITHUBCLI: true
           SETUP_SKIP_RESTORELAUNCHPAD: true
         run: zsh <(curl -sL "dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}") --yes

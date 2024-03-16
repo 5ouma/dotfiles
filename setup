@@ -291,13 +291,6 @@ changeLoginShell() {
   sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
 
-installDavinciResolve() {
-  [ -d '/Applications/DaVinci Resolve' ] && skip
-  sleep 2
-  open 'https://www.blackmagicdesign.com/products/davinciresolve'
-  gum confirm 'Continue when you done' 'Done' ''
-} && run 'installDavinciResolve' '### 🎨 Install DaVinci Resolve' true
-
 restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
   (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null) && skip
