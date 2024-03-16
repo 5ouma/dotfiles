@@ -295,16 +295,16 @@ restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
   (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null) && skip
   # shellcheck disable=SC2016
-  gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml" >/dev/null
+  gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml" >/dev/null || :
 } && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
 
 restoreAppSettings() {
-  [[ -z "$(mackup -n backup 2>/dev/null)" || ! $? ]] && skip
+  [[ -z "$(mackup -n backup 2>/dev/null)" && $? ]] && skip
   mackup restore
 } && run 'restoreAppSettings' '## 💾 Restore application settings' true
 
 restoreAppShortcuts() {
-  (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null) && skip
+  [[ ! "$(defaults read com.apple.universalaccess com.apple.custommenu.apps)" =~ "NSGlobalDomain" && $? ]] && skip
   # shellcheck disable=SC2016
   gum run 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
 } && run 'restoreAppShortcuts' '## ⌨️ Restore App Shortcuts' true

@@ -127,6 +127,8 @@ apps:
                 - Screenshot
                 - Bluetooth File Exchange
                 - Audio MIDI Setup
+                - Screen Sharing
+                - Print Center
 widgets:
   pages: []
 dock_items:
@@ -161,10 +163,10 @@ dock_items:
       sort: 1
   settings:
     autohide: true
-    largesize: 33
+    largesize: 38
     magnification: true
     minimize-to-application: true
     mru-spaces: false
     show-recents: false
-    tilesize: 30
+    tilesize: 35
 desktop: {}
