@@ -207,7 +207,6 @@ fi
 if (isDarwin && ! xcode-select -p &>/dev/null); then
   xcode-select --install
   gum confirm 'Continue when you done' 'Done' ''
-  sudo xcodebuild -license accept
 fi
 
 # Clone / Pull the repository
@@ -283,6 +282,7 @@ installApps() {
   (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg'
   (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && skip
   brew update && brew bundle install --no-lock --file="$data/Brewfile"
+  (isDarwin) && sudo xcodebuild -license accept
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
