@@ -15,7 +15,10 @@
         "Hide TickTick": "⌘W",
         "Sync": "⌘R"
     },
-    "com.apple.mail": [],
+    "com.apple.mail": {
+        "Get New Mail": "⌘R",
+        "Hide Mail": "⌘W"
+    },
     "com.1password.1password": {
         "Hide 1Password": "⌘W"
     },

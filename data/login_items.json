@@ -10,11 +10,6 @@
     "Hidden": false
   },
   {
-    "Name": "Alfred 5",
-    "Path": "/Applications/Alfred 5.app",
-    "Hidden": false
-  },
-  {
     "Name": "Discord",
     "Path": "/Applications/Discord.app",
     "Hidden": false
@@ -25,18 +20,13 @@
     "Hidden": false
   },
   {
-    "Name": "Displaperture",
-    "Path": "/Applications/Displaperture.app",
-    "Hidden": false
-  },
-  {
     "Name": "Email",
     "Path": "/Applications/Email.app",
     "Hidden": false
   },
   {
     "Name": "FigmaAgent",
-    "Path": "/Users/souma/Library/Application Support/Figma/FigmaAgent.app",
+    "Path": "~/Library/Application Support/Figma/FigmaAgent.app",
     "Hidden": false
   },
   {

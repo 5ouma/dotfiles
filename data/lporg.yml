@@ -64,10 +64,8 @@ apps:
                 - Karabiner-EventViewer
                 - HotKey
                 - Hammerspoon
-                - Alfred 5
                 - Raycast
                 - AltTab
-                - Displaperture
                 - Rectangle
                 - HandyPalette
                 - Fuwari
@@ -91,7 +89,7 @@ apps:
                 - FocusRecorder
                 - CodeWhisperer
                 - OpenInTerminal
-                - Blackmagic Proxy Generator Lite
+                - VirtualBuddy
                 - Syntax Highlight
                 - QLMarkdown
                 - Apparency
@@ -121,7 +119,6 @@ apps:
                 - Automator
                 - Script Editor
                 - Disk Utility
-                - Boot Camp Assistant
                 - Digital Color Meter
                 - ColorSync Utility
                 - Screenshot
