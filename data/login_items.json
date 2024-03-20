@@ -50,13 +50,13 @@
     "Hidden": false
   },
   {
-    "Name": "Hidden Bar",
-    "Path": "/Applications/Hidden Bar.app",
+    "Name": "HotKey",
+    "Path": "/Applications/HotKey.app",
     "Hidden": false
   },
   {
-    "Name": "HotKey",
-    "Path": "/Applications/HotKey.app",
+    "Name": "Ice",
+    "Path": "/Applications/Ice.app",
     "Hidden": false
   },
   {
