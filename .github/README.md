@@ -166,7 +166,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
     > See plugins in **[`plugins.toml`]**
     > or on **[`Zsh Plugins`]** _(GitHub Star List)_
 
-    [`plugins.toml`]: ../packages/sheldon/.config/sheldon/plugins.toml
+    [`plugins.toml`]: ../config/sheldon/.config/sheldon/plugins.toml
     [`Zsh Plugins`]: https://github.com/stars/5ouma/lists/zsh-plugins
 
   - #### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
@@ -196,7 +196,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
     > See plugins in **[`plugins.vim`]**
     > or on **[`Vim Plugins`]** _(GitHub Star List)_
 
-    [`plugins.vim`]: ../packages/vim/.config/vim/plugins.vim
+    [`plugins.vim`]: ../config/vim/.config/vim/plugins.vim
     [`Vim Plugins`]: https://github.com/stars/5ouma/lists/vim-plugins
 
   - #### ✏️ Color Scheme: [`Pencil`](https://github.com/5ouma/vim-colors-pencil)
