@@ -88,6 +88,11 @@ DesktopPictureWatcher = hs.caffeinate.watcher.new(function(eventType)
 end):start()
 
 
+-- Restore Mackup
+hs.execute [["mackup" "uninstall" "-f"]]
+hs.execute [["mackup" "backup" "-f"]]
+
+
 -- Spotify Advertisements Skipper
 
 IsSpotifyQuit = false
