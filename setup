@@ -315,6 +315,12 @@ restoreLoginItems() {
   gum run 'Running `mli load`...' -- mli load --file="$data/login_items.json"
 } && run 'restoreLoginItems' '## 📑 Restore Login Items' true
 
+limitBatteryCharge() {
+  [[ "$(bclm read)" == 80 || $(bclm read) =~ 'driverNotFound' ]] && skip
+  sudo bclm write 80
+  sudo bclm persist
+} && run 'limitBatteryCharge' '## 🔋 Limit battery carge' true
+
 generateGitHooks() {
   [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] && skip
   pre-commit init-templatedir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
