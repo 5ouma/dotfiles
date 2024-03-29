@@ -1,46 +1,18 @@
 {
-    "com.apple.Preview": {
-        "Export As…": "⌘E"
+    "com.edisonmail.edisonmail": {
+        "Check for Mail…": "⌘R",
+        "Hide Email": "⌘W"
     },
     "com.hnc.Discord": {
         "Hide Discord": "⌘W"
-    },
-    "com.apple.Music": {
-        "Hide Music": "⌘W"
-    },
-    "com.hnc.DiscordPTB": {
-        "Hide Discord": "⌘W"
-    },
-    "com.TickTick.task.mac": {
-        "Hide TickTick": "⌘W",
-        "Sync": "⌘R"
-    },
-    "com.apple.mail": {
-        "Get New Mail": "⌘R",
-        "Hide Mail": "⌘W"
-    },
-    "com.1password.1password": {
-        "Hide 1Password": "⌘W"
-    },
-    "com.apple.podcasts": {
-        "Hide Podcasts": "⌘W",
-        "Rewind 15 sec": "←",
-        "Skip 10 sec": "→"
     },
     "com.figma.Desktop": {
         "Select Next Tab": "⌥]",
         "Select Previous Tab": "⌥["
     },
-    "jp.naver.line.mac": {
-        "Hide LINE": "⌘W"
-    },
-    "com.apple.ActivityMonitor": {
-        "Filter Processes": "⌘F",
-        "Hide Activity Monitor": "⌘W"
-    },
-    "com.edisonmail.edisonmail": {
-        "Check for Mail…": "⌘R",
-        "Hide Email": "⌘W"
+    "com.TickTick.task.mac": {
+        "Hide TickTick": "⌘W",
+        "Sync": "⌘R"
     },
     "notion.id": {
         "Hide Notion": "⌘W",
@@ -55,5 +27,33 @@
         "Seek Forward": "→",
         "Volume Down": "↓",
         "Volume Up": "↑"
+    },
+    "com.1password.1password": {
+        "Hide 1Password": "⌘W"
+    },
+    "jp.naver.line.mac": {
+        "Hide LINE": "⌘W"
+    },
+    "com.hnc.DiscordPTB": {
+        "Hide Discord": "⌘W"
+    },
+    "com.apple.ActivityMonitor": {
+        "Filter Processes": "⌘F",
+        "Hide Activity Monitor": "⌘W"
+    },
+    "com.apple.mail": {
+        "Get New Mail": "⌘R",
+        "Hide Mail": "⌘W"
+    },
+    "com.apple.podcasts": {
+        "Hide Podcasts": "⌘W",
+        "Rewind 15 sec": "←",
+        "Skip 10 sec": "→"
+    },
+    "com.apple.Music": {
+        "Hide Music": "⌘W"
+    },
+    "com.apple.Preview": {
+        "Export As…": "⌘E"
     }
 }
