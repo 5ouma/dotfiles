@@ -282,7 +282,9 @@ installApps() {
   (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg zackelia/formulae/bclm'
   (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && skip
   brew update && brew bundle install --no-lock --file="$data/Brewfile"
-  (isDarwin) && sudo xcodebuild -license accept
+  if (isDarwin); then
+    sudo xcodebuild -license accept
+  fi
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
