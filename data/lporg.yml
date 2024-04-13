@@ -71,6 +71,7 @@ apps:
                 - Fuwari
                 - DeepL
                 - Grammarly Desktop
+                - Tailscale
         - folder: Other (Downloaded)
           pages:
             - number: 1
