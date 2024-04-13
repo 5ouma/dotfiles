@@ -107,12 +107,14 @@ cask "readdle-spark"
 cask "rectangle"
 cask "rhythm-quest"
 cask "spotify"
+cask "steam"
 cask "suspicious-package"
 cask "syntax-highlight"
 cask "tailscale"
 cask "virtualbuddy"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
+cask "whisky"
 mas "Amphetamine", id: 937984704
 mas "DaVinci Resolve", id: 571213070
 mas "Disk Speed Test", id: 425264550

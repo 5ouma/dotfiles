@@ -49,6 +49,7 @@ apps:
         - Blender
         - Discord
         - Discord PTB
+        - Steam
         - Rhythm Quest Demo
         - folder: Resident Apps
           pages:
@@ -91,6 +92,7 @@ apps:
                 - CodeWhisperer
                 - OpenInTerminal
                 - VirtualBuddy
+                - Whisky
                 - Syntax Highlight
                 - QLMarkdown
                 - Apparency
