@@ -331,7 +331,7 @@ generateGitHooks() {
 
 loginGitHubCli() {
   (gh auth status) && skip
-  gh auth login -h='GitHub.com' -p='SSH' -s='delete_repo,workflow' -w
+  gh auth login -p='SSH' -h='GitHub.com' -s='delete_repo,workflow' --skip-ssh-key -w
 } && run 'loginGitHubCli' '## 🐙 Log in to GitHub CLI'
 
 installProgrammingLanguages() {
