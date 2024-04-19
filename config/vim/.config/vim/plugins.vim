@@ -16,7 +16,7 @@ call jetpack#begin(s:jetpackdir)
   Jetpack 'dstein64/vim-startuptime'
   Jetpack 'itchyny/lightline.vim'
   Jetpack 'junegunn/fzf.vim'
-  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Jetpack 'junegunn/fzf'
   Jetpack 'mattn/vim-lsp-settings'
   Jetpack 'matze/vim-move'
   Jetpack 'obcat/vim-hitspop'
