@@ -1,12 +1,16 @@
+let t:XDG_CONFIG_HOME = exists($XDG_CONFIG_HOME) ? $XDG_CONFIG_HOME : expand("$HOME/.config")
+let t:XDG_CACHE_HOME = exists($XDG_CACHE_HOME) ? $XDG_CACHE_HOME : expand("$HOME/.cache")
+let t:XDG_DATA_HOME = exists($XDG_DATA_HOME) ? $XDG_DATA_HOME : expand("$HOME/.local/share")
+
 "============================================================[ Path ]============================================================"
 
-set undodir=$XDG_CACHE_HOME/vim/undo | call mkdir(&undodir, 'p')
-set viminfofile=$XDG_CACHE_HOME/vim/info
+let &undodir = t:XDG_CACHE_HOME .. '/vim/undo' | call mkdir(&undodir, 'p')
+let &viminfofile = t:XDG_CACHE_HOME .. '/vim/info'
 
 "============================================================[ Source ]============================================================"
 
-source $XDG_CONFIG_HOME/vim/plugins.vim
-source $XDG_CONFIG_HOME/vim/keymap.vim
+execute 'source' t:XDG_CONFIG_HOME .. '/vim/plugins.vim'
+execute 'source' t:XDG_CONFIG_HOME .. '/vim/keymap.vim'
 
 "============================================================[ Settings ]============================================================"
 

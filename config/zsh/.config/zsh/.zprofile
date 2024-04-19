@@ -26,9 +26,5 @@ export HOMEBREW_NO_ENV_HINTS=1
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 mkdir -p "$(dirname "$LESSHISTFILE")"
 
-# Vim
-export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-export VIMINIT="source $MYVIMRC"
-
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zprofile.post.zsh"
