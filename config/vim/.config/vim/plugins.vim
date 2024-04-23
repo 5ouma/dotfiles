@@ -9,30 +9,30 @@ endif
 
 execute 'source' s:jetpackfile
 call jetpack#begin(s:jetpackdir)
-  Jetpack '5ouma/vim-colors-pencil'
-  Jetpack 'airblade/vim-gitgutter'
-  Jetpack 'bronson/vim-trailing-whitespace'
-  Jetpack 'cohama/lexima.vim'
-  Jetpack 'dstein64/vim-startuptime'
-  Jetpack 'itchyny/lightline.vim'
-  Jetpack 'junegunn/fzf.vim'
-  Jetpack 'junegunn/fzf'
-  Jetpack 'mattn/vim-lsp-settings'
-  Jetpack 'matze/vim-move'
-  Jetpack 'obcat/vim-hitspop'
-  Jetpack 'pechorin/any-jump.vim'
-  Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
-  Jetpack 'prabirshrestha/asyncomplete.vim'
-  Jetpack 'prabirshrestha/vim-lsp'
-  Jetpack 'preservim/nerdtree'
-  Jetpack 'ryanoasis/vim-devicons'
-  Jetpack 'tani/vim-jetpack'
-  Jetpack 'tpope/vim-commentary'
-  Jetpack 'tpope/vim-fugitive'
-  Jetpack 'tpope/vim-surround'
-  Jetpack 'vim-autoformat/vim-autoformat'
-  Jetpack 'vim-scripts/vim-auto-save'
-  Jetpack 'vimpostor/vim-lumen'
+Jetpack '5ouma/vim-colors-pencil'
+Jetpack 'airblade/vim-gitgutter'
+Jetpack 'bronson/vim-trailing-whitespace'
+Jetpack 'cohama/lexima.vim'
+Jetpack 'dstein64/vim-startuptime'
+Jetpack 'itchyny/lightline.vim'
+Jetpack 'junegunn/fzf'
+Jetpack 'junegunn/fzf.vim'
+Jetpack 'mattn/vim-lsp-settings'
+Jetpack 'matze/vim-move'
+Jetpack 'obcat/vim-hitspop'
+Jetpack 'pechorin/any-jump.vim'
+Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
+Jetpack 'prabirshrestha/asyncomplete.vim'
+Jetpack 'prabirshrestha/vim-lsp'
+Jetpack 'preservim/nerdtree'
+Jetpack 'ryanoasis/vim-devicons'
+Jetpack 'tani/vim-jetpack'
+Jetpack 'tpope/vim-commentary'
+Jetpack 'tpope/vim-fugitive'
+Jetpack 'tpope/vim-surround'
+Jetpack 'vim-autoformat/vim-autoformat'
+Jetpack 'vim-scripts/vim-auto-save'
+Jetpack 'vimpostor/vim-lumen'
 silent! call jetpack#end()
 
 "============================================================[ Settings ]============================================================"
@@ -51,18 +51,13 @@ autocmd BufWrite * :Autoformat
 
 " lightline.vim
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'active': {
-  \   'left':  [ [ 'mode', 'paste' ],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'filetype' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'FugitiveHead'
-  \ },
-\ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left':  [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ]
+      \ },
+      \ 'component_function': { 'gitbranch': 'FugitiveHead' },
+      \ }
 
 " NERDTree
 let NERDTreeShowHidden = 1
