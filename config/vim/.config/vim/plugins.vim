@@ -30,6 +30,7 @@ call jetpack#begin(s:jetpackdir)
   Jetpack 'tpope/vim-commentary'
   Jetpack 'tpope/vim-fugitive'
   Jetpack 'tpope/vim-surround'
+  Jetpack 'vim-autoformat/vim-autoformat'
   Jetpack 'vim-scripts/vim-auto-save'
   Jetpack 'vimpostor/vim-lumen'
 silent! call jetpack#end()
@@ -42,7 +43,11 @@ let g:any_jump_grouping_enabled = 1
 
 " AutoSave
 let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
+
+" autoformat
+autocmd BufWrite * :Autoformat
 
 " lightline.vim
 let g:lightline = {
