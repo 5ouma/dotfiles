@@ -1,6 +1,7 @@
-" Move to top and bottom
-nnoremap <Down> gj
-nnoremap <Up> gk
+" Cursor
+nnoremap j gj
+nnoremap k gk
+map n w
 
 " Redo
 nnoremap r <C-r>
@@ -8,36 +9,30 @@ nnoremap r <C-r>
 " Search
 nnoremap <silent> <Esc> :nohlsearch<Return>
 
-" New tab
+" Tab
 nnoremap <silent> to :tabedit<Return>:Files<Return>
 nnoremap <silent> tq :tabclose<Return>
+nnoremap <silent> th :tabprevious<Return>
+nnoremap <silent> tl :tabnext<Return>
 
-" Move tab
-nnoremap <silent> t<Left> :tabprevious<Return>
-nnoremap <silent> t<Right> :tabnext<Return>
-
-" Split window
-nnoremap <silent> sh :split<Return>
+" Window
+nnoremap <silent> ss :split<Return>
 nnoremap <silent> sv :vsplit<Return>
 nnoremap sq <C-w>q
-
-" Move window
 nnoremap <Space> <C-w>w
 nnoremap <S-Space> <C-w><S-w>
-nnoremap s<Left> <C-w>h
-nnoremap s<Right> <C-w>l
-nnoremap s<Up> <C-w>k
-nnoremap s<Down> <C-w>j
-
-" Resize window
-nnoremap <C-w><Left> <C-w><
-nnoremap <C-w><Right> <C-w>>
-nnoremap <c-W><uP> <c-W>+
-nnoremap <C-w><Down> <C-w>-
+nnoremap sh <C-w>h
+nnoremap sl <C-w>l
+nnoremap sk <C-w>k
+nnoremap sj <C-w>j
+nnoremap wh <C-w><
+nnoremap wl <C-w>>
+nnoremap wk <c-W>+
+nnoremap wj <C-w>-
 
 " Move Lines
-nmap <Esc>[1;9A <A-k>
-nmap <Esc>[1;9B <A-j>
+nmap ˚ <A-k>
+nmap ∆ <A-j>
 
 " any-jump
 nnoremap <silent> aj :AnyJump<Return>
