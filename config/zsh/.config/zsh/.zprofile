@@ -22,6 +22,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_AUTOREMOVE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+# OrbStack
+export DOCKER_DEFAULT_PLATFORM='linux/amd64'
+
 # less
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 mkdir -p "$(dirname "$LESSHISTFILE")"
