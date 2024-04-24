@@ -7,6 +7,6 @@ show_hidden = true
 
 [opener]
 edit = [
-  { exec = 'vim "$@"', desc = "Vim", block = true },
-  { exec = 'code "$@"', desc = "VSCode" },
+{ run = 'vim "$@"', desc = "Vim", block = true },
+{ run = 'code "$@"', desc = "VSCode" },
 ]
