@@ -138,7 +138,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 - ### 📺 Terminal: [`iTerm2`](https://iterm2.com)
 
   ```shell
-  brew install homebrew/cask-versions/iterm2-beta
+  brew install homebrew/cask/iterm2@beta
   ```
 
   - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
