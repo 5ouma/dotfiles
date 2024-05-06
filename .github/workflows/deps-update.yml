@@ -29,8 +29,8 @@ jobs:
         id: find-replace
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: "github.com/charmbracelet/gum/releases/download/v[0-9]+.[0-9]+.[0-9]+/gum_[0-9]+.[0-9]+.[0-9]+"
-          replace: "github.com/charmbracelet/gum/releases/download/v${{ steps.gum.outputs.version }}/gum_${{ steps.gum.outputs.version }}"
+          find: "gumVir='[0-9]+.[0-9]+.[0-9]+'"
+          replace: "gumVir='${{ steps.gum.outputs.version }}'"
           include: "setup"
 
       - name: 🎈 Create Pull Request

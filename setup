@@ -24,12 +24,14 @@ declare goThrough=false
 
 # Actions
 getGum() {
-  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/download/v0.14.0/gum_0.14.0_$(uname)_$(uname -m).tar.gz"
+  declare -r gumVir='0.14.0'
+  declare -r gumDir="gum_${gumVir}_$(uname)_$(uname -m)"
+  declare -r gumUrl="https://github.com/charmbracelet/gum/releases/download/v$gumVir/$gumDir.tar.gz"
   declare -r gumThemeUrl="https://raw.githubusercontent.com/5ouma/dotfiles/$GIT_REF/data/blue.json"
 
   if (! type gum &>/dev/null); then
     printf '  🚚💨 Now delivering...'
-    curl -sL "$gumUrl" | tar zxC "$TMPDIR" 'gum' && alias gumCom='$TMPDIR/gum'
+    curl -sL "$gumUrl" | tar --strip-components=1 -zxC "$TMPDIR" "$gumDir/gum" && alias gumCom="$TMPDIR/gum"
     printf '\r                        '
   else
     alias gumCom="$(which gum)"
@@ -306,7 +308,7 @@ restoreAppSettings() {
 } && run 'restoreAppSettings' '## 💾 Restore application settings' true
 
 restoreAppShortcuts() {
-  [[ ! "$(defaults read com.apple.universalaccess com.apple.custommenu.apps)" =~ "NSGlobalDomain" && $? ]] && skip
+  (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null) && skip
   # shellcheck disable=SC2016
   gum run 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
 } && run 'restoreAppShortcuts' '## ⌨️ Restore App Shortcuts' true
