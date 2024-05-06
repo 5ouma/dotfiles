@@ -1,6 +1,4 @@
 " Cursor
-nnoremap j gj
-nnoremap k gk
 map n w
 
 " Redo
