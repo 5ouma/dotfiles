@@ -91,18 +91,18 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 ## 🌄 Screenshots
 
-|            |           Overview           |                  Vim                   |
-| :--------: | :--------------------------: | :------------------------------------: |
-| Light Mode |     ![Overview - Light]      |             ![Vim - Light]             |
-| Dark Mode  |      ![Overview - Dark]      |             ![Vim - Dark]              |
-|   Tools    | [fastfetch], [CodeWhisperer] | [lightline.vim], [NERDTree], [fzf.vim] |
+|            |        Overview         |                  Vim                   |
+| :--------: | :---------------------: | :------------------------------------: |
+| Light Mode |   ![Overview - Light]   |             ![Vim - Light]             |
+| Dark Mode  |   ![Overview - Dark]    |             ![Vim - Dark]              |
+|   Tools    | [fastfetch], [Amazon Q] | [lightline.vim], [NERDTree], [fzf.vim] |
 
 [Overview - Light]: ./images/screenshots/light/overview.png
 [Overview - Dark]: ./images/screenshots/dark/overview.png
 [Vim - Light]: ./images/screenshots/light/vim.png
 [Vim - Dark]: ./images/screenshots/dark/vim.png
 [fastfetch]: https://github.com/fastfetch-cli/fastfetch
-[CodeWhisperer]: https://aws.amazon.com/codewhisperer
+[Amazon Q]: https://aws.amazon.com/q/developer
 [lightline.vim]: https://github.com/itchyny/lightline.vim
 [NERDTree]: https://github.com/preservim/nerdtree
 [fzf.vim]: https://github.com/junegunn/fzf.vim
@@ -153,6 +153,14 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
     brew install homebrew/cask-fonts/font-hackgen font-hackgen-nerd
     ```
 
+  - #### 🧠 Terminal Autocompletion: [`Amazon Q`](https://aws.amazon.com/q/developer)
+
+    > _Formally [Fig](https://fig.io)_
+
+    ```shell
+    brew install amazon-q
+    ```
+
 <br />
 
 - ### 🐚 Shell: [`Zsh`](https://zsh.org)
@@ -173,14 +181,6 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
     ```shell
     sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
-    ```
-
-  - #### 🧠 Terminal Autocompletion: [`CodeWhisperer`](https://aws.amazon.com/codewhisperer)
-
-    > _Formally [Fig](https://fig.io)_
-
-    ```shell
-    brew install codewhisperer
     ```
 
 <br />
