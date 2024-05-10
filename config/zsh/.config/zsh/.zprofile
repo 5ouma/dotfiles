@@ -19,7 +19,6 @@ export GUM_SPIN_SPINNER_FOREGROUND='27'
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
-export HOMEBREW_AUTOREMOVE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
 # OrbStack
