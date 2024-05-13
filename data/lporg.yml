@@ -60,6 +60,7 @@ apps:
                 - MacUpdater
                 - RunCat
                 - Gitify
+                - TimeMachineStatus
                 - Ice
                 - Karabiner-Elements
                 - Karabiner-EventViewer
