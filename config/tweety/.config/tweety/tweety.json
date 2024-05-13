@@ -3,7 +3,7 @@
   "xterm": {
     "cursorStyle": "bar",
     "cursorWidth": 2,
-    "fontFamily": ["Fira Code", "HackGen35 Console NF", "Apple Color Emoji"],
+    "fontFamily": ["Fira Code", "HackGen35 Console NF", "Emoooji", "Apple Color Emoji"],
     "fontSize": 18,
     "fontWeight": 500
   },
