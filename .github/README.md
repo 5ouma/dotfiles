@@ -144,13 +144,13 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
   - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```shell
-    brew install homebrew/cask-fonts/font-fira-code
+    brew install homebrew/cask/font-fira-code
     ```
 
   - #### ✒️ Font 2: [`HackGen35`](https://github.com/yuru7/hackgen)
 
     ```shell
-    brew install homebrew/cask-fonts/font-hackgen font-hackgen-nerd
+    brew install homebrew/cask/font-hackgen font-hackgen-nerd
     ```
 
   - #### 🧠 Terminal Autocompletion: [`Amazon Q`](https://aws.amazon.com/q/developer)
