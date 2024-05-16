@@ -64,6 +64,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['.git', '.DS_Store']
 
 " Pencil
+silent! colorscheme pencil
 let g:pencil_gutter_color = 1
 
 " vim-lsp

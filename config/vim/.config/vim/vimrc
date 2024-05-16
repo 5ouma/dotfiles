@@ -2,15 +2,8 @@ let t:XDG_CONFIG_HOME = exists($XDG_CONFIG_HOME) ? $XDG_CONFIG_HOME : expand("$H
 let t:XDG_CACHE_HOME = exists($XDG_CACHE_HOME) ? $XDG_CACHE_HOME : expand("$HOME/.cache")
 let t:XDG_DATA_HOME = exists($XDG_DATA_HOME) ? $XDG_DATA_HOME : expand("$HOME/.local/share")
 
-"============================================================[ Path ]============================================================"
-
 let &undodir = t:XDG_CACHE_HOME .. '/vim/undo' | call mkdir(&undodir, 'p')
 let &viminfofile = t:XDG_CACHE_HOME .. '/vim/info'
-
-"============================================================[ Source ]============================================================"
-
-execute 'source' t:XDG_CONFIG_HOME .. '/vim/plugins.vim'
-execute 'source' t:XDG_CONFIG_HOME .. '/vim/keymap.vim'
 
 "============================================================[ Settings ]============================================================"
 
@@ -29,7 +22,6 @@ set backspace=indent,eol,start
 set shellcmdflag=-ic
 
 " Appearance
-silent! colorscheme pencil
 set number
 set cursorline
 set virtualedit=onemore
@@ -51,3 +43,8 @@ set ignorecase
 set incsearch
 set smartcase
 set wrapscan
+
+"============================================================[ Source ]============================================================"
+
+execute 'source' t:XDG_CONFIG_HOME .. '/vim/plugins.vim'
+execute 'source' t:XDG_CONFIG_HOME .. '/vim/keymap.vim'
