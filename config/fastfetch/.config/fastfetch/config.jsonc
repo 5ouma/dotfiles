@@ -17,7 +17,7 @@
     "brightness",
     "monitor",
     "de",
-    { "type": "wm", "detectPlugin": true },
+    "wm",
     "wmtheme",
     "font",
     "cursor",

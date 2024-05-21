@@ -12,7 +12,7 @@
     "packages",
     { "type": "shell", "format": "{2} {4}" },
     "de",
-    { "type": "wm", "detectPlugin": true },
+    "wm",
     "wmtheme",
     "font",
     "cursor",
