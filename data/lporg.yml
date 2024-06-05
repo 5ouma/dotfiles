@@ -77,7 +77,6 @@ apps:
           pages:
             - number: 1
               items:
-                - Google Chrome
                 - Geekbench 6
                 - Cinebench
                 - Speedtest
