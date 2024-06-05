@@ -12,6 +12,8 @@
 	<true/>
 	<key>CheckTestRelease</key>
 	<true/>
+	<key>ClickToSelectCommand</key>
+	<false/>
 	<key>CopyLastNewline</key>
 	<true/>
 	<key>CopySelection</key>
