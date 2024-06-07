@@ -38,7 +38,7 @@ jobs:
           SETUP_SKIP_INSTALLAPPS: true
           SETUP_SKIP_LOGINGITHUBCLI: true
           SETUP_SKIP_RESTORELAUNCHPAD: true
-        run: zsh <(curl -sL "dotup.vercel.app/${GITHUB_HEAD_REF:-HEAD}") --yes
+        run: zsh <(curl "https://dotup.deno.dev/${GITHUB_HEAD_REF:-HEAD}") --yes
 
       - name: 🐚 Launch New Login Shell
         run: exec zsh -ilexc exit

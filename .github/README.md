@@ -55,7 +55,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 > _All configurations_
 >
 > ```shell
-> zsh <(curl -sL dotup.vercel.app)
+> zsh <(curl https://dotup.deno.dev)
 > ```
 
 <br />
@@ -63,7 +63,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 > _Just config files_
 >
 > ```shell
-> zsh <(curl -sL dotup.vercel.app) set
+> zsh <(curl https://dotup.deno.dev) set
 > ```
 
 <br /><br />
