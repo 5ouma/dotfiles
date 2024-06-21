@@ -20,13 +20,6 @@ repos = ["~/*", "~/ghq/*/*/*"]
     printf '\\033[33;1mSkipped\\033[m\n'
   fi
 """
-"github-read-me-stats" = """
-  if (gh status &>/dev/null); then
-    gh repo sync 5ouma/github-read-me-stats
-  else
-    printf '\\033[33;1mSkipped\\033[m\n'
-  fi
-"""
 "lporg" = """
   if (type lporg &>/dev/null); then
     lporg save -c="$data/lporg.yml"
