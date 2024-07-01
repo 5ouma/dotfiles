@@ -272,9 +272,9 @@ setComputerName() {
   gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
   gum run 'Setting LocalHostName...' -- sudo scutil --set LocalHostName "$localHostName"
   gum format <<EOM
-- ComputerName : $(gum style 6 "$(sudo scutil --get ComputerName)")
-- HostName : $(gum style 6 "$(sudo scutil --get HostName)")
-- LocalHostName : $(gum style 6 "$(sudo scutil --get LocalHostName)")
+- ComputerName: $(gum style 6 "$(sudo scutil --get ComputerName)")
+- HostName: $(gum style 6 "$(sudo scutil --get HostName)")
+- LocalHostName: $(gum style 6 "$(sudo scutil --get LocalHostName)")
 EOM
 } && run 'setComputerName' '## 💻 Set the computer name' true
 
@@ -323,7 +323,7 @@ limitBatteryCharge() {
   [[ "$(bclm read)" == 80 || $(bclm read) =~ 'driverNotFound' ]] && skip
   sudo bclm write 80
   sudo bclm persist
-} && run 'limitBatteryCharge' '## 🔋 Limit battery carge' true
+} && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
   [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] && skip
