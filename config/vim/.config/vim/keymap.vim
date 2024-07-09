@@ -1,6 +1,3 @@
-" Cursor
-map n w
-
 " Redo
 nnoremap r <C-r>
 
