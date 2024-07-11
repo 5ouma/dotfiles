@@ -39,4 +39,4 @@ repos:
     rev: v0.10.0
     hooks:
       - id: shellcheck
-        args: ["-e", "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]
+        args: [-e, "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]

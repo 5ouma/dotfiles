@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - "setup"
-      - ".github/workflows/test.yml"
+      - setup
+      - .github/workflows/test.yml
   pull_request:
     paths:
-      - "setup"
-      - ".github/workflows/test.yml"
+      - setup
+      - .github/workflows/test.yml
 
 jobs:
   Test:
