@@ -27,7 +27,7 @@ jobs:
 
       - name: 📋 Find and Replace the Gum Version
         id: find-replace
-        uses: jacobtomlinson/gha-find-replace@a51bbcd94d000df9ca0fcb54ec8be69aad8374b0 # 3.0.2
+        uses: jacobtomlinson/gha-find-replace@099c88fbf2a7da26b083521a8bfa13e4f0886b97 # 3.0.3
         with:
           find: gumVir='[0-9]+.[0-9]+.[0-9]+'
           replace: gumVir='${{ steps.gum.outputs.version }}'
