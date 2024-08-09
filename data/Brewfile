@@ -36,6 +36,7 @@ brew "markdownlint-cli"
 brew "marp-cli"
 brew "mas"
 brew "mise"
+brew "newrelic-infra-agent", restart_service: true
 brew "onefetch"
 brew "pnpm"
 brew "pre-commit"
