@@ -31,6 +31,7 @@ set laststatus=2
 set wildmode=list:longest
 syntax enable
 set list listchars=tab:→\ ,space:･,eol:↓
+set fillchars+=eob:\\x20
 
 " Tab
 set expandtab
