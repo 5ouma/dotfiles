@@ -50,11 +50,6 @@
     "Hidden": false
   },
   {
-    "Name": "HotKey",
-    "Path": "/Applications/HotKey.app",
-    "Hidden": false
-  },
-  {
     "Name": "Ice",
     "Path": "/Applications/Ice.app",
     "Hidden": false

@@ -64,7 +64,6 @@ apps:
                 - Ice
                 - Karabiner-Elements
                 - Karabiner-EventViewer
-                - HotKey
                 - Hammerspoon
                 - Raycast
                 - AltTab
