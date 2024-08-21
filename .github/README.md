@@ -138,19 +138,19 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 - ### 📺 Terminal: [`iTerm2`](https://iterm2.com)
 
   ```shell
-  brew install homebrew/cask/iterm2@beta
+  brew install iterm2
   ```
 
   - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```shell
-    brew install homebrew/cask/font-fira-code
+    brew install font-fira-code
     ```
 
   - #### ✒️ Font 2: [`HackGen35`](https://github.com/yuru7/hackgen)
 
     ```shell
-    brew install homebrew/cask/font-hackgen font-hackgen-nerd
+    brew install font-hackgen font-hackgen-nerd
     ```
 
   - #### 🧠 Terminal Autocompletion: [`Amazon Q`](https://aws.amazon.com/q/developer)
