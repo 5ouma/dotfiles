@@ -5,7 +5,7 @@
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 # fzf
-export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.vscode-insiders,node_modules,.next,.DS_Store}'
+export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.vscode-insiders,.git,node_modules,.next,.DS_Store}'
 
 # Gitlint
 export GITLINT_CONTRIB='CT1'
