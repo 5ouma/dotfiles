@@ -35,6 +35,13 @@ Jetpack 'vim-scripts/vim-auto-save'
 Jetpack 'vimpostor/vim-lumen'
 silent! call jetpack#end()
 
+for name in jetpack#names()
+  if !jetpack#tap(name)
+    call jetpack#sync()
+    break
+  endif
+endfor
+
 "============================================================[ Settings ]============================================================"
 
 " any-jump
