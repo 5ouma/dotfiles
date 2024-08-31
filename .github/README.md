@@ -66,6 +66,14 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 > zsh <(curl https://dotup.deno.dev) set
 > ```
 
+<br />
+
+> _Vim config files_
+>
+> ```sh
+> curl https://vimrc.deno.dev > "$HOME/.config/vim/vimrc"
+> ```
+
 <br /><br />
 
 ## 📊 Usage

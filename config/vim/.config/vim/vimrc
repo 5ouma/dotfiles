@@ -47,5 +47,15 @@ set wrapscan
 
 "============================================================[ Source ]============================================================"
 
-execute 'source' t:XDG_CONFIG_HOME .. '/vim/plugins.vim'
-execute 'source' t:XDG_CONFIG_HOME .. '/vim/keymap.vim'
+function! s:get_and_run(file) abort
+  let s:path = t:XDG_CONFIG_HOME .. '/vim/' .. a:file
+  let s:url= 'https://raw.githubusercontent.com/5ouma/dotfiles/main/config/vim/.config/vim/' .. a:file
+  if !filereadable(s:path)
+    call system(printf('curl -fsslo %s --create-dirs %s', s:path, s:url))
+  endif
+  execute 'source' s:path
+endfunction
+
+for file in ['plugins.vim', 'keymap.vim']
+  call s:get_and_run(file)
+endfor
