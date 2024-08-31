@@ -54,7 +54,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 > _All configurations_
 >
-> ```shell
+> ```sh
 > zsh <(curl https://dotup.deno.dev)
 > ```
 
@@ -62,7 +62,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 > _Just config files_
 >
-> ```shell
+> ```sh
 > zsh <(curl https://dotup.deno.dev) set
 > ```
 
@@ -72,7 +72,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 ### `setup help`
 
-```shell
+```sh
   ▌ Usage: setup
 
   │ ⚙️ The most minimal and powerful dotfiles ever.
@@ -113,7 +113,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 - ### 🍺 Package Manager: [`Homebrew`](https://brew.sh)
 
-  ```shell
+  ```sh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
@@ -129,7 +129,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 - ### 📼 Runtime Manager: [`mise`](https://github.com/jdx/mise)
 
-  ```shell
+  ```sh
   brew install mise
   ```
 
@@ -137,19 +137,19 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 - ### 📺 Terminal: [`iTerm2`](https://iterm2.com)
 
-  ```shell
+  ```sh
   brew install iterm2
   ```
 
   - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
-    ```shell
+    ```sh
     brew install font-fira-code
     ```
 
   - #### ✒️ Font 2: [`HackGen35`](https://github.com/yuru7/hackgen)
 
-    ```shell
+    ```sh
     brew install font-hackgen font-hackgen-nerd
     ```
 
@@ -157,7 +157,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
     > _Formally [Fig](https://fig.io)_
 
-    ```shell
+    ```sh
     brew install amazon-q
     ```
 
@@ -167,7 +167,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
   - #### 🔌 Plugin Manager: [`Sheldon`](https://github.com/rossmacarthur/sheldon)
 
-    ```shell
+    ```sh
     brew install sheldon
     ```
 
@@ -179,7 +179,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
   - #### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 
-    ```shell
+    ```sh
     sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
     ```
 
@@ -189,7 +189,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
   - #### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)
 
-    ```shell
+    ```sh
     curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
     ```
 
