@@ -35,14 +35,14 @@ jobs:
 
       - name: 🎈 Create Pull Request
         if: ${{ steps.find-replace.outputs.modifiedFiles > 0 }}
-        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
+        uses: peter-evans/create-pull-request@4320041ed380b20e97d388d56a7fb4f9b8c20e79 # v7.0.0
         with:
           commit-message: |
             chore(setup): Version up Gum
 
             Change Gum version to v${{ steps.gum.outputs.version }}.
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           branch: bump-gum
+          sign-commits: true
           title: |
             chore(deps): Bump charmbracelet/gum to ${{ steps.gum.outputs.version }}
           body: Bumps [charmbracelet/gum](https://github.com/charmbracelet/gum) to ${{ steps.gum.outputs.version }}
@@ -62,14 +62,14 @@ jobs:
         run: pre-commit autoupdate -c='data/pre-commit.yml'
 
       - name: 🎈 Create Pull Request
-        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
+        uses: peter-evans/create-pull-request@4320041ed380b20e97d388d56a7fb4f9b8c20e79 # v7.0.0
         with:
           commit-message: |
             chore(pre-commit): Update pre-commit hooks
 
             To use the latest feature of pre-commit.
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           branch: bump-pre-commit
+          sign-commits: true
           title: |
             chore(deps): Bump pre-commit hooks
           body: Bumps some [pre-commit/pre-commit](https://github.com/pre-commit/pre-commit) hooks.
