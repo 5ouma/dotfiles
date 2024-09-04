@@ -41,8 +41,8 @@ jobs:
             chore(setup): Version up Gum
 
             Change Gum version to v${{ steps.gum.outputs.version }}.
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           branch: bump-gum
+          sign-commits: true
           title: |
             chore(deps): Bump charmbracelet/gum to ${{ steps.gum.outputs.version }}
           body: Bumps [charmbracelet/gum](https://github.com/charmbracelet/gum) to ${{ steps.gum.outputs.version }}
@@ -68,8 +68,8 @@ jobs:
             chore(pre-commit): Update pre-commit hooks
 
             To use the latest feature of pre-commit.
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           branch: bump-pre-commit
+          sign-commits: true
           title: |
             chore(deps): Bump pre-commit hooks
           body: Bumps some [pre-commit/pre-commit](https://github.com/pre-commit/pre-commit) hooks.
