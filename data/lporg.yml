@@ -48,7 +48,6 @@ apps:
         - Aseprite
         - Blender
         - Discord
-        - Discord PTB
         - Steam
         - Rhythm Quest Demo
         - folder: Resident Apps
@@ -135,15 +134,13 @@ dock_items:
     - ""
     - /Applications/Arc.app
     - /Applications/Discord.app
-    - /Applications/Discord PTB.app
     - /Applications/LINE.app
-    - ""
-    - /Applications/TickTick.app
-    - /Applications/Notion.app
     - /System/Applications/Mail.app
     - /Applications/Spark Desktop.app
     - /Applications/Email.app
     - ""
+    - /Applications/TickTick.app
+    - /Applications/Notion.app
     - /System/Applications/App Store.app
     - /System/Applications/System Settings.app
     - /Applications/1Password.app
