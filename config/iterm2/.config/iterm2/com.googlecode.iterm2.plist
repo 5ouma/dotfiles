@@ -10,8 +10,6 @@
 	<true/>
 	<key>AlwaysOpenWindowAtStartup</key>
 	<true/>
-	<key>CheckTestRelease</key>
-	<true/>
 	<key>ClickToSelectCommand</key>
 	<false/>
 	<key>CopyLastNewline</key>
