@@ -21,6 +21,8 @@
 [push]
   autoSetupRemote = true
   default = simple
+[fetch]
+  prune = true
 [pull]
   rebase = true
 [rebase]
