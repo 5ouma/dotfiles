@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Test:
+  test:
+    name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
     strategy:
       matrix:
         os: [Ubuntu-Latest, macOS-14]

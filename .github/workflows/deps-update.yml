@@ -10,7 +10,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  Gum:
+  gum:
+    name: 🎀 Gum
     runs-on: Ubuntu-Latest
 
     steps:
@@ -49,6 +50,7 @@ jobs:
           labels: dependencies
 
   pre-commit:
+    name: 🚸 pre-commit
     runs-on: Ubuntu-Latest
 
     steps:
@@ -58,7 +60,7 @@ jobs:
       - name: 🚸 Install pre-commit
         run: pip install pre-commit
 
-      - name: 🚸 Auto-update pre-commit.yml
+      - name: ⬆️ Auto-update pre-commit.yml
         run: pre-commit autoupdate -c='data/pre-commit.yml'
 
       - name: 🎈 Create Pull Request

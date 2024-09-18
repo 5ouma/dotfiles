@@ -13,7 +13,8 @@ on:
       - .github/workflows/test.yml
 
 jobs:
-  Test:
+  test:
+    name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
     strategy:
       matrix:
         os: [Ubuntu-Latest, macOS-14]
