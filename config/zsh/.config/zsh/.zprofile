@@ -20,6 +20,7 @@ export GUM_SPIN_SPINNER_FOREGROUND='27'
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_BUNDLE_DUMP_NO_VSCODE=1
 
 # OrbStack
 export DOCKER_DEFAULT_PLATFORM='linux/amd64'
