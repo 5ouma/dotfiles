@@ -16,12 +16,12 @@ repos:
         exclude: ^(.*\.go|go\..*|.*\.plist)$
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.25.0
+    rev: v1.26.0
     hooks:
       - id: typos
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.20.0
+    rev: v8.20.1
     hooks:
       - id: gitleaks
 
