@@ -30,7 +30,7 @@ jobs:
         id: skip
         if: ${{ matrix.os == 'macOS-14' }}
         run: |
-          declare HOMEBREW_BUNDLE_MAS_SKIP && HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s "https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
+          HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s "https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
           echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
 
       - name: ⚙️ Run setup
