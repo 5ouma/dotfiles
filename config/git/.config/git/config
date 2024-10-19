@@ -10,6 +10,8 @@
 [gpg "ssh"]
   program = op-ssh-sign
 
+[branch]
+  sort = -committerdate
 [clone]
   recurse-submodule = true
 [commit]
