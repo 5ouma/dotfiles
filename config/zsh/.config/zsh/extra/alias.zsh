@@ -109,6 +109,22 @@ gc() {
   fi
 }
 
+gbs() {
+  _git_check || return
+  declare -r branch="$(
+    git branch \
+      --format=$'%(refname:short)\t%(committerdate:relative)\t%(subject)' |
+      column -ts=$'\t' |
+      _fzf \
+        '🌲 Branches' \
+        'git log --format="%C(auto)%h %s" --graph --color=always -100 {1}' \
+        'down' |
+      cut -d ' ' -f 1
+  )"
+  [ -n "$branch" ] &&
+    git switch "$branch"
+}
+
 # gitui
 alias gu='gitui'
 
@@ -202,6 +218,7 @@ alias ka='killall'
 alias mv='mv -iv'
 
 # Keybinds
+bindkey -s '^B' '^Ugbs^M'
 bindkey -s '^G' '^Ugcd^M'
 bindkey -s '^Y' '^Uyzi^M'
 bindkey -s '^Z' '^Uzcd^M'
