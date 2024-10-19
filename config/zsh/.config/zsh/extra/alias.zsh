@@ -3,12 +3,7 @@ _has() {
 }
 
 _fzf() {
-  fzf \
-    --height=80% \
-    --layout=reverse \
-    --border \
-    --border-label "$1" \
-    --border-label-pos=2 \
+  fzf --border-label "$1" \
     --preview="$2" \
     --preview-window="$3"
 }
