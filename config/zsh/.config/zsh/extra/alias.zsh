@@ -1,5 +1,24 @@
+_has() {
+  type "$1" &>/dev/null
+}
+
+_fzf() {
+  fzf \
+    --height=80% \
+    --layout=reverse \
+    --border \
+    --border-label "$1" \
+    --border-label-pos=2 \
+    --preview="$2" \
+    --preview-window="$3"
+}
+
+_git_check() {
+  git rev-parse HEAD &>/dev/null && return
+}
+
 # bat
-type 'bat' &>/dev/null && alias cat='bat'
+_has 'bat' && alias cat='bat'
 
 # dasel
 alias dasel='dasel --colour'
@@ -15,8 +34,14 @@ alias gg='ghq get -p'
 alias gup='ghq list | ghq get --update --parallel'
 
 gcd() {
-  declare -r repo="$(ghq list | fzf --reverse --height=70% --preview="find $(ghq root)/{} -name README.md -maxdepth 2 | xargs glow --style=auto")"
-  [ -n "$repo" ] && cd "$(ghq list --full-path --exact "$repo")" || return
+  declare -r repo="$(
+    ghq list |
+      _fzf \
+        '🔖 Repositories' \
+        "find $(ghq root)/{} -name README.md -maxdepth 2 | head -n 1 | xargs glow --style=auto"
+  )"
+  [ -n "$repo" ] &&
+    cd "$(ghq list --full-path --exact "$repo")" || return
 }
 
 # git
@@ -53,7 +78,7 @@ alias gswc='git switch -c'
 alias gtg='git tag'
 
 gc() {
-  (git commit --dry-run &>/dev/null) || return
+  _git_check || return
   declare message=''
   declare -r types=(
     'feat: A new feature'
@@ -126,7 +151,9 @@ bbd() {
 }
 
 # lsd
-type 'lsd' &>/dev/null && alias ls='lsd' ll='lsd -l' lt='lsd --tree --ignore-glob={.git,node_modules,.next,.DS_Store}'
+_has 'lsd' && alias ls='lsd' \
+  ll='lsd -l' \
+  lt='lsd --tree --ignore-glob={.git,node_modules,.next,.DS_Store}'
 
 # mas
 alias mi='mas install'
@@ -145,7 +172,7 @@ pre-commit() {
 }
 
 # trash
-type 'trash' &>/dev/null && alias rm='trash -F'
+_has 'trash' && alias rm='trash -F'
 
 # topgrade
 alias tg='topgrade'
@@ -162,14 +189,17 @@ alias yzi='yazi'
 
 # zoxide
 zcd() {
-  declare -r dir="$(zoxide query -l | fzf --reverse --height=70% --preview="lsd -Alg {}")"
-  [ -n "$dir" ] && cd "$dir" || return
+  declare -r dir="$(
+    zoxide query -l |
+      _fzf '📂 Directories' 'lsd -Alg {} --color=always'
+  )"
+  [ -n "$dir" ] &&
+    cd "$dir" || return
 }
 
 # System
 alias ka='killall'
 alias mv='mv -iv'
-
 
 # Keybinds
 bindkey -s '^G' '^Ugcd^M'
