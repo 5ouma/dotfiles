@@ -3,9 +3,7 @@ _has() {
 }
 
 _fzf() {
-  fzf --border-label "$1" \
-    --preview="$2" \
-    --preview-window="$3"
+  fzf --border-label "$1" --preview="$2"
 }
 
 _git_check() {
@@ -112,8 +110,7 @@ gbs() {
       column -ts=$'\t' |
       _fzf \
         '🌲 Branches' \
-        'git log --format="%C(auto)%h %s" --graph --color=always -100 {1}' \
-        'down' |
+        'git log --format="%C(auto)%h %s" --graph --color=always -100 {1}' |
       cut -d ' ' -f 1
   )"
   [ -n "$branch" ] &&
