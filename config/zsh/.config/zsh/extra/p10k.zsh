@@ -59,7 +59,8 @@
     # nvm                   # node.js version from nvm (https://github.com/nvm-sh/nvm)
     # nodeenv               # node.js environment (https://github.com/ekalinin/nodeenv)
     node_version            # node.js version
-    deno_version            # deno version (https://deno.com/)
+    bun_version             # bun version (https://bun.sh)
+    deno_version            # deno version (https://deno.com)
     go_version              # go version (https://golang.org)
     # rust_version          # rustc version (https://www.rust-lang.org)
     # dotnet_version        # .NET version (https://dotnet.microsoft.com)
@@ -249,6 +250,7 @@
     CVS
     Cargo.toml
     composer.json
+    bun.lockb
     deno.json
     deno.jsonc
     go.mod
@@ -1053,6 +1055,18 @@
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  ##############################[ bun_version: bun version ]###############################
+  # Bun version color.
+  typeset -g POWERLEVEL9K_BUN_VERSION_FOREGROUND='indianred1'
+  # Custom icon.
+  typeset -g POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION='🍞'
+
+   function prompt_bun_version() {
+    _p9k_upglob 'bun.lockb' -. && return
+    local v="$(bun -v)"
+    p10k segment -t "${v#* }" -i "$POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_BUN_VERSION_FOREGROUND"
+  }
 
   ##############################[ deno_version: deno version ]###############################
   # Deno version color.
