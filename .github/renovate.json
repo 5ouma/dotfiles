@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>5ouma/utils"],
+  "pre-commit": { "fileMatch": ["pre-commit.yml"] },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["setup"],
+      "matchStrings": ["gumVir='(?<currentValue>.*)'"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "charmbracelet/gum",
+      "extractVersionTemplate": "v(?<version>.*)"
+    }
+  ]
+}
