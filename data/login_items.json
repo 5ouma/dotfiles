@@ -90,6 +90,11 @@
     "Hidden": false
   },
   {
+    "Name": "Slack",
+    "Path": "/Applications/Slack.app",
+    "Hidden": false
+  },
+  {
     "Name": "Spark Desktop",
     "Path": "/Applications/Spark Desktop.app",
     "Hidden": false

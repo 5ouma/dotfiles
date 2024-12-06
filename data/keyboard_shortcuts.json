@@ -1,24 +1,36 @@
 {
-    "jp.naver.line.mac": {
-        "Hide LINE": "⌘W"
+    "notion.id": {
+        "Hide Notion": "⌘W",
+        "Show Next Tab": "⌥]",
+        "Show Previous Tab": "⌥["
     },
-    "com.apple.mail": {
-        "Get New Mail": "⌘R",
-        "Hide Mail": "⌘W"
-    },
-    "com.hnc.Discord": {
-        "Hide Discord": "⌘W"
+    "com.edisonmail.edisonmail": {
+        "Check for Mail…": "⌘R",
+        "Hide Email": "⌘W"
     },
     "com.TickTick.task.mac": {
         "Hide TickTick": "⌘W",
         "Sync": "⌘R"
     },
+    "com.apple.Music": {
+        "Hide Music": "⌘W"
+    },
+    "com.figma.Desktop": {
+        "Select Next Tab": "⌥]",
+        "Select Previous Tab": "⌥["
+    },
+    "com.apple.mail": {
+        "Get New Mail": "⌘R",
+        "Hide Mail": "⌘W"
+    },
     "com.apple.Preview": {
         "Export As…": "⌘E"
     },
-    "com.edisonmail.edisonmail": {
-        "Check for Mail…": "⌘R",
-        "Hide Email": "⌘W"
+    "com.tinyspeck.slackmacgap": {
+        "Hide Slack": "⌘W"
+    },
+    "com.1password.1password": {
+        "Hide 1Password": "⌘W"
     },
     "com.apple.ActivityMonitor": {
         "Filter Processes": "⌘F",
@@ -33,24 +45,15 @@
         "Volume Down": "↓",
         "Volume Up": "↑"
     },
-    "notion.id": {
-        "Hide Notion": "⌘W",
-        "Show Next Tab": "⌥]",
-        "Show Previous Tab": "⌥["
-    },
-    "com.1password.1password": {
-        "Hide 1Password": "⌘W"
-    },
-    "com.apple.Music": {
-        "Hide Music": "⌘W"
-    },
     "com.apple.podcasts": {
         "Hide Podcasts": "⌘W",
         "Rewind 15 sec": "←",
         "Skip 10 sec": "→"
     },
-    "com.figma.Desktop": {
-        "Select Next Tab": "⌥]",
-        "Select Previous Tab": "⌥["
+    "com.hnc.Discord": {
+        "Hide Discord": "⌘W"
+    },
+    "jp.naver.line.mac": {
+        "Hide LINE": "⌘W"
     }
 }
