@@ -281,7 +281,7 @@ EOM
 #==================================================[ Apps ]==================================================#
 
 installApps() {
-  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='newrelic-infra-agent 5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg zackelia/formulae/bclm'
+  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='newrelic-infra-agent 5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
   (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && skip
   brew update && brew bundle install --no-lock --file="$data/Brewfile"
   if (isDarwin); then
@@ -320,9 +320,7 @@ restoreLoginItems() {
 } && run 'restoreLoginItems' '## 📑 Restore Login Items' true
 
 limitBatteryCharge() {
-  [[ "$(bclm read)" == 80 || $(bclm read) =~ 'driverNotFound' ]] && skip
-  sudo bclm write 80
-  sudo bclm persist
+  sudo bclm_loop persist
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
