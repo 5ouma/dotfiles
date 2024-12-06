@@ -3,3 +3,4 @@ OnyX = "OnyX"
 
 [default.extend-words]
 iterm = "iterm"
+Pn = "Pn"

@@ -25,6 +25,7 @@ My config files and setup for CLI tools and GUI apps.
 <br />
 [![Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/test.yml?label=test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/test.yml)
 [![Detail Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/detail-test.yml?label=detail%20test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/detail-test.yml)
+[![pre-commit](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/pre-commit.yml?label=pre-commit&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/pre-commit.yml)
 
 </div>
 
