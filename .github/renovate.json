@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>5ouma/utils"],
+  "pre-commit": { "fileMatch": ["pre-commit.yml"] },
   "customManagers": [
     {
       "customType": "regex",
