@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: 🍺 Setup Homebrew
-        uses: Homebrew/actions/setup-homebrew@5e7b68644cad502cd800db6afab12918845a530e # master
+        uses: Homebrew/actions/setup-homebrew@627d7ab1d5c3daca9100c3c68252503e65aa25d2 # master
 
       - name: 🔨 Install tools via Homebrew
         run: |
