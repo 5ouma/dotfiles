@@ -30,7 +30,6 @@ Jetpack 'tani/vim-jetpack'
 Jetpack 'tpope/vim-commentary'
 Jetpack 'tpope/vim-fugitive'
 Jetpack 'tpope/vim-surround'
-Jetpack 'vim-autoformat/vim-autoformat'
 Jetpack 'vim-scripts/vim-auto-save'
 Jetpack 'vimpostor/vim-lumen'
 silent! call jetpack#end()
