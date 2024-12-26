@@ -32,6 +32,7 @@ Jetpack 'tpope/vim-fugitive'
 Jetpack 'tpope/vim-surround'
 Jetpack 'vim-scripts/vim-auto-save'
 Jetpack 'vimpostor/vim-lumen'
+Jetpack 'wakatime/vim-wakatime'
 silent! call jetpack#end()
 
 for name in jetpack#names()
