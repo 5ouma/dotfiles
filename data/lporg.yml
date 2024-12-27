@@ -50,7 +50,6 @@ apps:
         - Discord
         - Slack
         - Steam
-        - Rhythm Quest Demo
         - folder: Resident Apps
           pages:
             - number: 1
