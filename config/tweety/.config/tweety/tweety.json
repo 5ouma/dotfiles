@@ -3,7 +3,7 @@
   "xterm": {
     "cursorStyle": "bar",
     "cursorWidth": 2,
-    "fontFamily": ["Fira Code", "HackGen35 Console NF" ],
+    "fontFamily": ["Fira Code", "HackGen35 Console", "Symbols Nerd Font" ],
     "fontSize": 18,
     "fontWeight": 500
   },

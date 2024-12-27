@@ -1060,7 +1060,7 @@
   # Bun version color.
   typeset -g POWERLEVEL9K_BUN_VERSION_FOREGROUND='indianred1'
   # Custom icon.
-  typeset -g POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION='🍞'
+  typeset -g POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
    function prompt_bun_version() {
     _p9k_upglob 'bun.lockb' -. && return
@@ -1072,7 +1072,7 @@
   # Deno version color.
   typeset -g POWERLEVEL9K_DENO_VERSION_FOREGROUND='springgreen3'
   # Custom icon.
-  typeset -g POWERLEVEL9K_DENO_VERSION_VISUAL_IDENTIFIER_EXPANSION='🦕'
+  typeset -g POWERLEVEL9K_DENO_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
    function prompt_deno_version() {
     _p9k_upglob 'deno.(json|jsonc)' -. && return

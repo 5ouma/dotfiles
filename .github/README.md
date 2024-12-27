@@ -149,16 +149,22 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
   brew install ghostty
   ```
 
-  - #### 🖋 Font 1: [`Fira Code`](https://github.com/tonsky/FiraCode)
+  - #### 🖋 ASCII Font: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
     ```sh
     brew install font-fira-code
     ```
 
-  - #### ✒️ Font 2: [`HackGen35`](https://github.com/yuru7/hackgen)
+  - #### ✒️ Japanese Font: [`HackGen35`](https://github.com/yuru7/hackgen)
 
     ```sh
-    brew install font-hackgen font-hackgen-nerd
+    brew install font-hackgen
+    ```
+
+  - #### 🕶️ Icon Font: [`Nerd Fonts`](https://www.nerdfonts.com)
+
+    ```sh
+    brew install 5ouma/cask-fonts/font-nerd-fonts
     ```
 
 <br />
