@@ -161,14 +161,6 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
     brew install font-hackgen font-hackgen-nerd
     ```
 
-  - #### 🧠 Terminal Autocompletion: [`Amazon Q`](https://aws.amazon.com/q/developer)
-
-    > _Formally [Fig](https://fig.io)_
-
-    ```sh
-    brew install amazon-q
-    ```
-
 <br />
 
 - ### 🐚 Shell: [`Zsh`](https://zsh.org)

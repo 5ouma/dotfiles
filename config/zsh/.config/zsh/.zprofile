@@ -1,6 +1,3 @@
-# Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zprofile.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zprofile.pre.zsh"
-
 # 1Password
 export PATH="/Applications/1Password.app/Contents/MacOS:$PATH"
 
@@ -32,6 +29,3 @@ export DOCKER_DEFAULT_PLATFORM='linux/amd64'
 # less
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 mkdir -p "$(dirname "$LESSHISTFILE")"
-
-# Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zprofile.post.zsh"
