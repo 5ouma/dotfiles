@@ -211,6 +211,6 @@ alias mv='mv -iv'
 
 # Keybinds
 bindkey -s '^B' '^Ugbs^M'
-bindkey -s '^G' '^Ugcd^M'
+bindkey -s '^P' '^Ugcd^M'
 bindkey -s '^Y' '^Uyzi^M'
 bindkey -s '^Z' '^Uzcd^M'

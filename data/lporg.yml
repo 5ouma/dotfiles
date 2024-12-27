@@ -41,7 +41,7 @@ apps:
         - Xcode
         - Visual Studio Code
         - Visual Studio Code - Insiders
-        - iTerm
+        - Ghostty
         - OrbStack
         - DaVinci Resolve
         - Figma
