@@ -18,14 +18,13 @@
 **⚙ The most minimal and powerful dotfiles ever** <br />
 My config files and setup for CLI tools and GUI apps.
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/5ouma/dotfiles?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/5ouma/dotfiles?style=flat-square)
-[![GitHub last commit](https://img.shields.io/github/last-commit/5ouma/dotfiles?style=flat-square)](https://github.com/5ouma/dotfiles/commit/HEAD)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/5ouma/dotfiles?style=flat-square)](https://github.com/5ouma/dotfiles/commits/main)
 <br />
-[![Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/test.yml?label=test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/test.yml)
-[![Detail Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/detail-test.yml?label=detail%20test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/detail-test.yml)
+
+[![Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/test.yml?label=Test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/test.yml)
+[![Detail Test](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/detail-test.yml?label=Detail%20Test&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/detail-test.yml)
 [![pre-commit](https://img.shields.io/github/actions/workflow/status/5ouma/dotfiles/pre-commit.yml?label=pre-commit&style=flat-square)](https://github.com/5ouma/dotfiles/actions/workflows/pre-commit.yml)
+
+![Repobeats Analytics Image](https://repobeats.axiom.co/api/embed/582e65bd5fb58fbbc0ecbb2947a391efde3d9516.svg)
 
 </div>
 
