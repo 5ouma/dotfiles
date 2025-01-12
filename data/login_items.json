@@ -20,6 +20,11 @@
     "Hidden": false
   },
   {
+    "Name": "FigmaAgent",
+    "Path": "/Users/5ouma/Library/Application Support/Figma/FigmaAgent.app",
+    "Hidden": false
+  },
+  {
     "Name": "Fuwari",
     "Path": "/Applications/Fuwari.app",
     "Hidden": false
