@@ -41,14 +41,14 @@ My config files and setup for CLI tools and GUI apps.
 
   > ⚠️ Experimental Support
 
-  - cURL, Git, and Zsh to run the [setup](../setup)
+  - cURL, Git, and Zsh to run the [setup](./setup)
   - Compatible with these [Homebrew dependencies](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
 <br /><br />
 
 ## 📥 Installation
 
-Run one line [setup](../setup), see the [usage](#-usage) for the detail.
+Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 
 <br />
 
@@ -105,10 +105,10 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 | Dark Mode  | ![Overview - Dark]  |             ![Vim - Dark]              |
 |   Tools    |     [fastfetch]     | [lightline.vim], [NERDTree], [fzf.vim] |
 
-[Overview - Light]: ./images/screenshots/light/overview.png
-[Overview - Dark]: ./images/screenshots/dark/overview.png
-[Vim - Light]: ./images/screenshots/light/vim.png
-[Vim - Dark]: ./images/screenshots/dark/vim.png
+[Overview - Light]: ./.github/images/screenshots/light/overview.png
+[Overview - Dark]: ./.github/images/screenshots/dark/overview.png
+[Vim - Light]: ./.github/images/screenshots/light/vim.png
+[Vim - Dark]: ./.github/images/screenshots/dark/vim.png
 [fastfetch]: https://github.com/fastfetch-cli/fastfetch
 [lightline.vim]: https://github.com/itchyny/lightline.vim
 [NERDTree]: https://github.com/preservim/nerdtree
@@ -127,7 +127,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
   > See packages in **[`Brewfile`]**
   > or on **[`Shell Commands`]**, **[`Software`]**, **[`Fonts`]** _(GitHub Star List)_
 
-  [`Brewfile`]: ../data/Brewfile
+  [`Brewfile`]: ./data/Brewfile
   [`Shell Commands`]: https://github.com/stars/5ouma/lists/shell-commands
   [`Software`]: https://github.com/stars/5ouma/lists/software
   [`Fonts`]: https://github.com/stars/5ouma/lists/fonts
@@ -179,7 +179,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
     > See plugins in **[`plugins.toml`]**
     > or on **[`Zsh Plugins`]** _(GitHub Star List)_
 
-    [`plugins.toml`]: ../config/sheldon/.config/sheldon/plugins.toml
+    [`plugins.toml`]: ./config/sheldon/.config/sheldon/plugins.toml
     [`Zsh Plugins`]: https://github.com/stars/5ouma/lists/zsh-plugins
 
   - #### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
@@ -201,7 +201,7 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
     > See plugins in **[`plugins.vim`]**
     > or on **[`Vim Plugins`]** _(GitHub Star List)_
 
-    [`plugins.vim`]: ../config/vim/.config/vim/plugins.vim
+    [`plugins.vim`]: ./config/vim/.config/vim/plugins.vim
     [`Vim Plugins`]: https://github.com/stars/5ouma/lists/vim-plugins
 
   - #### ✏️ Color Scheme: [`Pencil`](https://github.com/5ouma/vim-colors-pencil)
