@@ -250,7 +250,6 @@
     CVS
     Cargo.toml
     composer.json
-    bun.lockb
     deno.json
     deno.jsonc
     go.mod
@@ -1056,13 +1055,19 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
+  function prompt_node_version() {
+    _p9k_upglob 'package-lock.json|yarn.lock|pnpm-lock.yaml' -. && return
+    local v="$(node -v)"
+    _p9k_prompt_segment "$0" "green" "white" 'NODE_ICON' 0 '' "${${v#v}//\%/%%}"
+  }
+
   ##############################[ bun_version: bun version ]###############################
   # Bun version color.
   typeset -g POWERLEVEL9K_BUN_VERSION_FOREGROUND='indianred1'
   # Custom icon.
   typeset -g POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
-   function prompt_bun_version() {
+  function prompt_bun_version() {
     _p9k_upglob 'bun.lockb' -. && return
     local v="$(bun -v)"
     p10k segment -t "${v#* }" -i "$POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_BUN_VERSION_FOREGROUND"
@@ -1074,7 +1079,7 @@
   # Custom icon.
   typeset -g POWERLEVEL9K_DENO_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
-   function prompt_deno_version() {
+  function prompt_deno_version() {
     _p9k_upglob 'deno.(json|jsonc)' -. && return
     local v="$(deno -V)"
     p10k segment -t "${v#* }" -i "$POWERLEVEL9K_DENO_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_DENO_VERSION_FOREGROUND"
