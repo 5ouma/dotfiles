@@ -58,7 +58,10 @@
     # nodenv                # node.js version from nodenv (https://github.com/nodenv/nodenv)
     # nvm                   # node.js version from nvm (https://github.com/nvm-sh/nvm)
     # nodeenv               # node.js environment (https://github.com/ekalinin/nodeenv)
-    node_version            # node.js version
+    node_version            # node.js version (https://nodejs.org)
+    npm_version             # npm version (https://www.npmjs.com)
+    yarn_version            # yarn version (https://yarnpkg.com)
+    pnpm_version            # pnpm version (https://pnpm.io)
     bun_version             # bun version (https://bun.sh)
     deno_version            # deno version (https://deno.com)
     go_version              # go version (https://golang.org)
@@ -254,6 +257,9 @@
     deno.jsonc
     go.mod
     package.json
+    package-lock.json
+    yarn.lock
+    pnpm-lock.yaml
     stack.yaml
   )
   typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER="(${(j:|:)anchor_files})"
@@ -1053,12 +1059,48 @@
   # Show node version only when in a directory tree containing package.json.
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='󰎙'
 
   function prompt_node_version() {
     _p9k_upglob 'package-lock.json|yarn.lock|pnpm-lock.yaml' -. && return
     local v="$(node -v)"
-    _p9k_prompt_segment "$0" "green" "white" 'NODE_ICON' 0 '' "${${v#v}//\%/%%}"
+    p10k segment -t "${v#* }" -i "$POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_NODE_VERSION_FOREGROUND"
+  }
+
+  ##############################[ npm_version: npm version ]###############################
+  # npm version color.
+  typeset -g POWERLEVEL9K_NPM_VERSION_FOREGROUND=160
+  # Custom icon.
+  typeset -g POWERLEVEL9K_NPM_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+
+  function prompt_npm_version() {
+    _p9k_upglob 'package-lock.json' -. && return
+    local v="$(npm -v)"
+    p10k segment -t "${v#* }" -i "$POWERLEVEL9K_NPM_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_NPM_VERSION_FOREGROUND"
+  }
+
+  ##############################[ yarn_version: yarn version ]###############################
+  # yarn version color.
+  typeset -g POWERLEVEL9K_YARN_VERSION_FOREGROUND=25
+  # Custom icon.
+  typeset -g POWERLEVEL9K_YARN_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+
+  function prompt_yarn_version() {
+    _p9k_upglob 'yarn.lock' -. && return
+    local v="$(yarn -v)"
+    p10k segment -t "${v#* }" -i "$POWERLEVEL9K_YARN_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_YARN_VERSION_FOREGROUND"
+  }
+
+  ##############################[ pnpm_version: pnpm version ]###############################
+  # pnpm version color.
+  typeset -g POWERLEVEL9K_PNPM_VERSION_FOREGROUND='#F69220'
+  # Custom icon.
+  typeset -g POWERLEVEL9K_PNPM_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+
+  function prompt_pnpm_version() {
+    _p9k_upglob 'pnpm-lock.yaml' -. && return
+    local v="$(pnpm -v)"
+    p10k segment -t "${v#* }" -i "$POWERLEVEL9K_PNPM_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_PNPM_VERSION_FOREGROUND"
   }
 
   ##############################[ bun_version: bun version ]###############################
