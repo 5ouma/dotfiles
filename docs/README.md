@@ -1,15 +1,15 @@
 <h1 align="center">
   <picture>
     <source
-      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/.github/images/header/header-light.png"
+      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png"
       media="(prefers-color-scheme: light)"
     />
     <source
-      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/.github/images/header/header-dark.png"
+      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-dark.png"
       media="(prefers-color-scheme: dark)"
     />
     <!-- markdownlint-disable MD013 -->
-    <img width=500px alt="header" src="https://raw.githubusercontent.com/5ouma/dotfiles/main/.github/images/header/header-light.png" />
+    <img width=500px alt="header" src="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png" />
   </picture>
 </h1>
 
@@ -105,10 +105,10 @@ Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 | Dark Mode  | ![Overview - Dark]  |             ![Vim - Dark]              |
 |   Tools    |     [fastfetch]     | [lightline.vim], [NERDTree], [fzf.vim] |
 
-[Overview - Light]: ./.github/images/screenshots/light/overview.png
-[Overview - Dark]: ./.github/images/screenshots/dark/overview.png
-[Vim - Light]: ./.github/images/screenshots/light/vim.png
-[Vim - Dark]: ./.github/images/screenshots/dark/vim.png
+[Overview - Light]: ./images/screenshots/light/overview.png
+[Overview - Dark]: ./images/screenshots/dark/overview.png
+[Vim - Light]: ./images/screenshots/light/vim.png
+[Vim - Dark]: ./images/screenshots/dark/vim.png
 [fastfetch]: https://github.com/fastfetch-cli/fastfetch
 [lightline.vim]: https://github.com/itchyny/lightline.vim
 [NERDTree]: https://github.com/preservim/nerdtree
