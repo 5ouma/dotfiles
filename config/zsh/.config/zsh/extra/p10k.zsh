@@ -260,6 +260,8 @@
     package-lock.json
     yarn.lock
     pnpm-lock.yaml
+    bun.lock
+    bun.lockb
     stack.yaml
   )
   typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER="(${(j:|:)anchor_files})"
@@ -1110,7 +1112,7 @@
   typeset -g POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
   function prompt_bun_version() {
-    _p9k_upglob 'bun.lockb' -. && return
+    _p9k_upglob 'bun.(lock|lockb)' -. && return
     local v="$(bun -v)"
     p10k segment -t "${v#* }" -i "$POWERLEVEL9K_BUN_VERSION_VISUAL_IDENTIFIER_EXPANSION" -f "$POWERLEVEL9K_BUN_VERSION_FOREGROUND"
   }
