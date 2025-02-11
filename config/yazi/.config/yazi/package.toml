@@ -1,5 +1,5 @@
 [plugin]
 deps = [
-  { use = "yazi-rs/plugins:full-border", rev = "07258518f3bffe28d87977bc3e8a88e4b825291b" },
-  { use = "yazi-rs/plugins:git", rev = "07258518f3bffe28d87977bc3e8a88e4b825291b" },
+  { use = "yazi-rs/plugins:full-border", rev = "8945e543ebbaa25de155b7101a917eba007252f2" },
+  { use = "yazi-rs/plugins:git", rev = "8945e543ebbaa25de155b7101a917eba007252f2" },
 ]
