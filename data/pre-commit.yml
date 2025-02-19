@@ -42,8 +42,8 @@ repos:
       - id: markdownlint-fix
         args: [--disable, MD013, MD023, MD024, MD025, MD033, MD036]
 
-  - repo: https://github.com/koalaman/shellcheck-precommit
-    rev: v0.10.0
+  - repo: https://github.com/detailyang/pre-commit-shell
+    rev: v1.0.6
     hooks:
-      - id: shellcheck
+      - id: shell-lint
         args: [-e, "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]
