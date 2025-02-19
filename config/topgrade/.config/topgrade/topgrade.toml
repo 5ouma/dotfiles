@@ -49,4 +49,3 @@ mli = """
     printf '\\033[33;1mSkipped\\033[m\n'
   fi
 """
-yazi = "ya pack -i"

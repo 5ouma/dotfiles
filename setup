@@ -346,11 +346,6 @@ installVimPlugins() {
   gum run 'Building a binary of vim-lumen...' -- vim +qall!
 } && run 'installVimPlugins' '## 🖌 Install Vim plugins'
 
-installYaziPlugins() {
-  [ -d "$XDG_DATA_HOME/yazi/packages" ] && skip
-  ya pack -i
-} && run 'installYaziPlugins' '## 🐤 Install Yazi plugins'
-
 #==================================================[ Done! ]==================================================#
 
 if ($executed); then

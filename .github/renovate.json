@@ -10,16 +10,6 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
       "extractVersionTemplate": "v(?<version>.*)"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["yazi/package.toml"],
-      "matchStrings": [
-        "use = \"(?<depName>.*):.*\", rev = \"(?<currentDigest>.*)\""
-      ],
-      "currentValueTemplate": "main",
-      "packageNameTemplate": "https://github.com/{{ depName }}",
-      "datasourceTemplate": "git-refs"
     }
   ]
 }
