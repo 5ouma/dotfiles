@@ -39,7 +39,6 @@ gcd() {
 
 # git
 alias ga='git forgit add'
-alias gapa='git add -p'
 alias gb='git branch'
 alias gcm!='git commit --no-edit --amend'
 alias gcm='git commit'
@@ -48,27 +47,15 @@ alias gcl='git clone'
 alias gd='git diff'
 alias gin='git init'
 alias glg='git log --graph'
-alias gls='git ls-files'
 alias gm='git merge'
-alias gop='git open'
 alias gpl='git pull'
 alias gps='git push'
 alias gr='git remote'
 alias grb='git rebase'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
-alias grbs='git rebase --skip'
-alias grl='git reflog'
-alias grm='git rm'
-alias grmc='git rm --cached'
-alias grs='git restore'
-alias grss='git restore -S'
-alias grv='git remote -v'
 alias gs='git status'
 alias gst='git stash'
 alias gsw='git switch'
 alias gswc='git switch -c'
-alias gtg='git tag'
 
 gc() {
   _git_check || return
@@ -134,8 +121,6 @@ alias glow='glow --pager'
   fi
 }
 
-alias bbcp='brew bump-cask-pr'
-alias bbfp='brew bump-formula-pr'
 alias bcl='brew cleanup'
 alias bd='brew doctor'
 alias bi='brew install'
