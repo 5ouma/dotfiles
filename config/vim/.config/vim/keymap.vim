@@ -20,10 +20,6 @@ nnoremap sh <C-w>h
 nnoremap sl <C-w>l
 nnoremap sk <C-w>k
 nnoremap sj <C-w>j
-nnoremap wh <C-w><
-nnoremap wl <C-w>>
-nnoremap wk <c-W>+
-nnoremap wj <C-w>-
 
 " Move Lines
 nmap ˚ <A-k>
