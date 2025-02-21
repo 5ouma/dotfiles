@@ -16,6 +16,7 @@ jobs:
   test:
     name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [Ubuntu-Latest, macOS-14]
     runs-on: ${{ matrix.os }}
