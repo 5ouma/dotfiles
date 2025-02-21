@@ -16,6 +16,10 @@ declare -r data="$dotfiles/data"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 declare -r GIT_REF="${GITHUB_HEAD_REF:-main}"
 
+export GUM_CONFIRM_SELECTED_BACKGROUND='27'
+export GUM_FORMAT_THEME="$TMPDIR/blue.json"
+export GUM_SPIN_SPINNER_FOREGROUND='27'
+
 declare executed=false
 declare skipped=false
 declare goThrough=false
@@ -38,19 +42,19 @@ getGum() {
   fi
 
   if [[ ! -f "$data/blue.json" ]]; then
-    gumTheme=$(curl -s "$gumThemeUrl") && declare -gr gumTheme
+    curl -s "$gumThemeUrl"
   else
-    gumTheme=$(cat "$data/${gumThemeUrl/*\//}") && declare -gr gumTheme
-  fi
+    cat "$data/${gumThemeUrl/*\//}"
+  fi >"$GUM_FORMAT_THEME"
 } && getGum
 
 gum() {
   case $1 in
-  confirm) gumCom confirm "$2" --selected.background='27' --affirmative="$3" --negative="$4" ;;
-  format) gumCom format --theme=<(echo -E "$gumTheme") "${@:2}" ;;
+  confirm) gumCom confirm "$2" --affirmative="$3" --negative="$4" ;;
+  format) gumCom format "${@:2}" ;;
   run)
     if (tty &>/dev/null); then
-      gumCom spin --spinner.foreground='27' --title="$2" -- "${@:4}"
+      gumCom spin --title="$2" -- "${@:4}"
     else
       echo && gumCom log --level='info' "$2"
       "${@:4}"

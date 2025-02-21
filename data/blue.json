@@ -57,14 +57,14 @@
     "unticked": "[ ] "
   },
   "link": {
-    "color": "33",
+    "color": "39",
     "underline": true
   },
   "link_text": {
     "bold": true
   },
   "image": {
-    "color": "33",
+    "color": "39",
     "underline": true
   },
   "image_text": {
