@@ -16,6 +16,9 @@ declare -r data="$dotfiles/data"
 declare -r TMPDIR="${TMPDIR:-"$(mktemp -d)"}"
 declare -r GIT_REF="${GITHUB_HEAD_REF:-main}"
 
+export GUM_CHOOSE_CURSOR_FOREGROUND='33'
+export GUM_CHOOSE_ITEM_FOREGROUND='39'
+export GUM_CHOOSE_SELECTED_FOREGROUND='27'
 export GUM_CONFIRM_SELECTED_BACKGROUND='27'
 export GUM_FORMAT_THEME="$TMPDIR/blue.json"
 export GUM_SPIN_SPINNER_FOREGROUND='27'
@@ -50,6 +53,7 @@ getGum() {
 
 gum() {
   case $1 in
+  choose) gumCom choose --no-limit --selected='*' <"$2" ;;
   confirm) gumCom confirm "$2" --affirmative="$3" --negative="$4" ;;
   format) gumCom format "${@:2}" ;;
   run)
@@ -287,7 +291,12 @@ EOM
 installApps() {
   (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
   (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && skip
-  brew update && brew bundle install --no-lock --file="$data/Brewfile"
+  if ($goThrough); then
+    cat "$data/Brewfile"
+  else
+    gum choose "$data/Brewfile"
+  fi >"$TMPDIR/Brewfile"
+  brew bundle install --no-lock --file="$TMPDIR/Brewfile"
   if (isDarwin); then
     sudo xcodebuild -license accept
   fi
