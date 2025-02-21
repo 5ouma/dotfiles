@@ -334,7 +334,7 @@ generateGitHooks() {
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
 
 loginGitHubCli() {
-  (gh auth status) && skip
+  (gh auth status &>/dev/null) && skip
   gh auth login -p='SSH' -h='GitHub.com' -s='codespace,delete_repo,workflow' --skip-ssh-key -w
 } && run 'loginGitHubCli' '## 🐙 Log in to GitHub CLI'
 
