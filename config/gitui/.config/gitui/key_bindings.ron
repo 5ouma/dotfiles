@@ -3,4 +3,7 @@
   move_right: Some(( code: Char('l'), modifiers: "")),
   move_up: Some(( code: Char('k'), modifiers: "")),
   move_down: Some(( code: Char('j'), modifiers: "")),
+  home: Some(( code: Char('g'), modifiers: "")),
+  end: Some(( code: Char('G'), modifiers: "SHIFT")),
+  open_help: Some(( code: Char('?'), modifiers: "")),
 )
