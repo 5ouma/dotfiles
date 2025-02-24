@@ -2,6 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>5ouma/utils"],
   "pre-commit": { "enabled": true, "fileMatch": ["pre-commit.yml"] },
+  "packageRules": [
+    {
+      "matchPackageNames": ["Homebrew/actions"],
+      "matchUpdateTypes": ["digest"],
+      "automerge": true
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
