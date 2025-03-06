@@ -13,39 +13,9 @@ repos = ["~/*", "~/ghq/*/*/*"]
 
 [commands]
 Jetpack = "vim +Jetpack +qall"
-Shortcuts = """
-  if (type osascript &>/dev/null); then
-    osascript -e 'tell app "Shortcuts" to run shortcut "Backup"' -e 'tell app "Shortcuts" to quit'
-  else
-    printf '\\033[33;1mSkipped\\033[m\n'
-  fi
-"""
-lporg = """
-  if (type lporg &>/dev/null); then
-    lporg save -c="$data/lporg.yml"
-  else
-    printf '\\033[33;1mSkipped\\033[m\n'
-  fi
-"""
-mackup = """
-  if (mackup -n backup &>/dev/null); then
-    mackup -f backup
-  else
-    printf '\\033[33;1mSkipped\\033[m\n'
-  fi
-"""
+lporg = '_run lporg save -c="$data/lporg.yml"'
+mackup = "_run mackup -f backup"
 mise = "mise plugins update && mise upgrade"
-mksei = """
-  if (type mksei &>/dev/null); then
-    mksei save "$data/keyboard_shortcuts.json"
-  else
-    printf '\\033[33;1mSkipped\\033[m\n'
-  fi
-"""
-mli = """
-  if (type mli &>/dev/null); then
-    mli save -f --file="$data/login_items.json"
-  else
-    printf '\\033[33;1mSkipped\\033[m\n'
-  fi
-"""
+mksei = '_run mksei save "$data/keyboard_shortcuts.json"'
+mli = '_run mli save -f --file="$data/login_items.json"'
+Shortcuts = "_run osascript -e 'tell app \"Shortcuts\" to run shortcut \"Backup\"' -e 'tell app \"Shortcuts\" to quit'"

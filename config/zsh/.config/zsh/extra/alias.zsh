@@ -1,7 +1,3 @@
-_has() {
-  type "$1" &>/dev/null
-}
-
 _fzf() {
   fzf --border-label "$1" --preview="$2"
 }
