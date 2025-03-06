@@ -277,7 +277,8 @@ changeScreenCapturePath() {
 
 setComputerName() {
   declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | cut -d ':' -f 2 | xargs)"
-  declare -r computerName="$(id -F)'s $modelName" localHostName="$(id -F)s-${modelName// /-}"
+  declare -r userName="$(id -F)"
+  declare -r computerName="$userName's $modelName" localHostName="${userName//./}s-${modelName// /-}"
   [[ "$(scutil --get ComputerName)" == "$computerName" && "$(scutil --get HostName)" == "$computerName" && "$(scutil --get LocalHostName)" == "$localHostName" ]] && skip
   gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
   gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
