@@ -109,6 +109,9 @@ mkSym() {
 }
 
 # Utilities
+has() {
+  type "$1" &>/dev/null
+}
 alias skip='skipped=true && return'
 run() {
   declare -r func="${1:u}"
@@ -297,7 +300,7 @@ installApps() {
     gum choose "$data/Brewfile"
   fi >"$TMPDIR/Brewfile"
   brew bundle install --no-lock --file="$TMPDIR/Brewfile"
-  if (isDarwin); then
+  if [[ -d '/Applications/Xcode.app' ]]; then
     sudo xcodebuild -license accept
   fi
 } && run 'installApps' '## 📲 Install commands and apps'
@@ -327,12 +330,13 @@ restoreAppShortcuts() {
 } && run 'restoreAppShortcuts' '## ⌨️ Restore App Shortcuts' true
 
 restoreLoginItems() {
-  (mli check --file="$data/login_items.json" &>/dev/null) && skip
+  (! has mli || mli check --file="$data/login_items.json" &>/dev/null) && skip
   # shellcheck disable=SC2016
   gum run 'Running `mli load`...' -- mli load --file="$data/login_items.json"
 } && run 'restoreLoginItems' '## 📑 Restore Login Items' true
 
 limitBatteryCharge() {
+  (! has bclm_loop) && skip
   sudo bclm_loop persist
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
