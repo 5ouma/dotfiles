@@ -1,5 +1,5 @@
 [misc]
-disable = ["containers", "github_cli_extensions", "pip3", "system", "vscode"]
+disable = ["containers", "pip3", "system"]
 set_title = true
 display_time = false
 cleanup = true
