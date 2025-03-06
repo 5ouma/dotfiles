@@ -18,4 +18,4 @@ mackup = "_run mackup -f backup"
 mise = "mise plugins update && mise upgrade"
 mksei = '_run mksei save "$data/keyboard_shortcuts.json"'
 mli = '_run mli save -f --file="$data/login_items.json"'
-Shortcuts = "_run osascript -e 'tell app \"Shortcuts\" to run shortcut \"Backup\"' -e 'tell app \"Shortcuts\" to quit'"
+Shortcuts = "_run osascript -e 'tell app \"Shortcuts\" to run shortcut \"Backup\"' -e 'tell app \"Shortcuts\" to quit' || :"
