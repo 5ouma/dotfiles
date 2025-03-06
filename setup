@@ -310,7 +310,7 @@ changeLoginShell() {
   [[ "${SHELL:-''}" == "$(which zsh)" ]] && skip
   which zsh | sudo tee -a /etc/shells >/dev/null
   sudo chsh -s "$(which zsh)" "$USER"
-} && run 'changeLoginShell' '### 🐚 Change login shell to Zsh'
+} && run 'changeLoginShell' '## 🐚 Change login shell to Zsh'
 
 restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
