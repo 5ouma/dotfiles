@@ -8,7 +8,7 @@ _run() {
   if (_has "$1"); then
     "$@"
   else
-    printf '\\033[33;1mSkipped\\033[m\n'
+    printf '\033[33;1mSkipped\033[m\n'
   fi
 }
 
