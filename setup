@@ -300,10 +300,8 @@ installApps() {
   else
     gum choose "$data/Brewfile"
   fi >"$TMPDIR/Brewfile"
-  brew bundle install --no-lock --file="$TMPDIR/Brewfile"
-  if [[ -d '/Applications/Xcode.app' ]]; then
-    sudo xcodebuild -license accept
-  fi
+  brew bundle install --file="$TMPDIR/Brewfile"
+  [[ -d '/Applications/Xcode.app' ]] && sudo xcodebuild -license accept || :
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
