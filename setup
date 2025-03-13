@@ -31,7 +31,7 @@ declare goThrough=false
 
 # Actions
 getGum() {
-  declare -r gumVir='0.15.2'
+  declare -r gumVir='0.16.0'
   declare -r gumDir="gum_${gumVir}_$(uname)_$(uname -m)"
   declare -r gumUrl="https://github.com/charmbracelet/gum/releases/download/v$gumVir/$gumDir.tar.gz"
   declare -r gumThemeUrl="https://raw.githubusercontent.com/5ouma/dotfiles/$GIT_REF/data/blue.json"
