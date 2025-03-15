@@ -12,6 +12,8 @@ on:
       - setup
       - .github/workflows/test.yml
 
+permissions: {}
+
 jobs:
   test:
     name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}

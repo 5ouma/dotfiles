@@ -5,6 +5,8 @@ on:
     - cron: 0 0 1 * *
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   test:
     name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
