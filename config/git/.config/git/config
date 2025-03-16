@@ -1,5 +1,7 @@
 [core]
   hooksPath = ~/.config/git/hooks
+[sequence]
+  editor = interactive-rebase-tool
 
 [user]
   name = Souma
@@ -38,3 +40,12 @@
 
 [ghq]
   user = 5ouma
+[interactive-rebase-tool]
+  inputMoveLeft = h
+  inputMoveDown = j
+  inputMoveUp = k
+  inputMoveRight = l
+  inputMoveHome = g
+  inputMoveEnd = G
+  inputMoveSelectionDown = Shift+j
+  inputMoveSelectionUp = Shift+k
