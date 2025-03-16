@@ -22,8 +22,8 @@ nnoremap sk <C-w>k
 nnoremap sj <C-w>j
 
 " Move Lines
-nmap ˚ <A-k>
-nmap ∆ <A-j>
+nmap <S-k> <A-k>
+nmap <S-j> <A-j>
 
 " any-jump
 nnoremap <silent> aj :AnyJump<Return>
