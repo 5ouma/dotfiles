@@ -36,8 +36,9 @@ gcd() {
 # git
 alias ga='git forgit add'
 alias gb='git branch'
-alias gcm!='git commit --no-edit --amend'
-alias gcm='git commit'
+alias gc='GIT_EDITOR="meteor -e" git commit'
+alias 'gc?'='git commit --amend'
+alias 'gc!'='git commit --no-edit --amend'
 alias gcf='git config'
 alias gcl='git clone'
 alias gd='git diff'
@@ -52,38 +53,6 @@ alias gs='git status'
 alias gst='git stash'
 alias gsw='git switch'
 alias gswc='git switch -c'
-
-gc() {
-  _git_check || return
-  declare message=''
-  declare -r types=(
-    'feat: A new feature'
-    'fix: A bug fix'
-    'docs: Documentation only changes'
-    'style: Changes that do not affect the meaning of the code'
-    'refactor: A code change that neither fixes a bug nor adds a feature'
-    'perf: A code change that improves performance'
-    'test: Adding missing tests or correcting existing tests'
-    'build: Changes that affect the build system or external dependencies'
-    'ci: Changes to our CI configuration files and scripts'
-    "chore: Other changes that don't modify src or test files"
-    'revert: Reverts a previous commit'
-  )
-  declare -r type="$(gum choose "${types[@]}" --height=11 | cut -d ':' -f 1)" && message+="$type"
-  [ -z "$type" ] && return 1
-  declare -r scope="$(gum input --placeholder='A commit type to provide additional contextual information' --prompt="$message(")" && message+="($scope): "
-  [ -z "$scope" ] && return 1
-  declare -r description="$(gum input --placeholder='A short summary of the code changes' --prompt="$message")" && message+="$description"
-  [ -z "$description" ] && return 1
-  declare -r body="$(gum input --placeholder='Additional contextual information about the code changes' --header="$message" --char-limit=80 --width=80)" && message+=$'\n'$'\n'"$body"
-  [ -z "$body" ] && return 1
-  printf "%s\n\n" "$message"
-  if (gum confirm 'Commit changes without editing?'); then
-    git commit -m "$message"
-  else
-    git commit -em "$message"
-  fi
-}
 
 gbs() {
   _git_check || return

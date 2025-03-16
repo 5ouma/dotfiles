@@ -11,15 +11,6 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-/:change-preview-window(down|right)' --hei
 # Gitlint
 export GITLINT_CONTRIB='CT1'
 
-# Gum
-export GUM_CHOOSE_CURSOR_FOREGROUND='33'
-export GUM_CHOOSE_ITEM_FOREGROUND='39'
-export GUM_CHOOSE_SELECTED_FOREGROUND='27'
-export GUM_CONFIRM_SELECTED_BACKGROUND='27'
-export GUM_FORMAT_THEME="$data/blue.json"
-export GUM_INPUT_CURSOR_FOREGROUND='33'
-export GUM_SPIN_SPINNER_FOREGROUND='27'
-
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
