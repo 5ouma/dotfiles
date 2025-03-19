@@ -1,4 +1,5 @@
 {
+  "commitTitleCharLimit": 72,
   "prefixes": [
     { "type": "feat", "description": "A new feature" },
     { "type": "fix", "description": "A bug fix" },
