@@ -36,7 +36,7 @@ gcd() {
 # git
 alias ga='git forgit add'
 alias gb='git branch'
-alias gc='GIT_EDITOR="meteor -e" git commit'
+alias gc='GIT_EDITOR="meteor -eb" git commit'
 alias 'gc?'='git commit --amend'
 alias 'gc!'='git commit --no-edit --amend'
 alias gcf='git config'
