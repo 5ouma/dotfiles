@@ -26,7 +26,7 @@
     },
     {
       "type": "ci",
-      "description": "Changes to our CI configuration files and scripts"
+      "description": "Changes to CI configuration files and scripts"
     },
     {
       "type": "chore",
