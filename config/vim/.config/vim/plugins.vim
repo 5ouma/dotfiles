@@ -77,3 +77,4 @@ let g:pencil_gutter_color = 1
 " vim-lsp
 let g:lsp_diagnostics_signs_error = {'text': '⃠'}
 let g:lsp_diagnostics_signs_warning = {'text': '⚠'}
+let g:lsp_diagnostics_virtual_text_align = 'after'
