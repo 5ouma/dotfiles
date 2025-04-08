@@ -80,11 +80,6 @@
     "Hidden": false
   },
   {
-    "Name": "OrbStack",
-    "Path": "/Applications/OrbStack.app",
-    "Hidden": false
-  },
-  {
     "Name": "Raycast",
     "Path": "/Applications/Raycast.app",
     "Hidden": false
