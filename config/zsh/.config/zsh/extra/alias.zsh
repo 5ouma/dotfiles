@@ -1,5 +1,8 @@
 _fzf() {
-  fzf --border-label "$1" --preview="$2"
+  fzf \
+    --border-label "$1" \
+    --preview="$2" \
+    "${@:3}"
 }
 
 _git_check() {
@@ -158,7 +161,10 @@ alias yzi='yazi'
 zcd() {
   declare -r dir="$(
     zoxide query -l |
-      _fzf '📂 Directories' 'lsd -Alg {} --color=always'
+      _fzf \
+        '📂 Directories' \
+        'lsd -Alg {} --color=always' \
+        --preview-window=down
   )"
   [ -n "$dir" ] &&
     cd "$dir" || return
