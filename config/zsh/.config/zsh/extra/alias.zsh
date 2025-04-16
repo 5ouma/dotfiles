@@ -22,12 +22,18 @@ alias ghd='gh-dash'
 alias gg='ghq get -p'
 alias gup='ghq list | ghq get --update --parallel'
 
+# shellcheck disable=SC2016
 gcd() {
   declare -r repo="$(
     ghq list |
       _fzf \
         '🔖 Repositories' \
-        "find $(ghq root)/{} -name README.md -maxdepth 2 | head -n 1 | xargs glow --style=auto"
+        'file="$(find $(ghq root)/{} -name README.md -maxdepth 2 | head -n 1)"
+        if [[ -n "$file" ]]; then
+          glow "$file" --style=auto
+        else
+          lsd -Alg $(ghq root)/{} --blocks=name --color=always
+        fi'
   )"
   [ -n "$repo" ] &&
     cd "$(ghq list --full-path --exact "$repo")" || return
