@@ -17,11 +17,12 @@ permissions: {}
 jobs:
   test:
     name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
         os: [Ubuntu-Latest, macOS-14]
-    runs-on: ${{ matrix.os }}
 
     steps:
       - name: 🍺 Setup Homebrew
