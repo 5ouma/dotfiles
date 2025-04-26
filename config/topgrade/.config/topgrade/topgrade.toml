@@ -9,7 +9,7 @@ greedy_cask = true
 autoremove = true
 
 [git]
-repos = ["~/*", "~/ghq/*/*/*"]
+repos = ["~/*", "~/ghq/**"]
 
 [commands]
 Jetpack = "vim +Jetpack +qall"
