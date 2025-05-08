@@ -1,19 +1,34 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>5ouma/utils#v0.1.4"],
-  "pre-commit": { "enabled": true, "fileMatch": ["pre-commit.yml"] },
+  "extends": [
+    "github>5ouma/utils#v0.1.4"
+  ],
+  "pre-commit": {
+    "enabled": true,
+    "managerFilePatterns": [
+      "/pre-commit.yml/"
+    ]
+  },
   "packageRules": [
     {
-      "matchPackageNames": ["Homebrew/actions"],
-      "matchUpdateTypes": ["digest"],
+      "matchPackageNames": [
+        "Homebrew/actions"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
       "automerge": true
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["setup"],
-      "matchStrings": ["gumVir='(?<currentValue>.*)'"],
+      "managerFilePatterns": [
+        "/setup/"
+      ],
+      "matchStrings": [
+        "gumVir='(?<currentValue>.*)'"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
       "extractVersionTemplate": "v(?<version>.*)"
