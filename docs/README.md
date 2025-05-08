@@ -223,19 +223,19 @@ Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 |  Cyan   | ![#20C5C6] `#20C5C6` | ![#68FDFE] `#68FDFE` |
 |  White  | ![#C7C7C7] `#C7C7C7` | ![#FFFFFF] `#FFFFFF` |
 
-[#000000]: https://via.placeholder.com/15/000000/000000.png
-[#686868]: https://via.placeholder.com/15/686868/686868.png
-[#C51E14]: https://via.placeholder.com/15/C51E14/C51E14.png
-[#FD6F6B]: https://via.placeholder.com/15/FD6F6B/FD6F6B.png
-[#1DC121]: https://via.placeholder.com/15/1DC121/1DC121.png
-[#67F86F]: https://via.placeholder.com/15/67F86F/67F86F.png
-[#C7C329]: https://via.placeholder.com/15/C7C329/C7C329.png
-[#FFFA72]: https://via.placeholder.com/15/FFFA72/FFFA72.png
-[#0A2FC4]: https://via.placeholder.com/15/0A2FC4/0A2FC4.png
-[#6A76FB]: https://via.placeholder.com/15/6A76FB/6A76FB.png
-[#C839C5]: https://via.placeholder.com/15/C839C5/C839C5.png
-[#FD7CFC]: https://via.placeholder.com/15/FD7CFC/FD7CFC.png
-[#20C5C6]: https://via.placeholder.com/15/20C5C6/20C5C6.png
-[#68FDFE]: https://via.placeholder.com/15/68FDFE/68FDFE.png
-[#C7C7C7]: https://via.placeholder.com/15/C7C7C7/C7C7C7.png
-[#FFFFFF]: https://via.placeholder.com/15/FFFFFF/FFFFFF.png
+[#000000]: https://placehold.co/15/000000/000000.svg
+[#686868]: https://placehold.co/15/686868/686868.svg
+[#C51E14]: https://placehold.co/15/C51E14/C51E14.svg
+[#FD6F6B]: https://placehold.co/15/FD6F6B/FD6F6B.svg
+[#1DC121]: https://placehold.co/15/1DC121/1DC121.svg
+[#67F86F]: https://placehold.co/15/67F86F/67F86F.svg
+[#C7C329]: https://placehold.co/15/C7C329/C7C329.svg
+[#FFFA72]: https://placehold.co/15/FFFA72/FFFA72.svg
+[#0A2FC4]: https://placehold.co/15/0A2FC4/0A2FC4.svg
+[#6A76FB]: https://placehold.co/15/6A76FB/6A76FB.svg
+[#C839C5]: https://placehold.co/15/C839C5/C839C5.svg
+[#FD7CFC]: https://placehold.co/15/FD7CFC/FD7CFC.svg
+[#20C5C6]: https://placehold.co/15/20C5C6/20C5C6.svg
+[#68FDFE]: https://placehold.co/15/68FDFE/68FDFE.svg
+[#C7C7C7]: https://placehold.co/15/C7C7C7/C7C7C7.svg
+[#FFFFFF]: https://placehold.co/15/FFFFFF/FFFFFF.svg
