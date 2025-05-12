@@ -20,6 +20,24 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
       "extractVersionTemplate": "v(?<version>.+)"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["data/pre-commit.yml"],
+      "matchStrings": [
+        "github.com/suzuki-shunsuke/pinact/cmd/pinact@(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "go",
+      "depNameTemplate": "github.com/suzuki-shunsuke/pinact"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["data/pre-commit.yml"],
+      "matchStrings": [
+        "github.com/suzuki-shunsuke/ghalint/cmd/ghalint@(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "go",
+      "depNameTemplate": "github.com/suzuki-shunsuke/ghalint"
     }
   ]
 }

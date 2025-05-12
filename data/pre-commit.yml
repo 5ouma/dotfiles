@@ -39,7 +39,7 @@ repos:
         args: [--verify, --update]
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/cmd/pinact@latest
+          - github.com/suzuki-shunsuke/pinact/cmd/pinact@v1.6.0
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
 
@@ -51,18 +51,18 @@ repos:
         entry: ghalint run
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@latest
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.3.0
         types: [yaml]
         files: ^\.github/workflows/.+\.ya?ml$
   - repo: local
     hooks:
-      - id: ghalint
+      - id: ghalint-act
         name: Validate GitHub Actions
         description: Check GitHub Actions for security policy compliance
         entry: ghalint act
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@latest
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.3.0
         types: [yaml]
         files: ^(.+/)*action\.ya?ml$
 
