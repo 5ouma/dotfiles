@@ -16,10 +16,10 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["setup"],
-      "matchStrings": ["gumVir='(?<currentValue>.*)'"],
+      "matchStrings": ["gumVir='(?<currentValue>.+)'"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
-      "extractVersionTemplate": "v(?<version>.*)"
+      "extractVersionTemplate": "v(?<version>.+)"
     }
   ]
 }
