@@ -43,6 +43,29 @@ repos:
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
 
+  - repo: local
+    hooks:
+      - id: ghalint
+        name: Validate GitHub Actions workflows
+        description: Check GitHub Actions workflows for security policy compliance
+        entry: ghalint run
+        language: golang
+        additional_dependencies:
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@latest
+        types: [yaml]
+        files: ^\.github/workflows/.+\.ya?ml$
+  - repo: local
+    hooks:
+      - id: ghalint
+        name: Validate GitHub Actions
+        description: Check GitHub Actions for security policy compliance
+        entry: ghalint act
+        language: golang
+        additional_dependencies:
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@latest
+        types: [yaml]
+        files: ^(.+/)*action\.ya?ml$
+
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 40.10.4
     hooks:
