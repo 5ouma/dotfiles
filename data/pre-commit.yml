@@ -30,6 +30,19 @@ repos:
     hooks:
       - id: actionlint
 
+  - repo: local
+    hooks:
+      - id: pinact
+        name: Pin versions of Actions and reusable workflows
+        description: Pin versions of GitHub Actions and reusable workflows
+        entry: pinact run
+        args: [--verify, --update]
+        language: golang
+        additional_dependencies:
+          - github.com/suzuki-shunsuke/pinact/cmd/pinact@latest
+        types: [yaml]
+        files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
+
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 40.10.4
     hooks:
