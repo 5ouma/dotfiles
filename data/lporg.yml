@@ -27,7 +27,6 @@ apps:
         - Podcasts
         - TV
         - Voice Memos
-        - iMovie
         - Weather
         - Stocks
         - Books
@@ -37,6 +36,7 @@ apps:
         - Home
         - Clock
         - Siri
+        - Shortcuts
         - System Settings
         - Xcode
         - Visual Studio Code
@@ -98,7 +98,6 @@ apps:
           pages:
             - number: 1
               items:
-                - Shortcuts
                 - QuickTime Player
                 - TextEdit
                 - Grapher
