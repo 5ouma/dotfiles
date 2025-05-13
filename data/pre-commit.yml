@@ -53,8 +53,6 @@ repos:
           - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.3.0
         types: [yaml]
         files: ^\.github/workflows/.+\.ya?ml$
-  - repo: local
-    hooks:
       - id: ghalint-act
         name: Validate GitHub Actions
         description: Check GitHub Actions for security policy compliance
