@@ -50,7 +50,7 @@ repos:
         entry: ghalint run
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.3.0
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.4.0
         types: [yaml]
         files: ^\.github/workflows/.+\.ya?ml$
       - id: ghalint-act
@@ -59,7 +59,7 @@ repos:
         entry: ghalint act
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.3.0
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.4.0
         types: [yaml]
         files: ^(.+/)*action\.ya?ml$
 
