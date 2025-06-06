@@ -150,7 +150,7 @@ alias tg='topgrade'
 # Vim
 alias v='vim'
 
-# VSCode
+# VS Code
 alias c.='code .'
 alias ci.='code-insiders .'
 
