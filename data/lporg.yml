@@ -88,8 +88,6 @@ apps:
                 - 1Password
                 - FocusRecorder
                 - OpenInTerminal
-                - VirtualBuddy
-                - Whisky
                 - Syntax Highlight
                 - QLMarkdown
                 - Apparency
