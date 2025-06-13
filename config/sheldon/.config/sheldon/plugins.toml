@@ -35,13 +35,6 @@ fi
 github = "romkatv/zsh-bench"
 apply = ["PATH"]
 
-[plugins.forgit]
-github = "wfxr/forgit"
-dir = "bin"
-apply = ["PATH"]
-[plugins.forgit.hooks]
-post = "export FORGIT_NO_ALIASES=1"
-
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["source"]
