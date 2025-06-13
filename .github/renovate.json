@@ -25,15 +25,7 @@
       "customType": "regex",
       "managerFilePatterns": ["data/pre-commit.yml"],
       "matchStrings": [
-        "(?<depName>github.com/suzuki-shunsuke/pinact)/v(?<major>[0-9]+)/cmd/pinact@(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
-      ],
-      "datasourceTemplate": "go"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["data/pre-commit.yml"],
-      "matchStrings": [
-        "(?<depName>github.com/suzuki-shunsuke/ghalint)/cmd/ghalint@(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "(?<depName>github.com/suzuki-shunsuke/(pinact|ghalint))(/v(?<major>[0-9]+))?/cmd/(pinact|ghalint)@(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "datasourceTemplate": "go"
     }
