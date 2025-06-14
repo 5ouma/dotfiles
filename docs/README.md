@@ -161,7 +161,7 @@ brew install font-hackgen
 #### 🕶️ Icon Font: [`Nerd Fonts`](https://www.nerdfonts.com)
 
 ```sh
-brew install 5ouma/cask-fonts/font-nerd-fonts
+brew install 5ouma/tap/font-nerd-fonts
 ```
 
 <br />

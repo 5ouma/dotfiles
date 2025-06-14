@@ -299,7 +299,7 @@ EOM
 #==================================================[ Apps ]==================================================#
 
 installApps() {
-  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
+  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
   (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && skip
   if ($goThrough); then
     cat "$data/Brewfile"

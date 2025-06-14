@@ -35,7 +35,7 @@ jobs:
 
       - name: 🍎 Install macOS tools via Homebrew
         if: ${{ matrix.os == 'macOS-14' }}
-        run: brew install 5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop
+        run: brew install 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop
 
       - name: ⚙️ Run setup
         run: zsh <(curl "https://dotup.deno.dev/${GITHUB_HEAD_REF:-HEAD}") --yes

@@ -16,7 +16,7 @@ if [[ "$(uname)" == 'Darwin' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
+  export HOMEBREW_BUNDLE_BREW_SKIP='5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
 fi
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export HOMEBREW_NO_ENV_HINTS=1
