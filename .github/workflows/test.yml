@@ -38,11 +38,11 @@ jobs:
         run: brew install 5ouma/formula/mksei 5ouma/formula/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop
 
       - name: ⚙️ Run setup
+        run: zsh <(curl "https://dotup.deno.dev/${GITHUB_HEAD_REF:-HEAD}") --yes
         env:
           SETUP_SKIP_INSTALLAPPS: true
           SETUP_SKIP_LOGINGITHUBCLI: true
           SETUP_SKIP_RESTORELAUNCHPAD: true
-        run: zsh <(curl "https://dotup.deno.dev/${GITHUB_HEAD_REF:-HEAD}") --yes
 
-      - name: 🐚 Launch New Login Shell
+      - name: 🐚 Launch new login shell
         run: exec zsh -ilexc exit
