@@ -34,12 +34,10 @@ My config files and setup for CLI tools and GUI apps.
 
 - ### 🍎 macOS
 
-  - **macOS** Sonoma `Version 14` or later
+  - macOS Sonoma `Version 14` or later
   - Apple Silicon Mac
 
 - ### 🐧 Linux
-
-  > ⚠️ Experimental Support
 
   - cURL, Git, and Zsh to run the [setup](./setup)
   - Compatible with these [Homebrew dependencies](https://docs.brew.sh/Homebrew-on-Linux#requirements)
@@ -118,95 +116,95 @@ Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 
 ## 📝 Details
 
-- ### 🍺 Package Manager: [`Homebrew`](https://brew.sh)
+### 🍺 Package Manager: [`Homebrew`](https://brew.sh)
 
-  ```sh
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  ```
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-  > See packages in **[`Brewfile`]**
-  > or on **[`Shell Commands`]**, **[`Software`]**, **[`Fonts`]** _(GitHub Star List)_
+> See packages in **[`Brewfile`]**
+> or on **[`Shell Commands`]**, **[`Software`]**, **[`Fonts`]** _(GitHub Star List)_
 
-  [`Brewfile`]: ./data/Brewfile
-  [`Shell Commands`]: https://github.com/stars/5ouma/lists/shell-commands
-  [`Software`]: https://github.com/stars/5ouma/lists/software
-  [`Fonts`]: https://github.com/stars/5ouma/lists/fonts
-
-<br />
-
-- ### 📼 Runtime Manager: [`mise`](https://github.com/jdx/mise)
-
-  ```sh
-  brew install mise
-  ```
+[`Brewfile`]: ./data/Brewfile
+[`Shell Commands`]: https://github.com/stars/5ouma/lists/shell-commands
+[`Software`]: https://github.com/stars/5ouma/lists/software
+[`Fonts`]: https://github.com/stars/5ouma/lists/fonts
 
 <br />
 
-- ### 👻 Terminal: [`Ghostty`](https://ghostty.org)
+### 📼 Runtime Manager: [`mise`](https://github.com/jdx/mise)
 
-  ```sh
-  brew install ghostty
-  ```
-
-  - #### 🖋 ASCII Font: [`Fira Code`](https://github.com/tonsky/FiraCode)
-
-    ```sh
-    brew install font-fira-code
-    ```
-
-  - #### ✒️ Japanese Font: [`HackGen35`](https://github.com/yuru7/hackgen)
-
-    ```sh
-    brew install font-hackgen
-    ```
-
-  - #### 🕶️ Icon Font: [`Nerd Fonts`](https://www.nerdfonts.com)
-
-    ```sh
-    brew install 5ouma/cask-fonts/font-nerd-fonts
-    ```
+```sh
+brew install mise
+```
 
 <br />
 
-- ### 🐚 Shell: [`Zsh`](https://zsh.org)
+### 👻 Terminal: [`Ghostty`](https://ghostty.org)
 
-  - #### 🔌 Plugin Manager: [`Sheldon`](https://github.com/rossmacarthur/sheldon)
+```sh
+brew install ghostty
+```
 
-    ```sh
-    brew install sheldon
-    ```
+#### 🖋 ASCII Font: [`Fira Code`](https://github.com/tonsky/FiraCode)
 
-    > See plugins in **[`plugins.toml`]**
-    > or on **[`Zsh Plugins`]** _(GitHub Star List)_
+```sh
+brew install font-fira-code
+```
 
-    [`plugins.toml`]: ./config/sheldon/.config/sheldon/plugins.toml
-    [`Zsh Plugins`]: https://github.com/stars/5ouma/lists/zsh-plugins
+#### ✒️ Japanese Font: [`HackGen35`](https://github.com/yuru7/hackgen)
 
-  - #### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
+```sh
+brew install font-hackgen
+```
 
-    ```sh
-    sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
-    ```
+#### 🕶️ Icon Font: [`Nerd Fonts`](https://www.nerdfonts.com)
+
+```sh
+brew install 5ouma/cask-fonts/font-nerd-fonts
+```
 
 <br />
 
-- ### 🖌 Terminal Editor: [`Vim`](https://www.vim.org)
+### 🐚 Shell: [`Zsh`](https://zsh.org)
 
-  - #### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)
+#### 🔌 Plugin Manager: [`Sheldon`](https://github.com/rossmacarthur/sheldon)
 
-    ```sh
-    curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
-    ```
+```sh
+brew install sheldon
+```
 
-    > See plugins in **[`plugins.vim`]**
-    > or on **[`Vim Plugins`]** _(GitHub Star List)_
+> See plugins in **[`plugins.toml`]**
+> or on **[`Zsh Plugins`]** _(GitHub Star List)_
 
-    [`plugins.vim`]: ./config/vim/.config/vim/plugins.vim
-    [`Vim Plugins`]: https://github.com/stars/5ouma/lists/vim-plugins
+[`plugins.toml`]: ./config/sheldon/.config/sheldon/plugins.toml
+[`Zsh Plugins`]: https://github.com/stars/5ouma/lists/zsh-plugins
 
-  - #### ✏️ Color Scheme: [`Pencil`](https://github.com/5ouma/vim-colors-pencil)
+#### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 
-  - #### 💾 LSP: [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp)
+```sh
+sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
+```
+
+<br />
+
+### 🖌 Terminal Editor: [`Vim`](https://www.vim.org)
+
+#### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)
+
+```sh
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+```
+
+> See plugins in **[`plugins.vim`]**
+> or on **[`Vim Plugins`]** _(GitHub Star List)_
+
+[`plugins.vim`]: ./config/vim/.config/vim/plugins.vim
+[`Vim Plugins`]: https://github.com/stars/5ouma/lists/vim-plugins
+
+#### ✏️ Color Scheme: [`Pencil`](https://github.com/5ouma/vim-colors-pencil)
+
+#### 💾 LSP: [`vim-lsp`](https://github.com/prabirshrestha/vim-lsp)
 
 <br /><br />
 
