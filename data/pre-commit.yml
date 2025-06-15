@@ -38,7 +38,7 @@ repos:
         entry: pinact run
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.1.2
+          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.2.0
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
 
