@@ -9,6 +9,11 @@ defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file 
 github = "romkatv/zsh-defer"
 apply = ["source"]
 
+[plugins.gwt]
+github = "arrow2nd/gwt.zsh"
+[plugins.gwt.hooks]
+post = 'export GWT_ROOT_DIR="$HOME/ghq"'
+
 [plugins.ni]
 github = "azu/ni.zsh"
 
