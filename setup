@@ -268,6 +268,12 @@ makeDockImmutable() {
   defaults write com.apple.dock size-immutable -bool true
 } && run 'makeDockImmutable' '## 🚥 Make Dock size immutable' true
 
+disableRedesignedTextCursor() {
+  [[ -f '/Library/Preferences/FeatureFlags/Domain/UIKit.plist' ]] && skip
+  sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
+  sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
+} && run 'disableRedesignedTextCursor' '## 🔤 Disable redesigned text cursor' true
+
 disablePressAndHold() {
   declare -r pressAndHold="$(defaults read -g ApplePressAndHoldEnabled)" &>/dev/null
   [[ "$pressAndHold" == 0 ]] && skip
