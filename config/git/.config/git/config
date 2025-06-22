@@ -21,6 +21,8 @@
   verbose = true
 [fetch]
   prune = true
+[diff]
+  algorithm = histogram
 [init]
   defaultBranch = main
 [log]
