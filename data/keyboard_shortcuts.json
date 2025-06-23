@@ -12,16 +12,9 @@
         "Hide TickTick": "⌘W",
         "Sync": "⌘R"
     },
-    "com.apple.Music": {
-        "Hide Music": "⌘W"
-    },
     "com.figma.Desktop": {
         "Select Next Tab": "⌥]",
         "Select Previous Tab": "⌥["
-    },
-    "com.apple.mail": {
-        "Get New Mail": "⌘R",
-        "Hide Mail": "⌘W"
     },
     "com.apple.Preview": {
         "Export As…": "⌘E"
