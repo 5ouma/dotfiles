@@ -11,17 +11,17 @@ local function getAppearanceMode()
 end
 
 local function getRandomPicture(appearanceMode)
-  local pictureDir = os.getenv("HOME") .. "/Pictures/0001_img_dtp-pic/0002_img_mac-wallpaper/"
+  local dir = os.getenv("HOME") .. "/Pictures/0001_img_dtp-pic/0001_img_mac-wallpaper/"
   if (not appearanceMode) then
-    pictureDir = pictureDir .. "0001_img_dtp-pic-morning/"
+    dir = dir .. "0001_img_dtp-pic-morning/"
   else
-    pictureDir = pictureDir .. "0002_img_dtp-pic-night/"
+    dir = dir .. "0002_img_dtp-pic-night/"
   end
   local pictures = {}
-  for file in hs.fs.dir(pictureDir) do
-    if (file ~= "." and file ~= ".." and file ~= ".DS_Store") then table.insert(pictures, file) end
+  for _, file in pairs(hs.fs.fileListForPath(dir)) do
+    table.insert(pictures, file)
   end
-  return "file://" .. pictureDir .. pictures[math.random(#pictures)]
+  return "file://" .. dir .. pictures[math.random(#pictures)]
 end
 
 local function setDesktopPicture(appearanceMode)
@@ -64,9 +64,8 @@ end)
 -- FileSync
 
 FileSyncTimer = hs.timer.new(60 * 60, function()
-  local folder = os.getenv("HOME") .. "/Storage/0001_data_app-data/FreeFileSync/"
-  local files = { "Sync iCloud.ffs_batch" }
-  for _, file in ipairs(files) do hs.open(folder .. file) end
+  local dir = os.getenv("HOME") .. "/Storage/0001_data_app-data/FreeFileSync"
+  for _, file in pairs(hs.fs.fileListForPath(dir)) do hs.open(file) end
 end):start()
 
 
