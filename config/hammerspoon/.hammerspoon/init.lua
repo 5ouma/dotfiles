@@ -21,7 +21,7 @@ local function getRandomPicture(appearanceMode)
   for _, file in pairs(hs.fs.fileListForPath(dir)) do
     table.insert(pictures, file)
   end
-  return "file://" .. dir .. pictures[math.random(#pictures)]
+  return "file://" .. pictures[math.random(#pictures)]
 end
 
 local function setDesktopPicture(appearanceMode)
