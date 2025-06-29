@@ -70,11 +70,6 @@
     "Hidden": false
   },
   {
-    "Name": "Mail",
-    "Path": "/System/Applications/Mail.app",
-    "Hidden": false
-  },
-  {
     "Name": "Notion",
     "Path": "/Applications/Notion.app",
     "Hidden": false
