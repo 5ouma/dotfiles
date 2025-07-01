@@ -43,6 +43,7 @@ jobs:
           SETUP_SKIP_INSTALLAPPS: true
           SETUP_SKIP_LOGINGITHUBCLI: true
           SETUP_SKIP_RESTORELAUNCHPAD: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🐚 Launch new login shell
         run: exec zsh -ilexc exit
