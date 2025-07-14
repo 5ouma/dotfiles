@@ -96,6 +96,7 @@ cask "steam"
 cask "suspicious-package"
 cask "syntax-highlight"
 cask "tailscale-app"
+cask "ticktick"
 cask "timemachinestatus"
 cask "visual-studio-code"
 cask "visual-studio-code@insiders"
@@ -111,5 +112,4 @@ mas "Mactracker", id: 430255202
 mas "RunCat", id: 1429033973
 mas "Speedtest", id: 1153157709
 mas "Startup Disk Full Fixer", id: 1346655838
-mas "TickTick", id: 966085870
 mas "Xcode", id: 497799835
