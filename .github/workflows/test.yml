@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: 🍺 Setup Homebrew
-        uses: Homebrew/actions/setup-homebrew@a4f5468cdddb5fc17abe51bce07b087c90493cfc # master # zizmor: ignore[stale-action-refs]
+        uses: Homebrew/actions/setup-homebrew@212d191802be6867abd7666a1d31a4de97a3c06a # master # zizmor: ignore[stale-action-refs]
 
       - name: 🔨 Install tools via Homebrew
         run: |
