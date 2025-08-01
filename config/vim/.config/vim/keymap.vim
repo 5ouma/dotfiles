@@ -25,9 +25,6 @@ nnoremap sj <C-w>j
 nmap <S-k> <A-k>
 nmap <S-j> <A-j>
 
-" any-jump
-nnoremap <silent> aj :AnyJump<Return>
-
 " Asyncomplete
 inoremap <Return> asyncomplete#close_popup()
 

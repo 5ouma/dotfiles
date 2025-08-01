@@ -20,7 +20,6 @@ Jetpack 'junegunn/fzf.vim'
 Jetpack 'mattn/vim-lsp-settings'
 Jetpack 'matze/vim-move'
 Jetpack 'obcat/vim-hitspop'
-Jetpack 'pechorin/any-jump.vim'
 Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
 Jetpack 'prabirshrestha/asyncomplete.vim'
 Jetpack 'prabirshrestha/vim-lsp'
@@ -43,10 +42,6 @@ for name in jetpack#names()
 endfor
 
 "============================================================[ Settings ]============================================================"
-
-" any-jump
-let g:any_jump_list_numbers = 1
-let g:any_jump_grouping_enabled = 1
 
 " AutoSave
 let g:auto_save = 1
