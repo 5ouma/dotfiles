@@ -132,12 +132,12 @@ alias ms='mas search'
 alias mui='mas uninstall'
 alias mup='mas upgrade'
 
-# pre-commit
-pre-commit() {
+# prek
+prek() {
   if [[ "$1" != 'clean' && "$1" != 'gc' && "$1" != 'help' ]]; then
-    command pre-commit "$@" -c="$data/pre-commit.yml"
+    command prek "$@" -c="$data/pre-commit.yml"
   else
-    command pre-commit "$@"
+    command prek "$@"
   fi
 }
 
