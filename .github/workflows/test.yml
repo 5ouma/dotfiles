@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [Ubuntu-Latest, macOS-14]
+        os: [Ubuntu-Latest, macOS-14, macOS-15]
 
     steps:
       - name: 🍺 Setup Homebrew
@@ -34,7 +34,7 @@ jobs:
           brew install atuin gitlint mackup mise prek sheldon vim zoxide zsh
 
       - name: 🍎 Install macOS tools via Homebrew
-        if: ${{ matrix.os == 'macOS-14' }}
+        if: ${{ startsWith(matrix.os, 'macOS') }}
         run: brew install 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop
 
       - name: ⚙️ Run setup

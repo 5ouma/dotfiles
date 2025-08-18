@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [Ubuntu-Latest, macOS-14]
+        os: [Ubuntu-Latest, macOS-14, macOS-15]
 
     steps:
       - name: 🧰 Install dependencies
@@ -23,7 +23,7 @@ jobs:
         run: sudo apt-get install -y build-essential procps curl file git zsh
 
       - name: 🍺 Uninstall Homebrew related
-        if: ${{ matrix.os == 'macOS-14' }}
+        if: ${{ startsWith(matrix.os, 'macOS') }}
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
           rm -fv /Library/Frameworks/Python.framework/Versions/3.12/bin/{2to3-3.12,idle3.12,pydoc3.12,python3.12,python3.12-config}
@@ -32,7 +32,7 @@ jobs:
 
       - name: 📦 Skip mas
         id: skip
-        if: ${{ matrix.os == 'macOS-14' }}
+        if: ${{ startsWith(matrix.os, 'macOS') }}
         run: |
           HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s "https://raw.githubusercontent.com/5ouma/dotfiles/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
           echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
