@@ -353,7 +353,7 @@ limitBatteryCharge() {
 
 generateGitHooks() {
   [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] && skip
-  prek init-template-dir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml" | sed -n 1p
+  prek init-template-dir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
   gitlint --target="$dotfiles" install-hook
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
 
