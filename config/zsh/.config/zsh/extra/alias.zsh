@@ -133,13 +133,7 @@ alias mui='mas uninstall'
 alias mup='mas upgrade'
 
 # prek
-prek() {
-  if [[ "$1" != 'clean' && "$1" != 'gc' && "$1" != 'help' ]]; then
-    command prek "$@" -c="$data/pre-commit.yml"
-  else
-    command prek "$@"
-  fi
-}
+alias prek='prek -c="$data/pre-commit.yml"'
 
 # trash
 _has 'trash' && alias rm='trash -F'
