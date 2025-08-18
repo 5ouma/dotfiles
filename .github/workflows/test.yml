@@ -25,7 +25,7 @@ jobs:
         os: [Ubuntu-Latest, macOS-14, macOS-15]
 
     steps:
-      - name: 🍺 Setup Homebrew
+      - name: 🍺 Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@87d3af7a72e5ede081b6dafce1798551a74fb366 # master # zizmor: ignore[stale-action-refs]
 
       - name: 🔨 Install tools via Homebrew
