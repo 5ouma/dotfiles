@@ -88,7 +88,6 @@ apps:
                 - FocusRecorder
                 - OpenInTerminal
                 - Syntax Highlight
-                - QLMarkdown
                 - Apparency
                 - Suspicious Package
         - folder: Other
