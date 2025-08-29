@@ -14,6 +14,7 @@ font-size = 18
 adjust-cursor-thickness = 3
 
 theme = "light:minimal-light,dark:minimal-dark"
+config-file = "themes/minimal-ansi"
 
 cursor-style = bar
 
