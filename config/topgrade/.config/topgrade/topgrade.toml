@@ -1,6 +1,5 @@
 [misc]
 disable = ["containers", "system"]
-set_title = true
 display_time = false
 cleanup = true
 
