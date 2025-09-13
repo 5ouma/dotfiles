@@ -112,7 +112,13 @@ mkSym() {
 has() {
   type "$1" &>/dev/null
 }
+
 alias skip='skipped=true && return'
+
+shouldProceed() {
+  ($goThrough || gum confirm 'Proceed?' 'Yes' 'No')
+}
+
 run() {
   declare -r func="${1:u}"
   gum format "$2"
@@ -228,7 +234,10 @@ getDot
 #==================================================[ Homebrew ]==================================================#
 
 installHomebrew() {
-  (type brew &>/dev/null) && skip
+  if (type brew &>/dev/null || ! shouldProceed); then
+    skip
+  fi
+
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if (isDarwin); then
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -240,9 +249,10 @@ installHomebrew() {
 #==================================================[ Files ]==================================================#
 
 setSymlink() {
-  if ! checkSym; then
+  if ! checkSym || ! shouldProceed; then
     skip
   fi
+
   mkSym
 } && run 'setSymlink' '## 🔗 Symlink files'
 
@@ -250,13 +260,19 @@ setSymlink() {
 
 # shellcheck disable=SC2016
 enableTouchID() {
-  [[ -f '/etc/pam.d/sudo_local' ]] && skip
+  if [[ -f '/etc/pam.d/sudo_local' ]] || ! shouldProceed; then
+    skip
+  fi
+
   sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local >/dev/null
 } && run 'enableTouchID' '## 👑 Enable Touch ID for `sudo`' true
 
 changeLaunchpadSize() {
   declare -r springboardColumns="$(defaults read com.apple.dock springboard-columns)" springboardRows="$(defaults read com.apple.dock springboard-rows)" &>/dev/null
-  [[ $springboardColumns == 9 && $springboardRows == 8 ]] && skip
+  if [[ $springboardColumns == 9 && $springboardRows == 8 ]] || ! shouldProceed; then
+    skip
+  fi
+
   defaults write com.apple.dock springboard-columns -int 9
   defaults write com.apple.dock springboard-rows -int 8
   killall Dock
@@ -264,34 +280,48 @@ changeLaunchpadSize() {
 
 makeDockImmutable() {
   declare -r sizeImmutable="$(defaults read com.apple.dock size-immutable)" &>/dev/null
-  [[ "$sizeImmutable" == 1 ]] && skip
+  if [[ "$sizeImmutable" == 1 ]] || ! shouldProceed; then
+    skip
+  fi
+
   defaults write com.apple.dock size-immutable -bool true
 } && run 'makeDockImmutable' '## 🚥 Make Dock size immutable' true
 
 disableRedesignedTextCursor() {
-  sudo [ -f '/Library/Preferences/FeatureFlags/Domain/UIKit.plist' ] && skip
+  if sudo [ -f '/Library/Preferences/FeatureFlags/Domain/UIKit.plist' ] || ! shouldProceed; then
+    skip
+  fi
+
   sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
   sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
 } && run 'disableRedesignedTextCursor' '## 🔤 Disable redesigned text cursor' true
 
 disablePressAndHold() {
   declare -r pressAndHold="$(defaults read -g ApplePressAndHoldEnabled)" &>/dev/null
-  [[ "$pressAndHold" == 0 ]] && skip
+  if [[ "$pressAndHold" == 0 ]] || ! shouldProceed; then
+    skip
+  fi
+
   defaults write -g ApplePressAndHoldEnabled -bool false
 } && run 'disablePressAndHold' '## ⌨️ Disable press-and-hold for keys' true
 
 changeScreenCapturePath() {
   declare -r screenCaptureLocation="$(defaults read com.apple.screencapture location)" screenCaptures="$HOME/Pictures/Screen Captures" &>/dev/null
-  [[ "$screenCaptureLocation" == "$screenCaptures" ]] && skip
+  if [[ "$screenCaptureLocation" == "$screenCaptures" ]] || ! shouldProceed; then
+    skip
+  fi
+
   mkdir -p "$screenCaptures"
   defaults write com.apple.screencapture location "$screenCaptures"
 } && run 'changeScreenCapturePath' '## 📷 Change screen capture path' true
 
 setComputerName() {
-  declare -r modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | cut -d ':' -f 2 | xargs)"
-  declare -r userName="$(id -F)"
+  declare -r userName="$(id -F)" modelName="$(system_profiler SPHardwareDataType | grep 'Model Name' | cut -d ':' -f 2 | xargs)"
   declare -r computerName="$userName's $modelName" localHostName="${userName//./}s-${modelName// /-}"
-  [[ "$(scutil --get ComputerName)" == "$computerName" && "$(scutil --get HostName)" == "$computerName" && "$(scutil --get LocalHostName)" == "$localHostName" ]] && skip
+  if [[ "$(scutil --get ComputerName)" == "$computerName" && "$(scutil --get HostName)" == "$computerName" && "$(scutil --get LocalHostName)" == "$localHostName" ]] || ! shouldProceed; then
+    skip
+  fi
+
   gum run 'Setting ComputerName...' -- sudo scutil --set ComputerName "$computerName"
   gum run 'Setting HostName...' -- sudo scutil --set HostName "$computerName"
   gum run 'Setting LocalHostName...' -- sudo scutil --set LocalHostName "$localHostName"
@@ -306,7 +336,10 @@ EOM
 
 installApps() {
   (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='mas trash 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
-  (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile") && skip
+  if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile" || ! shouldProceed); then
+    skip
+  fi
+
   if ($goThrough); then
     cat "$data/Brewfile"
   else
@@ -317,59 +350,90 @@ installApps() {
 } && run 'installApps' '## 📲 Install commands and apps'
 
 changeLoginShell() {
-  [[ "${SHELL:-''}" == "$(which zsh)" ]] && skip
+  if [[ "${SHELL:-''}" == "$(which zsh)" ]] || ! shouldProceed; then
+    skip
+  fi
+
   which zsh | sudo tee -a /etc/shells >/dev/null
   sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '## 🐚 Change login shell to Zsh'
 
 restoreLaunchpad() {
   lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null) && skip
+  if (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null || ! shouldProceed); then
+    skip
+  fi
+
   # shellcheck disable=SC2016
   gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml" >/dev/null || :
 } && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
 
 restoreAppSettings() {
-  [[ -z "$(mackup -n backup 2>/dev/null)" && $? ]] && skip
+  if [[ -z "$(mackup -n backup 2>/dev/null)" && $? ]] || ! shouldProceed; then
+    skip
+  fi
+
   mackup restore
 } && run 'restoreAppSettings' '## 💾 Restore application settings' true
 
 restoreAppShortcuts() {
-  (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null) && skip
+  if (defaults read com.apple.universalaccess com.apple.custommenu.apps &>/dev/null || ! shouldProceed); then
+    skip
+  fi
+
   # shellcheck disable=SC2016
   gum run 'Running `mksei load`...' -- mksei load "$data/keyboard_shortcuts.json"
 } && run 'restoreAppShortcuts' '## ⌨️ Restore App Shortcuts' true
 
 restoreLoginItems() {
-  (! has mli || mli check --file="$data/login_items.json" &>/dev/null) && skip
+  if (! has mli || mli check --file="$data/login_items.json" &>/dev/null || ! shouldProceed); then
+    skip
+  fi
+
   # shellcheck disable=SC2016
   gum run 'Running `mli load`...' -- mli load --file="$data/login_items.json"
 } && run 'restoreLoginItems' '## 📑 Restore Login Items' true
 
 limitBatteryCharge() {
-  (! has bclm_loop) && skip
+  if (! has bclm_loop || ! shouldProceed); then
+    skip
+  fi
+
   sudo bclm_loop persist
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
-  [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] && skip
+  if [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] || ! shouldProceed; then
+    skip
+  fi
+
   prek init-template-dir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
   gitlint --target="$dotfiles" install-hook
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
 
 loginGitHubCli() {
-  (gh auth status &>/dev/null) && skip
+  if (gh auth status &>/dev/null || ! shouldProceed); then
+    skip
+  fi
+
   gh auth login -p='SSH' -h='GitHub.com' -s='codespace,delete_repo,workflow' --skip-ssh-key -w
 } && run 'loginGitHubCli' '## 🐙 Log in to GitHub CLI'
 
 installProgrammingLanguages() {
   eval "$(mise activate -q zsh)"
-  [ -z "$(mise ls --missing)" ] && skip
+  if [[ -z "$(mise ls --missing)" ]] || ! shouldProceed; then
+    skip
+  fi
+
   mise install
 } && run 'installProgrammingLanguages' '## 📼 Install programming languages'
 
 installVimPlugins() {
-  [ -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ] && skip
+  if [[ -d "$XDG_DATA_HOME/vim/pack/jetpack/opt" ]] || ! shouldProceed; then
+    skip
+  fi
+
+
   vim +Jetpack +qall
   gum run 'Building a binary of vim-lumen...' -- vim +qall!
 } && run 'installVimPlugins' '## 🖌 Install Vim plugins'
