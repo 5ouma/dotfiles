@@ -53,7 +53,7 @@ Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 > _All configurations_
 >
 > ```sh
-> zsh <(curl https://dotup.deno.dev)
+> zsh <(curl https://dot.5ouma.me)
 > ```
 
 <br />
@@ -61,7 +61,7 @@ Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 > _Just config files_
 >
 > ```sh
-> zsh <(curl https://dotup.deno.dev) set
+> zsh <(curl https://dot.5ouma.me) set
 > ```
 
 <br />
@@ -69,7 +69,7 @@ Run one line [setup](./setup), see the [usage](#-usage) for the detail.
 > _Vim config files_
 >
 > ```sh
-> curl https://vimrc.deno.dev > "$HOME/.config/vim/vimrc"
+> curl https://vim.5ouma.me >"$HOME/.config/vim/vimrc"
 > ```
 
 <br /><br />
