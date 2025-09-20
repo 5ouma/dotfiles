@@ -316,7 +316,7 @@ EOM
 
 
 installApps() {
-  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='mas trash 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg lslqtz/formulae/bclm_loop'
+  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='batt mas trash 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg'
   if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile" || ! shouldProceed); then
     skip
   fi
@@ -376,11 +376,13 @@ restoreLoginItems() {
 } && run 'restoreLoginItems' '## 📑 Restore Login Items' true
 
 limitBatteryCharge() {
-  if (! has bclm_loop || ! shouldProceed); then
+  if (! has batt || batt status &>/dev/null || ! shouldProceed); then
     skip
   fi
 
-  sudo bclm_loop persist
+  sudo brew services start batt
+  sleep 1
+  sudo batt magsafe-led enable
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
