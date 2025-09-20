@@ -382,7 +382,7 @@ limitBatteryCharge() {
 
   sudo brew services start batt
   sleep 1
-  sudo batt magsafe-led enable
+  sudo batt magsafe-led enable || :
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
