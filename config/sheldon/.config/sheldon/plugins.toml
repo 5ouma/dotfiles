@@ -16,6 +16,8 @@ post = 'export GWT_ROOT_DIR="$HOME/ghq"'
 
 [plugins.ni]
 github = "azu/ni.zsh"
+[plugins.ni.hooks]
+post = "export NI_USE_SOCKET_FIREWALL=1"
 
 [plugins.zsh-autopair]
 github = "hlissner/zsh-autopair"
