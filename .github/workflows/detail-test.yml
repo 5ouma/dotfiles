@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [Ubuntu-Latest, macOS-14, macOS-15]
+        os: [Ubuntu-Latest, macOS-Latest]
 
     steps:
       - name: 🧰 Install dependencies
