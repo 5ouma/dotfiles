@@ -64,7 +64,7 @@ repos:
         files: ^(.+/)*action\.ya?ml$
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.15.1
+    rev: v1.15.2
     hooks:
       - id: zizmor
         args: [--no-config]
