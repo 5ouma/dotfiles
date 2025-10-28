@@ -30,7 +30,7 @@ gcd() {
   declare -r repo="$(
     ghq list |
       _fzf \
-        '🔖 Repositories' \
+        ' Repositories' \
         'file="$(find $(ghq root)/{} -name README.md -maxdepth 2 | head -n 1)"
         if [[ -n "$file" ]]; then
           glow "$file" --style=auto
@@ -73,7 +73,7 @@ gbs() {
       --format=$'%(refname:short)\t%(committerdate:relative)\t%(subject)' |
       column -ts=$'\t' |
       _fzf \
-        '🌲 Branches' \
+        ' Branches' \
         'git log --format="%C(auto)%h %s" --graph --color=always -100 {1}' |
       cut -d ' ' -f 1
   )"
@@ -156,7 +156,7 @@ zcd() {
   declare -r dir="$(
     zoxide query -l |
       _fzf \
-        '📂 Directories' \
+        ' Directories' \
         'lsd -Alg {} --color=always' \
         --preview-window=down
   )"
