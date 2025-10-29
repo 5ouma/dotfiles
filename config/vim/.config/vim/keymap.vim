@@ -28,9 +28,6 @@ nmap <S-j> <A-j>
 " Asyncomplete
 inoremap <Return> asyncomplete#close_popup()
 
-" autoformat
-nnoremap af :Autoformat<Return>
-
 " fzf.vim
 nnoremap <silent> ff :Files<Return>
 nnoremap <silent> gf :GFiles?<Return>
