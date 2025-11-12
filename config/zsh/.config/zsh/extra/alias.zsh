@@ -90,14 +90,15 @@ alias glow='glow --pager'
 # Homebrew
 [[ "$(uname)" == 'Darwin' ]] && brew() {
   if (command brew "$@"); then
-    if [[ "$1" == 'install' || "$1" == 'uninstall' || "$1" == 'tap' || "$1" == 'untap' ]]; then
-      bbd
+    if [[ "$1" =~ (un)?(install|tap) ]]; then
+      brew bundle dump -f
     fi
   else
     return 1
   fi
 }
 
+alias bbd='brew bundle dump -f'
 alias bcl='brew cleanup'
 alias bd='brew doctor'
 alias bi='brew install'
@@ -110,15 +111,6 @@ alias bt='brew tap'
 alias bui='brew uninstall --zap'
 alias bup='brew update && brew upgrade --greedy'
 alias but='brew untap'
-
-bbd() {
-  if (brew bundle dump -f --file="$data/Brewfile"); then
-    printf '\033[32m==>\033[m \033[;1mHomebrew Bundle complete!\033[m\n'
-  else
-    printf '\033[31m==>\033[m \033[;1mHomebrew Bundle failed!\033[m\n'
-    return 1
-  fi
-}
 
 # lsd
 _has 'lsd' && alias ls='lsd' \
