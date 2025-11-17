@@ -4,6 +4,17 @@ default_install_hook_types:
   - pre-push
 
 repos:
+  - repo: local
+    hooks:
+      - id: op-launcher
+        name: 1Password desktop app launcher
+        description: Open 1Password desktop app to ensure the CLI is authenticated
+        entry: op account list
+        language: unsupported
+        always_run: true
+        fail_fast: true
+        pass_filenames: false
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
