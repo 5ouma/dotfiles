@@ -1,3 +1,7 @@
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -86,3 +90,8 @@ repos:
     hooks:
       - id: shell-lint
         args: [-e, "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]
+
+  - repo: https://github.com/AnruKitakaze/commit-msg-guardian
+    rev: v0.1.7
+    hooks:
+      - id: commit-msg-guardian

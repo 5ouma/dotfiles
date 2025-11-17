@@ -386,13 +386,20 @@ limitBatteryCharge() {
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
-  if [[ -f "$XDG_CONFIG_HOME/git/hooks/pre-commit" && -f "$XDG_CONFIG_HOME/git/hooks/commit-msg" ]] || ! shouldProceed; then
+  declare -r hooks=('pre-commit' 'commit-msg')
+  declare allPresent=true
+  for hook in "${hooks[@]}"; do
+    if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/$hook" ]]; then
+      allPresent=false
+      break
+    fi
+  done
+  if ("$allPresent" || ! shouldProceed); then
     skip
   fi
 
   prek init-template-dir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
-  gitlint --target="$dotfiles" install-hook
-} && run 'generateGitHooks' '## 🪝 Generate Git Hooks for pre-commit and commit-msg'
+} && run 'generateGitHooks' '## 🪝 Generate Git Hooks'
 
 loginGitHubCli() {
   if (gh auth status &>/dev/null || ! shouldProceed); then
