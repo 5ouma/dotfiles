@@ -49,5 +49,5 @@
   inputMoveRight = l
   inputMoveHome = g
   inputMoveEnd = G
-  inputMoveSelectionDown = Shift+j
-  inputMoveSelectionUp = Shift+k
+  inputMoveSelectionDown = J
+  inputMoveSelectionUp = K
