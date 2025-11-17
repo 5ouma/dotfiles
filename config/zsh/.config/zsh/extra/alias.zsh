@@ -125,7 +125,7 @@ alias mui='mas uninstall'
 alias mup='mas upgrade'
 
 # prek
-alias prek='prek -c="$data/pre-commit.yml"'
+alias prek='prek -c="$data/prek.yml"'
 
 # trash
 _has 'trash' && alias rm='trash -F'

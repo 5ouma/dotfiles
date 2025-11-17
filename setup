@@ -398,7 +398,7 @@ generateGitHooks() {
     skip
   fi
 
-  prek init-template-dir "$XDG_CONFIG_HOME/git" -c="$data/pre-commit.yml"
+  prek -c="$data/prek.yml" init-template-dir "$XDG_CONFIG_HOME/git"
 } && run 'generateGitHooks' '## 🪝 Generate Git Hooks'
 
 loginGitHubCli() {
