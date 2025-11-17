@@ -14,15 +14,21 @@ repos:
         always_run: true
         fail_fast: true
         pass_filenames: false
+        stages: [pre-commit, pre-push]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-json
+        stages: [pre-commit]
       - id: check-toml
+        stages: [pre-commit]
       - id: check-yaml
+        stages: [pre-commit]
       - id: end-of-file-fixer
+        stages: [pre-commit]
       - id: trailing-whitespace
+        stages: [pre-commit]
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.5
@@ -30,21 +36,25 @@ repos:
       - id: remove-tabs
         args: [--whitespaces-count, "2"]
         exclude: ^(.+/)*(.+\.go|go\..+|Makefile|.+\.plist)$
+        stages: [pre-commit]
 
   - repo: https://github.com/crate-ci/typos
     rev: v1.39.2
     hooks:
       - id: typos
+        stages: [pre-commit]
 
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.29.0
     hooks:
       - id: gitleaks
+        stages: [pre-commit]
 
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.8
     hooks:
       - id: actionlint
+        stages: [pre-commit]
 
   - repo: local
     hooks:
@@ -57,6 +67,7 @@ repos:
           - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.4.2
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
+        stages: [pre-commit]
 
   - repo: local
     hooks:
@@ -69,6 +80,7 @@ repos:
           - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.5.3
         types: [yaml]
         files: ^\.github/workflows/.+\.ya?ml$
+        stages: [pre-commit]
       - id: ghalint-act
         name: Validate GitHub Actions
         description: Check GitHub Actions for security policy compliance
@@ -78,37 +90,44 @@ repos:
           - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.5.3
         types: [yaml]
         files: ^(.+/)*action\.ya?ml$
+        stages: [pre-commit]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
     rev: v1.16.3
     hooks:
       - id: zizmor
         args: [--no-config]
+        stages: [pre-commit]
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 42.11.0
     hooks:
       - id: renovate-config-validator
         args: [--strict]
+        stages: [pre-commit]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.45.0
     hooks:
       - id: markdownlint-fix
         args: [--disable, MD013, MD024, MD033, MD036]
+        stages: [pre-commit]
 
   - repo: https://github.com/detailyang/pre-commit-shell
     rev: v1.0.6
     hooks:
       - id: shell-lint
         args: [-e, "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]
+        stages: [pre-commit]
 
   - repo: https://github.com/AnruKitakaze/commit-msg-guardian
     rev: v0.1.7
     hooks:
       - id: commit-msg-guardian
+        stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
     rev: v0.6.0
     hooks:
       - id: upload-git-commit-notion
+        stages: [pre-push]
