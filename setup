@@ -350,7 +350,7 @@ restoreLaunchpad() {
 } && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
 
 restoreAppSettings() {
-  if [[ -z "$(mackup -n backup 2>/dev/null)" && $? ]] || ! shouldProceed; then
+  if (! shouldProceed); then
     skip
   fi
 
