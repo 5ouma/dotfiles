@@ -386,7 +386,7 @@ limitBatteryCharge() {
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 generateGitHooks() {
-  declare -r hooks=('pre-commit' 'commit-msg')
+  declare -r hooks=('pre-commit' 'commit-msg' 'pre-push')
   declare allPresent=true
   for hook in "${hooks[@]}"; do
     if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/$hook" ]]; then
