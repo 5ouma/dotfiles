@@ -50,7 +50,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.29.1
+    rev: v8.30.0
     hooks:
       - id: gitleaks
         stages: [pre-commit]
