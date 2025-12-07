@@ -187,6 +187,15 @@ sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
 
 <br />
 
+### 📝 Visual Editor: [`VS Code`](https://code.visualstudio.com)
+
+> See plugins in **[`Brewfile`]**
+> or on **[`VS Code Extensions`]** _(GitHub Star List)_
+
+[`VS Code Extensions`]: https://github.com/stars/5ouma/lists/vs-code-extensions
+
+<br />
+
 ### 🖌 Terminal Editor: [`Vim`](https://www.vim.org)
 
 #### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)

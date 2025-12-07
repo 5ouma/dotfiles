@@ -23,6 +23,7 @@ repos:
       - id: end-of-file-fixer
         stages: [pre-commit]
       - id: check-json
+        exclude: Library/Application\ Support/Code/User/(settings|keybindings)\.json$
         stages: [pre-commit]
       - id: check-toml
         stages: [pre-commit]

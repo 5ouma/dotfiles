@@ -18,7 +18,6 @@ fi
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export HOMEBREW_BUNDLE_FILE="$data/Brewfile"
 export HOMEBREW_NO_ENV_HINTS=1
-export HOMEBREW_BUNDLE_DUMP_NO_VSCODE=1
 export HOMEBREW_BUNDLE_DUMP_NO_GO=1
 
 # OrbStack

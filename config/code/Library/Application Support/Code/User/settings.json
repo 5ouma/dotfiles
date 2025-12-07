@@ -1,0 +1,162 @@
+{
+  // Text Editor
+  "editor.accessibilitySupport": "off",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": { "editor.defaultFormatter": "astro-build.astro-vscode" },
+  "[go]": { "editor.defaultFormatter": "golang.go" },
+  "[lua]": { "editor.defaultFormatter": "sumneko.lua" },
+  "[markdown]": { "editor.defaultFormatter": "denoland.vscode-deno" },
+  "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" },
+  "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
+  "editor.guides.bracketPairs": "active",
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "all",
+  "editor.stickyScroll.enabled": true,
+  "editor.tabSize": 2,
+  "editor.wordSeparators": " `~!@#$%^&*()-=_+[{]}\\|;:'\",.<>/?",
+  // Cursor
+  "editor.cursorBlinking": "smooth",
+  // Font
+  "editor.fontFamily": "'Fira Code Retina', HackGen35-Regular, 'Symbols Nerd Font'",
+  "editor.fontLigatures": "cv25, cv26, cv27, cv32, ss02, ss03, ss08, ss09",
+  // Formatting
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  // Diff Editor
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Minimap
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.size": "fill",
+  // Suggestions
+  "editor.suggest.preview": true,
+  // Files
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+
+  // Workbench
+  "workbench.layoutControl.enabled": false,
+  "workbench.productIconTheme": "Tabler",
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.location": "top",
+  // Appearance
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlack": "#000000",
+    "terminal.ansiRed": "#C51E14",
+    "terminal.ansiGreen": "#1DC121",
+    "terminal.ansiYellow": "#C7C329",
+    "terminal.ansiBlue": "#0A2FC4",
+    "terminal.ansiMagenta": "#C839C5",
+    "terminal.ansiCyan": "#20C5C6",
+    "terminal.ansiWhite": "#C7C7C7",
+    "terminal.ansiBrightBlack": "#686868",
+    "terminal.ansiBrightRed": "#FD6F6B",
+    "terminal.ansiBrightGreen": "#67F86F",
+    "terminal.ansiBrightYellow": "#FFFA72",
+    "terminal.ansiBrightBlue": "#6A76FB",
+    "terminal.ansiBrightMagenta": "#FD7CFC",
+    "terminal.ansiBrightCyan": "#68FDFE",
+    "terminal.ansiBrightWhite": "#FFFFFF"
+  },
+  "workbench.preferredDarkColorTheme": "sukadia.dev/dark",
+  "workbench.preferredLightColorTheme": "Brackets Light Pro",
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.tree.renderIndentGuides": "always",
+  // Editor Management
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+
+  // Window
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": false,
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+
+  // Features
+  // Search
+  "search.quickOpen.includeHistory": false,
+  // Explorer
+  "explorer.sortOrder": "type",
+  "explorer.compactFolders": false,
+  // Extensions
+  "extensions.closeExtensionDetailsOnViewChange": true,
+  // Terminal
+  "terminal.external.osxExec": "Ghostty.app",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.fontFamily": "'Fira Code Retina', HackGen35Console-Regular, 'Symbols Nerd Font'",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontLigatures.featureSettings": "cv25, cv26, cv27, cv32, ss02 on, ss03, ss08, ss09",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.wordSeparators": " -,.;:\"()[]{}@/=|'",
+  // Chat
+  "chat.agent.maxRequests": 1000,
+
+  // Security
+  // Workspace
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // Extensions
+  // code-eol Configuration
+  "code-eol.color": "#d0d0d0",
+  // Copilot
+  "github.copilot.enable": { "*": true, "plaintext": true, "markdown": true },
+  // Deno
+  "deno.codeLens.implementations": true,
+  "deno.codeLens.references": true,
+  "deno.codeLens.referencesAllFunctions": true,
+  "deno.codeLens.test": true,
+  // Git
+  "git.autofetch": true,
+  // Go
+  "go.alternateTools": { "customFormatter": "golangci-lint-v2" },
+  "go.formatFlags": ["fmt", "--stdin"],
+  "go.formatTool": "custom",
+  "go.inlayHints.assignVariableTypes": true,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.compositeLiteralTypes": true,
+  "go.inlayHints.constantValues": true,
+  "go.inlayHints.functionTypeParameters": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.rangeVariableTypes": true,
+  "go.lintTool": "golangci-lint-v2",
+  // HTML
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapLineLength": 0,
+  // JSON
+  "json.schemaDownload.enable": true,
+  // Lua
+  "Lua.diagnostics.globals": ["hs"],
+  // Marp for VS Code
+  "markdown.marp.pdf.outlines": "headings",
+  "markdown.marp.themes": [
+    "https://raw.githubusercontent.com/5ouma/slide/main/themes/minimal.css",
+    "https://raw.githubusercontent.com/5ouma/slide/main/themes/utils.css"
+  ],
+  // path-intellisense
+  "path-intellisense.autoSlashAfterDirectory": true,
+  "path-intellisense.autoTriggerNextSuggestion": true,
+  // Project Manager
+  "projectManager.git.baseFolders": ["~/.dotfiles", "~/ghq"],
+  // rumdl"
+  "rumdl.rules.disable": ["MD013", "MD024", "MD033", "MD036"],
+  // TypeScript
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  // WordCounter
+  "wordcounter.side.left": [],
+  "wordcounter.side.right": ["word", "char", "line"],
+  //YAML
+  "redhat.telemetry.enabled": false,
+  // テキスト校正くん
+  "japanese-proofreading.textlint.助詞の連続": true
+}
