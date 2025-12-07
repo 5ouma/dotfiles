@@ -82,6 +82,9 @@ checkSym() {
   declare -Ag cfgs
   while read -r cfg; do
     declare file="${cfg#"$config"/*/}"
+    if (! isDarwin); then
+      file="${file/'Library\/Application Support'/.config}"
+    fi
     if [[ ! -f "$HOME/$file" ]] || (! diff "$cfg" "$HOME/$file" &>/dev/null); then
       cfgs[$file]=$cfg
     fi
