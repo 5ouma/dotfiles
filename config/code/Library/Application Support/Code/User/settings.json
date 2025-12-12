@@ -1,6 +1,6 @@
 {
   // Text Editor
-  "editor.accessibilitySupport": "off",
+  "editor.aiStats.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[astro]": { "editor.defaultFormatter": "astro-build.astro-vscode" },
   "[go]": { "editor.defaultFormatter": "golang.go" },
@@ -8,7 +8,7 @@
   "[markdown]": { "editor.defaultFormatter": "denoland.vscode-deno" },
   "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
-  "editor.guides.bracketPairs": "active",
+  "editor.guides.bracketPairs": true,
   "editor.linkedEditing": true,
   "editor.renderWhitespace": "all",
   "editor.stickyScroll.enabled": true,
@@ -37,9 +37,10 @@
   // Workbench
   "workbench.layoutControl.enabled": false,
   "workbench.productIconTheme": "Tabler",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.startupEditor": "none",
-  "workbench.activityBar.location": "top",
   // Appearance
+  "workbench.activityBar.location": "top",
   "workbench.colorCustomizations": {
     "terminal.ansiBlack": "#000000",
     "terminal.ansiRed": "#C51E14",
@@ -58,9 +59,9 @@
     "terminal.ansiBrightCyan": "#68FDFE",
     "terminal.ansiBrightWhite": "#FFFFFF"
   },
+  "workbench.iconTheme": "vscode-great-icons",
   "workbench.preferredDarkColorTheme": "sukadia.dev/dark",
   "workbench.preferredLightColorTheme": "Brackets Light Pro",
-  "workbench.iconTheme": "vscode-great-icons",
   "workbench.tree.renderIndentGuides": "always",
   // Editor Management
   "workbench.editor.highlightModifiedTabs": true,
@@ -72,11 +73,11 @@
   "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
 
   // Features
+  // Explorer
+  "explorer.compactFolders": false,
+  "explorer.sortOrder": "type",
   // Search
   "search.quickOpen.includeHistory": false,
-  // Explorer
-  "explorer.sortOrder": "type",
-  "explorer.compactFolders": false,
   // Extensions
   "extensions.closeExtensionDetailsOnViewChange": true,
   // Terminal
@@ -91,7 +92,7 @@
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.wordSeparators": " -,.;:\"()[]{}@/=|'",
   // Chat
-  "chat.agent.maxRequests": 1000,
+  "chat.agent.maxRequests": 40,
 
   // Security
   // Workspace
@@ -100,15 +101,16 @@
   // Extensions
   // code-eol Configuration
   "code-eol.color": "#d0d0d0",
-  // Copilot
-  "github.copilot.enable": { "*": true, "plaintext": true, "markdown": true },
   // Deno
   "deno.codeLens.implementations": true,
   "deno.codeLens.references": true,
   "deno.codeLens.referencesAllFunctions": true,
   "deno.codeLens.test": true,
   // Git
+  "git.alwaysSignOff": true,
   "git.autofetch": true,
+  // GitHub Copilot Chat
+  "github.copilot.enable": { "*": true, "plaintext": true, "markdown": true },
   // Go
   "go.alternateTools": { "customFormatter": "golangci-lint-v2" },
   "go.formatFlags": ["fmt", "--stdin"],
@@ -142,12 +144,12 @@
   // rumdl"
   "rumdl.rules.disable": ["MD013", "MD024", "MD033", "MD036"],
   // TypeScript
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
   "javascript.inlayHints.parameterTypes.enabled": true,
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
