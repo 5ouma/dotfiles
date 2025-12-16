@@ -38,14 +38,14 @@ My config files and setup for CLI tools and GUI apps.
 
 - ### 🐧 Linux
 
-  - cURL, Git, and Zsh to run the [setup](./setup)
+  - cURL, Git, and Zsh to run the [setup](../setup)
   - Compatible with these [Homebrew dependencies](https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
 <br /><br />
 
 ## 📥 Installation
 
-Run one line [setup](./setup), see the [usage](#-usage) for the detail.
+Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 
 <br />
 
