@@ -1,13 +1,14 @@
 {
   // Text Editor
+  "editor.accessibilitySupport": "off",
   "editor.aiStats.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[astro]": { "editor.defaultFormatter": "astro-build.astro-vscode" },
   "[go]": { "editor.defaultFormatter": "golang.go" },
   "[lua]": { "editor.defaultFormatter": "sumneko.lua" },
   "[markdown]": { "editor.defaultFormatter": "denoland.vscode-deno" },
-  "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
+  "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" },
   "editor.guides.bracketPairs": true,
   "editor.linkedEditing": true,
   "editor.renderWhitespace": "all",
@@ -141,7 +142,7 @@
   "path-intellisense.autoTriggerNextSuggestion": true,
   // Project Manager
   "projectManager.git.baseFolders": ["~/.dotfiles", "~/ghq"],
-  // rumdl"
+  // rumdl
   "rumdl.rules.disable": ["MD013", "MD024", "MD033", "MD036"],
   // TypeScript
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -157,7 +158,7 @@
   // WordCounter
   "wordcounter.side.left": [],
   "wordcounter.side.right": ["word", "char", "line"],
-  //YAML
+  // YAML
   "redhat.telemetry.enabled": false,
   // テキスト校正くん
   "japanese-proofreading.textlint.助詞の連続": true
