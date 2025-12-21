@@ -52,6 +52,11 @@ gum() {
   choose) gumCom choose --no-limit --selected='*' <"$2" ;;
   confirm) gumCom confirm "$2" --affirmative="$3" --negative="$4" ;;
   format) gumCom format "${@:2}" ;;
+  style) gumCom style --foreground="$2" "${@:3}" ;;
+  executed)
+    echo -en '\n  ' && gumCom format '✅ Done!'
+    executed=true
+    ;;
   run)
     if (tty &>/dev/null); then
       gumCom spin --title="$2" -- "${@:4}"
@@ -59,11 +64,6 @@ gum() {
       echo && gumCom log --level='info' "$2"
       "${@:4}"
     fi
-    ;;
-  style) gumCom style --foreground="$2" "${@:3}" ;;
-  executed)
-    echo -en '\n  ' && gumCom format '✅ Done!'
-    executed=true
     ;;
   skipped) echo -en '\n  ' && gumCom format '🟡 Skipped' ;;
   esac
