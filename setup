@@ -252,15 +252,6 @@ enableTouchID() {
   sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local >/dev/null
 } && run 'enableTouchID' '## 👑 Enable Touch ID for `sudo`' true
 
-makeDockImmutable() {
-  declare -r sizeImmutable="$(defaults read com.apple.dock size-immutable)" &>/dev/null
-  if [[ "$sizeImmutable" == 1 ]] || ! shouldProceed; then
-    skip
-  fi
-
-  defaults write com.apple.dock size-immutable -bool true
-} && run 'makeDockImmutable' '## 🚥 Make Dock size immutable' true
-
 disableRedesignedTextCursor() {
   if sudo [ -f '/Library/Preferences/FeatureFlags/Domain/UIKit.plist' ] || ! shouldProceed; then
     skip
@@ -332,8 +323,7 @@ changeLoginShell() {
 } && run 'changeLoginShell' '## 🐚 Change login shell to Zsh'
 
 restoreDock() {
-  dorg save --file="$TMPDIR/dorg.yml" &>/dev/null
-  if (diff "$data/dorg.yml" "$TMPDIR/dorg.yml" &>/dev/null || ! shouldProceed); then
+  if (! has dorg || dorg check --file="$data/dorg.yml" &>/dev/null || ! shouldProceed); then
     skip
   fi
 
