@@ -12,7 +12,7 @@ repos = ["~/*", "~/ghq/**"]
 
 [commands]
 Jetpack = "vim +Jetpack +qall"
-lporg = '_run lporg save -c="$data/lporg.yml"'
+dorg = '_run dorg save --file="$data/dorg.yml"'
 mackup = "_run mackup -f backup"
 mksei = '_run mksei save "$data/keyboard_shortcuts.json"'
 mli = '_run mli save -f --file="$data/login_items.json"'

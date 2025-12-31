@@ -35,7 +35,7 @@ jobs:
 
       - name: 🍎 Install macOS tools via Homebrew
         if: ${{ startsWith(matrix.os, 'macOS') }}
-        run: brew install batt 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg
+        run: brew install batt 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli
 
       - name: ⚙️ Run setup
         run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes

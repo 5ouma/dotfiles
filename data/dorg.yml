@@ -1,0 +1,35 @@
+dock_items:
+  apps:
+    - ""
+    - /Applications/Arc.app
+    - /Applications/Discord.app
+    - /Applications/Slack.app
+    - /Applications/LINE.app
+    - /Applications/Spark Desktop.app
+    - /Applications/Email.app
+    - ""
+    - /Applications/TickTick.app
+    - /Applications/Notion.app
+    - /System/Applications/App Store.app
+    - /System/Applications/System Settings.app
+    - /Applications/1Password.app
+    - /System/Applications/Utilities/Activity Monitor.app
+    - ""
+    - ""
+  others:
+    - path: "~"
+      sort: 1
+      display: 1
+    - path: ~/Downloads
+      sort: 1
+    - path: ~/Pictures/Screen Captures
+      sort: 1
+    - path: ~/Temp
+      sort: 1
+  settings:
+    tilesize: 35
+    largesize: 38
+    magnification: true
+    minimize-to-application: true
+    autohide: true
+    show-recents: false

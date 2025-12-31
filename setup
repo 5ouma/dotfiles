@@ -252,17 +252,6 @@ enableTouchID() {
   sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local >/dev/null
 } && run 'enableTouchID' '## 👑 Enable Touch ID for `sudo`' true
 
-changeLaunchpadSize() {
-  declare -r springboardColumns="$(defaults read com.apple.dock springboard-columns)" springboardRows="$(defaults read com.apple.dock springboard-rows)" &>/dev/null
-  if [[ $springboardColumns == 9 && $springboardRows == 8 ]] || ! shouldProceed; then
-    skip
-  fi
-
-  defaults write com.apple.dock springboard-columns -int 9
-  defaults write com.apple.dock springboard-rows -int 8
-  killall Dock
-} && run 'changeLaunchpadSize' '## 🚀 Change the Launchpad size' true
-
 makeDockImmutable() {
   declare -r sizeImmutable="$(defaults read com.apple.dock size-immutable)" &>/dev/null
   if [[ "$sizeImmutable" == 1 ]] || ! shouldProceed; then
@@ -319,7 +308,7 @@ EOM
 
 
 installApps() {
-  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='batt mas trash 5ouma/tap/mksei 5ouma/tap/mli blacktop/tap/lporg'
+  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='batt mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
   if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile" || ! shouldProceed); then
     skip
   fi
@@ -342,15 +331,15 @@ changeLoginShell() {
   sudo chsh -s "$(which zsh)" "$USER"
 } && run 'changeLoginShell' '## 🐚 Change login shell to Zsh'
 
-restoreLaunchpad() {
-  lporg save -c="$TMPDIR/lporg.yml" &>/dev/null
-  if (diff "$data/lporg.yml" "$TMPDIR/lporg.yml" &>/dev/null || ! shouldProceed); then
+restoreDock() {
+  dorg save --file="$TMPDIR/dorg.yml" &>/dev/null
+  if (diff "$data/dorg.yml" "$TMPDIR/dorg.yml" &>/dev/null || ! shouldProceed); then
     skip
   fi
 
   # shellcheck disable=SC2016
-  gum run 'Running `lporg load`...' -- lporg load -nyc="$data/lporg.yml" >/dev/null || :
-} && run 'restoreLaunchpad' '## 🚀 Restore Launchpad and Dock' true
+  gum run 'Running `dorg load`...' -- dorg load --file="$data/dorg.yml" >/dev/null || :
+} && run 'restoreLaunchpad' '## 🚥 Restore Dock' true
 
 restoreAppSettings() {
   if (! shouldProceed); then
