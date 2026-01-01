@@ -9,7 +9,7 @@ permissions: {}
 
 jobs:
   test:
-    name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
+    name: ${{ startsWith(matrix.os, 'macOS-') && '🍎' || '🐧' }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     strategy:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: 🧰 Install dependencies
-        if: ${{ matrix.os == 'Ubuntu-Latest' }}
+        if: ${{ startsWith(matrix.os, 'Ubuntu-') }}
         run: |
           sudo apt-get install -y build-essential procps curl file git zsh
           sudo snap install --classic code

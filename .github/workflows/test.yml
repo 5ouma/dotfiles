@@ -16,7 +16,7 @@ permissions: {}
 
 jobs:
   test:
-    name: ${{ startsWith(matrix.os, 'macOS') && '🍎' || '🐧' }} ${{ matrix.os }}
+    name: ${{ startsWith(matrix.os, 'macOS-') && '🍎' || '🐧' }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -34,7 +34,7 @@ jobs:
           brew install atuin mackup mise prek sheldon vim zoxide zsh
 
       - name: 🍎 Install macOS tools via Homebrew
-        if: ${{ startsWith(matrix.os, 'macOS') }}
+        if: ${{ startsWith(matrix.os, 'macOS-') }}
         run: brew install batt 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli
 
       - name: ⚙️ Run setup
