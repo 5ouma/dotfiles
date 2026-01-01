@@ -83,8 +83,3 @@ DesktopPictureWatcher = hs.caffeinate.watcher.new(function(eventType)
     setDesktopPicture(getAppearanceMode())
   end
 end):start()
-
-
--- Restore Mackup
-hs.execute [["mackup" "uninstall" "-f"]]
-hs.execute [["mackup" "backup" "-f"]]
