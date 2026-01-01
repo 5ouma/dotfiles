@@ -329,7 +329,7 @@ restoreDock() {
 
   # shellcheck disable=SC2016
   gum run 'Running `dorg load`...' -- dorg load --file="$data/dorg.yml" >/dev/null || :
-} && run 'restoreLaunchpad' '## 🚥 Restore Dock' true
+} && run 'restoreDock' '## 🚥 Restore Dock' true
 
 restoreAppSettings() {
   if (! shouldProceed); then
