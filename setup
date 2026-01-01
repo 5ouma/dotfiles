@@ -328,7 +328,7 @@ restoreDock() {
   fi
 
   # shellcheck disable=SC2016
-  gum run 'Running `dorg load`...' -- dorg load --file="$data/dorg.yml" >/dev/null || :
+  gum run 'Running `dorg load`...' -- dorg load --file="$data/dorg.yml"
 } && run 'restoreDock' '## 🚥 Restore Dock' true
 
 restoreAppSettings() {
