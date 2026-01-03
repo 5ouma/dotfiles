@@ -65,11 +65,6 @@
     "Hidden": false
   },
   {
-    "Name": "MacUpdater",
-    "Path": "/Applications/MacUpdater.app",
-    "Hidden": false
-  },
-  {
     "Name": "Notion",
     "Path": "/Applications/Notion.app",
     "Hidden": false
