@@ -24,11 +24,19 @@ jobs:
           sudo apt-get install -y build-essential procps curl file git zsh
           sudo snap install --classic code
 
+      - name: 📦 Skip mas
+        id: skip
+        if: ${{ startsWith(matrix.os, 'macOS-') }}
+        run: |
+          HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
+          echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
+
       - name: ⚙️ Run setup
         run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes
         env:
           SETUP_SKIP_LOGINGITHUBCLI: true
           SETUP_SKIP_RESTOREAPPSETTINGS: true
+          HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🐚 Launch new login shell
