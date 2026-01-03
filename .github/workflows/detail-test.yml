@@ -1,6 +1,14 @@
 name: 🔬 Detail Test
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/detail-test.yml
+  pull_request:
+    paths:
+      - .github/workflows/detail-test.yml
   schedule:
     - cron: 0 0 * * SAT
   workflow_dispatch:
