@@ -367,6 +367,14 @@ limitBatteryCharge() {
   sudo batt magsafe-led enable || :
 } && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
+importGitHubGPGKey() {
+  if (gpg --list-keys | grep -q 'github' || ! shouldProceed); then
+    skip
+  fi
+
+  curl -s https://github.com/web-flow.gpg | gpg --import
+} && run 'importGitHubGPGKey' '## 🔐 Import GitHub GPG Key'
+
 generateGitHooks() {
   declare -r hooks=('pre-commit' 'commit-msg' 'pre-push')
   declare allPresent=true

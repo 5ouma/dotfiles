@@ -11,6 +11,7 @@
   format = ssh
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  allowedSignersFile = ~/.config/git/allowed_signers
 
 [branch]
   sort = -committerdate
@@ -27,6 +28,7 @@
   defaultBranch = main
 [log]
   decorate = true
+  showSignature = true
 [push]
   autoSetupRemote = true
   default = simple
