@@ -50,26 +50,26 @@ Run one line [setup](../setup), see the [usage](#-usage) for the detail.
 <br />
 
 > _All configurations_
->
-> ```sh
-> zsh <(curl https://dot.5ouma.me)
-> ```
+
+```sh
+zsh <(curl https://dot.5ouma.me)
+```
 
 <br />
 
 > _Just config files_
->
-> ```sh
-> zsh <(curl https://dot.5ouma.me) set
-> ```
+
+```sh
+zsh <(curl https://dot.5ouma.me) set
+```
 
 <br />
 
 > _Vim config files_
->
-> ```sh
-> curl https://vim.5ouma.me >"$HOME/.config/vim/vimrc"
-> ```
+
+```sh
+curl https://vim.5ouma.me >"$HOME/.config/vim/vimrc"
+```
 
 <br /><br />
 
