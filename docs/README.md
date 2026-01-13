@@ -124,7 +124,7 @@ curl https://vim.5ouma.me >"$HOME/.config/vim/vimrc"
 > See packages in **[`Brewfile`]**
 > or on **[`Shell Commands`]**, **[`Software`]**, **[`Fonts`]** _(GitHub Star List)_
 
-[`Brewfile`]: ./data/Brewfile
+[`Brewfile`]: ../data/Brewfile
 [`Shell Commands`]: https://github.com/stars/5ouma/lists/shell-commands
 [`Software`]: https://github.com/stars/5ouma/lists/software
 [`Fonts`]: https://github.com/stars/5ouma/lists/fonts
@@ -176,7 +176,7 @@ brew install sheldon
 > See plugins in **[`plugins.toml`]**
 > or on **[`Zsh Plugins`]** _(GitHub Star List)_
 
-[`plugins.toml`]: ./config/sheldon/.config/sheldon/plugins.toml
+[`plugins.toml`]: ../config/sheldon/.config/sheldon/plugins.toml
 [`Zsh Plugins`]: https://github.com/stars/5ouma/lists/zsh-plugins
 
 #### ❯ Theme: [`Powerlevel10k`](https://github.com/romkatv/powerlevel10k)
@@ -207,7 +207,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack
 > See plugins in **[`plugins.vim`]**
 > or on **[`Vim Plugins`]** _(GitHub Star List)_
 
-[`plugins.vim`]: ./config/vim/.config/vim/plugins.vim
+[`plugins.vim`]: ../config/vim/.config/vim/plugins.vim
 [`Vim Plugins`]: https://github.com/stars/5ouma/lists/vim-plugins
 
 #### ✏️ Color Scheme: [`Pencil`](https://github.com/5ouma/vim-colors-pencil)
