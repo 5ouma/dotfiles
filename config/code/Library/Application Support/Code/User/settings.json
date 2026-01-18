@@ -155,6 +155,8 @@
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
+  // VersionLens
+  "versionlens.suggestions.showOnStartup": true,
   // WordCounter
   "wordcounter.side.left": [],
   "wordcounter.side.right": ["word", "char", "line"],
