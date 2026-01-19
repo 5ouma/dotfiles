@@ -41,7 +41,6 @@ jobs:
         run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes
         env:
           SETUP_SKIP_INSTALLAPPS: true
-          SETUP_SKIP_LOGINGITHUBCLI: true
           SETUP_SKIP_RESTOREAPPSETTINGS: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
