@@ -10,7 +10,7 @@ repos:
         name: 1Password desktop app launcher
         description: Open 1Password desktop app to ensure the CLI is authenticated
         entry: op account list
-        language: unsupported
+        language: system
         always_run: true
         fail_fast: true
         pass_filenames: false
