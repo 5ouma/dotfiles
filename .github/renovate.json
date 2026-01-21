@@ -20,14 +20,6 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
       "extractVersionTemplate": "v(?<version>.+)"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["data/prek.yml"],
-      "matchStrings": [
-        "(?<depName>github.com/suzuki-shunsuke/(pinact|ghalint))(/v(?<major>[0-9]+))?/cmd/(pinact|ghalint)@(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
-      ],
-      "datasourceTemplate": "go"
     }
   ]
 }
