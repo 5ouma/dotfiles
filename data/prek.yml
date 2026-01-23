@@ -133,7 +133,7 @@ repos:
         stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
-    rev: v0.8.2
+    rev: v0.8.3
     hooks:
       - id: upload-git-commit-notion
         stages: [pre-push]
