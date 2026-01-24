@@ -109,6 +109,8 @@ repos:
     rev: 42.84.0
     hooks:
       - id: renovate-config-validator
+        language: bun
+        language_version: default
         args: [--strict]
         stages: [pre-commit]
 
