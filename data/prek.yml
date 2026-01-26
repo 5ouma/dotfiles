@@ -60,6 +60,9 @@ repos:
     rev: v1.7.10
     hooks:
       - id: actionlint
+        language: golang
+        additional_dependencies:
+          - github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.11.1
         stages: [pre-commit]
 
   - repo: local
