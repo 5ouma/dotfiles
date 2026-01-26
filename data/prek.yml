@@ -121,10 +121,16 @@ repos:
         args: [--fix, --fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
         stages: [pre-commit]
 
-  - repo: https://github.com/detailyang/pre-commit-shell
-    rev: v1.0.6
+  - repo: local
     hooks:
-      - id: shell-lint
+      - id: shellcheck
+        name: ShellCheck
+        description: Static analysis tool for shell scripts
+        entry: shellcheck
+        language: golang
+        additional_dependencies:
+          - github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.11.1
+        types: [shell]
         args: [-e, "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]
         stages: [pre-commit]
 
