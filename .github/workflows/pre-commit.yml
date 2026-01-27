@@ -21,4 +21,4 @@ jobs:
           config: data/prek.yml
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
-          SKIP: op-launcher
+          PREK_SKIP: op-launcher
