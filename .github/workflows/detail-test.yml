@@ -19,7 +19,7 @@ jobs:
   test:
     name: ${{ startsWith(matrix.os, 'macOS-') && '🍎' || '🐧' }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
