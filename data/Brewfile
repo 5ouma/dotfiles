@@ -21,6 +21,7 @@ brew "gum"
 brew "hyperfine"
 brew "jq"
 brew "lsd"
+brew "mac-cleanup-go"
 brew "mackup"
 brew "mas"
 brew "mise"
@@ -103,7 +104,6 @@ mas "LINE", id: 539883307
 mas "Mactracker", id: 430255202
 mas "RunCat", id: 1429033973
 mas "Speedtest", id: 1153157709
-mas "Startup Disk Full Fixer", id: 1346655838
 mas "Xcode", id: 497799835
 vscode "a5huynh.vscode-ron"
 vscode "alefragnani.project-manager"
