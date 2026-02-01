@@ -1,4 +1,4 @@
-background = "#242424"
-foreground = "#f4f4f4"
-selection-foreground = "#f4f4f4"
+background = "#2a2a2a"
+foreground = "#fbfbfb"
+selection-foreground = "#fbfbfb"
 selection-background = "#0050a0"
