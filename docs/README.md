@@ -1,21 +1,8 @@
-<h1 align="center">
-  <picture>
-    <source
-      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png"
-      media="(prefers-color-scheme: light)"
-    />
-    <source
-      srcset="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-dark.png"
-      media="(prefers-color-scheme: dark)"
-    />
-    <img width=500px alt="header" src="https://raw.githubusercontent.com/5ouma/dotfiles/main/docs/images/header/header-light.png" />
-  </picture>
-</h1>
+<h1 align="center">dotfiles</h1>
 
 <div align="center">
 
-**⚙ The most minimal and powerful dotfiles ever** <br />
-My config files and setup for CLI tools and GUI apps.
+**⚙ The most minimal and powerful dotfiles ever**
 
 <br />
 
