@@ -118,7 +118,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
-    rev: v0.1.7
+    rev: v0.1.8
     hooks:
       - id: rumdl
         args: [--fix, --fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
