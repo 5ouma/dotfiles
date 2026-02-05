@@ -300,7 +300,7 @@ EOM
 
 
 installApps() {
-  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='batt mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
+  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='batt mac-cleanup-go mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
   if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile" || ! shouldProceed); then
     skip
   fi

@@ -13,7 +13,7 @@ if [[ "$(uname)" == 'Darwin' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  export HOMEBREW_BUNDLE_BREW_SKIP='batt mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
+  export HOMEBREW_BUNDLE_BREW_SKIP='batt mac-cleanup-go mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
 fi
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export HOMEBREW_BUNDLE_FILE="$data/Brewfile"
