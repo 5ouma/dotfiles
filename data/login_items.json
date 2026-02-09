@@ -60,6 +60,11 @@
     "Hidden": false
   },
   {
+    "Name": "JiBA",
+    "Path": "/Applications/JiBA.app",
+    "Hidden": false
+  },
+  {
     "Name": "LINE",
     "Path": "/Applications/LINE.app",
     "Hidden": false
