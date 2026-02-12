@@ -144,7 +144,7 @@ repos:
         stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
-    rev: v0.9.0
+    rev: v0.9.1
     hooks:
       - id: upload-git-commit-notion
         stages: [pre-push]
