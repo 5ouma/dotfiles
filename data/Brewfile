@@ -97,7 +97,6 @@ cask "visual-studio-code@insiders"
 mas "Amphetamine", id: 937984704
 mas "Blackmagic Disk Speed Test", id: 425264550
 mas "DaVinci Resolve", id: 571213070
-mas "Email", id: 1489591003
 mas "FocusRecorder", id: 6446467176
 mas "Fuwari", id: 1187652334
 mas "HandyPalette", id: 1515022667

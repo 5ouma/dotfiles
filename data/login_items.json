@@ -15,11 +15,6 @@
     "Hidden": false
   },
   {
-    "Name": "Email",
-    "Path": "/Applications/Email.app",
-    "Hidden": false
-  },
-  {
     "Name": "FigmaAgent",
     "Path": "/Users/5ouma/Library/Application Support/Figma/FigmaAgent.app",
     "Hidden": false
