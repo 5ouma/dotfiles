@@ -138,7 +138,6 @@ alias v='vim'
 
 # VS Code
 alias c.='code .'
-alias ci.='code-insiders .'
 
 # yazi
 alias yzi='yazi'

@@ -5,7 +5,7 @@ export PATH="/Applications/1Password.app/Contents/MacOS:$PATH"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 # fzf
-export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.vscode-insiders,.git,node_modules,.next,.DS_Store}'
+export FZF_DEFAULT_COMMAND='fd -H -t=f -E={Library,Movies,Music,Pictures,.cache,.local,OrbStack,.orbstack,.vscode,.git,node_modules,.next,.DS_Store}'
 export FZF_DEFAULT_OPTS="--bind='ctrl-/:change-preview-window(down|right)' --height=80% --layout=reverse --border --border-label-pos=2"
 
 # Homebrew

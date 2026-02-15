@@ -93,7 +93,6 @@ cask "tailscale-app"
 cask "ticktick"
 cask "timemachinestatus"
 cask "visual-studio-code"
-cask "visual-studio-code@insiders"
 mas "Amphetamine", id: 937984704
 mas "Blackmagic Disk Speed Test", id: 425264550
 mas "DaVinci Resolve", id: 571213070
