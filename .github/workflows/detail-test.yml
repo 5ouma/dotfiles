@@ -17,7 +17,7 @@ permissions: {}
 
 jobs:
   test:
-    name: ${{ startsWith(matrix.os, 'macOS-') && '🍎' || '🐧' }} ${{ matrix.os }}
+    name: ${{ case(startsWith(matrix.os, 'macOS-'), '🍎', startsWith(matrix.os, 'Ubuntu-'), '🐧', '❓') }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
