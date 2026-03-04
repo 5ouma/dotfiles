@@ -28,7 +28,6 @@
   defaultBranch = main
 [log]
   decorate = true
-  showSignature = true
 [push]
   autoSetupRemote = true
   default = simple
