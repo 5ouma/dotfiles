@@ -1,5 +1,6 @@
 [core]
   hooksPath = ~/.config/git/hooks
+  attributesfile = ~/.config/git/attributes
 [sequence]
   editor = interactive-rebase-tool
 
@@ -40,6 +41,10 @@
 
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
+
+[merge "weave"]
+  name = Entity-level semantic merge
+  driver = weave-driver %O %A %B %L %P
 
 [ghq]
   user = 5ouma
