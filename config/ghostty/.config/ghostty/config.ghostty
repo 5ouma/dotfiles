@@ -20,6 +20,8 @@ cursor-style = bar
 
 mouse-scroll-multiplier = 3
 
+notify-on-command-finish = "always"
+
 keybind = "cmd+enter=ignore"
 keybind = "opt+delete=esc:d"
 keybind = "cmd+backspace=text:\x15"
