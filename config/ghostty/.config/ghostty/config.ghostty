@@ -13,8 +13,8 @@ font-size = 18
 
 adjust-cursor-thickness = 3
 
-theme = "light:minimal-light,dark:minimal-dark"
-config-file = "themes/minimal-ansi"
+theme = "light:minimal-light.ghostty,dark:minimal-dark.ghostty"
+config-file = "themes/minimal-ansi.ghostty"
 
 cursor-style = bar
 
