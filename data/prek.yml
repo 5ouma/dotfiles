@@ -121,7 +121,7 @@ repos:
     rev: v0.1.63
     hooks:
       - id: rumdl
-        args: [--fix, --fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
+        args: [--fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
         stages: [pre-commit]
 
   - repo: local
