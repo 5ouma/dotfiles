@@ -62,7 +62,7 @@ repos:
       - id: actionlint
         language: golang
         additional_dependencies:
-          - github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.11.1
+          - github.com/wasilibs/go-shellcheck/cmd/shellcheck@4e7020840c303923eb1ab846fc446d77be892570 # frozen: v0.11.1
         stages: [pre-commit]
 
   - repo: local
@@ -74,7 +74,7 @@ repos:
         args: [--verify]
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.9.0
+          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@9d8b3209778c876e9cdf2af2824f9573758273c3 # frozen: v3.9.0
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
         stages: [pre-commit]
@@ -87,7 +87,7 @@ repos:
         entry: ghalint run
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.5.5
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@99b0e63be7fbd4c30c6d0b3da5b4a94a19ad55e6 # frozen: v1.5.5
         types: [yaml]
         files: ^\.github/workflows/.+\.ya?ml$
         stages: [pre-commit]
@@ -97,7 +97,7 @@ repos:
         entry: ghalint act
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@v1.5.5
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@99b0e63be7fbd4c30c6d0b3da5b4a94a19ad55e6 # frozen: v1.5.5
         types: [yaml]
         files: ^(.+/)*action\.ya?ml$
         stages: [pre-commit]
@@ -133,7 +133,7 @@ repos:
         entry: shellcheck
         language: golang
         additional_dependencies:
-          - github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.11.1
+          - github.com/wasilibs/go-shellcheck/cmd/shellcheck@4e7020840c303923eb1ab846fc446d77be892570 # frozen: v0.11.1
         types: [shell]
         args: [-e, "SC1071,SC1072,SC1073,SC1090,SC1091,SC2015,SC2148,SC2154"]
         stages: [pre-commit]

@@ -20,6 +20,15 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
       "extractVersionTemplate": "v(?<version>.+)"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["data/prek.yml"],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver",
+      "matchStrings": [
+        "github\\.com/(?<depName>[^/]+/[^\\s/]+)(?:/[^@]+)?@(?<currentDigest>[0-9a-f]{40}) # frozen: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ]
     }
   ]
 }
