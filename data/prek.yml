@@ -37,7 +37,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.6
+    rev: ad1b27d73581aa16cca06fc4a0761fc563ffe8e8 # frozen: v1.5.6
     hooks:
       - id: remove-tabs
         args: [--whitespaces-count, "2"]
@@ -45,19 +45,19 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.45.1
+    rev: cf5f1c29a8ac336af8568821ec41919923b05a83 # frozen: v1.45.1
     hooks:
       - id: typos
         stages: [pre-commit]
 
   - repo: https://github.com/betterleaks/betterleaks
-    rev: v1.1.2
+    rev: 31746c9420b19a592848b21d6d8977d53cc6da0e # frozen: v1.1.2
     hooks:
       - id: betterleaks
         stages: [pre-commit]
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.12
+    rev: 914e7df21a07ef503a81201c76d2b11c789d3fca # frozen: v1.7.12
     hooks:
       - id: actionlint
         language: golang
@@ -102,14 +102,14 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.24.1
+    rev: a4727cbbcd26d7098e96b9cb738169b59711ae51 # frozen: v1.24.1
     hooks:
       - id: zizmor
         args: [--no-config]
         stages: [pre-commit]
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.116.1
+    rev: f65f6e8f67dedb889f3a648e060cf0117fd900d8 # frozen: 43.116.1
     hooks:
       - id: renovate-config-validator
         language: bun
@@ -118,7 +118,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
-    rev: v0.1.72
+    rev: 07a5356d72a6c47d688c109e77631af1618f5ee2 # frozen: v0.1.72
     hooks:
       - id: rumdl
         args: [--fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
@@ -138,13 +138,13 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/AnruKitakaze/commit-msg-guardian
-    rev: v0.1.7
+    rev: a44e136d87f9cb9280d11d7ab94a532c4b7b3482 # frozen: v0.1.7
     hooks:
       - id: commit-msg-guardian
         stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
-    rev: v0.9.4
+    rev: e7cf7a62cbf6353c7b9667884a54d9a3e93ae2af # frozen: v0.9.4
     hooks:
       - id: upload-git-commit-notion
         stages: [pre-push]
