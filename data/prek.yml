@@ -50,10 +50,10 @@ repos:
       - id: typos
         stages: [pre-commit]
 
-  - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.30.1
+  - repo: https://github.com/betterleaks/betterleaks
+    rev: v1.1.2
     hooks:
-      - id: gitleaks
+      - id: betterleaks
         stages: [pre-commit]
 
   - repo: https://github.com/rhysd/actionlint
