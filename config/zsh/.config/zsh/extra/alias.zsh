@@ -12,9 +12,6 @@ _git_check() {
 # bat
 _has 'bat' && alias cat='bat'
 
-# dasel
-alias dasel='dasel --colour'
-
 # diffastic
 alias diff='difft'
 
