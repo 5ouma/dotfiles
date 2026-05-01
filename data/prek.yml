@@ -45,7 +45,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/crate-ci/typos
-    rev: cf5f1c29a8ac336af8568821ec41919923b05a83 # frozen: v1.45.1
+    rev: 7c572958218557a3272c2d6719629443b5cc26fd # frozen: v1.45.2
     hooks:
       - id: typos
         stages: [pre-commit]
