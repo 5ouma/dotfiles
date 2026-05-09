@@ -376,22 +376,6 @@ importGitHubGPGKey() {
   curl -s https://github.com/web-flow.gpg | gpg --import
 } && run 'importGitHubGPGKey' '## 🔐 Import GitHub GPG Key'
 
-generateGitHooks() {
-  declare -r hooks=('pre-commit' 'commit-msg' 'pre-push')
-  declare allPresent=true
-  for hook in "${hooks[@]}"; do
-    if [[ ! -f "$XDG_CONFIG_HOME/git/hooks/$hook" ]]; then
-      allPresent=false
-      break
-    fi
-  done
-  if ("$allPresent" || ! shouldProceed); then
-    skip
-  fi
-
-  prek -c="$data/prek.yml" init-template-dir "$XDG_CONFIG_HOME/git"
-} && run 'generateGitHooks' '## 🪝 Generate Git Hooks'
-
 loginGitHubCli() {
   if (gh auth status &>/dev/null || ! shouldProceed); then
     skip
