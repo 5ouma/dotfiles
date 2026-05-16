@@ -10,6 +10,10 @@ autoremove = true
 [git]
 repos = ["~/*", "~/ghq/**"]
 
+[post_commands]
+"git" = 'git -C "$dotfiles" hook run pre-commit && prek cache gc'
+"mise" = "mise prune -y"
+
 [commands]
 Jetpack = "vim +Jetpack +qall"
 dorg = '_run dorg save --file="$data/dorg.yml"'
