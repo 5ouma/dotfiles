@@ -15,6 +15,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: ${{ case(startsWith(matrix.os, 'macOS-'), '🍎', startsWith(matrix.os, 'Ubuntu-'), '🐧', '❓') }} ${{ matrix.os }}
