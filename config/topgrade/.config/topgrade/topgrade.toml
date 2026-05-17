@@ -12,7 +12,7 @@ repos = ["~/*", "~/ghq/**"]
 
 [post_commands]
 "git" = 'git -C "$dotfiles" hook run pre-commit && prek cache gc'
-"mise" = "mise prune -y"
+"mise" = "mise install && mise prune -y"
 
 [commands]
 Jetpack = "vim +Jetpack +qall"
