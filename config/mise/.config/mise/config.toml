@@ -8,5 +8,6 @@ pnpm = "11.1.1"
 
 [settings]
 gpg_verify = true
+lockfile = true
 pin = true
 npm.package_manager = "bun"
