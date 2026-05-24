@@ -49,52 +49,52 @@ checksum = "sha256:538f9c846355d9e847b2671bc00c47da4229a0befb24df3282b739770f3b4
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-windows-x64-baseline.zip"
 
 [[tools.deno]]
-version = "2.7.14"
+version = "2.8.0"
 backend = "core:deno"
 
 [tools.deno."platforms.linux-arm64"]
-checksum = "sha256:b815c919452b5993a7c22df018a88c2f706eea6b5e0aa7802b2b0709edde01e8"
-url = "https://dl.deno.land/release/v2.7.14/deno-aarch64-unknown-linux-gnu.zip"
+checksum = "sha256:933a6a7d2985957271cd2085a5a5a1832398aa221a354daab5635196cf2cbbae"
+url = "https://dl.deno.land/release/v2.8.0/deno-aarch64-unknown-linux-gnu.zip"
 
 [tools.deno."platforms.linux-arm64-musl"]
-checksum = "sha256:b815c919452b5993a7c22df018a88c2f706eea6b5e0aa7802b2b0709edde01e8"
-url = "https://dl.deno.land/release/v2.7.14/deno-aarch64-unknown-linux-gnu.zip"
+checksum = "sha256:933a6a7d2985957271cd2085a5a5a1832398aa221a354daab5635196cf2cbbae"
+url = "https://dl.deno.land/release/v2.8.0/deno-aarch64-unknown-linux-gnu.zip"
 
 [tools.deno."platforms.linux-x64"]
-checksum = "sha256:3287efef53606966469cb6a02781327be22b908959397f976e2996dc1b64ae0f"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-unknown-linux-gnu.zip"
+checksum = "sha256:be2c8b53c8ca1d66be76feb9b1a524419da708b00d4ca074cf5c633c81c1627b"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-unknown-linux-gnu.zip"
 
 [tools.deno."platforms.linux-x64-baseline"]
-checksum = "sha256:3287efef53606966469cb6a02781327be22b908959397f976e2996dc1b64ae0f"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-unknown-linux-gnu.zip"
+checksum = "sha256:be2c8b53c8ca1d66be76feb9b1a524419da708b00d4ca074cf5c633c81c1627b"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-unknown-linux-gnu.zip"
 
 [tools.deno."platforms.linux-x64-musl"]
-checksum = "sha256:3287efef53606966469cb6a02781327be22b908959397f976e2996dc1b64ae0f"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-unknown-linux-gnu.zip"
+checksum = "sha256:be2c8b53c8ca1d66be76feb9b1a524419da708b00d4ca074cf5c633c81c1627b"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-unknown-linux-gnu.zip"
 
 [tools.deno."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:3287efef53606966469cb6a02781327be22b908959397f976e2996dc1b64ae0f"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-unknown-linux-gnu.zip"
+checksum = "sha256:be2c8b53c8ca1d66be76feb9b1a524419da708b00d4ca074cf5c633c81c1627b"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-unknown-linux-gnu.zip"
 
 [tools.deno."platforms.macos-arm64"]
-checksum = "sha256:aeb5825f83b4a9cd7f9355a1c4ddd666205dacf76ccb7b98c2b10e066bc9e4bb"
-url = "https://dl.deno.land/release/v2.7.14/deno-aarch64-apple-darwin.zip"
+checksum = "sha256:dba813b8b69d6218cffb11252b9e4e6036ca2c9d79843cde367b4b369aaf9634"
+url = "https://dl.deno.land/release/v2.8.0/deno-aarch64-apple-darwin.zip"
 
 [tools.deno."platforms.macos-x64"]
-checksum = "sha256:c89149513bf8e82ab5b351dac544f8c0cada90753bd2f576f46325fb67997ae1"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-apple-darwin.zip"
+checksum = "sha256:d6eb643b7f1afb22139f4aa17c4d97bf7ddab4e01e1820edcb30b9ae5c3a7391"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-apple-darwin.zip"
 
 [tools.deno."platforms.macos-x64-baseline"]
-checksum = "sha256:c89149513bf8e82ab5b351dac544f8c0cada90753bd2f576f46325fb67997ae1"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-apple-darwin.zip"
+checksum = "sha256:d6eb643b7f1afb22139f4aa17c4d97bf7ddab4e01e1820edcb30b9ae5c3a7391"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-apple-darwin.zip"
 
 [tools.deno."platforms.windows-x64"]
 checksum = "sha256:Algorithm"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-pc-windows-msvc.zip"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-pc-windows-msvc.zip"
 
 [tools.deno."platforms.windows-x64-baseline"]
 checksum = "sha256:Algorithm"
-url = "https://dl.deno.land/release/v2.7.14/deno-x86_64-pc-windows-msvc.zip"
+url = "https://dl.deno.land/release/v2.8.0/deno-x86_64-pc-windows-msvc.zip"
 
 [[tools.go]]
 version = "1.26.3"
