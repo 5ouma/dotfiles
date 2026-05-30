@@ -25,10 +25,9 @@
       "customType": "regex",
       "managerFilePatterns": ["data/prek.yml"],
       "matchStrings": [
-        "github\\.com/(?<depName>[^/]+/[^\\s/]+)(?:/[^@]+)?@(?<currentDigest>[0-9a-f]{40}) # frozen: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "(?<currentDep>github\\.com/(?<depName>[^\\s/]+/[^\\s/]+)/v[0-9]+/[^\\s@]+)@(?<currentDigest>[0-9a-f]{40}) # frozen: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "semver"
+      "datasourceTemplate": "github-tags"
     }
   ]
 }
