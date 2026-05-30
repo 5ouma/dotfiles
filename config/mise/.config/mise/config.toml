@@ -10,4 +10,3 @@ pnpm = "11.3.0"
 gpg_verify = true
 lockfile = true
 pin = true
-npm.package_manager = "bun"
