@@ -28,7 +28,8 @@
         "github\\.com/(?<depName>[^/]+/[^\\s/]+)(?:/[^@]+)?@(?<currentDigest>[0-9a-f]{40}) # frozen: (?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "datasourceTemplate": "github-tags",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "semver",
+      "autoReplaceStringTemplate": "{{{replace 'v[0-9]+\\.[0-9]+\\.[0-9]+' newValue (replace '@[0-9a-f]{40}' (replace '^' '@' newDigest) (replace '/v[0-9]+' (replace '^' '/v' (toJSON newMajor)) replaceString))}}}"
     }
   ]
 }
