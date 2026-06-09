@@ -209,6 +209,7 @@ provenance = "github-attestations"
 [tools.pnpm."platforms.linux-x64"]
 checksum = "sha256:2033a702618c8576dc6bb0f6adb3a67ab506031351ddd59ca50d1bcaf5d13dc5"
 url = "https://github.com/pnpm/pnpm/releases/download/v11.5.2/pnpm-linux-x64.tar.gz"
+provenance = "github-attestations"
 
 [tools.pnpm."platforms.linux-x64-baseline"]
 checksum = "sha256:2033a702618c8576dc6bb0f6adb3a67ab506031351ddd59ca50d1bcaf5d13dc5"
