@@ -1,97 +1,186 @@
-tap "5ouma/tap"
+tap "5ouma/tap", trusted: true
+# Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Control and limit battery charging on Apple Silicon MacBooks
 brew "batt"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
+# JSON, YAML, TOML, XML, and CSV query and modification tool
 brew "dasel"
+# Diff that understands syntax
 brew "difftastic"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
 brew "gh"
+# Remote repository management made easy
 brew "ghq"
+# Distributed revision control system
 brew "git"
+# Native sequence editor for Git interactive rebase
 brew "git-interactive-rebase-tool"
+# Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Render markdown on the CLI
 brew "glow"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Fast linters runner for Go
 brew "golangci-lint"
+# Tool for glamorous shell scripts
 brew "gum"
+# Command-line benchmarking tool
 brew "hyperfine"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# TUI macOS cleaner that scans caches/logs and lets you select what to delete
 brew "mac-cleanup-go"
+# Keep your Mac's application settings in sync
 brew "mackup"
+# Mac App Store command-line interface
 brew "mas"
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Fast Git hook manager written in Rust, drop-in alternative to pre-commit
 brew "prek"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Fast, configurable, shell plugin manager
 brew "sheldon"
+# Upgrade all the things
 brew "topgrade"
+# CLI tool that moves files or folder to the trash
 brew "trash"
+# Your CLI home video recorder
 brew "vhs"
+# Vi 'workalike' with many additional features
 brew "vim"
+# Entity-level semantic merge driver for Git using tree-sitter
 brew "weave"
+# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# UNIX shell (command interpreter)
 brew "zsh"
+# Organize macOS Dock Items
 brew "5ouma/tap/dorg"
+# Safely clean up your local branches
 brew "5ouma/tap/gh-poi"
+# Highly configurable CLI tool for writing conventional commits
 brew "5ouma/tap/meteor"
+# Small tool to automatically export and import custom macOS keyboard shortcuts
 brew "5ouma/tap/mksei"
+# Manage macOS Login Items
 brew "5ouma/tap/mli"
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Command-line interface for 1Password
 cask "1password-cli"
+# Enable Windows-like alt-tab
 cask "alt-tab"
+# Inspect application bundles
 cask "apparency"
+# Chromium based browser
 cask "arc"
+# Animated Sprite Editor & Pixel Art Tool
 cask "5ouma/tap/aseprite"
+# 3D creation suite
 cask "blender"
+# Hardware benchmarking utility
 cask "cinebench"
+# Brings the power of Copilot coding agent directly to your terminal
+cask "copilot-cli"
+# AI-powered translator
 cask "deepl"
+# Voice and text chat software
 cask "discord"
+# Collaborative team software
 cask "figma"
+# 10×10のドットフォント
 cask "5ouma/tap/font-bestten"
+# ふとじころころピクセルフォント
 cask "5ouma/tap/font-donguri-duel"
+# 三色団子大学のメンバーアイコンがあのスマイリーになって登場！
 cask "5ouma/tap/font-emoooji"
 cask "font-fascinate"
 cask "font-fascinate-inline"
 cask "font-fira-code"
+# Giro is an informal sans serif typeface
 cask "5ouma/tap/font-giro"
 cask "font-hackgen"
+# Font created from characters that appear in the game Splatoon
 cask "5ouma/tap/font-inkling"
 cask "font-line-seed-jp"
+# 柔らかな幾何学図形が固まって生まれた優しい欧文フリーフォント
 cask "5ouma/tap/font-natadecoco-gothic"
+# Nothing original pixel font in Nothing OS
 cask "5ouma/tap/font-ndot"
+# Iconic font aggregator, collection, and patcher
 cask "5ouma/tap/font-nerd-fonts"
 cask "font-pacifico"
+# 幾何学を基調とした都会的なゴシックフォント
 cask "5ouma/tap/font-rolachan"
 cask "font-sf-pro"
+# Official Splatoon fonts ripped from the SplatNet 2 app
 cask "5ouma/tap/font-splatoon1"
+# Official Splatoon 2 fonts ripped from the SplatNet 2 app
 cask "5ouma/tap/font-splatoon2"
+# Folder comparison and synchronization software
 cask "5ouma/tap/freefilesync"
+# Tool to measure the computer system's performance
 cask "geekbench"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# GitHub notifications on your menu bar
 cask "gitify"
+# Client for the Google Drive storage service
 cask "google-drive"
+# Grammarly for desktop
 cask "grammarly-desktop"
+# Desktop automation application
 cask "hammerspoon"
+# Menu bar calendar
 cask "itsycal"
+# Apple Music metadata localisation tool
 cask "jiba"
+# Menu bar manager
 cask "jordanbaird-ice"
+# Keyboard customiser
 cask "karabiner-elements"
+# App to write, plan, collaborate, and get organised
 cask "notion"
+# Finder Toolbar app to open the current directory in Terminal or Editor
 cask "openinterminal"
+# Replacement for Docker Desktop
 cask "orbstack"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Email client
 cask "readdle-spark"
+# Team communication and collaboration software
 cask "slack"
+# Video game digital distribution service
 cask "steam"
+# Application for inspecting installer packages
 cask "suspicious-package"
+# Quicklook extension for source files
 cask "syntax-highlight"
+# Mesh VPN based on WireGuard
 cask "tailscale-app"
+# To-do & task list manager
 cask "ticktick"
+# Menu bar app to show Time Machine information
 cask "timemachinestatus"
+# Open-source code editor
 cask "visual-studio-code"
 mas "Amphetamine", id: 937984704
 mas "Blackmagic Disk Speed Test", id: 425264550
@@ -118,7 +207,6 @@ vscode "emmanuelbeziat.vscode-great-icons"
 vscode "esbenp.prettier-vscode"
 vscode "fehey.brackets-light-pro"
 vscode "foxundermoon.shell-format"
-vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "golang.go"
 vscode "griimick.vhs"
