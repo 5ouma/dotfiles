@@ -71,7 +71,7 @@ repos:
         name: Pin versions of Actions and reusable workflows
         description: Pin versions of GitHub Actions and reusable workflows
         entry: pinact run
-        args: [--verify]
+        args: [--verify-comment]
         language: golang
         additional_dependencies:
           - github.com/suzuki-shunsuke/pinact/v4/cmd/pinact@6cdb1d4b0915dcb0888d0959dd96bd715d8d45e6 # frozen: v4.0.0
