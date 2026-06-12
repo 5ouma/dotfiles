@@ -19,6 +19,7 @@ export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export HOMEBREW_BUNDLE_FILE="$data/Brewfile"
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_BUNDLE_DUMP_NO_GO=1
+export HOMEBREW_BUNDLE_NO_DESCRIBE=1
 
 # OrbStack
 export DOCKER_DEFAULT_PLATFORM='linux/amd64'
