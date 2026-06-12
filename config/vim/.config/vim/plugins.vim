@@ -2,7 +2,7 @@
 
 let s:jetpackdir = t:XDG_DATA_HOME .. '/vim'
 let s:jetpackfile = s:jetpackdir .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
-let s:jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
+let s:jetpackurl = 'https://raw.githubusercontent.com/tani/vim-jetpack/main/plugin/jetpack.vim'
 if !filereadable(s:jetpackfile)
   call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif

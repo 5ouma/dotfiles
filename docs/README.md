@@ -188,7 +188,7 @@ sheldon add powerlevel10k --github romkatv/powerlevel10k --apply source
 #### 🚀 Plugin Manager: [`Jetpack`](https://github.com/5ouma/vim-jetpack)
 
 ```sh
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}/vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim" --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/main/plugin/jetpack.vim
 ```
 
 > See plugins in **[`plugins.vim`]**
