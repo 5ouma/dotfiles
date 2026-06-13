@@ -11,7 +11,7 @@ autoremove = true
 repos = ["~/*", "~/ghq/**"]
 
 [post_commands]
-"git" = 'git -C "$dotfiles" hook run pre-commit && prek cache gc'
+"git" = 'cd "$dotfiles" && prek run -ac="$data/prek.yml" && prek cache gc'
 "mise" = "mise install && mise prune -y"
 
 [commands]
