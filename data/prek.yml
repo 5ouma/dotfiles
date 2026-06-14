@@ -74,7 +74,7 @@ repos:
         args: [--verify-comment]
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/v4/cmd/pinact@6cdb1d4b0915dcb0888d0959dd96bd715d8d45e6 # frozen: v4.0.0
+          - github.com/suzuki-shunsuke/pinact/v4/cmd/pinact@a14c0ee5db6c9068ebab1781549c65adc9066ffa # frozen: v4.1.0
         types: [yaml]
         files: ^(\.github/workflows/.+|(.+/)*action)\.ya?ml$
         stages: [pre-commit]
