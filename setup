@@ -300,7 +300,7 @@ EOM
 
 
 installApps() {
-  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='batt mac-cleanup-go mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
+  (! isDarwin) && export HOMEBREW_BUNDLE_BREW_SKIP='mac-cleanup-go mas trash 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli'
   if (gum run "Satisfying Brewfile's dependencies..." -- brew bundle check --file="$data/Brewfile" || ! shouldProceed); then
     skip
   fi
@@ -359,15 +359,6 @@ restoreLoginItems() {
   gum run 'Running `mli load`...' -- mli load --file="$data/login_items.json"
 } && run 'restoreLoginItems' '## 📑 Restore Login Items' true
 
-limitBatteryCharge() {
-  if (! has batt || batt status &>/dev/null || ! shouldProceed); then
-    skip
-  fi
-
-  sudo brew services start batt
-  sleep 1
-  sudo batt magsafe-led enable || :
-} && run 'limitBatteryCharge' '## 🔋 Limit battery charge' true
 
 importGitHubGPGKey() {
   if (gpg --list-keys | grep -q 'github' || ! shouldProceed); then

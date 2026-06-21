@@ -1,7 +1,6 @@
 tap "5ouma/tap", trusted: true
 brew "atuin"
 brew "bat"
-brew "batt"
 brew "cloudflared"
 brew "dasel"
 brew "difftastic"
