@@ -85,7 +85,7 @@ alias gu='gitui'
 alias glow='glow --pager'
 
 # Homebrew
-[[ "$(uname)" == 'Darwin' ]] && brew() {
+brew() {
   if (command brew "$@"); then
     if [[ "$1" =~ (un)?(install|tap) ]]; then
       brew bundle dump -f
