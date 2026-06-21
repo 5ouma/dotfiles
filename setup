@@ -310,7 +310,7 @@ installApps() {
   else
     gum choose "$data/Brewfile"
   fi >"$TMPDIR/Brewfile"
-  brew tap 5ouma/tap
+  brew tap 5ouma/tap && brew trust 5ouma/tap
   brew bundle install --file="$TMPDIR/Brewfile"
   [[ -d '/Applications/Xcode.app' ]] && sudo xcodebuild -license accept || :
 } && run 'installApps' '## 📲 Install commands and apps'
