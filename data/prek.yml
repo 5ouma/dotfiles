@@ -142,7 +142,12 @@ repos:
     rev: e5b4e8f3d634fef0649677353ce7d792cea421c1 # frozen: v0.1.9
     hooks:
       - id: commit-msg-guardian
-        args: [--scope-rules=allowPathScope]
+        args:
+          - --scope-rules=allowPathScope
+          - --description-rules=capitalized
+          - --description-length-limit=50
+          - --body-rules=oneLine
+          - --body-length-limit=72
         stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
