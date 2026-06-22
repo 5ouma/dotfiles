@@ -89,11 +89,11 @@ checksum = "sha256:4254ec12123cfcf88b87703d7acf092a1ea024bdf9be8dd3cd9d4474761cb
 url = "https://dl.deno.land/release/v2.8.3/deno-x86_64-apple-darwin.zip"
 
 [tools.deno."platforms.windows-x64"]
-checksum = "sha256:Algorithm"
+checksum = "sha256:7fdd1f42e6b0855421ecf27bb406e2492ade1087c85e30ebf0deab6280ea743c"
 url = "https://dl.deno.land/release/v2.8.3/deno-x86_64-pc-windows-msvc.zip"
 
 [tools.deno."platforms.windows-x64-baseline"]
-checksum = "sha256:Algorithm"
+checksum = "sha256:7fdd1f42e6b0855421ecf27bb406e2492ade1087c85e30ebf0deab6280ea743c"
 url = "https://dl.deno.land/release/v2.8.3/deno-x86_64-pc-windows-msvc.zip"
 
 [[tools.go]]
