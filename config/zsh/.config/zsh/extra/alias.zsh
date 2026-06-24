@@ -87,7 +87,7 @@ alias glow='glow --pager'
 # Homebrew
 brew() {
   if (command brew "$@"); then
-    if [[ "$1" =~ (un)?(install|tap) ]]; then
+    if [[ "$1" =~ (un)?(install|tap|trust) ]]; then
       brew bundle dump -f
     fi
   else
