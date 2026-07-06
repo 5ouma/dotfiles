@@ -58,7 +58,7 @@
     "terminal.ansiBrightBlue": "#6A76FB",
     "terminal.ansiBrightMagenta": "#FD7CFC",
     "terminal.ansiBrightCyan": "#68FDFE",
-    "terminal.ansiBrightWhite": "#FFFFFF"
+    "terminal.ansiBrightWhite": "#FFFFFF",
   },
   "workbench.iconTheme": "vscode-great-icons",
   "workbench.preferredDarkColorTheme": "sukadia.dev/dark",
@@ -108,8 +108,8 @@
   "deno.codeLens.referencesAllFunctions": true,
   "deno.codeLens.test": true,
   // Git
-  "git.alwaysSignOff": true,
   "git.autofetch": true,
+  "git.enableCommitSigning": true,
   // GitHub Copilot Chat
   "github.copilot.enable": { "*": true, "plaintext": true, "markdown": true },
   // Go
@@ -135,7 +135,7 @@
   "markdown.marp.pdf.outlines": "headings",
   "markdown.marp.themes": [
     "https://raw.githubusercontent.com/5ouma/slide/main/themes/minimal.css",
-    "https://raw.githubusercontent.com/5ouma/slide/main/themes/utils.css"
+    "https://raw.githubusercontent.com/5ouma/slide/main/themes/utils.css",
   ],
   // path-intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
@@ -160,5 +160,5 @@
   // YAML
   "redhat.telemetry.enabled": false,
   // テキスト校正くん
-  "japanese-proofreading.textlint.助詞の連続": true
+  "japanese-proofreading.textlint.助詞の連続": true,
 }
