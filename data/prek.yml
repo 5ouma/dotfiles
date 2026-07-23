@@ -134,7 +134,7 @@ repos:
           - --scope-rules=allowPathScope
           - --description-rules=capitalized
           - --description-length-limit=50
-          - --body-rules=oneLine
+          - --body-rules=capitalized,oneLine
           - --body-length-limit=72
         stages: [commit-msg]
 
