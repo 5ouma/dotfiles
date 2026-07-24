@@ -9,6 +9,7 @@ autoremove = true
 
 [git]
 repos = ["~/*", "~/ghq/**"]
+fallback_to_fetch_default = true
 
 [post_commands]
 "git" = 'cd "$dotfiles" && prek run -ac="$data/prek.yml" && prek cache gc'
