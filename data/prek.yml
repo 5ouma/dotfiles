@@ -39,7 +39,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/betterleaks/betterleaks
-    rev: 6381fa45ae946c588e2e1334d8396a15e5171ad6 # frozen: v1.7.0
+    rev: d56727e7f87a55a6fb2b34fb22cf49618c381929 # frozen: v1.7.1
     hooks:
       - id: betterleaks
         stages: [pre-commit]
