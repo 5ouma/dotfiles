@@ -94,6 +94,7 @@
   "terminal.integrated.wordSeparators": " -,.;:\"()[]{}@/=|'",
   // Chat
   "chat.agent.maxRequests": 40,
+  "chat.titleBar.openInAgentsWindow.enabled": false,
 
   // Security
   // Workspace
