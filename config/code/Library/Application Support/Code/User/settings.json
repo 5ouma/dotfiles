@@ -137,9 +137,6 @@
     "https://raw.githubusercontent.com/5ouma/slide/main/themes/minimal.css",
     "https://raw.githubusercontent.com/5ouma/slide/main/themes/utils.css",
   ],
-  // path-intellisense
-  "path-intellisense.autoSlashAfterDirectory": true,
-  "path-intellisense.autoTriggerNextSuggestion": true,
   // Project Manager
   "projectManager.git.baseFolders": ["~/.dotfiles", "~/ghq"],
   // rumdl
