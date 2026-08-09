@@ -127,7 +127,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/AnruKitakaze/commit-msg-guardian
-    rev: bdb3904a96e34f4c83b8fc26a15725cfd667938e # frozen: v0.1.10
+    rev: 38489062d9befc453cd8e838651d9b0df8d99f48 # frozen: v0.1.11
     hooks:
       - id: commit-msg-guardian
         args:
