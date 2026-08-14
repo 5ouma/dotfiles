@@ -1,5 +1,6 @@
 [default.extend-identifiers]
 OnyX = "OnyX"
+edn = "edn"
 
 [default.extend-words]
 BA = "BA"
