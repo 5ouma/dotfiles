@@ -107,7 +107,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/rvben/rumdl-pre-commit
-    rev: 657cd188e95317c4795f510dc049e2d2a978e897 # frozen: v0.2.52
+    rev: 344543e77e653d3500a98ffd56cf41bcb92dc05c # frozen: v0.2.53
     hooks:
       - id: rumdl
         args: [--fail-on, warning, --disable, "MD013,MD024,MD033,MD036"]
