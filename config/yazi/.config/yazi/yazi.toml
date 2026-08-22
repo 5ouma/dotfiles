@@ -8,6 +8,6 @@ linemode = "size"
 
 [opener]
 edit = [
-  { run = 'vim "$@"', desc = "Vim", block = true },
-  { run = 'code "$@"', desc = "VS Code" },
+  { run = "vim %s", desc = "Vim", block = true },
+  { run = "code %s", desc = "VS Code" },
 ]
