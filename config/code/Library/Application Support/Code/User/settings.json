@@ -157,7 +157,14 @@
   "wordcounter.side.left": [],
   "wordcounter.side.right": ["word", "char", "line"],
   // YAML
-  "redhat.telemetry.enabled": false,
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml",
+  ],
   // テキスト校正くん
   "japanese-proofreading.textlint.助詞の連続": true,
 }
