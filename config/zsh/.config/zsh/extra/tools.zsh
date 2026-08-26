@@ -2,7 +2,8 @@
 eval "$(sheldon source)"
 
 # Atuin
-zsh-defer eval "$(atuin init zsh --disable-up-arrow)"
+# shellcheck disable=SC2016
+zsh-defer -c 'eval "$(atuin init zsh --disable-up-arrow)"'
 
 # mise
 eval "$(mise activate -q zsh)"
@@ -11,4 +12,5 @@ eval "$(mise activate -q zsh)"
 zsh-defer source "$HOME/.orbstack/shell/init.zsh"
 
 # zoxide
-zsh-defer eval "$(zoxide init zsh --cmd=cd)"
+# shellcheck disable=SC2016
+zsh-defer -c 'eval "$(zoxide init zsh --cmd=cd)"'
