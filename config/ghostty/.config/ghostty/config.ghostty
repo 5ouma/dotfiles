@@ -28,6 +28,8 @@ keybind = "cmd+backspace=text:\x15"
 keybind = "cmd+delete=text:\x0b"
 keybind = "opt+[=previous_tab"
 keybind = "opt+]=next_tab"
+keybind = "opt+shift+[=goto_split:left"
+keybind = "opt+shift+]=goto_split:right"
 keybind = "cmd+r=reload_config"
 
 window-padding-x = 40
