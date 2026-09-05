@@ -44,8 +44,8 @@ repos:
       - id: betterleaks
         stages: [pre-commit]
 
-  - repo: https://github.com/rhysd/actionlint
-    rev: 914e7df21a07ef503a81201c76d2b11c789d3fca # frozen: v1.7.12
+  - repo: https://github.com/kjanat/actionlint
+    rev: 1ab487e641ac26ed42a8a753158033d55eaae2e4 # frozen: v1.14.0
     hooks:
       - id: actionlint
         language: golang
