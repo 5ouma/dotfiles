@@ -26,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [Ubuntu-24.04, Ubuntu-24.04-ARM, macOS-15]
+        os: [macOS-15, macOS-26, Ubuntu-24.04, Ubuntu-24.04-ARM, Ubuntu-26.04, Ubuntu-26.04-ARM]
 
     steps:
       - name: 🍺 Set up Homebrew
