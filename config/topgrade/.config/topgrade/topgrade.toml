@@ -1,5 +1,5 @@
 [misc]
-disable = ["containers", "system"]
+disable = ["containers", "pnpm", "system"]
 display_time = false
 cleanup = true
 
