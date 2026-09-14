@@ -45,7 +45,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/kjanat/actionlint
-    rev: b092abdc8be085e4b367b2ab084c075f1bed0516 # frozen: v1.15.1
+    rev: 2e3446470986f5ad794c43b1899e01e7361a7ef0 # frozen: v1.16.0
     hooks:
       - id: actionlint
         language: golang
