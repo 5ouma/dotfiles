@@ -98,7 +98,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: fe4cf9af7f73a6386a2c4d23a5ef8bac33fb7abc # frozen: 44.140.0
+    rev: 4b7d8a39804edfe959711ba56b3a82bb8377d440 # frozen: 44.148.4
     hooks:
       - id: renovate-config-validator
         language: bun
