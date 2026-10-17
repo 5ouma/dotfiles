@@ -15,6 +15,10 @@ on:
 
 permissions: {}
 
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -32,6 +36,7 @@ jobs:
     steps:
       - name: 🧰 Install dependencies
         if: ${{ startsWith(matrix.os, 'Ubuntu-') }}
+        # jactionlint ignore=unverified-download
         run: |
           curl -L "https://update.code.visualstudio.com/latest/linux-deb-${RUNNER_ARCH,,}/stable" -o /tmp/code.deb
           sudo apt-get update
@@ -39,6 +44,7 @@ jobs:
 
       - name: 🍺 Uninstall Homebrew related
         if: ${{ startsWith(matrix.os, 'macOS-') }}
+        # jactionlint ignore=unverified-download
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
         env:
           NONINTERACTIVE: 1
@@ -47,10 +53,12 @@ jobs:
         id: skip
         if: ${{ startsWith(matrix.os, 'macOS-') }}
         run: |
+          set -o pipefail
           HOMEBREW_BUNDLE_MAS_SKIP="$(curl -s "https://raw.githubusercontent.com/$GITHUB_REPOSITORY/${GITHUB_HEAD_REF:-HEAD}/data/Brewfile" | sed -nE 's/^mas.* ([0-9]+)/\1/gp' | tr '\n' ' ')"
           echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
 
       - name: ⚙️ Run setup
+        # jactionlint ignore=unverified-download
         run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes
         env:
           SETUP_SKIP_RESTOREAPPSETTINGS: true
