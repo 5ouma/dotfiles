@@ -1,10 +1,5 @@
 [
   {
-    "Name": "1Password",
-    "Path": "/Applications/1Password.app",
-    "Hidden": false
-  },
-  {
     "Name": "Activity Monitor",
     "Path": "/System/Applications/Utilities/Activity Monitor.app",
     "Hidden": false
