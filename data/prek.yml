@@ -45,7 +45,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/jdx/jactionlint
-    rev: 1027f0a131ab98bc7e191d995bfa15dbed5bbf8f # frozen: v2.2.0
+    rev: a65ab044e916760429068fe5794b8306abdfcbb9 # frozen: v2.3.0
     hooks:
       - id: jactionlint-shellcheck
         args:
