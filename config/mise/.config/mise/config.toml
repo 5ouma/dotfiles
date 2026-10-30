@@ -4,7 +4,7 @@ deno = "2.9.8"
 go = "1.27.3"
 node = "26.13.0"
 "npm:sfw" = "2.0.6"
-pnpm = "12.15.0"
+pnpm = "12.16.0"
 
 [settings]
 gpg_verify = true
