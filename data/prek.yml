@@ -80,7 +80,7 @@ repos:
         entry: ghalint run
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@050e825989101021ece297e4d2f726f519ba89ee # frozen: v1.5.6
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@2dcf6e2f3ef26a864f8f8307e79518a4ba34e907 # frozen: v1.5.7
         types: [yaml]
         files: ^\.github/workflows/.+\.ya?ml$
         stages: [pre-commit]
@@ -90,7 +90,7 @@ repos:
         entry: ghalint act
         language: golang
         additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@050e825989101021ece297e4d2f726f519ba89ee # frozen: v1.5.6
+          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@2dcf6e2f3ef26a864f8f8307e79518a4ba34e907 # frozen: v1.5.7
         types: [yaml]
         files: ^(.+/)*action\.ya?ml$
         stages: [pre-commit]
