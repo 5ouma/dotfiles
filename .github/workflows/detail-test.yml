@@ -62,6 +62,7 @@ jobs:
         run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes
         env:
           SETUP_SKIP_RESTOREAPPSETTINGS: true
+          HOMEBREW_BUNDLE_CASK_SKIP: ${{ case(startsWith(matrix.os, 'Ubuntu-') && endsWith(matrix.os, '-ARM'), 'gitify', '') }}
           HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
