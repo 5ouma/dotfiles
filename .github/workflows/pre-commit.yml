@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: 🚸 Run pre-commit
-        uses: 5ouma/utils/pre-commit@v0.13.0
+        uses: 5ouma/utils/pre-commit@v0.13.1
         with:
           config: data/prek.yml
           token: ${{ secrets.GITHUB_TOKEN }}
