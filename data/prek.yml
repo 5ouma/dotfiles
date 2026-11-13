@@ -123,7 +123,7 @@ repos:
         stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
-    rev: 54b168c10fa69b079dd1fa90a94258f07b9cdca2 # frozen: v0.13.0
+    rev: b794f89a8b935dc20905edd7654b7fd39d20b119 # frozen: v0.13.1
     hooks:
       - id: upload-git-commit-notion
         stages: [pre-push]

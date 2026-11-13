@@ -5,13 +5,13 @@ version: 'v0.0.3'
 workflows:
     '.github/workflows/detail-test.yml': []
     '.github/workflows/pre-commit.yml':
-        - '5ouma/utils@v0.13.0'
+        - '5ouma/utils@v0.13.1'
     '.github/workflows/test.yml':
         - 'homebrew/actions@2026.11.02.1'
 dependencies:
-    '5ouma/utils@v0.13.0':
-        ref: 'v0.13.0'
-        commit: 'sha1-54b168c10fa69b079dd1fa90a94258f07b9cdca2'
+    '5ouma/utils@v0.13.1':
+        ref: 'v0.13.1'
+        commit: 'sha1-b794f89a8b935dc20905edd7654b7fd39d20b119'
         owner_id: 101255979
         repo_id: 849736738
         uses:
