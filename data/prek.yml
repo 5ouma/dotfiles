@@ -54,29 +54,6 @@ repos:
           - --fix
         stages: [pre-commit]
 
-  - repo: local
-    hooks:
-      - id: ghalint
-        name: Validate GitHub Actions workflows
-        description: Check GitHub Actions workflows for security policy compliance
-        entry: ghalint run
-        language: golang
-        additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@db3f6a73750c237074a17298010c322ec321e6dc # frozen: v1.6.0
-        types: [yaml]
-        files: ^\.github/workflows/.+\.ya?ml$
-        stages: [pre-commit]
-      - id: ghalint-act
-        name: Validate GitHub Actions
-        description: Check GitHub Actions for security policy compliance
-        entry: ghalint act
-        language: golang
-        additional_dependencies:
-          - github.com/suzuki-shunsuke/ghalint/cmd/ghalint@db3f6a73750c237074a17298010c322ec321e6dc # frozen: v1.6.0
-        types: [yaml]
-        files: ^(.+/)*action\.ya?ml$
-        stages: [pre-commit]
-
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 3ea8bfa8118d783ec5b57cdb4e85d823291f4e13 # frozen: 44.222.5
     hooks:
