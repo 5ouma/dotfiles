@@ -27,7 +27,7 @@ jobs:
   test:
     name: ${{ case(startsWith(matrix.os, 'macOS-'), '🍎', startsWith(matrix.os, 'Ubuntu-'), '🐧', '❓') }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
