@@ -46,9 +46,12 @@ jobs:
         run: brew install batt 5ouma/tap/dorg 5ouma/tap/mksei 5ouma/tap/mli
 
       - name: ⚙️ Run setup
-        # jactionlint ignore=unverified-download
-        run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes
+        run: |
+          curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}" -o "$RUNNER_TEMP/setup"
+          shasum -a 256 --check <(curl "$SETUP_SOURCE" | shasum -a 256) <"$RUNNER_TEMP/setup"
+          zsh "$RUNNER_TEMP/setup" --yes
         env:
+          SETUP_SOURCE: https://raw.githubusercontent.com/${{ github.event.pull_request.head.repo.full_name || github.repository }}/${{ github.event.pull_request.head.sha || github.sha }}/setup
           SETUP_SKIP_INSTALLAPPS: true
           SETUP_SKIP_RESTOREAPPSETTINGS: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

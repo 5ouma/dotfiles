@@ -36,17 +36,23 @@ jobs:
     steps:
       - name: 🧰 Install dependencies
         if: ${{ startsWith(matrix.os, 'Ubuntu-') }}
-        # jactionlint ignore=unverified-download
         run: |
-          curl -L "https://update.code.visualstudio.com/latest/linux-deb-${RUNNER_ARCH,,}/stable" -o /tmp/code.deb
           sudo apt-get update
-          sudo apt-get install -y build-essential procps curl file git zsh /tmp/code.deb
+          sudo apt-get install -y ca-certificates curl gpg
+          sudo install -dm 0755 /etc/apt/keyrings
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/microsoft.gpg
+          echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+          sudo apt-get update
+          sudo apt-get install -y build-essential procps curl file git zsh code
 
       - name: 🍺 Uninstall Homebrew related
         if: ${{ startsWith(matrix.os, 'macOS-') }}
-        # jactionlint ignore=unverified-download
-        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+        run: |
+          gh api "repos/Homebrew/install/commits/$HOMEBREW_INSTALL_REF" --jq '.commit.verification.verified' | grep -qx true
+          gh api -H 'Accept: application/vnd.github.raw+json' "repos/Homebrew/install/contents/uninstall.sh?ref=$HOMEBREW_INSTALL_REF" | /bin/bash
         env:
+          GH_TOKEN: ${{ github.token }}
+          HOMEBREW_INSTALL_REF: e5b3c5834e3932c8aaa42deef4794076c9b0cbf0
           NONINTERACTIVE: 1
 
       - name: 📦 Skip mas
@@ -58,9 +64,12 @@ jobs:
           echo "HOMEBREW_BUNDLE_MAS_SKIP=$HOMEBREW_BUNDLE_MAS_SKIP" | tee -a "$GITHUB_OUTPUT"
 
       - name: ⚙️ Run setup
-        # jactionlint ignore=unverified-download
-        run: zsh <(curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}") --yes
+        run: |
+          curl "https://dot.5ouma.me/${GITHUB_HEAD_REF:-HEAD}" -o "$RUNNER_TEMP/setup"
+          shasum -a 256 --check <(curl "$SETUP_SOURCE" | shasum -a 256) <"$RUNNER_TEMP/setup"
+          zsh "$RUNNER_TEMP/setup" --yes
         env:
+          SETUP_SOURCE: https://raw.githubusercontent.com/${{ github.event.pull_request.head.repo.full_name || github.repository }}/${{ github.event.pull_request.head.sha || github.sha }}/setup
           SETUP_SKIP_RESTOREAPPSETTINGS: true
           HOMEBREW_BUNDLE_CASK_SKIP: ${{ case(startsWith(matrix.os, 'Ubuntu-') && endsWith(matrix.os, '-ARM'), 'gitify', '') }}
           HOMEBREW_BUNDLE_MAS_SKIP: ${{ steps.skip.outputs.HOMEBREW_BUNDLE_MAS_SKIP }}

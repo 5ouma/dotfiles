@@ -49,13 +49,9 @@ repos:
     hooks:
       - id: jactionlint-shellcheck
         args:
-          [
-            --profile=pedantic,
-            --online=strict,
-            --fix,
-            --ignore=undocumented-permissions,
-            --ignore=unverified-download,
-          ]
+          - --profile=pedantic
+          - --online=strict
+          - --fix
         stages: [pre-commit]
 
   - repo: local
