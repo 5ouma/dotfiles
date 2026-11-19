@@ -84,15 +84,11 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/AnruKitakaze/commit-msg-guardian
-    rev: 38489062d9befc453cd8e838651d9b0df8d99f48 # frozen: v0.1.11
+    rev: 35e7c9cd3681495e7ac1636e5f75a9d4bd7c354d # frozen: v1.0.1
     hooks:
       - id: commit-msg-guardian
-        args:
-          - --scope-rules=allowPathScope
-          - --description-rules=capitalized
-          - --description-length-limit=50
-          - --body-rules=capitalized,oneLine,trailingPeriod
-          - --body-length-limit=72
+        shell: sh
+        entry: commit-msg-guardian --config="$data/commit-msg-guardian.yml" check-file "$@"
         stages: [commit-msg]
 
   - repo: https://github.com/5ouma/utils
